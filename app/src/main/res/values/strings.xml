@@ -1,6 +1,29 @@
 <resources>
-    <string name="app_name">CallBloker</string>
+    <string name="app_name" translatable="false">CallBloker</string>
+
+    <!-- Notification -->
     <string name="channel_blocked_calls">Blocked calls</string>
     <string name="call_blocked">Call blocked</string>
     <string name="unknown_number">Unknown number</string>
+
+    <!-- Main screen -->
+    <string name="blocking_on">Call blocking is on</string>
+    <string name="blocking_off_title">Call blocking is off</string>
+    <string name="blocking_off_message">CallBloker must be your call-screening app to block calls.</string>
+    <string name="enable_blocking">Enable call blocking</string>
+    <string name="notify_label">Notify when a call is blocked</string>
+    <string name="country_label">Country</string>
+    <string name="number_prefix_label">Number prefix (optional)</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="no_prefixes">No prefixes yet. Add one above to start blocking.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d call blocked</item>
+        <item quantity="other">%d calls blocked</item>
+    </plurals>
+
+    <!-- Blocked-call history screen -->
+    <string name="back">Back</string>
+    <string name="no_calls_for_prefix">No calls blocked for this prefix yet.</string>
 </resources>

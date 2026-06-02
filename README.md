@@ -76,6 +76,17 @@ you).
 ./gradlew installDebug   # install on a connected device/emulator
 ```
 
+## Localization
+
+The UI is fully translatable — all strings live in `res/values/strings.xml`,
+counts use Android plurals, and country names are localized automatically via
+`Locale`. Currently available in **English** and **French**; on Android 13+ the
+language can be picked per-app in system settings.
+
+To add a language, copy `app/src/main/res/values/strings.xml` to
+`values-<code>/strings.xml` (e.g. `values-de`), translate the values, and add
+the locale to `res/xml/locales_config.xml`.
+
 ## Contributing
 
 Contributions welcome — the codebase is intentionally small and tidy. See

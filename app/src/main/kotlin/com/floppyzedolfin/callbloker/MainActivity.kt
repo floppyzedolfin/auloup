@@ -51,6 +51,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -130,21 +131,24 @@ private fun CallBlokerScreen() {
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             if (roleHeld) {
-                AssistChip(onClick = {}, label = { Text("Call blocking is on") })
+                AssistChip(onClick = {}, label = { Text(stringResource(R.string.blocking_on)) })
             } else {
                 ElevatedCard {
                     Column(
                         modifier = Modifier.padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
                     ) {
-                        Text("Call blocking is off", style = MaterialTheme.typography.titleMedium)
-                        Text("CallBloker must be your call-screening app to block calls.")
+                        Text(
+                            stringResource(R.string.blocking_off_title),
+                            style = MaterialTheme.typography.titleMedium,
+                        )
+                        Text(stringResource(R.string.blocking_off_message))
                         Button(onClick = {
                             roleLauncher.launch(
                                 roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING),
                             )
                         }) {
-                            Text("Enable call blocking")
+                            Text(stringResource(R.string.enable_blocking))
                         }
                     }
                 }
@@ -155,7 +159,7 @@ private fun CallBlokerScreen() {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text("Notify when a call is blocked")
+                Text(stringResource(R.string.notify_label))
                 Switch(
                     checked = notificationsEnabled,
                     onCheckedChange = { enabled ->
@@ -174,7 +178,7 @@ private fun CallBlokerScreen() {
                 OutlinedTextField(
                     value = number,
                     onValueChange = { number = it },
-                    label = { Text("Number prefix (optional)") },
+                    label = { Text(stringResource(R.string.number_prefix_label)) },
                     prefix = { Text("+${country.dialCode}") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
@@ -187,7 +191,7 @@ private fun CallBlokerScreen() {
                         scope.launch { repository.add("+${country.dialCode}$digits") }
                     },
                 ) {
-                    Text("Add")
+                    Text(stringResource(R.string.add))
                 }
             }
 
@@ -195,7 +199,7 @@ private fun CallBlokerScreen() {
 
             if (prefixes.isEmpty()) {
                 Text(
-                    "No prefixes yet. Add one above to start blocking.",
+                    stringResource(R.string.no_prefixes),
                     style = MaterialTheme.typography.bodyMedium,
                 )
             } else {
@@ -204,12 +208,20 @@ private fun CallBlokerScreen() {
                         ListItem(
                             modifier = Modifier.clickable { selectedPrefix = entry.prefix },
                             headlineContent = { Text(entry.prefix) },
-                            supportingContent = { Text("${entry.blockedCount} calls blocked") },
+                            supportingContent = {
+                                Text(
+                                    pluralStringResource(
+                                        R.plurals.calls_blocked,
+                                        entry.blockedCount,
+                                        entry.blockedCount,
+                                    ),
+                                )
+                            },
                             trailingContent = {
                                 TextButton(onClick = {
                                     scope.launch { repository.remove(entry.prefix) }
                                 }) {
-                                    Text("Remove")
+                                    Text(stringResource(R.string.remove))
                                 }
                             },
                         )
@@ -234,7 +246,9 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
         topBar = {
             TopAppBar(
                 title = { Text(prefix) },
-                navigationIcon = { TextButton(onClick = onBack) { Text("Back") } },
+                navigationIcon = {
+                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
+                },
             )
         },
     ) { innerPadding ->
@@ -245,7 +259,7 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
                     .padding(16.dp),
             ) {
                 Text(
-                    "No calls blocked for this prefix yet.",
+                    stringResource(R.string.no_calls_for_prefix),
                     style = MaterialTheme.typography.bodyMedium,
                 )
             }
@@ -254,7 +268,7 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
                 items(calls) { call ->
                     ListItem(
                         headlineContent = {
-                            Text(call.number.ifBlank { "Unknown number" })
+                            Text(call.number.ifBlank { stringResource(R.string.unknown_number) })
                         },
                         supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
                     )
@@ -295,7 +309,7 @@ private fun CountryDropdown(selected: Country, onSelected: (Country) -> Unit) {
             },
             readOnly = !expanded,
             singleLine = true,
-            label = { Text("Country") },
+            label = { Text(stringResource(R.string.country_label)) },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
             modifier = Modifier
                 .menuAnchor(MenuAnchorType.PrimaryEditable)

@@ -1,0 +1,27 @@
+<resources>
+    <!-- Notification -->
+    <string name="channel_blocked_calls">Appels bloqués</string>
+    <string name="call_blocked">Appel bloqué</string>
+    <string name="unknown_number">Numéro inconnu</string>
+
+    <!-- Main screen -->
+    <string name="blocking_on">Le blocage des appels est activé</string>
+    <string name="blocking_off_title">Le blocage des appels est désactivé</string>
+    <string name="blocking_off_message">CallBloker doit être votre application de filtrage des appels pour bloquer les appels.</string>
+    <string name="enable_blocking">Activer le blocage des appels</string>
+    <string name="notify_label">Notifier lorsqu\'un appel est bloqué</string>
+    <string name="country_label">Pays</string>
+    <string name="number_prefix_label">Préfixe de numéro (facultatif)</string>
+    <string name="add">Ajouter</string>
+    <string name="remove">Supprimer</string>
+    <string name="no_prefixes">Aucun préfixe pour l\'instant. Ajoutez-en un ci-dessus pour commencer à bloquer.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d appel bloqué</item>
+        <item quantity="other">%d appels bloqués</item>
+    </plurals>
+
+    <!-- Blocked-call history screen -->
+    <string name="back">Retour</string>
+    <string name="no_calls_for_prefix">Aucun appel bloqué pour ce préfixe pour l\'instant.</string>
+</resources>
