@@ -1,4 +1,4 @@
-package com.floppyzedolfin.callbloker
+package com.floppyzedolfin.auloup
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -23,7 +23,7 @@ data class BlockedCall(val prefix: String, val number: String, val timeMillis: L
 /** The decision for one screened call. */
 data class ScreenResult(val blocked: Boolean, val notify: Boolean)
 
-private val Context.dataStore by preferencesDataStore(name = "callbloker")
+private val Context.dataStore by preferencesDataStore(name = "auloup")
 
 /**
  * Single source of truth for the configured prefixes, the history of blocked

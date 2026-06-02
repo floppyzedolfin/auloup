@@ -1,6 +1,6 @@
 # AuLoup!
 
-[![CI](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml)
+[![CI](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml)
 
 Block incoming calls by **phone-number prefix**. You keep a list of prefixes
 (e.g. `+1900`, `0900`); any incoming call whose number starts with one of them

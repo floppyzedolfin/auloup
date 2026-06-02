@@ -1,4 +1,4 @@
-package com.floppyzedolfin.callbloker
+package com.floppyzedolfin.auloup
 
 import android.Manifest
 import android.app.role.RoleManager
@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    CallBlokerScreen()
+                    AuLoupScreen()
                 }
             }
         }
@@ -97,7 +97,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun CallBlokerScreen() {
+private fun AuLoupScreen() {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val repository = remember { PrefixRepository(context.applicationContext) }

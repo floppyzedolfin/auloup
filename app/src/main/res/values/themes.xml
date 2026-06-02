@@ -4,5 +4,5 @@
         Compose's MaterialTheme at runtime; this only styles the window before
         Compose draws.
     -->
-    <style name="Theme.CallBloker" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.AuLoup" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

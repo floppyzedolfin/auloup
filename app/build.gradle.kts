@@ -10,11 +10,11 @@ ktlint {
 }
 
 android {
-    namespace = "com.floppyzedolfin.callbloker"
+    namespace = "com.floppyzedolfin.auloup"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.floppyzedolfin.callbloker"
+        applicationId = "com.floppyzedolfin.auloup"
         minSdk = 29
         targetSdk = 35
         versionCode = 1

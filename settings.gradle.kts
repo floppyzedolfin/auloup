@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CallBloker"
+rootProject.name = "AuLoup"
 include(":app")

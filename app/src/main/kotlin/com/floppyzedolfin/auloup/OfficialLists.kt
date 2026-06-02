@@ -1,4 +1,4 @@
-package com.floppyzedolfin.callbloker
+package com.floppyzedolfin.auloup
 
 /** An official, regulator-published list of telemarketing prefixes to block. */
 data class OfficialList(val iso: String, val prefixes: List<String>)

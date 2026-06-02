@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:localeConfig="@xml/locales_config"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CallBloker">
+        android:theme="@style/Theme.AuLoup">
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.CallBloker">
+            android:theme="@style/Theme.AuLoup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +25,7 @@
 
         <!--
             The system binds this service for every incoming call once the user
-            grants CallBloker the call-screening role. It must require the
+            grants AuLoup the call-screening role. It must require the
             BIND_SCREENING_SERVICE permission so only the OS can bind to it.
         -->
         <service

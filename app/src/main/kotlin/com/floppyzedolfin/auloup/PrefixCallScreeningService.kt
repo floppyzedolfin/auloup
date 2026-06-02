@@ -1,11 +1,11 @@
-package com.floppyzedolfin.callbloker
+package com.floppyzedolfin.auloup
 
 import android.telecom.Call
 import android.telecom.CallScreeningService
 import kotlinx.coroutines.runBlocking
 
 /**
- * Screens every incoming call once CallBloker holds the call-screening role,
+ * Screens every incoming call once AuLoup! holds the call-screening role,
  * rejecting any call whose number starts with a blocked prefix.
  *
  * The system gives us only a few seconds to respond, so the small blocking
