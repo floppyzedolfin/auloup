@@ -132,9 +132,14 @@ private fun AuLoupScreen() {
     var number by remember { mutableStateOf("") }
     var selectedPrefix by rememberSaveable { mutableStateOf<String?>(null) }
     var showSettings by rememberSaveable { mutableStateOf(false) }
+    var showOfficialLists by rememberSaveable { mutableStateOf(false) }
 
     if (showSettings) {
         SettingsScreen(repository = repository, onBack = { showSettings = false })
+        return
+    }
+    if (showOfficialLists) {
+        OfficialListsScreen(repository = repository, onBack = { showOfficialLists = false })
         return
     }
     val viewing = selectedPrefix
@@ -204,21 +209,27 @@ private fun AuLoupScreen() {
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment.Bottom,
             ) {
-                CountryPicker(
-                    selected = country,
-                    onSelected = { country = it },
-                    modifier = Modifier.width(132.dp),
-                )
-                OutlinedTextField(
-                    value = number,
-                    onValueChange = { number = it },
-                    label = { Text(stringResource(R.string.number_prefix_label)) },
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                    modifier = Modifier.weight(1f),
-                )
+                Column(modifier = Modifier.weight(1f)) {
+                    FieldLabel(stringResource(R.string.country_label))
+                    CountryPicker(
+                        selected = country,
+                        onSelected = { country = it },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+                Column(modifier = Modifier.weight(1.3f)) {
+                    FieldLabel(stringResource(R.string.number_prefix_label))
+                    OutlinedTextField(
+                        value = number,
+                        onValueChange = { number = it },
+                        prefix = { Text("+${country.dialCode}") },
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
                 val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number)
                 Button(
                     onClick = {
@@ -229,6 +240,10 @@ private fun AuLoupScreen() {
                 ) {
                     Text(stringResource(R.string.add))
                 }
+            }
+
+            TextButton(onClick = { showOfficialLists = true }) {
+                Text(stringResource(R.string.official_lists))
             }
 
             HorizontalDivider()
@@ -406,7 +421,6 @@ private fun CountryPicker(
             },
             readOnly = !expanded,
             singleLine = true,
-            label = { Text(stringResource(R.string.country_label)) },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
             modifier = Modifier
                 .menuAnchor(MenuAnchorType.PrimaryEditable)
@@ -434,6 +448,17 @@ private fun CountryPicker(
     }
 }
 
+/** A small caption shown above an input field (its title, on the top). */
+@Composable
+private fun FieldLabel(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(start = 4.dp, bottom = 2.dp),
+    )
+}
+
 /** A top-bar title that shows the app logo next to [text]. */
 @Composable
 private fun AppBarTitle(text: String) {
@@ -459,12 +484,6 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { }
-    var showOfficialLists by rememberSaveable { mutableStateOf(false) }
-
-    if (showOfficialLists) {
-        OfficialListsScreen(repository = repository, onBack = { showOfficialLists = false })
-        return
-    }
 
     Scaffold(
         topBar = {
@@ -480,10 +499,6 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             ListItem(
                 modifier = Modifier.clickable { openLanguageSettings(context) },
                 headlineContent = { Text(stringResource(R.string.language)) },
-            )
-            ListItem(
-                modifier = Modifier.clickable { showOfficialLists = true },
-                headlineContent = { Text(stringResource(R.string.official_lists)) },
             )
             ListItem(
                 headlineContent = { Text(stringResource(R.string.notify_label)) },
