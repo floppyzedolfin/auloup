@@ -60,6 +60,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -153,6 +154,7 @@ private fun CallBlokerScreen() {
             .entries
             .sortedBy { it.key?.displayName ?: "" }
     }
+    val collapsedCountries = remember { mutableStateListOf<String>() }
 
     Scaffold(
         topBar = {
@@ -241,34 +243,58 @@ private fun CallBlokerScreen() {
             } else {
                 LazyColumn {
                     groupedPrefixes.forEach { (country, entries) ->
-                        item(key = "header-${country?.iso ?: "?"}") {
-                            Text(
-                                text = country?.let { "${it.flag}  ${it.displayName}" } ?: "?",
-                                style = MaterialTheme.typography.titleSmall,
-                                modifier = Modifier.padding(top = 12.dp, bottom = 2.dp),
-                            )
-                        }
-                        items(entries, key = { it.prefix }) { entry ->
-                            ListItem(
-                                modifier = Modifier.clickable { selectedPrefix = entry.prefix },
-                                headlineContent = { Text(entry.prefix) },
-                                supportingContent = {
-                                    Text(
-                                        pluralStringResource(
-                                            R.plurals.calls_blocked,
-                                            entry.blockedCount,
-                                            entry.blockedCount,
-                                        ),
-                                    )
-                                },
-                                trailingContent = {
-                                    TextButton(onClick = {
-                                        scope.launch { repository.remove(entry.prefix) }
-                                    }) {
-                                        Text(stringResource(R.string.remove))
+                        val key = country?.iso ?: "?"
+                        val collapsed = key in collapsedCountries
+                        val countryTotal = entries.sumOf { it.blockedCount }
+                        item(key = "header-$key") {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable {
+                                        if (collapsed) collapsedCountries.remove(key) else collapsedCountries.add(key)
                                     }
-                                },
-                            )
+                                    .padding(vertical = 10.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = (if (collapsed) "▸  " else "▾  ") +
+                                        (country?.let { "${it.flag}  ${it.displayName}" } ?: "?"),
+                                    style = MaterialTheme.typography.titleSmall,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                Text(
+                                    text = pluralStringResource(
+                                        R.plurals.calls_blocked,
+                                        countryTotal,
+                                        countryTotal,
+                                    ),
+                                    style = MaterialTheme.typography.labelMedium,
+                                )
+                            }
+                        }
+                        if (!collapsed) {
+                            items(entries, key = { it.prefix }) { entry ->
+                                ListItem(
+                                    modifier = Modifier.clickable { selectedPrefix = entry.prefix },
+                                    headlineContent = { Text(entry.prefix) },
+                                    supportingContent = {
+                                        Text(
+                                            pluralStringResource(
+                                                R.plurals.calls_blocked,
+                                                entry.blockedCount,
+                                                entry.blockedCount,
+                                            ),
+                                        )
+                                    },
+                                    trailingContent = {
+                                        TextButton(onClick = {
+                                            scope.launch { repository.remove(entry.prefix) }
+                                        }) {
+                                            Text(stringResource(R.string.remove))
+                                        }
+                                    },
+                                )
+                            }
                         }
                     }
                 }
