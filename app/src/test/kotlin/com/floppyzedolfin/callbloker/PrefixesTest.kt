@@ -118,4 +118,25 @@ class PrefixesTest {
         val incoming = Prefixes.toInternational("0160123456", 33, "0")!!
         assertEquals("+33160", Prefixes.longestMatch(incoming, stored))
     }
+
+    @Test
+    fun frenchSimBlocksNationalCallForRegisteredPrefix() {
+        // User registers "+33 1 62" (France selected, national part "1 62").
+        val registered = Prefixes.buildPrefix(33, "0", "1 62")
+        assertEquals("+33162", registered)
+        val stored = setOf(registered!!)
+
+        // French SIM region (code 33, trunk "0"). Caller ID may arrive in any form:
+        val national = Prefixes.toInternational("01 62 44 68 21", 33, "0")
+        val international = Prefixes.toInternational("+33 1 62 44 68 21", 33, "0")
+        val withAccessCode = Prefixes.toInternational("0033162446821", 33, "0")
+        assertEquals("+33162446821", national)
+        assertEquals("+33162446821", international)
+        assertEquals("+33162446821", withAccessCode)
+
+        // All forms match the registered prefix.
+        assertEquals("+33162", Prefixes.longestMatch(national!!, stored))
+        assertEquals("+33162", Prefixes.longestMatch(international!!, stored))
+        assertEquals("+33162", Prefixes.longestMatch(withAccessCode!!, stored))
+    }
 }
