@@ -11,17 +11,22 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -75,7 +80,8 @@ private fun CallBlokerScreen() {
         roleHeld = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
     }
 
-    var input by remember { mutableStateOf("") }
+    var country by remember { mutableStateOf(Countries.defaultFor(context)) }
+    var number by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) },
@@ -108,25 +114,27 @@ private fun CallBlokerScreen() {
                 }
             }
 
+            CountryDropdown(selected = country, onSelected = { country = it })
+
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 OutlinedTextField(
-                    value = input,
-                    onValueChange = { input = it },
-                    label = { Text("Prefix to block, e.g. +1900") },
+                    value = number,
+                    onValueChange = { number = it },
+                    label = { Text("Number prefix (optional)") },
+                    prefix = { Text("+${country.dialCode}") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                     modifier = Modifier.weight(1f),
                 )
                 Button(
                     onClick = {
-                        val toAdd = input
-                        input = ""
-                        scope.launch { repository.add(toAdd) }
+                        val digits = number.filter { it.isDigit() }
+                        number = ""
+                        scope.launch { repository.add("+${country.dialCode}$digits") }
                     },
-                    enabled = input.isNotBlank(),
                 ) {
                     Text("Add")
                 }
@@ -154,6 +162,64 @@ private fun CallBlokerScreen() {
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+/** A flag + name + calling-code picker with type-to-filter search. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun CountryDropdown(selected: Country, onSelected: (Country) -> Unit) {
+    val countries = remember { Countries.all() }
+    var expanded by remember { mutableStateOf(false) }
+    var query by remember { mutableStateOf("") }
+    val filtered = remember(query) {
+        if (query.isBlank()) {
+            countries
+        } else {
+            val digits = query.filter { it.isDigit() }
+            countries.filter { country ->
+                country.displayName.contains(query, ignoreCase = true) ||
+                    (digits.isNotEmpty() && country.dialCode.toString().contains(digits))
+            }
+        }
+    }
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = it },
+    ) {
+        OutlinedTextField(
+            value = if (expanded) query else "${selected.flag}  ${selected.displayName}  +${selected.dialCode}",
+            onValueChange = {
+                query = it
+                expanded = true
+            },
+            readOnly = !expanded,
+            singleLine = true,
+            label = { Text("Country") },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded) },
+            modifier = Modifier
+                .menuAnchor(MenuAnchorType.PrimaryEditable)
+                .fillMaxWidth(),
+        )
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = {
+                expanded = false
+                query = ""
+            },
+        ) {
+            filtered.forEach { country ->
+                DropdownMenuItem(
+                    text = { Text("${country.flag}  ${country.displayName}  +${country.dialCode}") },
+                    onClick = {
+                        onSelected(country)
+                        query = ""
+                        expanded = false
+                    },
+                )
             }
         }
     }

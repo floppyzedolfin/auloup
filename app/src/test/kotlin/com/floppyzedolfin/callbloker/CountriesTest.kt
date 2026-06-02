@@ -1,0 +1,28 @@
+package com.floppyzedolfin.callbloker
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+class CountriesTest {
+
+    @Test
+    fun forIso_returnsCallingCode() {
+        assertEquals(1, Countries.forIso("US")?.dialCode)
+        assertEquals(44, Countries.forIso("GB")?.dialCode)
+        assertEquals(33, Countries.forIso("fr")?.dialCode) // case-insensitive
+    }
+
+    @Test
+    fun flag_isDerivedFromIso() {
+        assertEquals("🇺🇸", Countries.forIso("US")?.flag) // 🇺🇸
+    }
+
+    @Test
+    fun all_isSortedAndNonEmpty() {
+        val all = Countries.all()
+        assertTrue(all.size > 200)
+        val names = all.map { it.displayName }
+        assertEquals(names.sorted(), names)
+    }
+}
