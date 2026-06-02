@@ -5,7 +5,7 @@
     <string name="unknown_number">ಅಪರಿಚಿತ ಸಂಖ್ಯೆ</string>
     <string name="blocking_on">ಕರೆ ನಿರ್ಬಂಧನೆ ಆನ್ ಆಗಿದೆ</string>
     <string name="blocking_off_title">ಕರೆ ನಿರ್ಬಂಧನೆ ಆಫ್ ಆಗಿದೆ</string>
-    <string name="blocking_off_message">ಕರೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲು CallBloker ನಿಮ್ಮ ಕರೆ-ಸ್ಕ್ರೀನಿಂಗ್ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿರಬೇಕು.</string>
+    <string name="blocking_off_message">ಕರೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲು AuLoup! ನಿಮ್ಮ ಕರೆ-ಸ್ಕ್ರೀನಿಂಗ್ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿರಬೇಕು.</string>
     <string name="enable_blocking">ಕರೆ ನಿರ್ಬಂಧನೆ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="notify_label">ಕರೆ ನಿರ್ಬಂಧಿಸಿದಾಗ ತಿಳಿಸಿ</string>
     <string name="country_label">ದೇಶ</string>

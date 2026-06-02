@@ -4,7 +4,7 @@
     <string name="unknown_number">અજ્ઞાત નંબર</string>
     <string name="blocking_on">કૉલ અવરોધ ચાલુ છે</string>
     <string name="blocking_off_title">કૉલ અવરોધ બંધ છે</string>
-    <string name="blocking_off_message">કૉલ અવરોધ કરવા માટે CallBloker તમારી કૉલ-સ્ક્રીનિંગ ઍપ હોવી જોઈએ.</string>
+    <string name="blocking_off_message">કૉલ અવરોધ કરવા માટે AuLoup! તમારી કૉલ-સ્ક્રીનિંગ ઍપ હોવી જોઈએ.</string>
     <string name="enable_blocking">કૉલ અવરોધ સક્ષમ કરો</string>
     <string name="notify_label">કૉલ અવરોધિત થાય ત્યારે સૂચના આપો</string>
     <string name="country_label">દેશ</string>

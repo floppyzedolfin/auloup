@@ -4,7 +4,7 @@
     <string name="unknown_number">ਅਣਜਾਣ ਨੰਬਰ</string>
     <string name="blocking_on">ਕਾਲ ਬਲੌਕਿੰਗ ਚਾਲੂ ਹੈ</string>
     <string name="blocking_off_title">ਕਾਲ ਬਲੌਕਿੰਗ ਬੰਦ ਹੈ</string>
-    <string name="blocking_off_message">ਕਾਲਾਂ ਬਲੌਕ ਕਰਨ ਲਈ CallBloker ਨੂੰ ਤੁਹਾਡੀ ਕਾਲ-ਸਕ੍ਰੀਨਿੰਗ ਐਪ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</string>
+    <string name="blocking_off_message">ਕਾਲਾਂ ਬਲੌਕ ਕਰਨ ਲਈ AuLoup! ਨੂੰ ਤੁਹਾਡੀ ਕਾਲ-ਸਕ੍ਰੀਨਿੰਗ ਐਪ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</string>
     <string name="enable_blocking">ਕਾਲ ਬਲੌਕਿੰਗ ਚਾਲੂ ਕਰੋ</string>
     <string name="notify_label">ਕਾਲ ਬਲੌਕ ਹੋਣ \'ਤੇ ਸੂਚਿਤ ਕਰੋ</string>
     <string name="country_label">ਦੇਸ਼</string>

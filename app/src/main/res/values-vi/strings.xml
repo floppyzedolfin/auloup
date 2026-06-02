@@ -4,7 +4,7 @@
     <string name="unknown_number">Số không xác định</string>
     <string name="blocking_on">Chặn cuộc gọi đang bật</string>
     <string name="blocking_off_title">Chặn cuộc gọi đang tắt</string>
-    <string name="blocking_off_message">CallBloker phải là ứng dụng sàng lọc cuộc gọi của bạn để chặn cuộc gọi.</string>
+    <string name="blocking_off_message">AuLoup! phải là ứng dụng sàng lọc cuộc gọi của bạn để chặn cuộc gọi.</string>
     <string name="enable_blocking">Bật chặn cuộc gọi</string>
     <string name="notify_label">Thông báo khi có cuộc gọi bị chặn</string>
     <string name="country_label">Quốc gia</string>

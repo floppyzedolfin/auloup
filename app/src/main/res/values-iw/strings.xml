@@ -4,7 +4,7 @@
     <string name="unknown_number">מספר לא מוכר</string>
     <string name="blocking_on">חסימת שיחות פעילה</string>
     <string name="blocking_off_title">חסימת שיחות כבויה</string>
-    <string name="blocking_off_message">‏CallBloker חייב להיות אפליקציית סינון השיחות שלך כדי לחסום שיחות.</string>
+    <string name="blocking_off_message">‏AuLoup! חייב להיות אפליקציית סינון השיחות שלך כדי לחסום שיחות.</string>
     <string name="enable_blocking">הפעל חסימת שיחות</string>
     <string name="notify_label">הודע כאשר שיחה נחסמת</string>
     <string name="country_label">מדינה</string>

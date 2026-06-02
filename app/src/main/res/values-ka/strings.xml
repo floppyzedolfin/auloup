@@ -4,7 +4,7 @@
     <string name="unknown_number">უცნობი ნომერი</string>
     <string name="blocking_on">ზარების დაბლოკვა ჩართულია</string>
     <string name="blocking_off_title">ზარების დაბლოკვა გამორთულია</string>
-    <string name="blocking_off_message">ზარების დასაბლოკად CallBloker უნდა იყოს თქვენი ზარების გამფილტრავი აპი.</string>
+    <string name="blocking_off_message">ზარების დასაბლოკად AuLoup! უნდა იყოს თქვენი ზარების გამფილტრავი აპი.</string>
     <string name="enable_blocking">ზარების დაბლოკვის ჩართვა</string>
     <string name="notify_label">შეტყობინება ზარის დაბლოკვისას</string>
     <string name="country_label">ქვეყანა</string>

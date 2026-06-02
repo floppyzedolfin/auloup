@@ -4,7 +4,7 @@
     <string name="unknown_number">Okänt nummer</string>
     <string name="blocking_on">Samtalsblockning är aktiverad</string>
     <string name="blocking_off_title">Samtalsblockning är inaktiverad</string>
-    <string name="blocking_off_message">CallBloker måste vara din samtalsgranskningsapp för att blockera samtal.</string>
+    <string name="blocking_off_message">AuLoup! måste vara din samtalsgranskningsapp för att blockera samtal.</string>
     <string name="enable_blocking">Aktivera samtalsblockning</string>
     <string name="notify_label">Meddela när ett samtal blockeras</string>
     <string name="country_label">Land</string>

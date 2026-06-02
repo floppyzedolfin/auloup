@@ -4,7 +4,7 @@
     <string name="unknown_number">Número desconegut</string>
     <string name="blocking_on">El bloqueig de trucades està activat</string>
     <string name="blocking_off_title">El bloqueig de trucades està desactivat</string>
-    <string name="blocking_off_message">CallBloker ha de ser la vostra aplicació de filtratge de trucades per bloquejar-les.</string>
+    <string name="blocking_off_message">AuLoup! ha de ser la vostra aplicació de filtratge de trucades per bloquejar-les.</string>
     <string name="enable_blocking">Activa el bloqueig de trucades</string>
     <string name="notify_label">Notifica quan es bloquegi una trucada</string>
     <string name="country_label">País</string>

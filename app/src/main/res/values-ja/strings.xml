@@ -4,7 +4,7 @@
     <string name="unknown_number">不明な番号</string>
     <string name="blocking_on">着信ブロックが有効です</string>
     <string name="blocking_off_title">着信ブロックが無効です</string>
-    <string name="blocking_off_message">着信をブロックするには、CallBloker を通話スクリーニングアプリとして設定してください。</string>
+    <string name="blocking_off_message">着信をブロックするには、AuLoup! を通話スクリーニングアプリとして設定してください。</string>
     <string name="enable_blocking">着信ブロックを有効にする</string>
     <string name="notify_label">通話がブロックされたときに通知する</string>
     <string name="country_label">国</string>

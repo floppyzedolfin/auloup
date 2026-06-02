@@ -4,7 +4,7 @@
     <string name="unknown_number">Onbekende nommer</string>
     <string name="blocking_on">Oproepblokkering is aan</string>
     <string name="blocking_off_title">Oproepblokkering is af</string>
-    <string name="blocking_off_message">CallBloker moet jou oproepfiltreer-app wees om oproepe te blokkeer.</string>
+    <string name="blocking_off_message">AuLoup! moet jou oproepfiltreer-app wees om oproepe te blokkeer.</string>
     <string name="enable_blocking">Aktiveer oproepblokkering</string>
     <string name="notify_label">Stel my in kennis wanneer \'n oproep geblokkeer word</string>
     <string name="country_label">Land</string>

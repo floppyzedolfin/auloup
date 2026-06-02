@@ -4,7 +4,7 @@
     <string name="unknown_number">නොදන්නා අංකය</string>
     <string name="blocking_on">ඇමතුම් අවහිර කිරීම සක්‍රියයි</string>
     <string name="blocking_off_title">ඇමතුම් අවහිර කිරීම අක්‍රියයි</string>
-    <string name="blocking_off_message">ඇමතුම් අවහිර කිරීමට CallBloker ඔබගේ ඇමතුම් පෙරහන් යෙදුම විය යුතුය.</string>
+    <string name="blocking_off_message">ඇමතුම් අවහිර කිරීමට AuLoup! ඔබගේ ඇමතුම් පෙරහන් යෙදුම විය යුතුය.</string>
     <string name="enable_blocking">ඇමතුම් අවහිර කිරීම සක්‍රිය කරන්න</string>
     <string name="notify_label">ඇමතුමක් අවහිර වූ විට දැනුම් දෙන්න</string>
     <string name="country_label">රට</string>

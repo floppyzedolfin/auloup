@@ -4,7 +4,7 @@
     <string name="unknown_number">Numero sconosciuto</string>
     <string name="blocking_on">Blocco chiamate attivo</string>
     <string name="blocking_off_title">Blocco chiamate disattivo</string>
-    <string name="blocking_off_message">CallBloker deve essere la tua app di screening delle chiamate per bloccarle.</string>
+    <string name="blocking_off_message">AuLoup! deve essere la tua app di screening delle chiamate per bloccarle.</string>
     <string name="enable_blocking">Attiva blocco chiamate</string>
     <string name="notify_label">Notifica quando una chiamata viene bloccata</string>
     <string name="country_label">Paese</string>

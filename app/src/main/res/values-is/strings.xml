@@ -4,7 +4,7 @@
     <string name="unknown_number">Óþekkt númer</string>
     <string name="blocking_on">Lokun símtala er virk</string>
     <string name="blocking_off_title">Lokun símtala er óvirk</string>
-    <string name="blocking_off_message">CallBloker verður að vera síusímaforritið þitt til að loka símtölum.</string>
+    <string name="blocking_off_message">AuLoup! verður að vera síusímaforritið þitt til að loka símtölum.</string>
     <string name="enable_blocking">Virkja lokun símtala</string>
     <string name="notify_label">Tilkynna þegar símtali er lokað</string>
     <string name="country_label">Land</string>

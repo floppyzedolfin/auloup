@@ -4,7 +4,7 @@
     <string name="unknown_number">Nomor tidak dikenal</string>
     <string name="blocking_on">Pemblokiran panggilan aktif</string>
     <string name="blocking_off_title">Pemblokiran panggilan tidak aktif</string>
-    <string name="blocking_off_message">CallBloker harus dijadikan aplikasi penyaring panggilan Anda untuk memblokir panggilan.</string>
+    <string name="blocking_off_message">AuLoup! harus dijadikan aplikasi penyaring panggilan Anda untuk memblokir panggilan.</string>
     <string name="enable_blocking">Aktifkan pemblokiran panggilan</string>
     <string name="notify_label">Beri tahu saat panggilan diblokir</string>
     <string name="country_label">Negara</string>

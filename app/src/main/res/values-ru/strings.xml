@@ -4,7 +4,7 @@
     <string name="unknown_number">Неизвестный номер</string>
     <string name="blocking_on">Блокировка звонков включена</string>
     <string name="blocking_off_title">Блокировка звонков отключена</string>
-    <string name="blocking_off_message">CallBloker должен быть выбран как приложение для проверки звонков, чтобы блокировать их.</string>
+    <string name="blocking_off_message">AuLoup! должен быть выбран как приложение для проверки звонков, чтобы блокировать их.</string>
     <string name="enable_blocking">Включить блокировку звонков</string>
     <string name="notify_label">Уведомлять при блокировке звонка</string>
     <string name="country_label">Страна</string>

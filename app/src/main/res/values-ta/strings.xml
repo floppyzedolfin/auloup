@@ -4,7 +4,7 @@
     <string name="unknown_number">தெரியாத எண்</string>
     <string name="blocking_on">அழைப்புத் தடுப்பு இயக்கத்தில் உள்ளது</string>
     <string name="blocking_off_title">அழைப்புத் தடுப்பு முடக்கத்தில் உள்ளது</string>
-    <string name="blocking_off_message">அழைப்புகளைத் தடுக்க CallBloker உங்கள் அழைப்பு-வடிகட்டல் பயன்பாடாக இருக்க வேண்டும்.</string>
+    <string name="blocking_off_message">அழைப்புகளைத் தடுக்க AuLoup! உங்கள் அழைப்பு-வடிகட்டல் பயன்பாடாக இருக்க வேண்டும்.</string>
     <string name="enable_blocking">அழைப்புத் தடுப்பை இயக்கு</string>
     <string name="notify_label">அழைப்பு தடுக்கப்படும்போது அறிவிக்கவும்</string>
     <string name="country_label">நாடு</string>

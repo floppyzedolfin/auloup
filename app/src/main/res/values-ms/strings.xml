@@ -4,7 +4,7 @@
     <string name="unknown_number">Nombor tidak dikenali</string>
     <string name="blocking_on">Sekatan panggilan diaktifkan</string>
     <string name="blocking_off_title">Sekatan panggilan tidak aktif</string>
-    <string name="blocking_off_message">CallBloker mesti ditetapkan sebagai aplikasi tapisan panggilan anda untuk menyekat panggilan.</string>
+    <string name="blocking_off_message">AuLoup! mesti ditetapkan sebagai aplikasi tapisan panggilan anda untuk menyekat panggilan.</string>
     <string name="enable_blocking">Aktifkan sekatan panggilan</string>
     <string name="notify_label">Beritahu apabila panggilan disekat</string>
     <string name="country_label">Negara</string>

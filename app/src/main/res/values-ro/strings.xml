@@ -4,7 +4,7 @@
     <string name="unknown_number">Număr necunoscut</string>
     <string name="blocking_on">Blocarea apelurilor este activă</string>
     <string name="blocking_off_title">Blocarea apelurilor este dezactivată</string>
-    <string name="blocking_off_message">CallBloker trebuie să fie aplicația ta de filtrare a apelurilor pentru a bloca apelurile.</string>
+    <string name="blocking_off_message">AuLoup! trebuie să fie aplicația ta de filtrare a apelurilor pentru a bloca apelurile.</string>
     <string name="enable_blocking">Activează blocarea apelurilor</string>
     <string name="notify_label">Notifică când un apel este blocat</string>
     <string name="country_label">Țară</string>

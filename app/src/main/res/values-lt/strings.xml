@@ -4,7 +4,7 @@
     <string name="unknown_number">Nežinomas numeris</string>
     <string name="blocking_on">Skambučių blokavimas įjungtas</string>
     <string name="blocking_off_title">Skambučių blokavimas išjungtas</string>
-    <string name="blocking_off_message">Kad blokuotų skambučius, CallBloker turi būti nustatytas kaip skambučių tikrinimo programa.</string>
+    <string name="blocking_off_message">Kad blokuotų skambučius, AuLoup! turi būti nustatytas kaip skambučių tikrinimo programa.</string>
     <string name="enable_blocking">Įjungti skambučių blokavimą</string>
     <string name="notify_label">Pranešti, kai skambutis užblokuojamas</string>
     <string name="country_label">Šalis</string>

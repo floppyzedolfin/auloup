@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">CallBloker</string>
+    <string name="app_name" translatable="false">AuLoup!</string>
 
     <!-- Notification -->
     <string name="channel_blocked_calls">Blocked calls</string>
@@ -9,7 +9,7 @@
     <!-- Main screen -->
     <string name="blocking_on">Call blocking is on</string>
     <string name="blocking_off_title">Call blocking is off</string>
-    <string name="blocking_off_message">CallBloker must be your call-screening app to block calls.</string>
+    <string name="blocking_off_message">AuLoup! must be your call-screening app to block calls.</string>
     <string name="enable_blocking">Enable call blocking</string>
     <string name="notify_label">Notify when a call is blocked</string>
     <string name="country_label">Country</string>

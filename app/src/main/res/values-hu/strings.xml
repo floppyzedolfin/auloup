@@ -4,7 +4,7 @@
     <string name="unknown_number">Ismeretlen szám</string>
     <string name="blocking_on">Hívásblokkolás bekapcsolva</string>
     <string name="blocking_off_title">Hívásblokkolás kikapcsolva</string>
-    <string name="blocking_off_message">A CallBloker-nek hívásszűrő alkalmazásként kell beállítva lennie a hívások blokkolásához.</string>
+    <string name="blocking_off_message">A AuLoup!-nek hívásszűrő alkalmazásként kell beállítva lennie a hívások blokkolásához.</string>
     <string name="enable_blocking">Hívásblokkolás engedélyezése</string>
     <string name="notify_label">Értesítés blokkolásnál</string>
     <string name="country_label">Ország</string>

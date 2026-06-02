@@ -4,7 +4,7 @@
     <string name="unknown_number">Nepoznat broj</string>
     <string name="blocking_on">Blokiranje poziva je uključeno</string>
     <string name="blocking_off_title">Blokiranje poziva je isključeno</string>
-    <string name="blocking_off_message">CallBloker mora biti vaša aplikacija za filtriranje poziva da bi blokirala pozive.</string>
+    <string name="blocking_off_message">AuLoup! mora biti vaša aplikacija za filtriranje poziva da bi blokirala pozive.</string>
     <string name="enable_blocking">Omogući blokiranje poziva</string>
     <string name="notify_label">Obavesti kada je poziv blokiran</string>
     <string name="country_label">Zemlja</string>

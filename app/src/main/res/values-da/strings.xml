@@ -4,7 +4,7 @@
     <string name="unknown_number">Ukendt nummer</string>
     <string name="blocking_on">Opkaldsblokering er slået til</string>
     <string name="blocking_off_title">Opkaldsblokering er slået fra</string>
-    <string name="blocking_off_message">CallBloker skal være din opkaldsscreening-app for at blokere opkald.</string>
+    <string name="blocking_off_message">AuLoup! skal være din opkaldsscreening-app for at blokere opkald.</string>
     <string name="enable_blocking">Slå opkaldsblokering til</string>
     <string name="notify_label">Giv besked, når et opkald blokeres</string>
     <string name="country_label">Land</string>

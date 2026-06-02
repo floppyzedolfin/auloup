@@ -4,7 +4,7 @@
     <string name="unknown_number">Unbekannte Nummer</string>
     <string name="blocking_on">Anrufsperre ist aktiviert</string>
     <string name="blocking_off_title">Anrufsperre ist deaktiviert</string>
-    <string name="blocking_off_message">CallBloker muss als Anruf-Screening-App festgelegt sein, um Anrufe zu blockieren.</string>
+    <string name="blocking_off_message">AuLoup! muss als Anruf-Screening-App festgelegt sein, um Anrufe zu blockieren.</string>
     <string name="enable_blocking">Anrufsperre aktivieren</string>
     <string name="notify_label">Benachrichtigen, wenn ein Anruf blockiert wird</string>
     <string name="country_label">Land</string>

@@ -4,7 +4,7 @@
     <string name="unknown_number">Neznáme číslo</string>
     <string name="blocking_on">Blokovanie hovorov je zapnuté</string>
     <string name="blocking_off_title">Blokovanie hovorov je vypnuté</string>
-    <string name="blocking_off_message">CallBloker musí byť nastavený ako aplikácia na filtrovanie hovorov, aby mohol blokovať hovory.</string>
+    <string name="blocking_off_message">AuLoup! musí byť nastavený ako aplikácia na filtrovanie hovorov, aby mohol blokovať hovory.</string>
     <string name="enable_blocking">Zapnúť blokovanie hovorov</string>
     <string name="notify_label">Upozorniť pri zablokovaní hovoru</string>
     <string name="country_label">Krajina</string>

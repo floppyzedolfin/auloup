@@ -4,7 +4,7 @@
     <string name="unknown_number">شماره ناشناس</string>
     <string name="blocking_on">مسدودسازی تماس فعال است</string>
     <string name="blocking_off_title">مسدودسازی تماس غیرفعال است</string>
-    <string name="blocking_off_message">برای مسدود کردن تماس‌ها، CallBloker باید به‌عنوان برنامه غربال‌گری تماس انتخاب شود.</string>
+    <string name="blocking_off_message">برای مسدود کردن تماس‌ها، AuLoup! باید به‌عنوان برنامه غربال‌گری تماس انتخاب شود.</string>
     <string name="enable_blocking">فعال‌سازی مسدودسازی تماس</string>
     <string name="notify_label">اطلاع‌رسانی هنگام مسدود شدن تماس</string>
     <string name="country_label">کشور</string>
