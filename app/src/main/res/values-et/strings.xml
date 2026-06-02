@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Blokeeritud päevas</string>
     <string name="stats_by_hour">Blokeeritud tunnis</string>
+    <string name="settings_title">Seaded</string>
+    <string name="language">Keel</string>
 </resources>

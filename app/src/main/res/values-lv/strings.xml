@@ -22,4 +22,6 @@
     </plurals>
     <string name="stats_per_day">Bloķēts dienā</string>
     <string name="stats_by_hour">Bloķēts pa stundām</string>
+    <string name="settings_title">Iestatījumi</string>
+    <string name="language">Valoda</string>
 </resources>

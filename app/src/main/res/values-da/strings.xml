@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Blokeret pr. dag</string>
     <string name="stats_by_hour">Blokeret pr. time</string>
+    <string name="settings_title">Indstillinger</string>
+    <string name="language">Sprog</string>
 </resources>

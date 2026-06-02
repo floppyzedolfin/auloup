@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Pro Tag blockiert</string>
     <string name="stats_by_hour">Pro Stunde blockiert</string>
+    <string name="settings_title">Einstellungen</string>
+    <string name="language">Sprache</string>
 </resources>

@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">每天拦截</string>
     <string name="stats_by_hour">按小时拦截</string>
+    <string name="settings_title">设置</string>
+    <string name="language">语言</string>
 </resources>

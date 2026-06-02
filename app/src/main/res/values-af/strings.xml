@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Geblok per dag</string>
     <string name="stats_by_hour">Geblok per uur</string>
+    <string name="settings_title">Instellings</string>
+    <string name="language">Taal</string>
 </resources>

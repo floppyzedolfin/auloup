@@ -23,4 +23,6 @@
     </plurals>
     <string name="stats_per_day">נחסמו ביום</string>
     <string name="stats_by_hour">נחסמו לפי שעה</string>
+    <string name="settings_title">הגדרות</string>
+    <string name="language">שפה</string>
 </resources>

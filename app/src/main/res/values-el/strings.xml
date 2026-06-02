@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Αποκλεισμένες ανά ημέρα</string>
     <string name="stats_by_hour">Αποκλεισμένες ανά ώρα</string>
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="language">Γλώσσα</string>
 </resources>

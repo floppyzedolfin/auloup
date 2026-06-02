@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Kuvinjelwe ngosuku</string>
     <string name="stats_by_hour">Kuvinjelwe ngehora</string>
+    <string name="settings_title">Izilungiselelo</string>
+    <string name="language">Ulimi</string>
 </resources>

@@ -30,4 +30,8 @@
     <!-- Statistics charts -->
     <string name="stats_per_day">Blocked per day</string>
     <string name="stats_by_hour">Blocked by hour</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="language">Language</string>
 </resources>

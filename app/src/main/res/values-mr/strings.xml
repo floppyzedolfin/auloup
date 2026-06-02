@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">दररोज ब्लॉक केलेले</string>
     <string name="stats_by_hour">तासानुसार ब्लॉक केलेले</string>
+    <string name="settings_title">सेटिंग्ज</string>
+    <string name="language">भाषा</string>
 </resources>

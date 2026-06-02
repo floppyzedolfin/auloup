@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Të bllokuara në ditë</string>
     <string name="stats_by_hour">Të bllokuara sipas orës</string>
+    <string name="settings_title">Cilësimet</string>
+    <string name="language">Gjuha</string>
 </resources>

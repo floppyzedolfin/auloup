@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">روزانہ بلاک شدہ</string>
     <string name="stats_by_hour">گھنٹے کے حساب سے بلاک شدہ</string>
+    <string name="settings_title">ترتیبات</string>
+    <string name="language">زبان</string>
 </resources>

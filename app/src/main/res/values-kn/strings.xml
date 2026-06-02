@@ -22,4 +22,6 @@
     </plurals>
     <string name="stats_per_day">ದಿನಕ್ಕೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
     <string name="stats_by_hour">ಗಂಟೆಗೆ ಅನುಗುಣವಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
+    <string name="settings_title">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="language">ಭಾಷೆ</string>
 </resources>

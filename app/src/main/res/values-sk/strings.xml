@@ -23,4 +23,6 @@
     </plurals>
     <string name="stats_per_day">Blokované za deň</string>
     <string name="stats_by_hour">Blokované podľa hodiny</string>
+    <string name="settings_title">Nastavenia</string>
+    <string name="language">Jazyk</string>
 </resources>

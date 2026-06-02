@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Günlük engellenen</string>
     <string name="stats_by_hour">Saate göre engellenen</string>
+    <string name="settings_title">Ayarlar</string>
+    <string name="language">Dil</string>
 </resources>

@@ -23,4 +23,6 @@
     </plurals>
     <string name="stats_per_day">Blokirano na dan</string>
     <string name="stats_by_hour">Blokirano po urah</string>
+    <string name="settings_title">Nastavitve</string>
+    <string name="language">Jezik</string>
 </resources>

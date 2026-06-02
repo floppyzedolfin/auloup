@@ -23,4 +23,6 @@
     </plurals>
     <string name="stats_per_day">Zablokowane dziennie</string>
     <string name="stats_by_hour">Zablokowane wg godziny</string>
+    <string name="settings_title">Ustawienia</string>
+    <string name="language">Język</string>
 </resources>

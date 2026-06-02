@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">일별 차단</string>
     <string name="stats_by_hour">시간대별 차단</string>
+    <string name="settings_title">설정</string>
+    <string name="language">언어</string>
 </resources>

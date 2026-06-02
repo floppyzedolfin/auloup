@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Estetyt päivässä</string>
     <string name="stats_by_hour">Estetyt tunneittain</string>
+    <string name="settings_title">Asetukset</string>
+    <string name="language">Kieli</string>
 </resources>

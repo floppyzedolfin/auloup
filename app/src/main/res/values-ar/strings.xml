@@ -25,4 +25,6 @@
     </plurals>
     <string name="stats_per_day">المحظورة يوميًا</string>
     <string name="stats_by_hour">المحظورة حسب الساعة</string>
+    <string name="settings_title">الإعدادات</string>
+    <string name="language">اللغة</string>
 </resources>

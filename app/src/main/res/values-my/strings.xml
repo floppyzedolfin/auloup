@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">တစ်ရက်လျှင် ပိတ်ဆို့ထားသည်</string>
     <string name="stats_by_hour">နာရီအလိုက် ပိတ်ဆို့ထားသည်</string>
+    <string name="settings_title">ဆက်တင်များ</string>
+    <string name="language">ဘာသာစကား</string>
 </resources>

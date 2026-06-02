@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Útilokað á dag</string>
     <string name="stats_by_hour">Útilokað eftir klukkustund</string>
+    <string name="settings_title">Stillingar</string>
+    <string name="language">Tungumál</string>
 </resources>

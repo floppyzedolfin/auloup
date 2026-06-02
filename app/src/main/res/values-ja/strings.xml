@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">1日あたりのブロック</string>
     <string name="stats_by_hour">時間帯別のブロック</string>
+    <string name="settings_title">設定</string>
+    <string name="language">言語</string>
 </resources>

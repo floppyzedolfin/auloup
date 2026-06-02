@@ -2,20 +2,26 @@ package com.floppyzedolfin.callbloker
 
 import android.Manifest
 import android.app.role.RoleManager
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,6 +44,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
@@ -60,6 +68,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -121,7 +130,12 @@ private fun CallBlokerScreen() {
     var country by remember { mutableStateOf(Countries.defaultFor(context)) }
     var number by remember { mutableStateOf("") }
     var selectedPrefix by rememberSaveable { mutableStateOf<String?>(null) }
+    var showSettings by rememberSaveable { mutableStateOf(false) }
 
+    if (showSettings) {
+        SettingsScreen(repository = repository, onBack = { showSettings = false })
+        return
+    }
     val viewing = selectedPrefix
     if (viewing != null) {
         BlockedCallsScreen(
@@ -132,8 +146,28 @@ private fun CallBlokerScreen() {
         return
     }
 
+    // Group the prefixes by their country (derived from the calling code).
+    val groupedPrefixes = remember(prefixes) {
+        prefixes
+            .groupBy { Countries.countryForPrefix(it.prefix) }
+            .entries
+            .sortedBy { it.key?.displayName ?: "" }
+    }
+
     Scaffold(
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) },
+        topBar = {
+            TopAppBar(
+                title = { AppBarTitle(stringResource(R.string.app_name)) },
+                actions = {
+                    IconButton(onClick = { showSettings = true }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_settings),
+                            contentDescription = stringResource(R.string.settings_title),
+                        )
+                    }
+                },
+            )
+        },
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -164,21 +198,6 @@ private fun CallBlokerScreen() {
                         }
                     }
                 }
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(stringResource(R.string.notify_label))
-                Switch(
-                    checked = notificationsEnabled,
-                    onCheckedChange = { enabled ->
-                        scope.launch { repository.setNotificationsEnabled(enabled) }
-                        if (enabled) requestNotificationPermission()
-                    },
-                )
             }
 
             Row(
@@ -220,28 +239,37 @@ private fun CallBlokerScreen() {
                     style = MaterialTheme.typography.bodyMedium,
                 )
             } else {
-                LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    items(prefixes, key = { it.prefix }) { entry ->
-                        ListItem(
-                            modifier = Modifier.clickable { selectedPrefix = entry.prefix },
-                            headlineContent = { Text(entry.prefix) },
-                            supportingContent = {
-                                Text(
-                                    pluralStringResource(
-                                        R.plurals.calls_blocked,
-                                        entry.blockedCount,
-                                        entry.blockedCount,
-                                    ),
-                                )
-                            },
-                            trailingContent = {
-                                TextButton(onClick = {
-                                    scope.launch { repository.remove(entry.prefix) }
-                                }) {
-                                    Text(stringResource(R.string.remove))
-                                }
-                            },
-                        )
+                LazyColumn {
+                    groupedPrefixes.forEach { (country, entries) ->
+                        item(key = "header-${country?.iso ?: "?"}") {
+                            Text(
+                                text = country?.let { "${it.flag}  ${it.displayName}" } ?: "?",
+                                style = MaterialTheme.typography.titleSmall,
+                                modifier = Modifier.padding(top = 12.dp, bottom = 2.dp),
+                            )
+                        }
+                        items(entries, key = { it.prefix }) { entry ->
+                            ListItem(
+                                modifier = Modifier.clickable { selectedPrefix = entry.prefix },
+                                headlineContent = { Text(entry.prefix) },
+                                supportingContent = {
+                                    Text(
+                                        pluralStringResource(
+                                            R.plurals.calls_blocked,
+                                            entry.blockedCount,
+                                            entry.blockedCount,
+                                        ),
+                                    )
+                                },
+                                trailingContent = {
+                                    TextButton(onClick = {
+                                        scope.launch { repository.remove(entry.prefix) }
+                                    }) {
+                                        Text(stringResource(R.string.remove))
+                                    }
+                                },
+                            )
+                        }
                     }
                 }
             }
@@ -262,7 +290,7 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(prefix) },
+                title = { AppBarTitle(prefix) },
                 navigationIcon = {
                     TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
                 },
@@ -367,6 +395,76 @@ private fun CountryPicker(
             }
         }
     }
+}
+
+/** A top-bar title that shows the app logo next to [text]. */
+@Composable
+private fun AppBarTitle(text: String) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Image(
+            painter = painterResource(R.drawable.ic_logo),
+            contentDescription = null,
+            modifier = Modifier.size(28.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(text)
+    }
+}
+
+/** Settings: change the app language and toggle the blocked-call notification. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
+    BackHandler(onBack = onBack)
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
+    val permissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { AppBarTitle(stringResource(R.string.settings_title)) },
+                navigationIcon = {
+                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
+                },
+            )
+        },
+    ) { innerPadding ->
+        Column(modifier = Modifier.padding(innerPadding)) {
+            ListItem(
+                modifier = Modifier.clickable { openLanguageSettings(context) },
+                headlineContent = { Text(stringResource(R.string.language)) },
+            )
+            ListItem(
+                headlineContent = { Text(stringResource(R.string.notify_label)) },
+                trailingContent = {
+                    Switch(
+                        checked = notificationsEnabled,
+                        onCheckedChange = { enabled ->
+                            scope.launch { repository.setNotificationsEnabled(enabled) }
+                            if (enabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                            }
+                        },
+                    )
+                },
+            )
+        }
+    }
+}
+
+/** Opens the system per-app language picker (Android 13+), else app details. */
+private fun openLanguageSettings(context: Context) {
+    val data = Uri.fromParts("package", context.packageName, null)
+    val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        Intent(Settings.ACTION_APP_LOCALE_SETTINGS, data)
+    } else {
+        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, data)
+    }
+    context.startActivity(intent)
 }
 
 /**

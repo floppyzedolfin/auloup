@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">Diblokir per hari</string>
     <string name="stats_by_hour">Diblokir per jam</string>
+    <string name="settings_title">Setelan</string>
+    <string name="language">Bahasa</string>
 </resources>

@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">每日封鎖</string>
     <string name="stats_by_hour">依小時封鎖</string>
+    <string name="settings_title">設定</string>
+    <string name="language">語言</string>
 </resources>

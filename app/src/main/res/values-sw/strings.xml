@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Zilizozuiwa kwa siku</string>
     <string name="stats_by_hour">Zilizozuiwa kwa saa</string>
+    <string name="settings_title">Mipangilio</string>
+    <string name="language">Lugha</string>
 </resources>

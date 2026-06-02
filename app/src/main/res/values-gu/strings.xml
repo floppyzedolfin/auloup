@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">દિવસ દીઠ બ્લૉક કરેલ</string>
     <string name="stats_by_hour">કલાક પ્રમાણે બ્લૉક કરેલ</string>
+    <string name="settings_title">સેટિંગ્સ</string>
+    <string name="language">ભાષા</string>
 </resources>

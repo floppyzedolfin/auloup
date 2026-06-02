@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">දිනකට අවහිර කළ</string>
     <string name="stats_by_hour">පැය අනුව අවහිර කළ</string>
+    <string name="settings_title">සැකසීම්</string>
+    <string name="language">භාෂාව</string>
 </resources>

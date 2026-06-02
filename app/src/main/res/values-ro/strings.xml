@@ -22,4 +22,6 @@
     </plurals>
     <string name="stats_per_day">Blocate pe zi</string>
     <string name="stats_by_hour">Blocate pe oră</string>
+    <string name="settings_title">Setări</string>
+    <string name="language">Limbă</string>
 </resources>

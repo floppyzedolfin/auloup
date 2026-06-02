@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">በቀን የታገዱ</string>
     <string name="stats_by_hour">በሰዓት የታገዱ</string>
+    <string name="settings_title">ቅንብሮች</string>
+    <string name="language">ቋንቋ</string>
 </resources>

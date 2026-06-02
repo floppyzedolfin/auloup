@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Блокирани на ден</string>
     <string name="stats_by_hour">Блокирани по час</string>
+    <string name="settings_title">Настройки</string>
+    <string name="language">Език</string>
 </resources>

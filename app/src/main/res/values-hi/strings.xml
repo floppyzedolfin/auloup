@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">प्रति दिन ब्लॉक किए गए</string>
     <string name="stats_by_hour">घंटे के अनुसार ब्लॉक किए गए</string>
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="language">भाषा</string>
 </resources>

@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">مسدودشده در روز</string>
     <string name="stats_by_hour">مسدودشده بر اساس ساعت</string>
+    <string name="settings_title">تنظیمات</string>
+    <string name="language">زبان</string>
 </resources>

@@ -20,4 +20,6 @@
     </plurals>
     <string name="stats_per_day">Đã chặn mỗi ngày</string>
     <string name="stats_by_hour">Đã chặn theo giờ</string>
+    <string name="settings_title">Cài đặt</string>
+    <string name="language">Ngôn ngữ</string>
 </resources>

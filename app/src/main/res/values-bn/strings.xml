@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">প্রতিদিন ব্লক করা</string>
     <string name="stats_by_hour">ঘণ্টা অনুযায়ী ব্লক করা</string>
+    <string name="settings_title">সেটিংস</string>
+    <string name="language">ভাষা</string>
 </resources>

@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">დაბლოკილი დღეში</string>
     <string name="stats_by_hour">დაბლოკილი საათობრივად</string>
+    <string name="settings_title">პარამეტრები</string>
+    <string name="language">ენა</string>
 </resources>

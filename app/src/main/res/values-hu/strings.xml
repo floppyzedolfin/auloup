@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Naponta blokkolva</string>
     <string name="stats_by_hour">Óránként blokkolva</string>
+    <string name="settings_title">Beállítások</string>
+    <string name="language">Nyelv</string>
 </resources>

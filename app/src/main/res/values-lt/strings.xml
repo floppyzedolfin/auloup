@@ -23,4 +23,6 @@
     </plurals>
     <string name="stats_per_day">Užblokuota per dieną</string>
     <string name="stats_by_hour">Užblokuota pagal valandą</string>
+    <string name="settings_title">Nustatymai</string>
+    <string name="language">Kalba</string>
 </resources>

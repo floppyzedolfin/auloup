@@ -21,4 +21,6 @@
     </plurals>
     <string name="stats_per_day">Blokkert per dag</string>
     <string name="stats_by_hour">Blokkert per time</string>
+    <string name="settings_title">Innstillinger</string>
+    <string name="language">Språk</string>
 </resources>

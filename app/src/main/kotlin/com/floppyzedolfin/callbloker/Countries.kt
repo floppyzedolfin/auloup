@@ -119,6 +119,40 @@ object Countries {
         return dialCodes[code]?.let { Country(code, it, trunkFor(code)) }
     }
 
+    // Representative country for calling codes shared by several territories.
+    private val primaryForSharedCode = mapOf(
+        1 to "US",
+        7 to "RU",
+        39 to "IT",
+        44 to "GB",
+        212 to "MA",
+        262 to "RE",
+        590 to "GP",
+        599 to "CW",
+    )
+
+    private val byDialCode: Map<Int, String> = buildMap {
+        primaryForSharedCode.forEach { (code, iso) -> put(code, iso) }
+        for ((iso, code) in dialCodes) putIfAbsent(code, iso)
+    }
+
+    private fun forDialCode(code: Int): Country? =
+        byDialCode[code]?.let { Country(it, code, trunkFor(it)) }
+
+    /**
+     * The country a stored prefix (e.g. "+33162") belongs to, used to group the
+     * list. Calling codes are prefix-free, so the shortest matching code wins.
+     */
+    fun countryForPrefix(prefix: String): Country? {
+        val digits = prefix.filter { it.isDigit() }
+        for (len in 1..3) {
+            if (digits.length < len) break
+            val code = digits.take(len).toInt()
+            if (byDialCode.containsKey(code)) return forDialCode(code)
+        }
+        return null
+    }
+
     /**
      * Best-effort default country: the SIM/network region if known, otherwise
      * the phone's locale region, otherwise the US.
