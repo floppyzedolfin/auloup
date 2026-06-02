@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
@@ -169,17 +170,19 @@ private fun CallBlokerScreen() {
                 )
             }
 
-            CountryDropdown(selected = country, onSelected = { country = it })
-
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
+                CountryPicker(
+                    selected = country,
+                    onSelected = { country = it },
+                    modifier = Modifier.width(132.dp),
+                )
                 OutlinedTextField(
                     value = number,
                     onValueChange = { number = it },
                     label = { Text(stringResource(R.string.number_prefix_label)) },
-                    prefix = { Text("+${country.dialCode}") },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                     modifier = Modifier.weight(1f),
@@ -279,10 +282,17 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
     }
 }
 
-/** A flag + name + calling-code picker with type-to-filter search. */
+/**
+ * Compact country selector: the collapsed box shows only the flag and calling
+ * code; the dropdown lists the full name (with type-to-filter search).
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun CountryDropdown(selected: Country, onSelected: (Country) -> Unit) {
+private fun CountryPicker(
+    selected: Country,
+    onSelected: (Country) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val countries = remember { Countries.all() }
     var expanded by remember { mutableStateOf(false) }
     var query by remember { mutableStateOf("") }
@@ -301,9 +311,10 @@ private fun CountryDropdown(selected: Country, onSelected: (Country) -> Unit) {
     ExposedDropdownMenuBox(
         expanded = expanded,
         onExpandedChange = { expanded = it },
+        modifier = modifier,
     ) {
         OutlinedTextField(
-            value = if (expanded) query else "${selected.flag}  ${selected.displayName}  +${selected.dialCode}",
+            value = if (expanded) query else "${selected.flag} +${selected.dialCode}",
             onValueChange = {
                 query = it
                 expanded = true
@@ -322,6 +333,7 @@ private fun CountryDropdown(selected: Country, onSelected: (Country) -> Unit) {
                 expanded = false
                 query = ""
             },
+            matchTextFieldWidth = false,
         ) {
             filtered.forEach { country ->
                 DropdownMenuItem(
