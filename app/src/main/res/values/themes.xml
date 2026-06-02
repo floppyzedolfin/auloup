@@ -1,0 +1,8 @@
+<resources>
+    <!--
+        A bare no-action-bar theme. Colors and typography are driven by
+        Compose's MaterialTheme at runtime; this only styles the window before
+        Compose draws.
+    -->
+    <style name="Theme.CallBloker" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
