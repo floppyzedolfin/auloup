@@ -10,6 +10,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,10 +19,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -51,13 +58,17 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import java.text.DateFormat
+import java.time.ZoneId
 import java.util.Date
 
 class MainActivity : ComponentActivity() {
@@ -82,6 +93,7 @@ private fun CallBlokerScreen() {
     val scope = rememberCoroutineScope()
     val repository = remember { PrefixRepository(context.applicationContext) }
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
+    val allCalls by repository.allCalls.collectAsState(initial = emptyList())
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
 
     val roleManager = remember { context.getSystemService(RoleManager::class.java) }
@@ -201,6 +213,8 @@ private fun CallBlokerScreen() {
 
             HorizontalDivider()
 
+            StatsSection(allCalls)
+
             if (prefixes.isEmpty()) {
                 Text(
                     stringResource(R.string.no_prefixes),
@@ -269,6 +283,13 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
             }
         } else {
             LazyColumn(modifier = Modifier.padding(innerPadding)) {
+                item {
+                    StatsSection(
+                        calls = calls,
+                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
+                    )
+                    HorizontalDivider()
+                }
                 items(calls) { call ->
                     ListItem(
                         headlineContent = {
@@ -343,6 +364,84 @@ private fun CountryPicker(
                         query = ""
                         expanded = false
                     },
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Two swipeable bar charts of the given blocked [calls]: one per day, one by
+ * hour of day. Renders nothing when there are no calls.
+ */
+@Composable
+private fun StatsSection(calls: List<BlockedCall>, modifier: Modifier = Modifier) {
+    if (calls.isEmpty()) return
+    val zone = remember { ZoneId.systemDefault() }
+    val now = remember(calls) { System.currentTimeMillis() }
+    val times = remember(calls) { calls.map { it.timeMillis } }
+    val dayBars = remember(times) { Stats.perDay(times, days = 7, zone = zone, nowMillis = now) }
+    val hourBars = remember(times) { Stats.perHour(times, zone) }
+    val pagerState = rememberPagerState(pageCount = { 2 })
+
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        HorizontalPager(state = pagerState) { page ->
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    stringResource(if (page == 0) R.string.stats_per_day else R.string.stats_by_hour),
+                    style = MaterialTheme.typography.titleSmall,
+                )
+                BarChart(if (page == 0) dayBars else hourBars)
+            }
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
+        ) {
+            repeat(2) { index ->
+                val color = if (pagerState.currentPage == index) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.outlineVariant
+                }
+                Box(Modifier.size(8.dp).background(color, CircleShape))
+            }
+        }
+    }
+}
+
+/** A minimal bar chart: one bar per entry, with the entries' labels beneath. */
+@Composable
+private fun BarChart(bars: List<Bar>, modifier: Modifier = Modifier) {
+    val maxValue = (bars.maxOfOrNull { it.value } ?: 0).coerceAtLeast(1)
+    val barColor = MaterialTheme.colorScheme.primary
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(120.dp),
+        ) {
+            val slot = size.width / bars.size.coerceAtLeast(1)
+            val barWidth = slot * 0.6f
+            bars.forEachIndexed { index, bar ->
+                val barHeight = size.height * (bar.value.toFloat() / maxValue)
+                if (barHeight > 0f) {
+                    drawRect(
+                        color = barColor,
+                        topLeft = Offset(index * slot + (slot - barWidth) / 2f, size.height - barHeight),
+                        size = Size(barWidth, barHeight),
+                    )
+                }
+            }
+        }
+        Row(Modifier.fillMaxWidth()) {
+            bars.forEach { bar ->
+                Text(
+                    text = bar.label,
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    style = MaterialTheme.typography.labelSmall,
                 )
             }
         }

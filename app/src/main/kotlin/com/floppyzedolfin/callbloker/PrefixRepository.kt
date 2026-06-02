@@ -50,6 +50,12 @@ class PrefixRepository(private val context: Context) {
     val notificationsEnabled: Flow<Boolean> =
         context.dataStore.data.map { it[notificationsKey] ?: true }
 
+    /** Every blocked call, most recent first. */
+    val allCalls: Flow<List<BlockedCall>> =
+        context.dataStore.data.map { prefs ->
+            decodeHistory(prefs[historyKey]).sortedByDescending { it.timeMillis }
+        }
+
     /** Blocked calls for [prefix], most recent first. */
     fun history(prefix: String): Flow<List<BlockedCall>> = context.dataStore.data.map { prefs ->
         decodeHistory(prefs[historyKey])
