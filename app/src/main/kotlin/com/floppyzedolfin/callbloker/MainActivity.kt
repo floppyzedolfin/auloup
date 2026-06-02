@@ -5,11 +5,14 @@ import android.app.role.RoleManager
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -43,6 +46,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,6 +54,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import java.text.DateFormat
+import java.util.Date
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -101,6 +107,17 @@ private fun CallBlokerScreen() {
 
     var country by remember { mutableStateOf(Countries.defaultFor(context)) }
     var number by remember { mutableStateOf("") }
+    var selectedPrefix by rememberSaveable { mutableStateOf<String?>(null) }
+
+    val viewing = selectedPrefix
+    if (viewing != null) {
+        BlockedCallsScreen(
+            repository = repository,
+            prefix = viewing,
+            onBack = { selectedPrefix = null },
+        )
+        return
+    }
 
     Scaffold(
         topBar = { TopAppBar(title = { Text(stringResource(R.string.app_name)) }) },
@@ -185,6 +202,7 @@ private fun CallBlokerScreen() {
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     items(prefixes, key = { it.prefix }) { entry ->
                         ListItem(
+                            modifier = Modifier.clickable { selectedPrefix = entry.prefix },
                             headlineContent = { Text(entry.prefix) },
                             supportingContent = { Text("Blocked ${entry.blockedCount}×") },
                             trailingContent = {
@@ -196,6 +214,54 @@ private fun CallBlokerScreen() {
                             },
                         )
                     }
+                }
+            }
+        }
+    }
+}
+
+/** History of every call blocked by [prefix], most recent first. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun BlockedCallsScreen(
+    repository: PrefixRepository,
+    prefix: String,
+    onBack: () -> Unit,
+) {
+    BackHandler(onBack = onBack)
+    val calls by repository.history(prefix).collectAsState(initial = emptyList())
+    val formatter = remember {
+        DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
+    }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(prefix) },
+                navigationIcon = { TextButton(onClick = onBack) { Text("Back") } },
+            )
+        },
+    ) { innerPadding ->
+        if (calls.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .padding(16.dp),
+            ) {
+                Text(
+                    "No calls blocked for this prefix yet.",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        } else {
+            LazyColumn(modifier = Modifier.padding(innerPadding)) {
+                items(calls) { call ->
+                    ListItem(
+                        headlineContent = {
+                            Text(call.number.ifBlank { "Unknown number" })
+                        },
+                        supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
+                    )
                 }
             }
         }

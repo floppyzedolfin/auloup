@@ -16,6 +16,7 @@ Early MVP:
 - Reject incoming calls that match — silently, with no entry in your call log.
 - Count how many calls each prefix has blocked. When several prefixes match a
   call, the most specific (longest) one is credited.
+- Tap a prefix to see the history of calls it blocked (number + time).
 - Optional silent status-bar notification when a call is blocked (toggleable).
 
 No accounts, no network, no tracking. Your prefix list never leaves the device.
@@ -42,10 +43,10 @@ PrefixCallScreeningService ─┘            ▲
 
 - `Prefixes.kt` — pure, Android-free matching logic (`normalize`, `longestMatch`, `isBlocked`); unit-tested.
 - `Countries.kt` — ISO→calling-code data; country names from `Locale`, flags as emoji.
-- `PrefixRepository.kt` — persists the prefixes, their block counts, and the notify preference (Jetpack DataStore).
+- `PrefixRepository.kt` — persists the prefixes, the blocked-call history, and the notify preference (Jetpack DataStore). Counts are derived from the history.
 - `PrefixCallScreeningService.kt` — the system binds this on each incoming call; it rejects matches and records the block.
 - `Notifications.kt` — the silent "call blocked" notification channel and poster.
-- `MainActivity.kt` — the Compose screen: enable blocking, toggle notifications, add/remove prefixes, see counts.
+- `MainActivity.kt` — the Compose screens: the main list (enable blocking, toggle notifications, add/remove prefixes, see counts) and a per-prefix blocked-call history.
 
 To block calls, the app must be granted the **call-screening role**
 (`RoleManager.ROLE_CALL_SCREENING`); the UI prompts for this.

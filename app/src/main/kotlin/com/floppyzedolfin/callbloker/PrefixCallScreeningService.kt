@@ -21,7 +21,9 @@ class PrefixCallScreeningService : CallScreeningService() {
         }
 
         val number = callDetails.handle?.schemeSpecificPart.orEmpty()
-        val result = runBlocking { PrefixRepository(applicationContext).screenAndRecord(number) }
+        val result = runBlocking {
+            PrefixRepository(applicationContext).screenAndRecord(number, System.currentTimeMillis())
+        }
 
         if (result.blocked && result.notify) {
             Notifications.notifyBlocked(applicationContext, number)
