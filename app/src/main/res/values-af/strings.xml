@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Geblokkeerde oproepe</string>
+    <string name="call_blocked">Oproep geblokkeer</string>
+    <string name="unknown_number">Onbekende nommer</string>
+    <string name="blocking_on">Oproepblokkering is aan</string>
+    <string name="blocking_off_title">Oproepblokkering is af</string>
+    <string name="blocking_off_message">CallBloker moet jou oproepfiltreer-app wees om oproepe te blokkeer.</string>
+    <string name="enable_blocking">Aktiveer oproepblokkering</string>
+    <string name="notify_label">Stel my in kennis wanneer \'n oproep geblokkeer word</string>
+    <string name="country_label">Land</string>
+    <string name="number_prefix_label">Nommerprefiks (opsioneel)</string>
+    <string name="add">Voeg by</string>
+    <string name="remove">Verwyder</string>
+    <string name="no_prefixes">Nog geen prefikse nie. Voeg een hierbo by om te begin blokkeer.</string>
+    <string name="back">Terug</string>
+    <string name="no_calls_for_prefix">Nog geen oproepe vir hierdie prefiks geblokkeer nie.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d oproep geblokkeer</item>
+        <item quantity="other">%d oproepe geblokkeer</item>
+    </plurals>
+</resources>

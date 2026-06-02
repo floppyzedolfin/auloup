@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">ਬਲੌਕ ਕੀਤੀਆਂ ਕਾਲਾਂ</string>
+    <string name="call_blocked">ਕਾਲ ਬਲੌਕ ਕੀਤੀ ਗਈ</string>
+    <string name="unknown_number">ਅਣਜਾਣ ਨੰਬਰ</string>
+    <string name="blocking_on">ਕਾਲ ਬਲੌਕਿੰਗ ਚਾਲੂ ਹੈ</string>
+    <string name="blocking_off_title">ਕਾਲ ਬਲੌਕਿੰਗ ਬੰਦ ਹੈ</string>
+    <string name="blocking_off_message">ਕਾਲਾਂ ਬਲੌਕ ਕਰਨ ਲਈ CallBloker ਨੂੰ ਤੁਹਾਡੀ ਕਾਲ-ਸਕ੍ਰੀਨਿੰਗ ਐਪ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।</string>
+    <string name="enable_blocking">ਕਾਲ ਬਲੌਕਿੰਗ ਚਾਲੂ ਕਰੋ</string>
+    <string name="notify_label">ਕਾਲ ਬਲੌਕ ਹੋਣ \'ਤੇ ਸੂਚਿਤ ਕਰੋ</string>
+    <string name="country_label">ਦੇਸ਼</string>
+    <string name="number_prefix_label">ਨੰਬਰ ਪ੍ਰੀਫਿਕਸ (ਵਿਕਲਪਿਕ)</string>
+    <string name="add">ਜੋੜੋ</string>
+    <string name="remove">ਹਟਾਓ</string>
+    <string name="no_prefixes">ਅਜੇ ਕੋਈ ਪ੍ਰੀਫਿਕਸ ਨਹੀਂ। ਬਲੌਕਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਉੱਪਰ ਇੱਕ ਜੋੜੋ।</string>
+    <string name="back">ਵਾਪਸ</string>
+    <string name="no_calls_for_prefix">ਇਸ ਪ੍ਰੀਫਿਕਸ ਲਈ ਅਜੇ ਕੋਈ ਕਾਲ ਬਲੌਕ ਨਹੀਂ ਹੋਈ।</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d ਕਾਲ ਬਲੌਕ ਕੀਤੀ ਗਈ</item>
+        <item quantity="other">%d ਕਾਲਾਂ ਬਲੌਕ ਕੀਤੀਆਂ ਗਈਆਂ</item>
+    </plurals>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">已封鎖的來電</string>
+    <string name="call_blocked">來電已封鎖</string>
+    <string name="unknown_number">不明號碼</string>
+    <string name="blocking_on">來電封鎖已開啟</string>
+    <string name="blocking_off_title">來電封鎖已關閉</string>
+    <string name="blocking_off_message">CallBloker 必須設為您的來電篩選應用程式才能封鎖來電。</string>
+    <string name="enable_blocking">啟用來電封鎖</string>
+    <string name="notify_label">封鎖來電時通知</string>
+    <string name="country_label">國家／地區</string>
+    <string name="number_prefix_label">號碼前綴（選填）</string>
+    <string name="add">新增</string>
+    <string name="remove">移除</string>
+    <string name="no_prefixes">尚無前綴。請在上方新增以開始封鎖。</string>
+    <string name="back">返回</string>
+    <string name="no_calls_for_prefix">此前綴尚無封鎖紀錄。</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">已封鎖 %d 通來電</item>
+    </plurals>
+</resources>

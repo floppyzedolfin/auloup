@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">ब्लॉक किए गए कॉल</string>
+    <string name="call_blocked">कॉल ब्लॉक किया गया</string>
+    <string name="unknown_number">अज्ञात नंबर</string>
+    <string name="blocking_on">कॉल ब्लॉकिंग चालू है</string>
+    <string name="blocking_off_title">कॉल ब्लॉकिंग बंद है</string>
+    <string name="blocking_off_message">कॉल ब्लॉक करने के लिए CallBloker को आपका कॉल-स्क्रीनिंग ऐप होना चाहिए।</string>
+    <string name="enable_blocking">कॉल ब्लॉकिंग सक्षम करें</string>
+    <string name="notify_label">कॉल ब्लॉक होने पर सूचित करें</string>
+    <string name="country_label">देश</string>
+    <string name="number_prefix_label">नंबर प्रीफ़िक्स (वैकल्पिक)</string>
+    <string name="add">जोड़ें</string>
+    <string name="remove">हटाएं</string>
+    <string name="no_prefixes">अभी कोई प्रीफ़िक्स नहीं है। ब्लॉकिंग शुरू करने के लिए ऊपर एक जोड़ें।</string>
+    <string name="back">वापस</string>
+    <string name="no_calls_for_prefix">इस प्रीफ़िक्स के लिए अभी तक कोई कॉल ब्लॉक नहीं हुई।</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d कॉल ब्लॉक किया गया</item>
+        <item quantity="other">%d कॉल ब्लॉक किए गए</item>
+    </plurals>
+</resources>

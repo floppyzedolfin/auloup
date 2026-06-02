@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">已拦截的来电</string>
+    <string name="call_blocked">来电已拦截</string>
+    <string name="unknown_number">未知号码</string>
+    <string name="blocking_on">来电拦截已开启</string>
+    <string name="blocking_off_title">来电拦截已关闭</string>
+    <string name="blocking_off_message">CallBloker 需要被设为您的来电筛选应用才能拦截来电。</string>
+    <string name="enable_blocking">启用来电拦截</string>
+    <string name="notify_label">拦截来电时通知我</string>
+    <string name="country_label">国家/地区</string>
+    <string name="number_prefix_label">号码前缀（可选）</string>
+    <string name="add">添加</string>
+    <string name="remove">移除</string>
+    <string name="no_prefixes">暂无前缀。请在上方添加以开始拦截。</string>
+    <string name="back">返回</string>
+    <string name="no_calls_for_prefix">该前缀暂无已拦截的来电。</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">已拦截 %d 个来电</item>
+    </plurals>
+</resources>

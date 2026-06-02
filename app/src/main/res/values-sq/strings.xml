@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Telefonata të bllokuara</string>
+    <string name="call_blocked">Telefonatë e bllokuar</string>
+    <string name="unknown_number">Numër i panjohur</string>
+    <string name="blocking_on">Bllokimi i telefonatave është aktiv</string>
+    <string name="blocking_off_title">Bllokimi i telefonatave është joaktiv</string>
+    <string name="blocking_off_message">CallBloker duhet të jetë aplikacioni juaj i filtrimit të telefonatave për të bllokuar thirrjet.</string>
+    <string name="enable_blocking">Aktivizo bllokimin e telefonatave</string>
+    <string name="notify_label">Njoftim kur bllokohet një telefonatë</string>
+    <string name="country_label">Vendi</string>
+    <string name="number_prefix_label">Prefiksi i numrit (opsional)</string>
+    <string name="add">Shto</string>
+    <string name="remove">Hiq</string>
+    <string name="no_prefixes">Asnjë prefiks ende. Shto një më lart për të filluar bllokimin.</string>
+    <string name="back">Kthehu</string>
+    <string name="no_calls_for_prefix">Asnjë telefonatë e bllokuar për këtë prefiks ende.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d telefonatë e bllokuar</item>
+        <item quantity="other">%d telefonata të bllokuara</item>
+    </plurals>
+</resources>

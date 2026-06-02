@@ -1,0 +1,23 @@
+<resources>
+    <string name="channel_blocked_calls">Bloķētie zvani</string>
+    <string name="call_blocked">Zvans bloķēts</string>
+    <string name="unknown_number">Nezināms numurs</string>
+    <string name="blocking_on">Zvanu bloķēšana ir ieslēgta</string>
+    <string name="blocking_off_title">Zvanu bloķēšana ir izslēgta</string>
+    <string name="blocking_off_message">Lai bloķētu zvanus, CallBloker jābūt iestatītam kā jūsu zvanu pārbaudes lietotnei.</string>
+    <string name="enable_blocking">Ieslēgt zvanu bloķēšanu</string>
+    <string name="notify_label">Paziņot, kad zvans tiek bloķēts</string>
+    <string name="country_label">Valsts</string>
+    <string name="number_prefix_label">Numura prefikss (neobligāti)</string>
+    <string name="add">Pievienot</string>
+    <string name="remove">Noņemt</string>
+    <string name="no_prefixes">Vēl nav prefiksu. Pievienojiet vienu augstāk, lai sāktu bloķēšanu.</string>
+    <string name="back">Atpakaļ</string>
+    <string name="no_calls_for_prefix">Šim prefiksam vēl nav bloķētu zvanu.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="zero">%d zvanu bloķēts</item>
+        <item quantity="one">%d zvans bloķēts</item>
+        <item quantity="other">%d zvani bloķēti</item>
+    </plurals>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">ブロックされた通話</string>
+    <string name="call_blocked">通話をブロックしました</string>
+    <string name="unknown_number">不明な番号</string>
+    <string name="blocking_on">着信ブロックが有効です</string>
+    <string name="blocking_off_title">着信ブロックが無効です</string>
+    <string name="blocking_off_message">着信をブロックするには、CallBloker を通話スクリーニングアプリとして設定してください。</string>
+    <string name="enable_blocking">着信ブロックを有効にする</string>
+    <string name="notify_label">通話がブロックされたときに通知する</string>
+    <string name="country_label">国</string>
+    <string name="number_prefix_label">番号プレフィックス（任意）</string>
+    <string name="add">追加</string>
+    <string name="remove">削除</string>
+    <string name="no_prefixes">プレフィックスがまだありません。上に追加してブロックを開始してください。</string>
+    <string name="back">戻る</string>
+    <string name="no_calls_for_prefix">このプレフィックスでブロックされた通話はまだありません。</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">%d 件の通話をブロックしました</item>
+    </plurals>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Simu zilizozuiwa</string>
+    <string name="call_blocked">Simu imezuiwa</string>
+    <string name="unknown_number">Nambari isiyojulikana</string>
+    <string name="blocking_on">Kuzuia simu kumewashwa</string>
+    <string name="blocking_off_title">Kuzuia simu kumezimwa</string>
+    <string name="blocking_off_message">CallBloker lazima iwe programu yako ya kuchunguza simu ili kuzuia simu.</string>
+    <string name="enable_blocking">Washa kuzuia simu</string>
+    <string name="notify_label">Arifu simu inapozuiwa</string>
+    <string name="country_label">Nchi</string>
+    <string name="number_prefix_label">Kiambishi cha nambari (si lazima)</string>
+    <string name="add">Ongeza</string>
+    <string name="remove">Ondoa</string>
+    <string name="no_prefixes">Hakuna viambishi bado. Ongeza moja hapo juu kuanza kuzuia.</string>
+    <string name="back">Rudi</string>
+    <string name="no_calls_for_prefix">Hakuna simu zilizozuiwa kwa kiambishi hiki bado.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">Simu %d imezuiwa</item>
+        <item quantity="other">Simu %d zimezuiwa</item>
+    </plurals>
+</resources>

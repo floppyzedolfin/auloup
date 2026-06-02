@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">ការហៅទូរសព្ទដែលត្រូវបានទប់ស្កាត់</string>
+    <string name="call_blocked">ការហៅទូរសព្ទត្រូវបានទប់ស្កាត់</string>
+    <string name="unknown_number">លេខមិនស្គាល់</string>
+    <string name="blocking_on">ការទប់ស្កាត់ការហៅទូរសព្ទបានបើក</string>
+    <string name="blocking_off_title">ការទប់ស្កាត់ការហៅទូរសព្ទបានបិទ</string>
+    <string name="blocking_off_message">CallBloker ត្រូវតែជាកម្មវិធីត្រួតពិនិត្យការហៅទូរសព្ទរបស់អ្នក ដើម្បីទប់ស្កាត់ការហៅ។</string>
+    <string name="enable_blocking">បើកការទប់ស្កាត់ការហៅទូរសព្ទ</string>
+    <string name="notify_label">ជូនដំណឹងនៅពេលការហៅទូរសព្ទត្រូវបានទប់ស្កាត់</string>
+    <string name="country_label">ប្រទេស</string>
+    <string name="number_prefix_label">បុព្វបទលេខ (ស្រេចចិត្ត)</string>
+    <string name="add">បន្ថែម</string>
+    <string name="remove">លុប</string>
+    <string name="no_prefixes">មិនទាន់មានបុព្វបទទេ។ បន្ថែមមួយខាងលើដើម្បីចាប់ផ្តើមទប់ស្កាត់។</string>
+    <string name="back">ត្រឡប់</string>
+    <string name="no_calls_for_prefix">មិនទាន់មានការហៅទូរសព្ទត្រូវបានទប់ស្កាត់សម្រាប់បុព្វបទនេះទេ។</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">%d ការហៅទូរសព្ទត្រូវបានទប់ស្កាត់</item>
+    </plurals>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">బ్లాక్ చేసిన కాల్‌లు</string>
+    <string name="call_blocked">కాల్ బ్లాక్ చేయబడింది</string>
+    <string name="unknown_number">తెలియని నంబర్</string>
+    <string name="blocking_on">కాల్ బ్లాకింగ్ ఆన్ చేయబడింది</string>
+    <string name="blocking_off_title">కాల్ బ్లాకింగ్ ఆఫ్ చేయబడింది</string>
+    <string name="blocking_off_message">కాల్‌లను బ్లాక్ చేయడానికి CallBloker మీ కాల్ స్క్రీనింగ్ యాప్‌గా ఉండాలి.</string>
+    <string name="enable_blocking">కాల్ బ్లాకింగ్ ప్రారంభించు</string>
+    <string name="notify_label">కాల్ బ్లాక్ అయినప్పుడు తెలియజేయి</string>
+    <string name="country_label">దేశం</string>
+    <string name="number_prefix_label">నంబర్ ప్రిఫిక్స్ (ఐచ్ఛికం)</string>
+    <string name="add">జోడించు</string>
+    <string name="remove">తొలగించు</string>
+    <string name="no_prefixes">ఇంకా ప్రిఫిక్స్‌లు లేవు. బ్లాకింగ్ ప్రారంభించడానికి పైన ఒకదాన్ని జోడించు.</string>
+    <string name="back">వెనుకకు</string>
+    <string name="no_calls_for_prefix">ఈ ప్రిఫిక్స్‌కు ఇంకా ఏ కాల్‌లూ బ్లాక్ చేయబడలేదు.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d కాల్ బ్లాక్ చేయబడింది</item>
+        <item quantity="other">%d కాల్‌లు బ్లాక్ చేయబడ్డాయి</item>
+    </plurals>
+</resources>

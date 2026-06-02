@@ -79,13 +79,22 @@ you).
 ## Localization
 
 The UI is fully translatable — all strings live in `res/values/strings.xml`,
-counts use Android plurals, and country names are localized automatically via
-`Locale`. Currently available in **English** and **French**; on Android 13+ the
+counts use Android plurals (with the correct CLDR categories per language), and
+country names are localized automatically via `Locale`. On Android 13+ the
 language can be picked per-app in system settings.
 
-To add a language, copy `app/src/main/res/values/strings.xml` to
-`values-<code>/strings.xml` (e.g. `values-de`), translate the values, and add
-the locale to `res/xml/locales_config.xml`.
+Available in **English** plus **62 other languages** (Spanish, the Portuguese
+variants, French, German, Chinese, Japanese, Arabic, Hindi, Russian, and many
+more — see `res/values-*/`).
+
+> ⚠️ The non-English/French translations are **machine-generated** as a
+> starting point and have **not yet been reviewed by native speakers**.
+> Corrections via PR are very welcome.
+
+To add or improve a language, copy `app/src/main/res/values/strings.xml` to
+`values-<code>/strings.xml`, translate the values (using the right plural
+categories for that language), and add the locale to
+`res/xml/locales_config.xml`.
 
 ## Contributing
 

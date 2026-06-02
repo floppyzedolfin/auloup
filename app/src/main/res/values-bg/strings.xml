@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Блокирани обаждания</string>
+    <string name="call_blocked">Обаждането е блокирано</string>
+    <string name="unknown_number">Непознат номер</string>
+    <string name="blocking_on">Блокирането на обаждания е включено</string>
+    <string name="blocking_off_title">Блокирането на обаждания е изключено</string>
+    <string name="blocking_off_message">CallBloker трябва да е зададен като приложение за филтриране на обаждания, за да ги блокира.</string>
+    <string name="enable_blocking">Активиране на блокирането</string>
+    <string name="notify_label">Уведомявай при блокирано обаждане</string>
+    <string name="country_label">Държава</string>
+    <string name="number_prefix_label">Префикс на номера (незадължително)</string>
+    <string name="add">Добавяне</string>
+    <string name="remove">Премахване</string>
+    <string name="no_prefixes">Няма добавени префикси. Добавете един по-горе, за да започнете блокирането.</string>
+    <string name="back">Назад</string>
+    <string name="no_calls_for_prefix">Все още няма блокирани обаждания за този префикс.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d блокирано обаждане</item>
+        <item quantity="other">%d блокирани обаждания</item>
+    </plurals>
+</resources>

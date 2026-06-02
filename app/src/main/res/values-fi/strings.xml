@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Estetyt puhelut</string>
+    <string name="call_blocked">Puhelu estetty</string>
+    <string name="unknown_number">Tuntematon numero</string>
+    <string name="blocking_on">Puheluiden esto on päällä</string>
+    <string name="blocking_off_title">Puheluiden esto on pois päältä</string>
+    <string name="blocking_off_message">CallBloker täytyy asettaa puheluiden seulontasovellukseksi, jotta puheluita voidaan estää.</string>
+    <string name="enable_blocking">Ota puheluiden esto käyttöön</string>
+    <string name="notify_label">Ilmoita estetystä puhelusta</string>
+    <string name="country_label">Maa</string>
+    <string name="number_prefix_label">Numeroprefiksi (valinnainen)</string>
+    <string name="add">Lisää</string>
+    <string name="remove">Poista</string>
+    <string name="no_prefixes">Ei prefiksejä vielä. Lisää yksi yllä aloittaaksesi eston.</string>
+    <string name="back">Takaisin</string>
+    <string name="no_calls_for_prefix">Tälle prefiksille ei ole vielä estetty yhtään puhelua.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d puhelu estetty</item>
+        <item quantity="other">%d puhelua estetty</item>
+    </plurals>
+</resources>

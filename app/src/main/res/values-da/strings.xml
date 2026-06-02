@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Blokerede opkald</string>
+    <string name="call_blocked">Opkald blokeret</string>
+    <string name="unknown_number">Ukendt nummer</string>
+    <string name="blocking_on">Opkaldsblokering er slået til</string>
+    <string name="blocking_off_title">Opkaldsblokering er slået fra</string>
+    <string name="blocking_off_message">CallBloker skal være din opkaldsscreening-app for at blokere opkald.</string>
+    <string name="enable_blocking">Slå opkaldsblokering til</string>
+    <string name="notify_label">Giv besked, når et opkald blokeres</string>
+    <string name="country_label">Land</string>
+    <string name="number_prefix_label">Nummerpræfiks (valgfrit)</string>
+    <string name="add">Tilføj</string>
+    <string name="remove">Fjern</string>
+    <string name="no_prefixes">Ingen præfikser endnu. Tilføj ét ovenfor for at begynde at blokere.</string>
+    <string name="back">Tilbage</string>
+    <string name="no_calls_for_prefix">Ingen opkald blokeret for dette præfiks endnu.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d opkald blokeret</item>
+        <item quantity="other">%d opkald blokeret</item>
+    </plurals>
+</resources>

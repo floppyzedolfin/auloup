@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Engellenen aramalar</string>
+    <string name="call_blocked">Arama engellendi</string>
+    <string name="unknown_number">Bilinmeyen numara</string>
+    <string name="blocking_on">Arama engelleme açık</string>
+    <string name="blocking_off_title">Arama engelleme kapalı</string>
+    <string name="blocking_off_message">CallBloker\'in aramaları engellemesi için arama filtreleme uygulamanız olması gerekir.</string>
+    <string name="enable_blocking">Arama engellemeyi etkinleştir</string>
+    <string name="notify_label">Bir arama engellendiğinde bildir</string>
+    <string name="country_label">Ülke</string>
+    <string name="number_prefix_label">Numara öneki (isteğe bağlı)</string>
+    <string name="add">Ekle</string>
+    <string name="remove">Kaldır</string>
+    <string name="no_prefixes">Henüz önek yok. Engellemeye başlamak için yukarıya bir tane ekleyin.</string>
+    <string name="back">Geri</string>
+    <string name="no_calls_for_prefix">Bu önek için henüz engellenen arama yok.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d arama engellendi</item>
+        <item quantity="other">%d arama engellendi</item>
+    </plurals>
+</resources>

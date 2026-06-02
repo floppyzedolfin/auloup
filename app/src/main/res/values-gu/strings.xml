@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">અવરોધિત કૉલ</string>
+    <string name="call_blocked">કૉલ અવરોધિત થયો</string>
+    <string name="unknown_number">અજ્ઞાત નંબર</string>
+    <string name="blocking_on">કૉલ અવરોધ ચાલુ છે</string>
+    <string name="blocking_off_title">કૉલ અવરોધ બંધ છે</string>
+    <string name="blocking_off_message">કૉલ અવરોધ કરવા માટે CallBloker તમારી કૉલ-સ્ક્રીનિંગ ઍપ હોવી જોઈએ.</string>
+    <string name="enable_blocking">કૉલ અવરોધ સક્ષમ કરો</string>
+    <string name="notify_label">કૉલ અવરોધિત થાય ત્યારે સૂચના આપો</string>
+    <string name="country_label">દેશ</string>
+    <string name="number_prefix_label">નંબર પ્રિફિક્સ (વૈકલ્પિક)</string>
+    <string name="add">ઉમેરો</string>
+    <string name="remove">દૂર કરો</string>
+    <string name="no_prefixes">હજી કોઈ પ્રિફિક્સ નથી. અવરોધ શરૂ કરવા ઉપર ઉમેરો.</string>
+    <string name="back">પાછળ</string>
+    <string name="no_calls_for_prefix">આ પ્રિફિક્સ માટે હજી કોઈ કૉલ અવરોધિત થયો નથી.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d કૉલ અવરોધિત થયો</item>
+        <item quantity="other">%d કૉલ અવરોધિત થયા</item>
+    </plurals>
+</resources>

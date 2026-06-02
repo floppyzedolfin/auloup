@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Blokkerte anrop</string>
+    <string name="call_blocked">Anrop blokkert</string>
+    <string name="unknown_number">Ukjent nummer</string>
+    <string name="blocking_on">Anropsblokkering er på</string>
+    <string name="blocking_off_title">Anropsblokkering er av</string>
+    <string name="blocking_off_message">CallBloker må være din anropsfiltreringsapp for å blokkere anrop.</string>
+    <string name="enable_blocking">Aktiver anropsblokkering</string>
+    <string name="notify_label">Varsle når et anrop blokkeres</string>
+    <string name="country_label">Land</string>
+    <string name="number_prefix_label">Nummerprefix (valgfritt)</string>
+    <string name="add">Legg til</string>
+    <string name="remove">Fjern</string>
+    <string name="no_prefixes">Ingen prefikser ennå. Legg til ett ovenfor for å begynne å blokkere.</string>
+    <string name="back">Tilbake</string>
+    <string name="no_calls_for_prefix">Ingen anrop blokkert for dette prefikset ennå.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d anrop blokkert</item>
+        <item quantity="other">%d anrop blokkert</item>
+    </plurals>
+</resources>

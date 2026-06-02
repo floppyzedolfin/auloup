@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Αποκλεισμένες κλήσεις</string>
+    <string name="call_blocked">Η κλήση αποκλείστηκε</string>
+    <string name="unknown_number">Άγνωστος αριθμός</string>
+    <string name="blocking_on">Ο αποκλεισμός κλήσεων είναι ενεργός</string>
+    <string name="blocking_off_title">Ο αποκλεισμός κλήσεων είναι ανενεργός</string>
+    <string name="blocking_off_message">Το CallBloker πρέπει να οριστεί ως εφαρμογή φιλτραρίσματος κλήσεων για να αποκλείει κλήσεις.</string>
+    <string name="enable_blocking">Ενεργοποίηση αποκλεισμού κλήσεων</string>
+    <string name="notify_label">Ειδοποίηση όταν αποκλείεται μια κλήση</string>
+    <string name="country_label">Χώρα</string>
+    <string name="number_prefix_label">Πρόθεμα αριθμού (προαιρετικό)</string>
+    <string name="add">Προσθήκη</string>
+    <string name="remove">Αφαίρεση</string>
+    <string name="no_prefixes">Δεν υπάρχουν προθέματα ακόμα. Προσθέστε ένα παραπάνω για να ξεκινήσετε τον αποκλεισμό.</string>
+    <string name="back">Πίσω</string>
+    <string name="no_calls_for_prefix">Δεν έχει αποκλειστεί καμία κλήση για αυτό το πρόθεμα ακόμα.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d κλήση αποκλείστηκε</item>
+        <item quantity="other">%d κλήσεις αποκλείστηκαν</item>
+    </plurals>
+</resources>

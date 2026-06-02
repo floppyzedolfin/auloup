@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Blockierte Anrufe</string>
+    <string name="call_blocked">Anruf blockiert</string>
+    <string name="unknown_number">Unbekannte Nummer</string>
+    <string name="blocking_on">Anrufsperre ist aktiviert</string>
+    <string name="blocking_off_title">Anrufsperre ist deaktiviert</string>
+    <string name="blocking_off_message">CallBloker muss als Anruf-Screening-App festgelegt sein, um Anrufe zu blockieren.</string>
+    <string name="enable_blocking">Anrufsperre aktivieren</string>
+    <string name="notify_label">Benachrichtigen, wenn ein Anruf blockiert wird</string>
+    <string name="country_label">Land</string>
+    <string name="number_prefix_label">Nummernpräfix (optional)</string>
+    <string name="add">Hinzufügen</string>
+    <string name="remove">Entfernen</string>
+    <string name="no_prefixes">Noch keine Präfixe. Füge oben einen hinzu, um mit dem Blockieren zu beginnen.</string>
+    <string name="back">Zurück</string>
+    <string name="no_calls_for_prefix">Noch keine blockierten Anrufe für dieses Präfix.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d Anruf blockiert</item>
+        <item quantity="other">%d Anrufe blockiert</item>
+    </plurals>
+</resources>

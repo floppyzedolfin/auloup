@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Trucades bloquejades</string>
+    <string name="call_blocked">Trucada bloquejada</string>
+    <string name="unknown_number">Número desconegut</string>
+    <string name="blocking_on">El bloqueig de trucades està activat</string>
+    <string name="blocking_off_title">El bloqueig de trucades està desactivat</string>
+    <string name="blocking_off_message">CallBloker ha de ser la vostra aplicació de filtratge de trucades per bloquejar-les.</string>
+    <string name="enable_blocking">Activa el bloqueig de trucades</string>
+    <string name="notify_label">Notifica quan es bloquegi una trucada</string>
+    <string name="country_label">País</string>
+    <string name="number_prefix_label">Prefix del número (opcional)</string>
+    <string name="add">Afegeix</string>
+    <string name="remove">Elimina</string>
+    <string name="no_prefixes">Encara no hi ha cap prefix. Afegiu-ne un a dalt per començar a bloquejar.</string>
+    <string name="back">Enrere</string>
+    <string name="no_calls_for_prefix">Encara no s\'ha bloquejat cap trucada per a aquest prefix.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d trucada bloquejada</item>
+        <item quantity="other">%d trucades bloquejades</item>
+    </plurals>
+</resources>

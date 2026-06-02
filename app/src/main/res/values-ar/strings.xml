@@ -1,0 +1,26 @@
+<resources>
+    <string name="channel_blocked_calls">المكالمات المحظورة</string>
+    <string name="call_blocked">مكالمة محظورة</string>
+    <string name="unknown_number">رقم غير معروف</string>
+    <string name="blocking_on">حظر المكالمات مفعّل</string>
+    <string name="blocking_off_title">حظر المكالمات معطّل</string>
+    <string name="blocking_off_message">يجب تعيين CallBloker كتطبيق فلترة المكالمات لحظر المكالمات.</string>
+    <string name="enable_blocking">تفعيل حظر المكالمات</string>
+    <string name="notify_label">إشعار عند حظر مكالمة</string>
+    <string name="country_label">الدولة</string>
+    <string name="number_prefix_label">بادئة الرقم (اختياري)</string>
+    <string name="add">إضافة</string>
+    <string name="remove">حذف</string>
+    <string name="no_prefixes">لا توجد بادئات بعد. أضف بادئة أعلاه لبدء الحظر.</string>
+    <string name="back">رجوع</string>
+    <string name="no_calls_for_prefix">لا توجد مكالمات محظورة لهذه البادئة بعد.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="zero">لا مكالمات محظورة (%d)</item>
+        <item quantity="one">مكالمة واحدة محظورة (%d)</item>
+        <item quantity="two">مكالمتان محظورتان (%d)</item>
+        <item quantity="few">%d مكالمات محظورة</item>
+        <item quantity="many">%d مكالمة محظورة</item>
+        <item quantity="other">%d مكالمة محظورة</item>
+    </plurals>
+</resources>

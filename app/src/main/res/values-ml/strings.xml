@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">തടഞ്ഞ കോളുകൾ</string>
+    <string name="call_blocked">കോൾ തടഞ്ഞു</string>
+    <string name="unknown_number">അജ്ഞാത നമ്പർ</string>
+    <string name="blocking_on">കോൾ ബ്ലോക്കിംഗ് സജീവമാണ്</string>
+    <string name="blocking_off_title">കോൾ ബ്ലോക്കിംഗ് നിഷ്ക്രിയമാണ്</string>
+    <string name="blocking_off_message">കോളുകൾ തടയാൻ CallBloker നിങ്ങളുടെ കോൾ സ്ക്രീനിംഗ് ആപ്പ് ആയിരിക്കണം.</string>
+    <string name="enable_blocking">കോൾ ബ്ലോക്കിംഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="notify_label">കോൾ തടഞ്ഞാൽ അറിയിക്കുക</string>
+    <string name="country_label">രാജ്യം</string>
+    <string name="number_prefix_label">നമ്പർ പ്രിഫിക്സ് (ഐച്ഛികം)</string>
+    <string name="add">ചേർക്കുക</string>
+    <string name="remove">നീക്കംചെയ്യുക</string>
+    <string name="no_prefixes">ഇതുവരെ പ്രിഫിക്സുകൾ ഇല്ല. ബ്ലോക്കിംഗ് ആരംഭിക്കാൻ മുകളിൽ ഒന്ന് ചേർക്കുക.</string>
+    <string name="back">തിരിച്ച്</string>
+    <string name="no_calls_for_prefix">ഈ പ്രിഫിക്സിനായി ഇതുവരെ കോളുകൾ ഒന്നും തടഞ്ഞിട്ടില്ല.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d കോൾ തടഞ്ഞു</item>
+        <item quantity="other">%d കോളുകൾ തടഞ്ഞു</item>
+    </plurals>
+</resources>

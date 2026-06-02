@@ -1,0 +1,23 @@
+<resources>
+    <string name="channel_blocked_calls">Blokirani pozivi</string>
+    <string name="call_blocked">Poziv blokiran</string>
+    <string name="unknown_number">Nepoznat broj</string>
+    <string name="blocking_on">Blokiranje poziva je uključeno</string>
+    <string name="blocking_off_title">Blokiranje poziva je isključeno</string>
+    <string name="blocking_off_message">CallBloker mora biti vaša aplikacija za filtriranje poziva da bi blokirala pozive.</string>
+    <string name="enable_blocking">Omogući blokiranje poziva</string>
+    <string name="notify_label">Obavesti kada je poziv blokiran</string>
+    <string name="country_label">Zemlja</string>
+    <string name="number_prefix_label">Prefiks broja (opciono)</string>
+    <string name="add">Dodaj</string>
+    <string name="remove">Ukloni</string>
+    <string name="no_prefixes">Nema prefiksa. Dodajte jedan iznad da biste počeli sa blokiranjem.</string>
+    <string name="back">Nazad</string>
+    <string name="no_calls_for_prefix">Još nema blokiranih poziva za ovaj prefiks.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d poziv blokiran</item>
+        <item quantity="few">%d poziva blokirana</item>
+        <item quantity="other">%d poziva blokirano</item>
+    </plurals>
+</resources>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">Cuộc gọi bị chặn</string>
+    <string name="call_blocked">Cuộc gọi đã bị chặn</string>
+    <string name="unknown_number">Số không xác định</string>
+    <string name="blocking_on">Chặn cuộc gọi đang bật</string>
+    <string name="blocking_off_title">Chặn cuộc gọi đang tắt</string>
+    <string name="blocking_off_message">CallBloker phải là ứng dụng sàng lọc cuộc gọi của bạn để chặn cuộc gọi.</string>
+    <string name="enable_blocking">Bật chặn cuộc gọi</string>
+    <string name="notify_label">Thông báo khi có cuộc gọi bị chặn</string>
+    <string name="country_label">Quốc gia</string>
+    <string name="number_prefix_label">Đầu số (tùy chọn)</string>
+    <string name="add">Thêm</string>
+    <string name="remove">Xóa</string>
+    <string name="no_prefixes">Chưa có đầu số nào. Thêm một đầu số ở trên để bắt đầu chặn.</string>
+    <string name="back">Quay lại</string>
+    <string name="no_calls_for_prefix">Chưa có cuộc gọi nào bị chặn cho đầu số này.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">%d cuộc gọi đã bị chặn</item>
+    </plurals>
+</resources>

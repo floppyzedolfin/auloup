@@ -1,0 +1,23 @@
+<resources>
+    <string name="channel_blocked_calls">Apeluri blocate</string>
+    <string name="call_blocked">Apel blocat</string>
+    <string name="unknown_number">Număr necunoscut</string>
+    <string name="blocking_on">Blocarea apelurilor este activă</string>
+    <string name="blocking_off_title">Blocarea apelurilor este dezactivată</string>
+    <string name="blocking_off_message">CallBloker trebuie să fie aplicația ta de filtrare a apelurilor pentru a bloca apelurile.</string>
+    <string name="enable_blocking">Activează blocarea apelurilor</string>
+    <string name="notify_label">Notifică când un apel este blocat</string>
+    <string name="country_label">Țară</string>
+    <string name="number_prefix_label">Prefix număr (opțional)</string>
+    <string name="add">Adaugă</string>
+    <string name="remove">Elimină</string>
+    <string name="no_prefixes">Niciun prefix încă. Adaugă unul mai sus pentru a începe blocarea.</string>
+    <string name="back">Înapoi</string>
+    <string name="no_calls_for_prefix">Niciun apel blocat pentru acest prefix încă.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d apel blocat</item>
+        <item quantity="few">%d apeluri blocate</item>
+        <item quantity="other">%d de apeluri blocate</item>
+    </plurals>
+</resources>

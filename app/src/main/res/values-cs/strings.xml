@@ -1,0 +1,24 @@
+<resources>
+    <string name="channel_blocked_calls">Blokovaná volání</string>
+    <string name="call_blocked">Hovor zablokován</string>
+    <string name="unknown_number">Neznámé číslo</string>
+    <string name="blocking_on">Blokování hovorů je zapnuto</string>
+    <string name="blocking_off_title">Blokování hovorů je vypnuto</string>
+    <string name="blocking_off_message">Aby mohl CallBloker blokovat hovory, musí být nastaven jako aplikace pro prověřování hovorů.</string>
+    <string name="enable_blocking">Zapnout blokování hovorů</string>
+    <string name="notify_label">Upozornit při zablokování hovoru</string>
+    <string name="country_label">Země</string>
+    <string name="number_prefix_label">Předčíslí (volitelné)</string>
+    <string name="add">Přidat</string>
+    <string name="remove">Odebrat</string>
+    <string name="no_prefixes">Zatím žádná předčíslí. Přidejte jedno výše a začněte blokovat.</string>
+    <string name="back">Zpět</string>
+    <string name="no_calls_for_prefix">Pro toto předčíslí zatím nebyly blokovány žádné hovory.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d hovor zablokován</item>
+        <item quantity="few">%d hovory zablokovány</item>
+        <item quantity="many">%d hovoru zablokováno</item>
+        <item quantity="other">%d hovorů zablokováno</item>
+    </plurals>
+</resources>

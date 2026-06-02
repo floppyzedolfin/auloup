@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Amakholi avinjelwe</string>
+    <string name="call_blocked">Ikholi ivinjelwe</string>
+    <string name="unknown_number">Inombolo engaziwa</string>
+    <string name="blocking_on">Ukuvinjwa kwezikholi kuvuliwe</string>
+    <string name="blocking_off_title">Ukuvinjwa kwezikholi kuvaliwe</string>
+    <string name="blocking_off_message">I-CallBloker kufanele ibe uhlelo lwakho lokuhlola izikholi ukuze ivinjele izikholi.</string>
+    <string name="enable_blocking">Nika amandla ukuvinjwa kwezikholi</string>
+    <string name="notify_label">Azisa uma ikholi ivisnjelwe</string>
+    <string name="country_label">Izwe</string>
+    <string name="number_prefix_label">Isiqalo senombolo (okukhethekile)</string>
+    <string name="add">Engeza</string>
+    <string name="remove">Susa</string>
+    <string name="no_prefixes">Awekho amasiqalo okwamanje. Engeza elinye ngenhla ukuze uqale ukuvinjela.</string>
+    <string name="back">Emuva</string>
+    <string name="no_calls_for_prefix">Awekho amakholi avinjelwe ale siqalo okwamanje.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d ikholi ivinjelwe</item>
+        <item quantity="other">%d amakholi avinjelwe</item>
+    </plurals>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Panggilan disekat</string>
+    <string name="call_blocked">Panggilan disekat</string>
+    <string name="unknown_number">Nombor tidak dikenali</string>
+    <string name="blocking_on">Sekatan panggilan diaktifkan</string>
+    <string name="blocking_off_title">Sekatan panggilan tidak aktif</string>
+    <string name="blocking_off_message">CallBloker mesti ditetapkan sebagai aplikasi tapisan panggilan anda untuk menyekat panggilan.</string>
+    <string name="enable_blocking">Aktifkan sekatan panggilan</string>
+    <string name="notify_label">Beritahu apabila panggilan disekat</string>
+    <string name="country_label">Negara</string>
+    <string name="number_prefix_label">Awalan nombor (pilihan)</string>
+    <string name="add">Tambah</string>
+    <string name="remove">Buang</string>
+    <string name="no_prefixes">Tiada awalan lagi. Tambah satu di atas untuk mula menyekat.</string>
+    <string name="back">Kembali</string>
+    <string name="no_calls_for_prefix">Tiada panggilan disekat untuk awalan ini lagi.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d panggilan disekat</item>
+        <item quantity="other">%d panggilan disekat</item>
+    </plurals>
+</resources>

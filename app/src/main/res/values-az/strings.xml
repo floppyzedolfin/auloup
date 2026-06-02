@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Bloklanmış zənglər</string>
+    <string name="call_blocked">Zəng bloklandı</string>
+    <string name="unknown_number">Naməlum nömrə</string>
+    <string name="blocking_on">Zəng bloklaması aktivdir</string>
+    <string name="blocking_off_title">Zəng bloklaması deaktivdir</string>
+    <string name="blocking_off_message">Zəngləri bloklamaq üçün CallBloker tətbiqiniz zəng yoxlama tətbiqi olmalıdır.</string>
+    <string name="enable_blocking">Zəng bloklamasını aktiv et</string>
+    <string name="notify_label">Zəng bloklandıqda bildiriş göndər</string>
+    <string name="country_label">Ölkə</string>
+    <string name="number_prefix_label">Nömrə prefiksi (isteğe bağlı)</string>
+    <string name="add">Əlavə et</string>
+    <string name="remove">Sil</string>
+    <string name="no_prefixes">Hələ heç bir prefiks yoxdur. Bloklamağa başlamaq üçün yuxarıya bir prefiks əlavə edin.</string>
+    <string name="back">Geri</string>
+    <string name="no_calls_for_prefix">Bu prefiks üçün hələ heç bir zəng bloklanmayıb.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d zəng bloklandı</item>
+        <item quantity="other">%d zəng bloklandı</item>
+    </plurals>
+</resources>

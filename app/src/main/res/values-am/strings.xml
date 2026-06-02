@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">የታገዱ ጥሪዎች</string>
+    <string name="call_blocked">ጥሪ ታግዷል</string>
+    <string name="unknown_number">ያልታወቀ ቁጥር</string>
+    <string name="blocking_on">የጥሪ ማገጃ ተነቅሏል</string>
+    <string name="blocking_off_title">የጥሪ ማገጃ ጠፍቷል</string>
+    <string name="blocking_off_message">CallBloker ጥሪዎችን ለማገድ የጥሪ ማጣሪያ መተግበሪያዎ መሆን አለበት።</string>
+    <string name="enable_blocking">የጥሪ ማገጃ አንቃ</string>
+    <string name="notify_label">ጥሪ ሲታገድ አሳውቅ</string>
+    <string name="country_label">ሀገር</string>
+    <string name="number_prefix_label">የቁጥር ቅድመ-ቅጥያ (አማራጭ)</string>
+    <string name="add">ጨምር</string>
+    <string name="remove">አስወግድ</string>
+    <string name="no_prefixes">እስካሁን ምንም ቅድመ-ቅጥያ የለም። መጀመር ለመጀመር ከላይ አንዱን ጨምር።</string>
+    <string name="back">ተመለስ</string>
+    <string name="no_calls_for_prefix">እስካሁን ለዚህ ቅድመ-ቅጥያ የታገደ ጥሪ የለም።</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d ጥሪ ታግዷል</item>
+        <item quantity="other">%d ጥሪዎች ታግደዋል</item>
+    </plurals>
+</resources>

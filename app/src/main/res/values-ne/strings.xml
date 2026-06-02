@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">रोकिएका कलहरू</string>
+    <string name="call_blocked">कल रोकियो</string>
+    <string name="unknown_number">अज्ञात नम्बर</string>
+    <string name="blocking_on">कल ब्लकिङ सक्रिय छ</string>
+    <string name="blocking_off_title">कल ब्लकिङ निष्क्रिय छ</string>
+    <string name="blocking_off_message">कलहरू ब्लक गर्न CallBloker तपाईंको कल-स्क्रिनिङ एप हुनुपर्छ।</string>
+    <string name="enable_blocking">कल ब्लकिङ सक्षम गर्नुहोस्</string>
+    <string name="notify_label">कल ब्लक हुँदा सूचना दिनुहोस्</string>
+    <string name="country_label">देश</string>
+    <string name="number_prefix_label">नम्बर उपसर्ग (वैकल्पिक)</string>
+    <string name="add">थप्नुहोस्</string>
+    <string name="remove">हटाउनुहोस्</string>
+    <string name="no_prefixes">अहिले कुनै उपसर्ग छैन। ब्लक गर्न सुरु गर्न माथि एउटा थप्नुहोस्।</string>
+    <string name="back">पछाडि</string>
+    <string name="no_calls_for_prefix">यो उपसर्गका लागि अहिलेसम्म कुनै कल ब्लक भएको छैन।</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d कल ब्लक भयो</item>
+        <item quantity="other">%d कलहरू ब्लक भए</item>
+    </plurals>
+</resources>

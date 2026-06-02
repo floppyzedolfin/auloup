@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">Panggilan diblokir</string>
+    <string name="call_blocked">Panggilan diblokir</string>
+    <string name="unknown_number">Nomor tidak dikenal</string>
+    <string name="blocking_on">Pemblokiran panggilan aktif</string>
+    <string name="blocking_off_title">Pemblokiran panggilan tidak aktif</string>
+    <string name="blocking_off_message">CallBloker harus dijadikan aplikasi penyaring panggilan Anda untuk memblokir panggilan.</string>
+    <string name="enable_blocking">Aktifkan pemblokiran panggilan</string>
+    <string name="notify_label">Beri tahu saat panggilan diblokir</string>
+    <string name="country_label">Negara</string>
+    <string name="number_prefix_label">Awalan nomor (opsional)</string>
+    <string name="add">Tambah</string>
+    <string name="remove">Hapus</string>
+    <string name="no_prefixes">Belum ada awalan. Tambahkan satu di atas untuk mulai memblokir.</string>
+    <string name="back">Kembali</string>
+    <string name="no_calls_for_prefix">Belum ada panggilan yang diblokir untuk awalan ini.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">%d panggilan diblokir</item>
+    </plurals>
+</resources>

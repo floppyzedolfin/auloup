@@ -1,0 +1,24 @@
+<resources>
+    <string name="channel_blocked_calls">Zablokowane połączenia</string>
+    <string name="call_blocked">Połączenie zablokowane</string>
+    <string name="unknown_number">Nieznany numer</string>
+    <string name="blocking_on">Blokowanie połączeń jest włączone</string>
+    <string name="blocking_off_title">Blokowanie połączeń jest wyłączone</string>
+    <string name="blocking_off_message">CallBloker musi być ustawiony jako aplikacja do filtrowania połączeń, aby blokować połączenia.</string>
+    <string name="enable_blocking">Włącz blokowanie połączeń</string>
+    <string name="notify_label">Powiadamiaj o zablokowaniu połączenia</string>
+    <string name="country_label">Kraj</string>
+    <string name="number_prefix_label">Prefiks numeru (opcjonalnie)</string>
+    <string name="add">Dodaj</string>
+    <string name="remove">Usuń</string>
+    <string name="no_prefixes">Brak prefiksów. Dodaj jeden powyżej, aby rozpocząć blokowanie.</string>
+    <string name="back">Wstecz</string>
+    <string name="no_calls_for_prefix">Brak zablokowanych połączeń dla tego prefiksu.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d połączenie zablokowane</item>
+        <item quantity="few">%d połączenia zablokowane</item>
+        <item quantity="many">%d połączeń zablokowanych</item>
+        <item quantity="other">%d połączenia zablokowane</item>
+    </plurals>
+</resources>

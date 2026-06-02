@@ -1,0 +1,24 @@
+<resources>
+    <string name="channel_blocked_calls">שיחות חסומות</string>
+    <string name="call_blocked">שיחה נחסמה</string>
+    <string name="unknown_number">מספר לא מוכר</string>
+    <string name="blocking_on">חסימת שיחות פעילה</string>
+    <string name="blocking_off_title">חסימת שיחות כבויה</string>
+    <string name="blocking_off_message">‏CallBloker חייב להיות אפליקציית סינון השיחות שלך כדי לחסום שיחות.</string>
+    <string name="enable_blocking">הפעל חסימת שיחות</string>
+    <string name="notify_label">הודע כאשר שיחה נחסמת</string>
+    <string name="country_label">מדינה</string>
+    <string name="number_prefix_label">קידומת מספר (אופציונלי)</string>
+    <string name="add">הוסף</string>
+    <string name="remove">הסר</string>
+    <string name="no_prefixes">אין קידומות עדיין. הוסף אחת למעלה כדי להתחיל לחסום.</string>
+    <string name="back">חזרה</string>
+    <string name="no_calls_for_prefix">אין שיחות חסומות לקידומת זו עדיין.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">שיחה אחת נחסמה</item>
+        <item quantity="two">%d שיחות נחסמו</item>
+        <item quantity="many">%d שיחות נחסמו</item>
+        <item quantity="other">%d שיחות נחסמו</item>
+    </plurals>
+</resources>

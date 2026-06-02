@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">ပိတ်ဆို့ထားသောခေါ်ဆိုမှုများ</string>
+    <string name="call_blocked">ခေါ်ဆိုမှုပိတ်ဆို့ထားသည်</string>
+    <string name="unknown_number">မသိသောနံပါတ်</string>
+    <string name="blocking_on">ခေါ်ဆိုမှုပိတ်ဆို့ခြင်း ဖွင့်ထားသည်</string>
+    <string name="blocking_off_title">ခေါ်ဆိုမှုပိတ်ဆို့ခြင်း ပိတ်ထားသည်</string>
+    <string name="blocking_off_message">CallBloker သည် ခေါ်ဆိုမှုများပိတ်ဆို့ရန် သင်၏ ခေါ်ဆိုမှုစစ်ဆေးရေးအက်ပ် ဖြစ်ရပါမည်။</string>
+    <string name="enable_blocking">ခေါ်ဆိုမှုပိတ်ဆို့ခြင်း ဖွင့်ပါ</string>
+    <string name="notify_label">ခေါ်ဆိုမှုပိတ်ဆို့သောအခါ အကြောင်းကြားပါ</string>
+    <string name="country_label">နိုင်ငံ</string>
+    <string name="number_prefix_label">နံပါတ်ရှေ့ဆက် (မဖြစ်မနေမဟုတ်)</string>
+    <string name="add">ထည့်သွင်းပါ</string>
+    <string name="remove">ဖယ်ရှားပါ</string>
+    <string name="no_prefixes">ရှေ့ဆက်မရှိသေးပါ။ ပိတ်ဆို့ခြင်းစတင်ရန် အထက်တွင် တစ်ခုထည့်ပါ။</string>
+    <string name="back">နောက်သို့</string>
+    <string name="no_calls_for_prefix">ဤရှေ့ဆက်အတွက် ပိတ်ဆို့ထားသောခေါ်ဆိုမှုမရှိသေးပါ။</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">%d ခေါ်ဆိုမှု ပိတ်ဆို့ထားသည်</item>
+    </plurals>
+</resources>

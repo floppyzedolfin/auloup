@@ -1,0 +1,24 @@
+<resources>
+    <string name="channel_blocked_calls">Užblokuoti skambučiai</string>
+    <string name="call_blocked">Skambutis užblokuotas</string>
+    <string name="unknown_number">Nežinomas numeris</string>
+    <string name="blocking_on">Skambučių blokavimas įjungtas</string>
+    <string name="blocking_off_title">Skambučių blokavimas išjungtas</string>
+    <string name="blocking_off_message">Kad blokuotų skambučius, CallBloker turi būti nustatytas kaip skambučių tikrinimo programa.</string>
+    <string name="enable_blocking">Įjungti skambučių blokavimą</string>
+    <string name="notify_label">Pranešti, kai skambutis užblokuojamas</string>
+    <string name="country_label">Šalis</string>
+    <string name="number_prefix_label">Numerio prefiksas (neprivaloma)</string>
+    <string name="add">Pridėti</string>
+    <string name="remove">Šalinti</string>
+    <string name="no_prefixes">Prefiksų dar nėra. Pridėkite vieną aukščiau, kad pradėtumėte blokuoti.</string>
+    <string name="back">Atgal</string>
+    <string name="no_calls_for_prefix">Šiam prefiksui dar nėra užblokuotų skambučių.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d skambutis užblokuotas</item>
+        <item quantity="few">%d skambučiai užblokuoti</item>
+        <item quantity="many">%d skambučio užblokuota</item>
+        <item quantity="other">%d skambučių užblokuota</item>
+    </plurals>
+</resources>

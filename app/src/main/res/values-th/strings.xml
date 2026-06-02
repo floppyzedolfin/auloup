@@ -1,0 +1,21 @@
+<resources>
+    <string name="channel_blocked_calls">สายที่ถูกบล็อก</string>
+    <string name="call_blocked">สายถูกบล็อกแล้ว</string>
+    <string name="unknown_number">หมายเลขไม่รู้จัก</string>
+    <string name="blocking_on">การบล็อกสายเปิดอยู่</string>
+    <string name="blocking_off_title">การบล็อกสายปิดอยู่</string>
+    <string name="blocking_off_message">CallBloker ต้องเป็นแอปคัดกรองสายของคุณเพื่อบล็อกสาย</string>
+    <string name="enable_blocking">เปิดใช้การบล็อกสาย</string>
+    <string name="notify_label">แจ้งเตือนเมื่อมีสายถูกบล็อก</string>
+    <string name="country_label">ประเทศ</string>
+    <string name="number_prefix_label">รหัสนำหน้าหมายเลข (ไม่บังคับ)</string>
+    <string name="add">เพิ่ม</string>
+    <string name="remove">ลบ</string>
+    <string name="no_prefixes">ยังไม่มีรหัสนำหน้า เพิ่มรหัสด้านบนเพื่อเริ่มบล็อก</string>
+    <string name="back">ย้อนกลับ</string>
+    <string name="no_calls_for_prefix">ยังไม่มีสายที่ถูกบล็อกสำหรับรหัสนำหน้านี้</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="other">บล็อก %d สาย</item>
+    </plurals>
+</resources>

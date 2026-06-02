@@ -1,0 +1,24 @@
+<resources>
+    <string name="channel_blocked_calls">Заблокированные звонки</string>
+    <string name="call_blocked">Звонок заблокирован</string>
+    <string name="unknown_number">Неизвестный номер</string>
+    <string name="blocking_on">Блокировка звонков включена</string>
+    <string name="blocking_off_title">Блокировка звонков отключена</string>
+    <string name="blocking_off_message">CallBloker должен быть выбран как приложение для проверки звонков, чтобы блокировать их.</string>
+    <string name="enable_blocking">Включить блокировку звонков</string>
+    <string name="notify_label">Уведомлять при блокировке звонка</string>
+    <string name="country_label">Страна</string>
+    <string name="number_prefix_label">Префикс номера (необязательно)</string>
+    <string name="add">Добавить</string>
+    <string name="remove">Удалить</string>
+    <string name="no_prefixes">Префиксов пока нет. Добавьте один выше, чтобы начать блокировку.</string>
+    <string name="back">Назад</string>
+    <string name="no_calls_for_prefix">Для этого префикса звонков ещё не заблокировано.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d звонок заблокирован</item>
+        <item quantity="few">%d звонка заблокировано</item>
+        <item quantity="many">%d звонков заблокировано</item>
+        <item quantity="other">%d звонка заблокировано</item>
+    </plurals>
+</resources>

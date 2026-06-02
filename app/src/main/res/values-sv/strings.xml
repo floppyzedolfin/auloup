@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Blockerade samtal</string>
+    <string name="call_blocked">Samtal blockerat</string>
+    <string name="unknown_number">Okänt nummer</string>
+    <string name="blocking_on">Samtalsblockning är aktiverad</string>
+    <string name="blocking_off_title">Samtalsblockning är inaktiverad</string>
+    <string name="blocking_off_message">CallBloker måste vara din samtalsgranskningsapp för att blockera samtal.</string>
+    <string name="enable_blocking">Aktivera samtalsblockning</string>
+    <string name="notify_label">Meddela när ett samtal blockeras</string>
+    <string name="country_label">Land</string>
+    <string name="number_prefix_label">Nummerprefix (valfritt)</string>
+    <string name="add">Lägg till</string>
+    <string name="remove">Ta bort</string>
+    <string name="no_prefixes">Inga prefix ännu. Lägg till ett ovan för att börja blockera.</string>
+    <string name="back">Tillbaka</string>
+    <string name="no_calls_for_prefix">Inga samtal har blockerats för det här prefixet ännu.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d samtal blockerat</item>
+        <item quantity="other">%d samtal blockerade</item>
+    </plurals>
+</resources>

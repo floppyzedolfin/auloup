@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">අවහිර කළ ඇමතුම්</string>
+    <string name="call_blocked">ඇමතුම අවහිර කරන ලදී</string>
+    <string name="unknown_number">නොදන්නා අංකය</string>
+    <string name="blocking_on">ඇමතුම් අවහිර කිරීම සක්‍රියයි</string>
+    <string name="blocking_off_title">ඇමතුම් අවහිර කිරීම අක්‍රියයි</string>
+    <string name="blocking_off_message">ඇමතුම් අවහිර කිරීමට CallBloker ඔබගේ ඇමතුම් පෙරහන් යෙදුම විය යුතුය.</string>
+    <string name="enable_blocking">ඇමතුම් අවහිර කිරීම සක්‍රිය කරන්න</string>
+    <string name="notify_label">ඇමතුමක් අවහිර වූ විට දැනුම් දෙන්න</string>
+    <string name="country_label">රට</string>
+    <string name="number_prefix_label">අංක උපසර්ගය (විකල්ප)</string>
+    <string name="add">එකතු කරන්න</string>
+    <string name="remove">ඉවත් කරන්න</string>
+    <string name="no_prefixes">තවම උපසර්ග නොමැත. අවහිර කිරීම ආරම්භ කිරීමට ඉහතින් එකක් එකතු කරන්න.</string>
+    <string name="back">ආපසු</string>
+    <string name="no_calls_for_prefix">මෙම උපසර්ගය සඳහා තවම ඇමතුමක් අවහිර කර නොමැත.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">ඇමතුම් %d ක් අවහිර කරන ලදී</item>
+        <item quantity="other">ඇමතුම් %d ක් අවහිර කරන ලදී</item>
+    </plurals>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಗಳು</string>
+    <string name="call_blocked">ಕರೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
+    <string name="unknown_number">ಅಪರಿಚಿತ ಸಂಖ್ಯೆ</string>
+    <string name="blocking_on">ಕರೆ ನಿರ್ಬಂಧನೆ ಆನ್ ಆಗಿದೆ</string>
+    <string name="blocking_off_title">ಕರೆ ನಿರ್ಬಂಧನೆ ಆಫ್ ಆಗಿದೆ</string>
+    <string name="blocking_off_message">ಕರೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲು CallBloker ನಿಮ್ಮ ಕರೆ-ಸ್ಕ್ರೀನಿಂಗ್ ಅಪ್ಲಿಕೇಶನ್ ಆಗಿರಬೇಕು.</string>
+    <string name="enable_blocking">ಕರೆ ನಿರ್ಬಂಧನೆ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string name="notify_label">ಕರೆ ನಿರ್ಬಂಧಿಸಿದಾಗ ತಿಳಿಸಿ</string>
+    <string name="country_label">ದೇಶ</string>
+    <string name="number_prefix_label">ಸಂಖ್ಯೆ ಪೂರ್ವಪ್ರತ್ಯಯ (ಐಚ್ಛಿಕ)</string>
+    <string name="add">ಸೇರಿಸಿ</string>
+    <string name="remove">ತೆಗೆದುಹಾಕಿ</string>
+    <string name="no_prefixes">ಇನ್ನೂ ಯಾವುದೇ ಪೂರ್ವಪ್ರತ್ಯಯಗಳಿಲ್ಲ. ನಿರ್ಬಂಧನೆ ಪ್ರಾರಂಭಿಸಲು ಮೇಲೆ ಒಂದನ್ನು ಸೇರಿಸಿ.</string>
+    <string name="back">ಹಿಂದೆ</string>
+    <string name="no_calls_for_prefix">ಈ ಪೂರ್ವಪ್ರತ್ಯಯಕ್ಕೆ ಇನ್ನೂ ಯಾವುದೇ ಕರೆಗಳು ನಿರ್ಬಂಧಿಸಲ್ಪಟ್ಟಿಲ್ಲ.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d ಕರೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</item>
+        <item quantity="other">%d ಕರೆಗಳು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</item>
+    </plurals>
+</resources>

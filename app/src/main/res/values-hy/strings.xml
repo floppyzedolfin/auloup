@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Արգելափակված զանգեր</string>
+    <string name="call_blocked">Զանգն արգելափակված է</string>
+    <string name="unknown_number">Անհայտ համար</string>
+    <string name="blocking_on">Զանգերի արգելափակումը միացված է</string>
+    <string name="blocking_off_title">Զանգերի արգելափակումն անջատված է</string>
+    <string name="blocking_off_message">CallBloker-ը պետք է լինի ձեր զանգերի ստուգման հավելվածը՝ զանգերն արգելափակելու համար։</string>
+    <string name="enable_blocking">Միացնել զանգերի արգելափակումը</string>
+    <string name="notify_label">Ծանուցել, երբ զանգ արգելափակվի</string>
+    <string name="country_label">Երկիր</string>
+    <string name="number_prefix_label">Համարի նախածանց (ըստ ցանկության)</string>
+    <string name="add">Ավելացնել</string>
+    <string name="remove">Հեռացնել</string>
+    <string name="no_prefixes">Դեռ նախածանցեր չկան։ Ավելացրեք մեկն այստեղ՝ արգելափակումը սկսելու համար։</string>
+    <string name="back">Հետ</string>
+    <string name="no_calls_for_prefix">Այս նախածանցի համար դեռ արգելափակված զանգ չկա։</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d զանգ արգելափակված է</item>
+        <item quantity="other">%d զանգ արգելափակված է</item>
+    </plurals>
+</resources>

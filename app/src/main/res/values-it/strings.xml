@@ -1,0 +1,22 @@
+<resources>
+    <string name="channel_blocked_calls">Chiamate bloccate</string>
+    <string name="call_blocked">Chiamata bloccata</string>
+    <string name="unknown_number">Numero sconosciuto</string>
+    <string name="blocking_on">Blocco chiamate attivo</string>
+    <string name="blocking_off_title">Blocco chiamate disattivo</string>
+    <string name="blocking_off_message">CallBloker deve essere la tua app di screening delle chiamate per bloccarle.</string>
+    <string name="enable_blocking">Attiva blocco chiamate</string>
+    <string name="notify_label">Notifica quando una chiamata viene bloccata</string>
+    <string name="country_label">Paese</string>
+    <string name="number_prefix_label">Prefisso numero (facoltativo)</string>
+    <string name="add">Aggiungi</string>
+    <string name="remove">Rimuovi</string>
+    <string name="no_prefixes">Nessun prefisso ancora. Aggiungine uno qui sopra per iniziare a bloccare.</string>
+    <string name="back">Indietro</string>
+    <string name="no_calls_for_prefix">Nessuna chiamata bloccata per questo prefisso ancora.</string>
+
+    <plurals name="calls_blocked">
+        <item quantity="one">%d chiamata bloccata</item>
+        <item quantity="other">%d chiamate bloccate</item>
+    </plurals>
+</resources>
