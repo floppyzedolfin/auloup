@@ -8,7 +8,7 @@
     <string name="enable_blocking">કૉલ અવરોધ સક્ષમ કરો</string>
     <string name="notify_label">કૉલ અવરોધિત થાય ત્યારે સૂચના આપો</string>
     <string name="country_label">દેશ</string>
-    <string name="number_prefix_label">નંબર પ્રિફિક્સ (વૈકલ્પિક)</string>
+    <string name="number_prefix_label">નંબર પ્રિફિક્સ</string>
     <string name="add">ઉમેરો</string>
     <string name="remove">દૂર કરો</string>
     <string name="no_prefixes">હજી કોઈ પ્રિફિક્સ નથી. અવરોધ શરૂ કરવા ઉપર ઉમેરો.</string>

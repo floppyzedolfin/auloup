@@ -8,7 +8,7 @@
     <string name="enable_blocking">통화 차단 활성화</string>
     <string name="notify_label">통화 차단 시 알림</string>
     <string name="country_label">국가</string>
-    <string name="number_prefix_label">번호 앞자리 (선택 사항)</string>
+    <string name="number_prefix_label">번호 앞자리</string>
     <string name="add">추가</string>
     <string name="remove">삭제</string>
     <string name="no_prefixes">등록된 앞자리가 없습니다. 위에서 추가하여 차단을 시작하세요.</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Activa el bloqueig de trucades</string>
     <string name="notify_label">Notifica quan es bloquegi una trucada</string>
     <string name="country_label">País</string>
-    <string name="number_prefix_label">Prefix del número (opcional)</string>
+    <string name="number_prefix_label">Prefix del número</string>
     <string name="add">Afegeix</string>
     <string name="remove">Elimina</string>
     <string name="no_prefixes">Encara no hi ha cap prefix. Afegiu-ne un a dalt per començar a bloquejar.</string>

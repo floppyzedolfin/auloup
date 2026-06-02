@@ -8,7 +8,7 @@
     <string name="enable_blocking">ခေါ်ဆိုမှုပိတ်ဆို့ခြင်း ဖွင့်ပါ</string>
     <string name="notify_label">ခေါ်ဆိုမှုပိတ်ဆို့သောအခါ အကြောင်းကြားပါ</string>
     <string name="country_label">နိုင်ငံ</string>
-    <string name="number_prefix_label">နံပါတ်ရှေ့ဆက် (မဖြစ်မနေမဟုတ်)</string>
+    <string name="number_prefix_label">နံပါတ်ရှေ့ဆက်</string>
     <string name="add">ထည့်သွင်းပါ</string>
     <string name="remove">ဖယ်ရှားပါ</string>
     <string name="no_prefixes">ရှေ့ဆက်မရှိသေးပါ။ ပိတ်ဆို့ခြင်းစတင်ရန် အထက်တွင် တစ်ခုထည့်ပါ။</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktifkan sekatan panggilan</string>
     <string name="notify_label">Beritahu apabila panggilan disekat</string>
     <string name="country_label">Negara</string>
-    <string name="number_prefix_label">Awalan nombor (pilihan)</string>
+    <string name="number_prefix_label">Awalan nombor</string>
     <string name="add">Tambah</string>
     <string name="remove">Buang</string>
     <string name="no_prefixes">Tiada awalan lagi. Tambah satu di atas untuk mula menyekat.</string>

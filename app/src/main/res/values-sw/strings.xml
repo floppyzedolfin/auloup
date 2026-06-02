@@ -8,7 +8,7 @@
     <string name="enable_blocking">Washa kuzuia simu</string>
     <string name="notify_label">Arifu simu inapozuiwa</string>
     <string name="country_label">Nchi</string>
-    <string name="number_prefix_label">Kiambishi cha nambari (si lazima)</string>
+    <string name="number_prefix_label">Kiambishi cha nambari</string>
     <string name="add">Ongeza</string>
     <string name="remove">Ondoa</string>
     <string name="no_prefixes">Hakuna viambishi bado. Ongeza moja hapo juu kuanza kuzuia.</string>

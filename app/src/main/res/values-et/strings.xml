@@ -8,7 +8,7 @@
     <string name="enable_blocking">Lülita kõnede blokeerimine sisse</string>
     <string name="notify_label">Teavita kõne blokeerimisel</string>
     <string name="country_label">Riik</string>
-    <string name="number_prefix_label">Numbri prefiks (valikuline)</string>
+    <string name="number_prefix_label">Numbri prefiks</string>
     <string name="add">Lisa</string>
     <string name="remove">Eemalda</string>
     <string name="no_prefixes">Prefikseid pole veel. Lisa üks ülal, et alustada blokeerimist.</string>

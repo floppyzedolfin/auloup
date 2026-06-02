@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktivizo bllokimin e telefonatave</string>
     <string name="notify_label">Njoftim kur bllokohet një telefonatë</string>
     <string name="country_label">Vendi</string>
-    <string name="number_prefix_label">Prefiksi i numrit (opsional)</string>
+    <string name="number_prefix_label">Prefiksi i numrit</string>
     <string name="add">Shto</string>
     <string name="remove">Hiq</string>
     <string name="no_prefixes">Asnjë prefiks ende. Shto një më lart për të filluar bllokimin.</string>

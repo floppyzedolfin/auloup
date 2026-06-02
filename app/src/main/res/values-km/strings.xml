@@ -8,7 +8,7 @@
     <string name="enable_blocking">បើកការទប់ស្កាត់ការហៅទូរសព្ទ</string>
     <string name="notify_label">ជូនដំណឹងនៅពេលការហៅទូរសព្ទត្រូវបានទប់ស្កាត់</string>
     <string name="country_label">ប្រទេស</string>
-    <string name="number_prefix_label">បុព្វបទលេខ (ស្រេចចិត្ត)</string>
+    <string name="number_prefix_label">បុព្វបទលេខ</string>
     <string name="add">បន្ថែម</string>
     <string name="remove">លុប</string>
     <string name="no_prefixes">មិនទាន់មានបុព្វបទទេ។ បន្ថែមមួយខាងលើដើម្បីចាប់ផ្តើមទប់ស្កាត់។</string>

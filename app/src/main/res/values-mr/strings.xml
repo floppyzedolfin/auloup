@@ -8,7 +8,7 @@
     <string name="enable_blocking">कॉल ब्लॉकिंग सक्षम करा</string>
     <string name="notify_label">कॉल ब्लॉक झाल्यावर सूचित करा</string>
     <string name="country_label">देश</string>
-    <string name="number_prefix_label">नंबर प्रीफिक्स (ऐच्छिक)</string>
+    <string name="number_prefix_label">नंबर प्रीफिक्स</string>
     <string name="add">जोडा</string>
     <string name="remove">काढा</string>
     <string name="no_prefixes">अद्याप कोणतेही प्रीफिक्स नाहीत. ब्लॉकिंग सुरू करण्यासाठी वर एक जोडा.</string>

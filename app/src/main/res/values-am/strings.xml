@@ -8,7 +8,7 @@
     <string name="enable_blocking">የጥሪ ማገጃ አንቃ</string>
     <string name="notify_label">ጥሪ ሲታገድ አሳውቅ</string>
     <string name="country_label">ሀገር</string>
-    <string name="number_prefix_label">የቁጥር ቅድመ-ቅጥያ (አማራጭ)</string>
+    <string name="number_prefix_label">የቁጥር ቅድመ-ቅጥያ</string>
     <string name="add">ጨምር</string>
     <string name="remove">አስወግድ</string>
     <string name="no_prefixes">እስካሁን ምንም ቅድመ-ቅጥያ የለም። መጀመር ለመጀመር ከላይ አንዱን ጨምር።</string>

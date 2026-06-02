@@ -8,7 +8,7 @@
     <string name="enable_blocking">Włącz blokowanie połączeń</string>
     <string name="notify_label">Powiadamiaj o zablokowaniu połączenia</string>
     <string name="country_label">Kraj</string>
-    <string name="number_prefix_label">Prefiks numeru (opcjonalnie)</string>
+    <string name="number_prefix_label">Prefiks numeru</string>
     <string name="add">Dodaj</string>
     <string name="remove">Usuń</string>
     <string name="no_prefixes">Brak prefiksów. Dodaj jeden powyżej, aby rozpocząć blokowanie.</string>

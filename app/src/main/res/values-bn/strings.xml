@@ -8,7 +8,7 @@
     <string name="enable_blocking">কল ব্লকিং চালু করুন</string>
     <string name="notify_label">কল ব্লক হলে জানান</string>
     <string name="country_label">দেশ</string>
-    <string name="number_prefix_label">নম্বর প্রিফিক্স (ঐচ্ছিক)</string>
+    <string name="number_prefix_label">নম্বর প্রিফিক্স</string>
     <string name="add">যোগ করুন</string>
     <string name="remove">সরিয়ে দিন</string>
     <string name="no_prefixes">এখনও কোনো প্রিফিক্স নেই। ব্লকিং শুরু করতে উপরে একটি যোগ করুন।</string>

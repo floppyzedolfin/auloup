@@ -81,19 +81,21 @@ class PrefixRepository(private val context: Context) {
     }
 
     /**
-     * Screens [number] against the stored prefixes. If it matches, records the
-     * call against the most specific (longest) matching prefix and reports that
-     * the call should be blocked, along with whether to notify.
+     * Screens a call against the stored prefixes. [internationalNumber] is the
+     * caller's number canonicalised to international form for matching, while
+     * [rawNumber] is what actually arrived (recorded in the history). If it
+     * matches, records the call against the most specific (longest) matching
+     * prefix and reports that the call should be blocked, plus whether to notify.
      */
-    suspend fun screenAndRecord(number: String, timeMillis: Long): ScreenResult {
+    suspend fun screenAndRecord(rawNumber: String, internationalNumber: String, timeMillis: Long): ScreenResult {
         val prefs = context.dataStore.data.first()
         val notify = prefs[notificationsKey] ?: true
-        val match = Prefixes.longestMatch(number, decodePrefixes(prefs[prefixesKey]))
+        val match = Prefixes.longestMatch(internationalNumber, decodePrefixes(prefs[prefixesKey]))
             ?: return ScreenResult(blocked = false, notify = notify)
 
         context.dataStore.edit { p ->
             val history = decodeHistory(p[historyKey]).toMutableList()
-            history.add(BlockedCall(match, number, timeMillis))
+            history.add(BlockedCall(match, rawNumber, timeMillis))
             p[historyKey] = encodeHistory(history)
         }
         return ScreenResult(blocked = true, notify = notify)

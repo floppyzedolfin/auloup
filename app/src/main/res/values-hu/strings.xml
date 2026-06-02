@@ -8,7 +8,7 @@
     <string name="enable_blocking">Hívásblokkolás engedélyezése</string>
     <string name="notify_label">Értesítés blokkolásnál</string>
     <string name="country_label">Ország</string>
-    <string name="number_prefix_label">Telefonszám-előtag (opcionális)</string>
+    <string name="number_prefix_label">Telefonszám-előtag</string>
     <string name="add">Hozzáadás</string>
     <string name="remove">Eltávolítás</string>
     <string name="no_prefixes">Még nincs előtag. Adj hozzá egyet fent a blokkolás megkezdéséhez.</string>

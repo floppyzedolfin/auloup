@@ -8,7 +8,7 @@
     <string name="enable_blocking">ზარების დაბლოკვის ჩართვა</string>
     <string name="notify_label">შეტყობინება ზარის დაბლოკვისას</string>
     <string name="country_label">ქვეყანა</string>
-    <string name="number_prefix_label">ნომრის პრეფიქსი (სურვილისამებრ)</string>
+    <string name="number_prefix_label">ნომრის პრეფიქსი</string>
     <string name="add">დამატება</string>
     <string name="remove">წაშლა</string>
     <string name="no_prefixes">პრეფიქსი არ არის. დაამატეთ ზემოთ დაბლოკვის დასაწყებად.</string>

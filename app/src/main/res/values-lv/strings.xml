@@ -8,7 +8,7 @@
     <string name="enable_blocking">Ieslēgt zvanu bloķēšanu</string>
     <string name="notify_label">Paziņot, kad zvans tiek bloķēts</string>
     <string name="country_label">Valsts</string>
-    <string name="number_prefix_label">Numura prefikss (neobligāti)</string>
+    <string name="number_prefix_label">Numura prefikss</string>
     <string name="add">Pievienot</string>
     <string name="remove">Noņemt</string>
     <string name="no_prefixes">Vēl nav prefiksu. Pievienojiet vienu augstāk, lai sāktu bloķēšanu.</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktivera samtalsblockning</string>
     <string name="notify_label">Meddela när ett samtal blockeras</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Nummerprefix (valfritt)</string>
+    <string name="number_prefix_label">Nummerprefix</string>
     <string name="add">Lägg till</string>
     <string name="remove">Ta bort</string>
     <string name="no_prefixes">Inga prefix ännu. Lägg till ett ovan för att börja blockera.</string>

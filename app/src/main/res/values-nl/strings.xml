@@ -8,7 +8,7 @@
     <string name="enable_blocking">Gespreksblokkering inschakelen</string>
     <string name="notify_label">Meldingen bij geblokkeerde gesprekken</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Nummerprefix (optioneel)</string>
+    <string name="number_prefix_label">Nummerprefix</string>
     <string name="add">Toevoegen</string>
     <string name="remove">Verwijderen</string>
     <string name="no_prefixes">Nog geen prefixen. Voeg er een toe om te beginnen met blokkeren.</string>

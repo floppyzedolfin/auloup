@@ -8,7 +8,7 @@
     <string name="enable_blocking">కాల్ బ్లాకింగ్ ప్రారంభించు</string>
     <string name="notify_label">కాల్ బ్లాక్ అయినప్పుడు తెలియజేయి</string>
     <string name="country_label">దేశం</string>
-    <string name="number_prefix_label">నంబర్ ప్రిఫిక్స్ (ఐచ్ఛికం)</string>
+    <string name="number_prefix_label">నంబర్ ప్రిఫిక్స్</string>
     <string name="add">జోడించు</string>
     <string name="remove">తొలగించు</string>
     <string name="no_prefixes">ఇంకా ప్రిఫిక్స్‌లు లేవు. బ్లాకింగ్ ప్రారంభించడానికి పైన ఒకదాన్ని జోడించు.</string>

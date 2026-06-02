@@ -8,7 +8,7 @@
     <string name="enable_blocking">הפעל חסימת שיחות</string>
     <string name="notify_label">הודע כאשר שיחה נחסמת</string>
     <string name="country_label">מדינה</string>
-    <string name="number_prefix_label">קידומת מספר (אופציונלי)</string>
+    <string name="number_prefix_label">קידומת מספר</string>
     <string name="add">הוסף</string>
     <string name="remove">הסר</string>
     <string name="no_prefixes">אין קידומות עדיין. הוסף אחת למעלה כדי להתחיל לחסום.</string>

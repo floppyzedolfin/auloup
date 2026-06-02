@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktiver anropsblokkering</string>
     <string name="notify_label">Varsle når et anrop blokkeres</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Nummerprefix (valgfritt)</string>
+    <string name="number_prefix_label">Nummerprefix</string>
     <string name="add">Legg til</string>
     <string name="remove">Fjern</string>
     <string name="no_prefixes">Ingen prefikser ennå. Legg til ett ovenfor for å begynne å blokkere.</string>

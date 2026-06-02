@@ -8,7 +8,7 @@
     <string name="enable_blocking">Nika amandla ukuvinjwa kwezikholi</string>
     <string name="notify_label">Azisa uma ikholi ivisnjelwe</string>
     <string name="country_label">Izwe</string>
-    <string name="number_prefix_label">Isiqalo senombolo (okukhethekile)</string>
+    <string name="number_prefix_label">Isiqalo senombolo</string>
     <string name="add">Engeza</string>
     <string name="remove">Susa</string>
     <string name="no_prefixes">Awekho amasiqalo okwamanje. Engeza elinye ngenhla ukuze uqale ukuvinjela.</string>

@@ -4,8 +4,12 @@ import android.content.Context
 import android.telephony.TelephonyManager
 import java.util.Locale
 
-/** A country: its ISO 3166-1 alpha-2 code and its ITU calling code. */
-data class Country(val iso: String, val dialCode: Int) {
+/**
+ * A country: its ISO 3166-1 alpha-2 code, its ITU calling code, and its
+ * national (trunk) prefix — the digit(s) dialed domestically that are dropped
+ * in international form (e.g. "0" for France: +33 1 60… == 01 60…).
+ */
+data class Country(val iso: String, val dialCode: Int, val trunkPrefix: String = "0") {
 
     /** Localized country name, e.g. "United States". */
     val displayName: String
@@ -79,12 +83,41 @@ object Countries {
         "ZA" to 27, "ZM" to 260, "ZW" to 263,
     )
 
-    private val fallback = Country("US", 1)
+    /**
+     * National (trunk) prefix per ISO code, for countries that differ from the
+     * worldwide default of "0". Best-effort, hand-curated; corrections welcome.
+     * - "1": NANP (US/Canada and +1 Caribbean territories)
+     * - "8": Russia, Kazakhstan, Belarus, Lithuania
+     * - "06": Hungary
+     * - "": no trunk prefix (the leading digit is part of the number)
+     */
+    private val trunkPrefixes: Map<String, String> = buildMap {
+        // NANP: trunk prefix "1"
+        for (iso in listOf(
+            "US", "CA", "AG", "AI", "AS", "BB", "BM", "BS", "DM", "DO", "GD", "GU",
+            "JM", "KN", "KY", "LC", "MP", "MS", "PR", "SX", "TC", "TT", "VC", "VG", "VI",
+        )) put(iso, "1")
+        // Trunk prefix "8"
+        for (iso in listOf("RU", "KZ", "BY", "LT")) put(iso, "8")
+        // No trunk prefix (closed numbering / leading digit kept)
+        for (iso in listOf(
+            "IT", "ES", "PT", "DK", "NO", "IS", "EE", "LV", "CZ", "PL", "MX", "HK", "SG",
+        )) put(iso, "")
+        // Multi-digit trunk
+        put("HU", "06")
+    }
+
+    private val fallback = Country("US", 1, "1")
+
+    private fun trunkFor(iso: String): String = trunkPrefixes[iso] ?: "0"
 
     /** All countries, sorted by localized name. */
-    fun all(): List<Country> = dialCodes.map { Country(it.key, it.value) }.sortedBy { it.displayName }
+    fun all(): List<Country> = dialCodes.map { Country(it.key, it.value, trunkFor(it.key)) }.sortedBy { it.displayName }
 
-    fun forIso(iso: String): Country? = dialCodes[iso.uppercase()]?.let { Country(iso.uppercase(), it) }
+    fun forIso(iso: String): Country? {
+        val code = iso.uppercase()
+        return dialCodes[code]?.let { Country(code, it, trunkFor(code)) }
+    }
 
     /**
      * Best-effort default country: the SIM/network region if known, otherwise

@@ -8,7 +8,7 @@
     <string name="enable_blocking">കോൾ ബ്ലോക്കിംഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="notify_label">കോൾ തടഞ്ഞാൽ അറിയിക്കുക</string>
     <string name="country_label">രാജ്യം</string>
-    <string name="number_prefix_label">നമ്പർ പ്രിഫിക്സ് (ഐച്ഛികം)</string>
+    <string name="number_prefix_label">നമ്പർ പ്രിഫിക്സ്</string>
     <string name="add">ചേർക്കുക</string>
     <string name="remove">നീക്കംചെയ്യുക</string>
     <string name="no_prefixes">ഇതുവരെ പ്രിഫിക്സുകൾ ഇല്ല. ബ്ലോക്കിംഗ് ആരംഭിക്കാൻ മുകളിൽ ഒന്ന് ചേർക്കുക.</string>

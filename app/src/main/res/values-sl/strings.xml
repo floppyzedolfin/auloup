@@ -8,7 +8,7 @@
     <string name="enable_blocking">Vklopi blokiranje klicev</string>
     <string name="notify_label">Obvesti ob blokiranem klicu</string>
     <string name="country_label">Država</string>
-    <string name="number_prefix_label">Predpona številke (neobvezno)</string>
+    <string name="number_prefix_label">Predpona številke</string>
     <string name="add">Dodaj</string>
     <string name="remove">Odstrani</string>
     <string name="no_prefixes">Še ni predpon. Dodajte eno zgoraj, da začnete blokirati.</string>

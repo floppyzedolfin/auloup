@@ -8,7 +8,7 @@
     <string name="enable_blocking">Arama engellemeyi etkinleştir</string>
     <string name="notify_label">Bir arama engellendiğinde bildir</string>
     <string name="country_label">Ülke</string>
-    <string name="number_prefix_label">Numara öneki (isteğe bağlı)</string>
+    <string name="number_prefix_label">Numara öneki</string>
     <string name="add">Ekle</string>
     <string name="remove">Kaldır</string>
     <string name="no_prefixes">Henüz önek yok. Engellemeye başlamak için yukarıya bir tane ekleyin.</string>

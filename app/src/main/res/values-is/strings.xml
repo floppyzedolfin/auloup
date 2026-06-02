@@ -8,7 +8,7 @@
     <string name="enable_blocking">Virkja lokun símtala</string>
     <string name="notify_label">Tilkynna þegar símtali er lokað</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Númeraforskeyti (valfrjálst)</string>
+    <string name="number_prefix_label">Númeraforskeyti</string>
     <string name="add">Bæta við</string>
     <string name="remove">Fjarlægja</string>
     <string name="no_prefixes">Engin forskeyti enn. Bættu við einu hér að ofan til að byrja að loka símtölum.</string>

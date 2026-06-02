@@ -8,7 +8,7 @@
     <string name="enable_blocking">Ota puheluiden esto käyttöön</string>
     <string name="notify_label">Ilmoita estetystä puhelusta</string>
     <string name="country_label">Maa</string>
-    <string name="number_prefix_label">Numeroprefiksi (valinnainen)</string>
+    <string name="number_prefix_label">Numeroprefiksi</string>
     <string name="add">Lisää</string>
     <string name="remove">Poista</string>
     <string name="no_prefixes">Ei prefiksejä vielä. Lisää yksi yllä aloittaaksesi eston.</string>

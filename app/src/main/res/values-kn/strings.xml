@@ -8,7 +8,7 @@
     <string name="enable_blocking">ಕರೆ ನಿರ್ಬಂಧನೆ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="notify_label">ಕರೆ ನಿರ್ಬಂಧಿಸಿದಾಗ ತಿಳಿಸಿ</string>
     <string name="country_label">ದೇಶ</string>
-    <string name="number_prefix_label">ಸಂಖ್ಯೆ ಪೂರ್ವಪ್ರತ್ಯಯ (ಐಚ್ಛಿಕ)</string>
+    <string name="number_prefix_label">ಸಂಖ್ಯೆ ಪೂರ್ವಪ್ರತ್ಯಯ</string>
     <string name="add">ಸೇರಿಸಿ</string>
     <string name="remove">ತೆಗೆದುಹಾಕಿ</string>
     <string name="no_prefixes">ಇನ್ನೂ ಯಾವುದೇ ಪೂರ್ವಪ್ರತ್ಯಯಗಳಿಲ್ಲ. ನಿರ್ಬಂಧನೆ ಪ್ರಾರಂಭಿಸಲು ಮೇಲೆ ಒಂದನ್ನು ಸೇರಿಸಿ.</string>

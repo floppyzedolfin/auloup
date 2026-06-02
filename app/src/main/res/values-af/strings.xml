@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktiveer oproepblokkering</string>
     <string name="notify_label">Stel my in kennis wanneer \'n oproep geblokkeer word</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Nommerprefiks (opsioneel)</string>
+    <string name="number_prefix_label">Nommerprefiks</string>
     <string name="add">Voeg by</string>
     <string name="remove">Verwyder</string>
     <string name="no_prefixes">Nog geen prefikse nie. Voeg een hierbo by om te begin blokkeer.</string>

@@ -11,7 +11,7 @@
     <string name="enable_blocking">Activer le blocage des appels</string>
     <string name="notify_label">Notifier lorsqu\'un appel est bloqué</string>
     <string name="country_label">Pays</string>
-    <string name="number_prefix_label">Préfixe de numéro (facultatif)</string>
+    <string name="number_prefix_label">Préfixe de numéro</string>
     <string name="add">Ajouter</string>
     <string name="remove">Supprimer</string>
     <string name="no_prefixes">Aucun préfixe pour l\'instant. Ajoutez-en un ci-dessus pour commencer à bloquer.</string>

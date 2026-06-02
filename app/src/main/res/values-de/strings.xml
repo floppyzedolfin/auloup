@@ -8,7 +8,7 @@
     <string name="enable_blocking">Anrufsperre aktivieren</string>
     <string name="notify_label">Benachrichtigen, wenn ein Anruf blockiert wird</string>
     <string name="country_label">Land</string>
-    <string name="number_prefix_label">Nummernpräfix (optional)</string>
+    <string name="number_prefix_label">Nummernpräfix</string>
     <string name="add">Hinzufügen</string>
     <string name="remove">Entfernen</string>
     <string name="no_prefixes">Noch keine Präfixe. Füge oben einen hinzu, um mit dem Blockieren zu beginnen.</string>

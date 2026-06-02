@@ -8,7 +8,7 @@
     <string name="enable_blocking">कल ब्लकिङ सक्षम गर्नुहोस्</string>
     <string name="notify_label">कल ब्लक हुँदा सूचना दिनुहोस्</string>
     <string name="country_label">देश</string>
-    <string name="number_prefix_label">नम्बर उपसर्ग (वैकल्पिक)</string>
+    <string name="number_prefix_label">नम्बर उपसर्ग</string>
     <string name="add">थप्नुहोस्</string>
     <string name="remove">हटाउनुहोस्</string>
     <string name="no_prefixes">अहिले कुनै उपसर्ग छैन। ब्लक गर्न सुरु गर्न माथि एउटा थप्नुहोस्।</string>

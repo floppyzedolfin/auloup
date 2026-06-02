@@ -21,8 +21,13 @@ class PrefixCallScreeningService : CallScreeningService() {
         }
 
         val number = callDetails.handle?.schemeSpecificPart.orEmpty()
+        // Canonicalise to international form using the device's region, so a
+        // national-format caller ID (e.g. "0160…") matches a stored "+33160".
+        val region = Countries.defaultFor(applicationContext)
+        val international = Prefixes.toInternational(number, region.dialCode, region.trunkPrefix) ?: number
         val result = runBlocking {
-            PrefixRepository(applicationContext).screenAndRecord(number, System.currentTimeMillis())
+            PrefixRepository(applicationContext)
+                .screenAndRecord(number, international, System.currentTimeMillis())
         }
 
         if (result.blocked && result.notify) {

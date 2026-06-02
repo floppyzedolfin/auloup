@@ -14,7 +14,10 @@ Free and open source (GPL-3.0). Android first; iOS is planned (see
 Early MVP:
 
 - Maintain a persistent list of blocked prefixes, chosen via a country picker
-  (flag + calling code) plus a national-prefix field.
+  (flag + calling code) plus a national-prefix field (at least 3 digits).
+- Understands each country's national (trunk) prefix, so entering `01 60` in
+  France is the same as `+33 1 60`, `07…` in the UK is `+44 7…`, and an incoming
+  call matches whether its caller ID arrives in national or international form.
 - Reject incoming calls that match — silently, with no entry in your call log.
 - Count how many calls each prefix has blocked. When several prefixes match a
   call, the most specific (longest) one is credited.

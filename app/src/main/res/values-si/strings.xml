@@ -8,7 +8,7 @@
     <string name="enable_blocking">ඇමතුම් අවහිර කිරීම සක්‍රිය කරන්න</string>
     <string name="notify_label">ඇමතුමක් අවහිර වූ විට දැනුම් දෙන්න</string>
     <string name="country_label">රට</string>
-    <string name="number_prefix_label">අංක උපසර්ගය (විකල්ප)</string>
+    <string name="number_prefix_label">අංක උපසර්ගය</string>
     <string name="add">එකතු කරන්න</string>
     <string name="remove">ඉවත් කරන්න</string>
     <string name="no_prefixes">තවම උපසර්ග නොමැත. අවහිර කිරීම ආරම්භ කිරීමට ඉහතින් එකක් එකතු කරන්න.</string>

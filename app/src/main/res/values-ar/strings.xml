@@ -8,7 +8,7 @@
     <string name="enable_blocking">تفعيل حظر المكالمات</string>
     <string name="notify_label">إشعار عند حظر مكالمة</string>
     <string name="country_label">الدولة</string>
-    <string name="number_prefix_label">بادئة الرقم (اختياري)</string>
+    <string name="number_prefix_label">بادئة الرقم</string>
     <string name="add">إضافة</string>
     <string name="remove">حذف</string>
     <string name="no_prefixes">لا توجد بادئات بعد. أضف بادئة أعلاه لبدء الحظر.</string>

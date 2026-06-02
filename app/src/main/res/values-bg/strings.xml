@@ -8,7 +8,7 @@
     <string name="enable_blocking">Активиране на блокирането</string>
     <string name="notify_label">Уведомявай при блокирано обаждане</string>
     <string name="country_label">Държава</string>
-    <string name="number_prefix_label">Префикс на номера (незадължително)</string>
+    <string name="number_prefix_label">Префикс на номера</string>
     <string name="add">Добавяне</string>
     <string name="remove">Премахване</string>
     <string name="no_prefixes">Няма добавени префикси. Добавете един по-горе, за да започнете блокирането.</string>

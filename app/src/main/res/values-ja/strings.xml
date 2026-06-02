@@ -8,7 +8,7 @@
     <string name="enable_blocking">着信ブロックを有効にする</string>
     <string name="notify_label">通話がブロックされたときに通知する</string>
     <string name="country_label">国</string>
-    <string name="number_prefix_label">番号プレフィックス（任意）</string>
+    <string name="number_prefix_label">番号プレフィックス</string>
     <string name="add">追加</string>
     <string name="remove">削除</string>
     <string name="no_prefixes">プレフィックスがまだありません。上に追加してブロックを開始してください。</string>

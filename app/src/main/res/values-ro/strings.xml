@@ -8,7 +8,7 @@
     <string name="enable_blocking">Activează blocarea apelurilor</string>
     <string name="notify_label">Notifică când un apel este blocat</string>
     <string name="country_label">Țară</string>
-    <string name="number_prefix_label">Prefix număr (opțional)</string>
+    <string name="number_prefix_label">Prefix număr</string>
     <string name="add">Adaugă</string>
     <string name="remove">Elimină</string>
     <string name="no_prefixes">Niciun prefix încă. Adaugă unul mai sus pentru a începe blocarea.</string>

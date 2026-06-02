@@ -8,7 +8,7 @@
     <string name="enable_blocking">เปิดใช้การบล็อกสาย</string>
     <string name="notify_label">แจ้งเตือนเมื่อมีสายถูกบล็อก</string>
     <string name="country_label">ประเทศ</string>
-    <string name="number_prefix_label">รหัสนำหน้าหมายเลข (ไม่บังคับ)</string>
+    <string name="number_prefix_label">รหัสนำหน้าหมายเลข</string>
     <string name="add">เพิ่ม</string>
     <string name="remove">ลบ</string>
     <string name="no_prefixes">ยังไม่มีรหัสนำหน้า เพิ่มรหัสด้านบนเพื่อเริ่มบล็อก</string>

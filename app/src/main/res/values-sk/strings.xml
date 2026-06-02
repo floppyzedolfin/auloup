@@ -8,7 +8,7 @@
     <string name="enable_blocking">Zapnúť blokovanie hovorov</string>
     <string name="notify_label">Upozorniť pri zablokovaní hovoru</string>
     <string name="country_label">Krajina</string>
-    <string name="number_prefix_label">Predvoľba čísla (voliteľné)</string>
+    <string name="number_prefix_label">Predvoľba čísla</string>
     <string name="add">Pridať</string>
     <string name="remove">Odstrániť</string>
     <string name="no_prefixes">Zatiaľ žiadne predvoľby. Pridajte jednu vyššie a začnite blokovať.</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Attiva blocco chiamate</string>
     <string name="notify_label">Notifica quando una chiamata viene bloccata</string>
     <string name="country_label">Paese</string>
-    <string name="number_prefix_label">Prefisso numero (facoltativo)</string>
+    <string name="number_prefix_label">Prefisso numero</string>
     <string name="add">Aggiungi</string>
     <string name="remove">Rimuovi</string>
     <string name="no_prefixes">Nessun prefisso ancora. Aggiungine uno qui sopra per iniziare a bloccare.</string>

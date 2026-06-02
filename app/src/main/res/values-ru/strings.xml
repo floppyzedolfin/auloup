@@ -8,7 +8,7 @@
     <string name="enable_blocking">Включить блокировку звонков</string>
     <string name="notify_label">Уведомлять при блокировке звонка</string>
     <string name="country_label">Страна</string>
-    <string name="number_prefix_label">Префикс номера (необязательно)</string>
+    <string name="number_prefix_label">Префикс номера</string>
     <string name="add">Добавить</string>
     <string name="remove">Удалить</string>
     <string name="no_prefixes">Префиксов пока нет. Добавьте один выше, чтобы начать блокировку.</string>

@@ -32,4 +32,14 @@ class CountriesTest {
         val names = all.map { it.displayName }
         assertEquals(names.sorted(), names)
     }
+
+    @Test
+    fun trunkPrefix_perCountry() {
+        assertEquals("0", Countries.forIso("FR")?.trunkPrefix) // most of the world
+        assertEquals("0", Countries.forIso("GB")?.trunkPrefix)
+        assertEquals("1", Countries.forIso("US")?.trunkPrefix) // NANP
+        assertEquals("8", Countries.forIso("RU")?.trunkPrefix)
+        assertEquals("", Countries.forIso("IT")?.trunkPrefix) // leading 0 is part of the number
+        assertEquals("06", Countries.forIso("HU")?.trunkPrefix)
+    }
 }

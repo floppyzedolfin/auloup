@@ -8,7 +8,7 @@
     <string name="enable_blocking">فعال‌سازی مسدودسازی تماس</string>
     <string name="notify_label">اطلاع‌رسانی هنگام مسدود شدن تماس</string>
     <string name="country_label">کشور</string>
-    <string name="number_prefix_label">پیش‌شماره (اختیاری)</string>
+    <string name="number_prefix_label">پیش‌شماره</string>
     <string name="add">افزودن</string>
     <string name="remove">حذف</string>
     <string name="no_prefixes">هنوز پیش‌شماره‌ای وجود ندارد. یک مورد در بالا اضافه کنید تا مسدودسازی شروع شود.</string>

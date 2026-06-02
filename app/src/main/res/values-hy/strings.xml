@@ -8,7 +8,7 @@
     <string name="enable_blocking">Միացնել զանգերի արգելափակումը</string>
     <string name="notify_label">Ծանուցել, երբ զանգ արգելափակվի</string>
     <string name="country_label">Երկիր</string>
-    <string name="number_prefix_label">Համարի նախածանց (ըստ ցանկության)</string>
+    <string name="number_prefix_label">Համարի նախածանց</string>
     <string name="add">Ավելացնել</string>
     <string name="remove">Հեռացնել</string>
     <string name="no_prefixes">Դեռ նախածանցեր չկան։ Ավելացրեք մեկն այստեղ՝ արգելափակումը սկսելու համար։</string>

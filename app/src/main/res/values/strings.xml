@@ -13,7 +13,7 @@
     <string name="enable_blocking">Enable call blocking</string>
     <string name="notify_label">Notify when a call is blocked</string>
     <string name="country_label">Country</string>
-    <string name="number_prefix_label">Number prefix (optional)</string>
+    <string name="number_prefix_label">Number prefix</string>
     <string name="add">Add</string>
     <string name="remove">Remove</string>
     <string name="no_prefixes">No prefixes yet. Add one above to start blocking.</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Bật chặn cuộc gọi</string>
     <string name="notify_label">Thông báo khi có cuộc gọi bị chặn</string>
     <string name="country_label">Quốc gia</string>
-    <string name="number_prefix_label">Đầu số (tùy chọn)</string>
+    <string name="number_prefix_label">Đầu số</string>
     <string name="add">Thêm</string>
     <string name="remove">Xóa</string>
     <string name="no_prefixes">Chưa có đầu số nào. Thêm một đầu số ở trên để bắt đầu chặn.</string>

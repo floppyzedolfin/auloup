@@ -184,12 +184,13 @@ private fun CallBlokerScreen() {
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                     modifier = Modifier.weight(1f),
                 )
+                val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number)
                 Button(
                     onClick = {
-                        val digits = number.filter { it.isDigit() }
                         number = ""
-                        scope.launch { repository.add("+${country.dialCode}$digits") }
+                        prefix?.let { scope.launch { repository.add(it) } }
                     },
+                    enabled = prefix != null,
                 ) {
                     Text(stringResource(R.string.add))
                 }

@@ -15,6 +15,8 @@ ktlint_code_style = intellij_idea
 max_line_length = 120
 # @Composable functions are intentionally PascalCase.
 ktlint_standard_function-naming = disabled
+# This rule's formatter and checker disagree on borderline signatures; skip it.
+ktlint_standard_function-signature = disabled
 
 [*.{yml,yaml,xml,toml}]
 indent_size = 2

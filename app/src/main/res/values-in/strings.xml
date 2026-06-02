@@ -8,7 +8,7 @@
     <string name="enable_blocking">Aktifkan pemblokiran panggilan</string>
     <string name="notify_label">Beri tahu saat panggilan diblokir</string>
     <string name="country_label">Negara</string>
-    <string name="number_prefix_label">Awalan nomor (opsional)</string>
+    <string name="number_prefix_label">Awalan nomor</string>
     <string name="add">Tambah</string>
     <string name="remove">Hapus</string>
     <string name="no_prefixes">Belum ada awalan. Tambahkan satu di atas untuk mulai memblokir.</string>

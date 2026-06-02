@@ -61,8 +61,8 @@ class PrefixesTest {
     }
 
     @Test
-    fun longestMatch_emptyNationalPrefixBlocksWholeCountryCode() {
-        // "+33" with no national digits blocks any French number.
+    fun longestMatch_matchesAnyStoredPrefixLength() {
+        // longestMatch itself is length-agnostic (entry enforces a 3-digit minimum).
         assertEquals("+33", Prefixes.longestMatch("+33162123455", setOf("+33")))
     }
 
@@ -70,5 +70,52 @@ class PrefixesTest {
     fun normalize_isIdempotent() {
         val once = Prefixes.normalize("+33 (1) 62-12")
         assertEquals(once, once?.let { Prefixes.normalize(it) })
+    }
+
+    @Test
+    fun nationalDigits_stripsTrunkPrefix() {
+        assertEquals("160", Prefixes.nationalDigits("01 60", "0")) // France trunk 0
+        assertEquals("160", Prefixes.nationalDigits("160", "0")) // already trunk-free
+        assertEquals("06", Prefixes.nationalDigits("06", "")) // Italy keeps the 0
+        assertEquals("415", Prefixes.nationalDigits("1415", "1")) // NANP trunk 1
+    }
+
+    @Test
+    fun buildPrefix_stripsTrunkAndRequiresThreeDigits() {
+        assertEquals("+33160", Prefixes.buildPrefix(33, "0", "01 60")) // 01 60 == +33 1 60
+        assertEquals("+33160", Prefixes.buildPrefix(33, "0", "160"))
+        assertEquals("+447911", Prefixes.buildPrefix(44, "0", "07911")) // UK 07911 == +44 7911
+        assertEquals("+1415", Prefixes.buildPrefix(1, "1", "1415"))
+        assertEquals("+39061", Prefixes.buildPrefix(39, "", "061")) // Italy keeps the 0
+    }
+
+    @Test
+    fun buildPrefix_rejectsFewerThanThreeNationalDigits() {
+        assertNull(Prefixes.buildPrefix(33, "0", "01")) // only "1" after trunk
+        assertNull(Prefixes.buildPrefix(33, "0", "")) // whole country code no longer allowed
+        assertNull(Prefixes.buildPrefix(39, "", "06")) // 2 digits
+    }
+
+    @Test
+    fun toInternational_handlesAllFormats() {
+        // Already international.
+        assertEquals("+33162123455", Prefixes.toInternational("+33 162 123455", 33, "0"))
+        // National (French) using the device region.
+        assertEquals("+33160123456", Prefixes.toInternational("0160123456", 33, "0"))
+        // National (UK).
+        assertEquals("+447911123456", Prefixes.toInternational("07911123456", 44, "0"))
+        // International-access 00 prefix.
+        assertEquals("+33160", Prefixes.toInternational("0033160", 33, "0"))
+        // NANP national with trunk 1.
+        assertEquals("+14155550123", Prefixes.toInternational("14155550123", 1, "1"))
+        assertNull(Prefixes.toInternational("", 33, "0"))
+    }
+
+    @Test
+    fun nationalCallMatchesInternationalPrefix() {
+        // A user blocks +33160 (entered as "01 60"); a national-format call matches.
+        val stored = setOf(Prefixes.buildPrefix(33, "0", "0160")!!)
+        val incoming = Prefixes.toInternational("0160123456", 33, "0")!!
+        assertEquals("+33160", Prefixes.longestMatch(incoming, stored))
     }
 }

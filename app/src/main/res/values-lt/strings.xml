@@ -8,7 +8,7 @@
     <string name="enable_blocking">Įjungti skambučių blokavimą</string>
     <string name="notify_label">Pranešti, kai skambutis užblokuojamas</string>
     <string name="country_label">Šalis</string>
-    <string name="number_prefix_label">Numerio prefiksas (neprivaloma)</string>
+    <string name="number_prefix_label">Numerio prefiksas</string>
     <string name="add">Pridėti</string>
     <string name="remove">Šalinti</string>
     <string name="no_prefixes">Prefiksų dar nėra. Pridėkite vieną aukščiau, kad pradėtumėte blokuoti.</string>

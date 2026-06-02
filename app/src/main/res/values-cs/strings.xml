@@ -8,7 +8,7 @@
     <string name="enable_blocking">Zapnout blokování hovorů</string>
     <string name="notify_label">Upozornit při zablokování hovoru</string>
     <string name="country_label">Země</string>
-    <string name="number_prefix_label">Předčíslí (volitelné)</string>
+    <string name="number_prefix_label">Předčíslí</string>
     <string name="add">Přidat</string>
     <string name="remove">Odebrat</string>
     <string name="no_prefixes">Zatím žádná předčíslí. Přidejte jedno výše a začněte blokovat.</string>

@@ -8,7 +8,7 @@
     <string name="enable_blocking">کال بلاکنگ فعال کریں</string>
     <string name="notify_label">کال بلاک ہونے پر اطلاع دیں</string>
     <string name="country_label">ملک</string>
-    <string name="number_prefix_label">نمبر پریفکس (اختیاری)</string>
+    <string name="number_prefix_label">نمبر پریفکس</string>
     <string name="add">شامل کریں</string>
     <string name="remove">ہٹائیں</string>
     <string name="no_prefixes">ابھی کوئی پریفکس نہیں۔ بلاکنگ شروع کرنے کے لیے اوپر ایک شامل کریں۔</string>

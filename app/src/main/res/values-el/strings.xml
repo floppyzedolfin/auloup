@@ -8,7 +8,7 @@
     <string name="enable_blocking">Ενεργοποίηση αποκλεισμού κλήσεων</string>
     <string name="notify_label">Ειδοποίηση όταν αποκλείεται μια κλήση</string>
     <string name="country_label">Χώρα</string>
-    <string name="number_prefix_label">Πρόθεμα αριθμού (προαιρετικό)</string>
+    <string name="number_prefix_label">Πρόθεμα αριθμού</string>
     <string name="add">Προσθήκη</string>
     <string name="remove">Αφαίρεση</string>
     <string name="no_prefixes">Δεν υπάρχουν προθέματα ακόμα. Προσθέστε ένα παραπάνω για να ξεκινήσετε τον αποκλεισμό.</string>

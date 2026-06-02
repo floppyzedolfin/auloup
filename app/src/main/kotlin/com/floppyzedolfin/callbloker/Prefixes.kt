@@ -7,6 +7,9 @@ package com.floppyzedolfin.callbloker
  */
 object Prefixes {
 
+    /** A blocked prefix must have at least this many national (significant) digits. */
+    const val MIN_NATIONAL_DIGITS = 3
+
     /**
      * Canonicalises a prefix or number to a leading optional '+' followed by
      * digits only, dropping spaces, dashes and parentheses. Returns null when
@@ -17,6 +20,53 @@ object Prefixes {
         val plus = if (trimmed.startsWith("+")) "+" else ""
         val digits = trimmed.filter { it.isDigit() }
         return if (digits.isEmpty()) null else plus + digits
+    }
+
+    /**
+     * The national significant digits of [rawNational]: digits only, with a
+     * leading trunk prefix (e.g. the French "0" in "01 60") removed. So both
+     * "01 60" and "1 60" yield "160".
+     */
+    fun nationalDigits(rawNational: String, trunkPrefix: String): String {
+        val digits = rawNational.filter { it.isDigit() }
+        return if (trunkPrefix.isNotEmpty() && digits.startsWith(trunkPrefix)) {
+            digits.removePrefix(trunkPrefix)
+        } else {
+            digits
+        }
+    }
+
+    /**
+     * Builds the canonical international prefix to store from a chosen country
+     * and a national prefix the user typed (with or without the trunk prefix).
+     * Returns null when fewer than [MIN_NATIONAL_DIGITS] national digits remain.
+     */
+    fun buildPrefix(dialCode: Int, trunkPrefix: String, rawNational: String): String? {
+        val national = nationalDigits(rawNational, trunkPrefix)
+        return if (national.length < MIN_NATIONAL_DIGITS) null else "+$dialCode$national"
+    }
+
+    /**
+     * Canonicalises an incoming call's number to international form (+CC…) so it
+     * can be matched against stored prefixes:
+     * - already-international ("+…") is kept;
+     * - an international-access "00…" becomes "+…";
+     * - a national number ("0160…") is interpreted in the device's [localDialCode]
+     *   / [localTrunk] region: trunk dropped, country code prepended.
+     * Returns null when there are no digits.
+     */
+    fun toInternational(raw: String, localDialCode: Int, localTrunk: String): String? {
+        val trimmed = raw.trim()
+        if (trimmed.startsWith("+")) return normalize(trimmed)
+        val digits = trimmed.filter { it.isDigit() }
+        if (digits.isEmpty()) return null
+        if (digits.startsWith("00")) return "+" + digits.removePrefix("00")
+        val national = if (localTrunk.isNotEmpty() && digits.startsWith(localTrunk)) {
+            digits.removePrefix(localTrunk)
+        } else {
+            digits
+        }
+        return "+$localDialCode$national"
     }
 
     /**

@@ -8,7 +8,7 @@
     <string name="enable_blocking">Omogući blokiranje poziva</string>
     <string name="notify_label">Obavijesti kad je poziv blokiran</string>
     <string name="country_label">Država</string>
-    <string name="number_prefix_label">Prefiks broja (neobavezno)</string>
+    <string name="number_prefix_label">Prefiks broja</string>
     <string name="add">Dodaj</string>
     <string name="remove">Ukloni</string>
     <string name="no_prefixes">Još nema prefiksa. Dodajte jedan gore kako biste započeli blokiranje.</string>
