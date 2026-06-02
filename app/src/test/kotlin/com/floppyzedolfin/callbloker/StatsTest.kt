@@ -19,11 +19,11 @@ class StatsTest {
             millis(2026, 6, 2, 9),
             millis(2026, 6, 1, 14),
         )
-        val bars = Stats.perHour(times, utc)
-        assertEquals(24, bars.size)
-        assertEquals(2, bars[9].value)
-        assertEquals(1, bars[14].value)
-        assertEquals(0, bars[0].value)
+        val counts = Stats.perHour(times, utc)
+        assertEquals(24, counts.size)
+        assertEquals(2, counts[9])
+        assertEquals(1, counts[14])
+        assertEquals(0, counts[0])
     }
 
     @Test
@@ -35,18 +35,19 @@ class StatsTest {
             millis(2026, 6, 2, 20),
             millis(2026, 6, 1, 10),
         )
-        val bars = Stats.perDay(times, days = 7, zone = utc, nowMillis = now)
-        assertEquals(7, bars.size)
-        assertEquals(2, bars.last().value) // today is the last bucket
-        assertEquals(1, bars[bars.size - 2].value) // yesterday
-        assertEquals(0, bars.first().value) // 6 days ago
+        val stat = Stats.perDay(times, days = 7, zone = utc, nowMillis = now)
+        assertEquals(7, stat.counts.size)
+        assertEquals(7, stat.labels.size)
+        assertEquals(2, stat.counts.last()) // today is the last bucket
+        assertEquals(1, stat.counts[stat.counts.size - 2]) // yesterday
+        assertEquals(0, stat.counts.first()) // 6 days ago
     }
 
     @Test
     fun perDay_ignoresCallsOutsideTheWindow() {
         val now = millis(2026, 6, 2, 12)
         val old = millis(2026, 5, 1, 12) // well outside the 7-day window
-        val bars = Stats.perDay(listOf(old), days = 7, zone = utc, nowMillis = now)
-        assertEquals(0, bars.sumOf { it.value })
+        val stat = Stats.perDay(listOf(old), days = 7, zone = utc, nowMillis = now)
+        assertEquals(0, stat.counts.sum())
     }
 }
