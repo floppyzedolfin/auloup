@@ -11,8 +11,11 @@ import kotlinx.coroutines.flow.map
 import org.json.JSONArray
 import org.json.JSONObject
 
-/** A blocked prefix together with how many calls it has blocked so far. */
-data class BlockedPrefix(val prefix: String, val blockedCount: Int)
+/**
+ * A blocked prefix: how many calls it has blocked, and whether it came from an
+ * official regulator list (vs. added by the user).
+ */
+data class BlockedPrefix(val prefix: String, val blockedCount: Int, val official: Boolean)
 
 /** One blocked call: the matched prefix, the caller's number, and when. */
 data class BlockedCall(val prefix: String, val number: String, val timeMillis: Long)
@@ -42,7 +45,7 @@ class PrefixRepository(private val context: Context) {
         context.dataStore.data.map { prefs ->
             val counts = decodeHistory(prefs[historyKey]).groupingBy { it.prefix }.eachCount()
             decodePrefixes(prefs[prefixesKey])
-                .map { BlockedPrefix(it, counts[it] ?: 0) }
+                .map { (prefix, official) -> BlockedPrefix(prefix, counts[prefix] ?: 0, official) }
                 .sortedBy { it.prefix }
         }
 
@@ -63,20 +66,32 @@ class PrefixRepository(private val context: Context) {
             .sortedByDescending { it.timeMillis }
     }
 
-    suspend fun add(raw: String) {
+    suspend fun add(raw: String, official: Boolean = false) {
         val prefix = Prefixes.normalize(raw) ?: return
         context.dataStore.edit { prefs ->
-            val set = decodePrefixes(prefs[prefixesKey]).toMutableSet()
-            set.add(prefix)
-            prefs[prefixesKey] = encodePrefixes(set)
+            val map = decodePrefixes(prefs[prefixesKey]).toMutableMap()
+            map[prefix] = official || (map[prefix] ?: false)
+            prefs[prefixesKey] = encodePrefixes(map)
+        }
+    }
+
+    /** Imports a regulator list, flagging every prefix as official. */
+    suspend fun importOfficial(prefixes: List<String>) {
+        context.dataStore.edit { prefs ->
+            val map = decodePrefixes(prefs[prefixesKey]).toMutableMap()
+            for (raw in prefixes) {
+                val prefix = Prefixes.normalize(raw) ?: continue
+                map[prefix] = true
+            }
+            prefs[prefixesKey] = encodePrefixes(map)
         }
     }
 
     /** Removes a prefix and forgets its blocked-call history. */
     suspend fun remove(prefix: String) {
         context.dataStore.edit { prefs ->
-            val set = decodePrefixes(prefs[prefixesKey]).toMutableSet().apply { remove(prefix) }
-            prefs[prefixesKey] = encodePrefixes(set)
+            val map = decodePrefixes(prefs[prefixesKey]).toMutableMap().apply { remove(prefix) }
+            prefs[prefixesKey] = encodePrefixes(map)
             val history = decodeHistory(prefs[historyKey]).filterNot { it.prefix == prefix }
             prefs[historyKey] = encodeHistory(history)
         }
@@ -96,7 +111,7 @@ class PrefixRepository(private val context: Context) {
     suspend fun screenAndRecord(rawNumber: String, internationalNumber: String, timeMillis: Long): ScreenResult {
         val prefs = context.dataStore.data.first()
         val notify = prefs[notificationsKey] ?: true
-        val match = Prefixes.longestMatch(internationalNumber, decodePrefixes(prefs[prefixesKey]))
+        val match = Prefixes.longestMatch(internationalNumber, decodePrefixes(prefs[prefixesKey]).keys)
             ?: return ScreenResult(blocked = false, notify = notify)
 
         context.dataStore.edit { p ->
@@ -107,16 +122,26 @@ class PrefixRepository(private val context: Context) {
         return ScreenResult(blocked = true, notify = notify)
     }
 
-    private fun decodePrefixes(json: String?): Set<String> {
-        if (json.isNullOrBlank()) return emptySet()
-        val array = JSONArray(json)
-        return buildSet { for (i in 0 until array.length()) add(array.getString(i)) }
+    /**
+     * Decodes the stored prefixes as prefix -> isOfficial. Also migrates the
+     * old format (a plain JSON array of prefixes) by treating them all as
+     * user-added.
+     */
+    private fun decodePrefixes(json: String?): Map<String, Boolean> {
+        if (json.isNullOrBlank()) return emptyMap()
+        return if (json.trimStart().startsWith("[")) {
+            val array = JSONArray(json)
+            buildMap { for (i in 0 until array.length()) put(array.getString(i), false) }
+        } else {
+            val obj = JSONObject(json)
+            buildMap { for (key in obj.keys()) put(key, obj.optBoolean(key, false)) }
+        }
     }
 
-    private fun encodePrefixes(prefixes: Set<String>): String {
-        val array = JSONArray()
-        prefixes.forEach { array.put(it) }
-        return array.toString()
+    private fun encodePrefixes(prefixes: Map<String, Boolean>): String {
+        val obj = JSONObject()
+        for ((prefix, official) in prefixes) obj.put(prefix, official)
+        return obj.toString()
     }
 
     private fun decodeHistory(json: String?): List<BlockedCall> {

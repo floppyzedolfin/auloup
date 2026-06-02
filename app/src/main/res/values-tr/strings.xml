@@ -23,4 +23,7 @@
     <string name="stats_by_hour">Saate göre engellenen</string>
     <string name="settings_title">Ayarlar</string>
     <string name="language">Dil</string>
+    <string name="official">Resmi</string>
+    <string name="official_lists">Resmi listeler</string>
+    <string name="import_action">İçe aktar</string>
 </resources>

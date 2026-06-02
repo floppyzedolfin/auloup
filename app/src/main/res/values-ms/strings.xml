@@ -23,4 +23,7 @@
     <string name="stats_by_hour">Disekat mengikut jam</string>
     <string name="settings_title">Tetapan</string>
     <string name="language">Bahasa</string>
+    <string name="official">Rasmi</string>
+    <string name="official_lists">Senarai rasmi</string>
+    <string name="import_action">Import</string>
 </resources>

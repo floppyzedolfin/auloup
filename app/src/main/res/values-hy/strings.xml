@@ -23,4 +23,7 @@
     <string name="stats_by_hour">Արգելափակված ըստ ժամի</string>
     <string name="settings_title">Կարգավորումներ</string>
     <string name="language">Լեզու</string>
+    <string name="official">Պաշտոնական</string>
+    <string name="official_lists">Պաշտոնական ցուցակներ</string>
+    <string name="import_action">Ներմուծել</string>
 </resources>

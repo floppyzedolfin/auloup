@@ -23,4 +23,7 @@
     <string name="stats_by_hour">மணிநேரத்தின்படி தடுக்கப்பட்டவை</string>
     <string name="settings_title">அமைப்புகள்</string>
     <string name="language">மொழி</string>
+    <string name="official">அதிகாரப்பூர்வம்</string>
+    <string name="official_lists">அதிகாரப்பூர்வ பட்டியல்கள்</string>
+    <string name="import_action">இறக்குமதி</string>
 </resources>

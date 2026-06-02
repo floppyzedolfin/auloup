@@ -276,6 +276,17 @@ private fun CallBlokerScreen() {
                             items(entries, key = { it.prefix }) { entry ->
                                 ListItem(
                                     modifier = Modifier.clickable { selectedPrefix = entry.prefix },
+                                    overlineContent = if (entry.official) {
+                                        {
+                                            Text(
+                                                stringResource(R.string.official),
+                                                color = MaterialTheme.colorScheme.primary,
+                                                style = MaterialTheme.typography.labelSmall,
+                                            )
+                                        }
+                                    } else {
+                                        null
+                                    },
                                     headlineContent = { Text(entry.prefix) },
                                     supportingContent = {
                                         Text(
@@ -448,6 +459,12 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { }
+    var showOfficialLists by rememberSaveable { mutableStateOf(false) }
+
+    if (showOfficialLists) {
+        OfficialListsScreen(repository = repository, onBack = { showOfficialLists = false })
+        return
+    }
 
     Scaffold(
         topBar = {
@@ -463,6 +480,10 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             ListItem(
                 modifier = Modifier.clickable { openLanguageSettings(context) },
                 headlineContent = { Text(stringResource(R.string.language)) },
+            )
+            ListItem(
+                modifier = Modifier.clickable { showOfficialLists = true },
+                headlineContent = { Text(stringResource(R.string.official_lists)) },
             )
             ListItem(
                 headlineContent = { Text(stringResource(R.string.notify_label)) },
@@ -491,6 +512,48 @@ private fun openLanguageSettings(context: Context) {
         Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, data)
     }
     context.startActivity(intent)
+}
+
+/** Official regulator block lists the user can import (currently France). */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun OfficialListsScreen(repository: PrefixRepository, onBack: () -> Unit) {
+    BackHandler(onBack = onBack)
+    val scope = rememberCoroutineScope()
+    val prefixes by repository.prefixes.collectAsState(initial = emptyList())
+    val current = remember(prefixes) { prefixes.map { it.prefix }.toSet() }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { AppBarTitle(stringResource(R.string.official_lists)) },
+                navigationIcon = {
+                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
+                },
+            )
+        },
+    ) { innerPadding ->
+        LazyColumn(modifier = Modifier.padding(innerPadding)) {
+            items(OfficialLists.all, key = { it.iso }) { list ->
+                val country = Countries.forIso(list.iso)
+                val imported = list.prefixes.all { it in current }
+                ListItem(
+                    headlineContent = {
+                        Text(country?.let { "${it.flag}  ${it.displayName}" } ?: list.iso)
+                    },
+                    supportingContent = { Text(list.prefixes.joinToString(", ")) },
+                    trailingContent = {
+                        Button(
+                            onClick = { scope.launch { repository.importOfficial(list.prefixes) } },
+                            enabled = !imported,
+                        ) {
+                            Text(stringResource(R.string.import_action))
+                        }
+                    },
+                )
+            }
+        }
+    }
 }
 
 /**

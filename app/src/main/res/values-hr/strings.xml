@@ -24,4 +24,7 @@
     <string name="stats_by_hour">Blokirano po satu</string>
     <string name="settings_title">Postavke</string>
     <string name="language">Jezik</string>
+    <string name="official">Službeno</string>
+    <string name="official_lists">Službeni popisi</string>
+    <string name="import_action">Uvezi</string>
 </resources>

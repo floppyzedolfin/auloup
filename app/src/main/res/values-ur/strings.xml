@@ -23,4 +23,7 @@
     <string name="stats_by_hour">گھنٹے کے حساب سے بلاک شدہ</string>
     <string name="settings_title">ترتیبات</string>
     <string name="language">زبان</string>
+    <string name="official">سرکاری</string>
+    <string name="official_lists">سرکاری فہرستیں</string>
+    <string name="import_action">درآمد کریں</string>
 </resources>

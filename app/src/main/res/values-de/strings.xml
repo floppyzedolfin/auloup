@@ -23,4 +23,7 @@
     <string name="stats_by_hour">Pro Stunde blockiert</string>
     <string name="settings_title">Einstellungen</string>
     <string name="language">Sprache</string>
+    <string name="official">Offiziell</string>
+    <string name="official_lists">Offizielle Listen</string>
+    <string name="import_action">Importieren</string>
 </resources>

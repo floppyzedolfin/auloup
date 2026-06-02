@@ -34,4 +34,9 @@
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="language">Language</string>
+
+    <!-- Official block lists -->
+    <string name="official">Official</string>
+    <string name="official_lists">Official lists</string>
+    <string name="import_action">Import</string>
 </resources>

@@ -23,4 +23,7 @@
     <string name="stats_by_hour">മണിക്കൂർ അനുസരിച്ച് ബ്ലോക്ക് ചെയ്തവ</string>
     <string name="settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="language">ഭാഷ</string>
+    <string name="official">ഔദ്യോഗികം</string>
+    <string name="official_lists">ഔദ്യോഗിക പട്ടികകൾ</string>
+    <string name="import_action">ഇറക്കുമതി</string>
 </resources>

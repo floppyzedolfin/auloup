@@ -22,7 +22,12 @@ Early MVP:
 - Count how many calls each prefix has blocked. When several prefixes match a
   call, the most specific (longest) one is credited.
 - Tap a prefix to see the history of calls it blocked (number + time).
+- Per-day and per-hour charts of blocked calls, on the main screen and per prefix.
+- Group the list by country, collapsible, with a per-country total.
+- Import **official** regulator block lists (France's ARCEP telemarketing
+  ranges); imported prefixes are flagged *Official* vs. user-added ones.
 - Optional silent status-bar notification when a call is blocked (toggleable).
+- Settings page: change the app language and toggle notifications.
 
 No accounts, no network, no tracking. Your prefix list never leaves the device.
 

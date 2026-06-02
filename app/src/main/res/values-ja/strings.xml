@@ -22,4 +22,7 @@
     <string name="stats_by_hour">時間帯別のブロック</string>
     <string name="settings_title">設定</string>
     <string name="language">言語</string>
+    <string name="official">公式</string>
+    <string name="official_lists">公式リスト</string>
+    <string name="import_action">インポート</string>
 </resources>

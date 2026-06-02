@@ -23,4 +23,7 @@
     <string name="stats_by_hour">గంట ప్రకారం బ్లాక్ చేయబడినవి</string>
     <string name="settings_title">సెట్టింగ్‌లు</string>
     <string name="language">భాష</string>
+    <string name="official">అధికారిక</string>
+    <string name="official_lists">అధికారిక జాబితాలు</string>
+    <string name="import_action">దిగుమతి</string>
 </resources>

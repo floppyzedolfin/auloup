@@ -23,4 +23,7 @@
     <string name="stats_by_hour">Saata görə bloklanan</string>
     <string name="settings_title">Parametrlər</string>
     <string name="language">Dil</string>
+    <string name="official">Rəsmi</string>
+    <string name="official_lists">Rəsmi siyahılar</string>
+    <string name="import_action">İdxal et</string>
 </resources>

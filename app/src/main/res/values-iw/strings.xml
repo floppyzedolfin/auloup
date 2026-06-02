@@ -25,4 +25,7 @@
     <string name="stats_by_hour">נחסמו לפי שעה</string>
     <string name="settings_title">הגדרות</string>
     <string name="language">שפה</string>
+    <string name="official">רשמי</string>
+    <string name="official_lists">רשימות רשמיות</string>
+    <string name="import_action">ייבוא</string>
 </resources>

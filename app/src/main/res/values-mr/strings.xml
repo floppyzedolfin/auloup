@@ -23,4 +23,7 @@
     <string name="stats_by_hour">तासानुसार ब्लॉक केलेले</string>
     <string name="settings_title">सेटिंग्ज</string>
     <string name="language">भाषा</string>
+    <string name="official">अधिकृत</string>
+    <string name="official_lists">अधिकृत याद्या</string>
+    <string name="import_action">आयात करा</string>
 </resources>

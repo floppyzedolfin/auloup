@@ -25,4 +25,7 @@
     <string name="stats_by_hour">Užblokuota pagal valandą</string>
     <string name="settings_title">Nustatymai</string>
     <string name="language">Kalba</string>
+    <string name="official">Oficialus</string>
+    <string name="official_lists">Oficialūs sąrašai</string>
+    <string name="import_action">Importuoti</string>
 </resources>

@@ -22,4 +22,7 @@
     <string name="stats_by_hour">Diblokir per jam</string>
     <string name="settings_title">Setelan</string>
     <string name="language">Bahasa</string>
+    <string name="official">Resmi</string>
+    <string name="official_lists">Daftar resmi</string>
+    <string name="import_action">Impor</string>
 </resources>
