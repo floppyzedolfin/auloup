@@ -204,7 +204,7 @@ private fun CallBlokerScreen() {
                         ListItem(
                             modifier = Modifier.clickable { selectedPrefix = entry.prefix },
                             headlineContent = { Text(entry.prefix) },
-                            supportingContent = { Text("Blocked ${entry.blockedCount}×") },
+                            supportingContent = { Text("${entry.blockedCount} calls blocked") },
                             trailingContent = {
                                 TextButton(onClick = {
                                     scope.launch { repository.remove(entry.prefix) }
