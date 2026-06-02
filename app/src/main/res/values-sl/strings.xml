@@ -21,4 +21,6 @@
         <item quantity="few">%d blokirani klici</item>
         <item quantity="other">%d blokiranih klicev</item>
     </plurals>
+    <string name="stats_per_day">Blokirano na dan</string>
+    <string name="stats_by_hour">Blokirano po urah</string>
 </resources>

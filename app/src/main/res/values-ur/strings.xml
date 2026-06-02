@@ -19,4 +19,6 @@
         <item quantity="one">%d کال بلاک کی گئی</item>
         <item quantity="other">%d کالیں بلاک کی گئیں</item>
     </plurals>
+    <string name="stats_per_day">روزانہ بلاک شدہ</string>
+    <string name="stats_by_hour">گھنٹے کے حساب سے بلاک شدہ</string>
 </resources>

@@ -21,4 +21,6 @@
         <item quantity="many">%d połączeń zablokowanych</item>
         <item quantity="other">%d połączenia zablokowane</item>
     </plurals>
+    <string name="stats_per_day">Zablokowane dziennie</string>
+    <string name="stats_by_hour">Zablokowane wg godziny</string>
 </resources>

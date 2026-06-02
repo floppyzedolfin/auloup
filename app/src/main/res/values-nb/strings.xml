@@ -19,4 +19,6 @@
         <item quantity="one">%d anrop blokkert</item>
         <item quantity="other">%d anrop blokkert</item>
     </plurals>
+    <string name="stats_per_day">Blokkert per dag</string>
+    <string name="stats_by_hour">Blokkert per time</string>
 </resources>

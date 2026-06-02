@@ -19,4 +19,6 @@
         <item quantity="one">%d कल ब्लक भयो</item>
         <item quantity="other">%d कलहरू ब्लक भए</item>
     </plurals>
+    <string name="stats_per_day">प्रति दिन ब्लक गरिएको</string>
+    <string name="stats_by_hour">घण्टा अनुसार ब्लक गरिएको</string>
 </resources>

@@ -19,4 +19,6 @@
         <item quantity="one">%d trucada bloquejada</item>
         <item quantity="other">%d trucades bloquejades</item>
     </plurals>
+    <string name="stats_per_day">Bloquejades per dia</string>
+    <string name="stats_by_hour">Bloquejades per hora</string>
 </resources>

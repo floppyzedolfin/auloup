@@ -19,4 +19,6 @@
         <item quantity="one">%d ikholi ivinjelwe</item>
         <item quantity="other">%d amakholi avinjelwe</item>
     </plurals>
+    <string name="stats_per_day">Kuvinjelwe ngosuku</string>
+    <string name="stats_by_hour">Kuvinjelwe ngehora</string>
 </resources>

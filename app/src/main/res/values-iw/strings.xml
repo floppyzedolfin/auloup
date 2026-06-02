@@ -21,4 +21,6 @@
         <item quantity="many">%d שיחות נחסמו</item>
         <item quantity="other">%d שיחות נחסמו</item>
     </plurals>
+    <string name="stats_per_day">נחסמו ביום</string>
+    <string name="stats_by_hour">נחסמו לפי שעה</string>
 </resources>

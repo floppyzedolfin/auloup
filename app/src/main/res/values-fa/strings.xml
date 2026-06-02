@@ -19,4 +19,6 @@
         <item quantity="one">%d تماس مسدود شد</item>
         <item quantity="other">%d تماس مسدود شد</item>
     </plurals>
+    <string name="stats_per_day">مسدودشده در روز</string>
+    <string name="stats_by_hour">مسدودشده بر اساس ساعت</string>
 </resources>

@@ -19,4 +19,6 @@
         <item quantity="one">%d arama engellendi</item>
         <item quantity="other">%d arama engellendi</item>
     </plurals>
+    <string name="stats_per_day">Günlük engellenen</string>
+    <string name="stats_by_hour">Saate göre engellenen</string>
 </resources>

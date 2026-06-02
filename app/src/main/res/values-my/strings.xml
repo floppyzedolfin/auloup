@@ -18,4 +18,6 @@
     <plurals name="calls_blocked">
         <item quantity="other">%d ခေါ်ဆိုမှု ပိတ်ဆို့ထားသည်</item>
     </plurals>
+    <string name="stats_per_day">တစ်ရက်လျှင် ပိတ်ဆို့ထားသည်</string>
+    <string name="stats_by_hour">နာရီအလိုက် ပိတ်ဆို့ထားသည်</string>
 </resources>

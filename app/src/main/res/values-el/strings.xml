@@ -19,4 +19,6 @@
         <item quantity="one">%d κλήση αποκλείστηκε</item>
         <item quantity="other">%d κλήσεις αποκλείστηκαν</item>
     </plurals>
+    <string name="stats_per_day">Αποκλεισμένες ανά ημέρα</string>
+    <string name="stats_by_hour">Αποκλεισμένες ανά ώρα</string>
 </resources>

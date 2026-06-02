@@ -19,4 +19,6 @@
         <item quantity="one">%d அழைப்பு தடுக்கப்பட்டது</item>
         <item quantity="other">%d அழைப்புகள் தடுக்கப்பட்டன</item>
     </plurals>
+    <string name="stats_per_day">ஒரு நாளைக்கு தடுக்கப்பட்டவை</string>
+    <string name="stats_by_hour">மணிநேரத்தின்படி தடுக்கப்பட்டவை</string>
 </resources>

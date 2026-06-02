@@ -20,4 +20,6 @@
         <item quantity="one">%d zvans bloķēts</item>
         <item quantity="other">%d zvani bloķēti</item>
     </plurals>
+    <string name="stats_per_day">Bloķēts dienā</string>
+    <string name="stats_by_hour">Bloķēts pa stundām</string>
 </resources>

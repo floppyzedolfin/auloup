@@ -19,4 +19,6 @@
         <item quantity="one">%d kõne blokeeritud</item>
         <item quantity="other">%d kõnet blokeeritud</item>
     </plurals>
+    <string name="stats_per_day">Blokeeritud päevas</string>
+    <string name="stats_by_hour">Blokeeritud tunnis</string>
 </resources>

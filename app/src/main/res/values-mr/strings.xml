@@ -19,4 +19,6 @@
         <item quantity="one">%d कॉल ब्लॉक केला</item>
         <item quantity="other">%d कॉल ब्लॉक केले</item>
     </plurals>
+    <string name="stats_per_day">दररोज ब्लॉक केलेले</string>
+    <string name="stats_by_hour">तासानुसार ब्लॉक केलेले</string>
 </resources>

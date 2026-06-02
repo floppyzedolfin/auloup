@@ -21,4 +21,6 @@
         <item quantity="many">%d skambučio užblokuota</item>
         <item quantity="other">%d skambučių užblokuota</item>
     </plurals>
+    <string name="stats_per_day">Užblokuota per dieną</string>
+    <string name="stats_by_hour">Užblokuota pagal valandą</string>
 </resources>

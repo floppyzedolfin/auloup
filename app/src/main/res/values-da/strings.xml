@@ -19,4 +19,6 @@
         <item quantity="one">%d opkald blokeret</item>
         <item quantity="other">%d opkald blokeret</item>
     </plurals>
+    <string name="stats_per_day">Blokeret pr. dag</string>
+    <string name="stats_by_hour">Blokeret pr. time</string>
 </resources>

@@ -18,4 +18,6 @@
     <plurals name="calls_blocked">
         <item quantity="other">%d건의 통화 차단됨</item>
     </plurals>
+    <string name="stats_per_day">일별 차단</string>
+    <string name="stats_by_hour">시간대별 차단</string>
 </resources>

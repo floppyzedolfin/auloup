@@ -18,4 +18,6 @@
     <plurals name="calls_blocked">
         <item quantity="other">บล็อก %d สาย</item>
     </plurals>
+    <string name="stats_per_day">บล็อกต่อวัน</string>
+    <string name="stats_by_hour">บล็อกตามชั่วโมง</string>
 </resources>

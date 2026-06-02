@@ -19,4 +19,6 @@
         <item quantity="one">%d samtal blockerat</item>
         <item quantity="other">%d samtal blockerade</item>
     </plurals>
+    <string name="stats_per_day">Blockerade per dag</string>
+    <string name="stats_by_hour">Blockerade per timme</string>
 </resources>

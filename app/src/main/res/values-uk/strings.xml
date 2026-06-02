@@ -21,4 +21,6 @@
         <item quantity="many">%d дзвінків заблоковано</item>
         <item quantity="other">%d дзвінка заблоковано</item>
     </plurals>
+    <string name="stats_per_day">Заблоковано за день</string>
+    <string name="stats_by_hour">Заблоковано за годиною</string>
 </resources>

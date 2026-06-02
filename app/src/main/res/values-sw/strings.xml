@@ -19,4 +19,6 @@
         <item quantity="one">Simu %d imezuiwa</item>
         <item quantity="other">Simu %d zimezuiwa</item>
     </plurals>
+    <string name="stats_per_day">Zilizozuiwa kwa siku</string>
+    <string name="stats_by_hour">Zilizozuiwa kwa saa</string>
 </resources>

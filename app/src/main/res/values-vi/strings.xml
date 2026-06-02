@@ -18,4 +18,6 @@
     <plurals name="calls_blocked">
         <item quantity="other">%d cuộc gọi đã bị chặn</item>
     </plurals>
+    <string name="stats_per_day">Đã chặn mỗi ngày</string>
+    <string name="stats_by_hour">Đã chặn theo giờ</string>
 </resources>

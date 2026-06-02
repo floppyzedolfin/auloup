@@ -19,4 +19,6 @@
         <item quantity="one">%d panggilan disekat</item>
         <item quantity="other">%d panggilan disekat</item>
     </plurals>
+    <string name="stats_per_day">Disekat sehari</string>
+    <string name="stats_by_hour">Disekat mengikut jam</string>
 </resources>

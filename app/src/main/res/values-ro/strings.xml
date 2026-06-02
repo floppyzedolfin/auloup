@@ -20,4 +20,6 @@
         <item quantity="few">%d apeluri blocate</item>
         <item quantity="other">%d de apeluri blocate</item>
     </plurals>
+    <string name="stats_per_day">Blocate pe zi</string>
+    <string name="stats_by_hour">Blocate pe oră</string>
 </resources>

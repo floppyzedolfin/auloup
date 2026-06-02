@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name" translatable="false">CallBloker</string>
 
     <!-- Notification -->
@@ -27,7 +27,7 @@
     <string name="back">Back</string>
     <string name="no_calls_for_prefix">No calls blocked for this prefix yet.</string>
 
-    <!-- Statistics charts (translations pending; fall back to English for now) -->
-    <string name="stats_per_day" tools:ignore="MissingTranslation">Blocked per day</string>
-    <string name="stats_by_hour" tools:ignore="MissingTranslation">Blocked by hour</string>
+    <!-- Statistics charts -->
+    <string name="stats_per_day">Blocked per day</string>
+    <string name="stats_by_hour">Blocked by hour</string>
 </resources>

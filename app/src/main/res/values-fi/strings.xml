@@ -19,4 +19,6 @@
         <item quantity="one">%d puhelu estetty</item>
         <item quantity="other">%d puhelua estetty</item>
     </plurals>
+    <string name="stats_per_day">Estetyt päivässä</string>
+    <string name="stats_by_hour">Estetyt tunneittain</string>
 </resources>

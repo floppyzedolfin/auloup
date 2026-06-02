@@ -21,4 +21,6 @@
         <item quantity="many">%d звонков заблокировано</item>
         <item quantity="other">%d звонка заблокировано</item>
     </plurals>
+    <string name="stats_per_day">Заблокировано за день</string>
+    <string name="stats_by_hour">Заблокировано по часам</string>
 </resources>

@@ -24,4 +24,6 @@
     <!-- Blocked-call history screen -->
     <string name="back">Retour</string>
     <string name="no_calls_for_prefix">Aucun appel bloqué pour ce préfixe pour l\'instant.</string>
+    <string name="stats_per_day">Bloqués par jour</string>
+    <string name="stats_by_hour">Bloqués par heure</string>
 </resources>

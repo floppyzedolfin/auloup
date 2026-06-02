@@ -19,4 +19,6 @@
         <item quantity="one">%d കോൾ തടഞ്ഞു</item>
         <item quantity="other">%d കോളുകൾ തടഞ്ഞു</item>
     </plurals>
+    <string name="stats_per_day">പ്രതിദിനം ബ്ലോക്ക് ചെയ്തവ</string>
+    <string name="stats_by_hour">മണിക്കൂർ അനുസരിച്ച് ബ്ലോക്ക് ചെയ്തവ</string>
 </resources>

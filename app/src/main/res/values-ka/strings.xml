@@ -19,4 +19,6 @@
         <item quantity="one">%d ზარი დაბლოკილია</item>
         <item quantity="other">%d ზარი დაბლოკილია</item>
     </plurals>
+    <string name="stats_per_day">დაბლოკილი დღეში</string>
+    <string name="stats_by_hour">დაბლოკილი საათობრივად</string>
 </resources>

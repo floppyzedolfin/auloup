@@ -23,4 +23,6 @@
         <item quantity="many">%d مكالمة محظورة</item>
         <item quantity="other">%d مكالمة محظورة</item>
     </plurals>
+    <string name="stats_per_day">المحظورة يوميًا</string>
+    <string name="stats_by_hour">المحظورة حسب الساعة</string>
 </resources>

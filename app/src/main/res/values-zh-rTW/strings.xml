@@ -18,4 +18,6 @@
     <plurals name="calls_blocked">
         <item quantity="other">已封鎖 %d 通來電</item>
     </plurals>
+    <string name="stats_per_day">每日封鎖</string>
+    <string name="stats_by_hour">依小時封鎖</string>
 </resources>

@@ -19,4 +19,6 @@
         <item quantity="one">%d hívás blokkolva</item>
         <item quantity="other">%d hívás blokkolva</item>
     </plurals>
+    <string name="stats_per_day">Naponta blokkolva</string>
+    <string name="stats_by_hour">Óránként blokkolva</string>
 </resources>

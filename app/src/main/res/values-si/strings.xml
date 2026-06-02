@@ -19,4 +19,6 @@
         <item quantity="one">ඇමතුම් %d ක් අවහිර කරන ලදී</item>
         <item quantity="other">ඇමතුම් %d ක් අවහිර කරන ලදී</item>
     </plurals>
+    <string name="stats_per_day">දිනකට අවහිර කළ</string>
+    <string name="stats_by_hour">පැය අනුව අවහිර කළ</string>
 </resources>

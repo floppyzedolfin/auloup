@@ -19,4 +19,6 @@
         <item quantity="one">%d símtali lokað</item>
         <item quantity="other">%d símtölum lokað</item>
     </plurals>
+    <string name="stats_per_day">Útilokað á dag</string>
+    <string name="stats_by_hour">Útilokað eftir klukkustund</string>
 </resources>

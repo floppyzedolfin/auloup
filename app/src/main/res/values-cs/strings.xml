@@ -21,4 +21,6 @@
         <item quantity="many">%d hovoru zablokováno</item>
         <item quantity="other">%d hovorů zablokováno</item>
     </plurals>
+    <string name="stats_per_day">Blokováno za den</string>
+    <string name="stats_by_hour">Blokováno podle hodiny</string>
 </resources>

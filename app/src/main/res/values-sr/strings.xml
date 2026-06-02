@@ -20,4 +20,6 @@
         <item quantity="few">%d poziva blokirana</item>
         <item quantity="other">%d poziva blokirano</item>
     </plurals>
+    <string name="stats_per_day">Блокирано дневно</string>
+    <string name="stats_by_hour">Блокирано по сату</string>
 </resources>

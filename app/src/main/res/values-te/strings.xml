@@ -19,4 +19,6 @@
         <item quantity="one">%d కాల్ బ్లాక్ చేయబడింది</item>
         <item quantity="other">%d కాల్‌లు బ్లాక్ చేయబడ్డాయి</item>
     </plurals>
+    <string name="stats_per_day">రోజుకు బ్లాక్ చేయబడినవి</string>
+    <string name="stats_by_hour">గంట ప్రకారం బ్లాక్ చేయబడినవి</string>
 </resources>

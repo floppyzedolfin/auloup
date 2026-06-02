@@ -19,4 +19,6 @@
         <item quantity="one">%d gesprek geblokkeerd</item>
         <item quantity="other">%d gesprekken geblokkeerd</item>
     </plurals>
+    <string name="stats_per_day">Geblokkeerd per dag</string>
+    <string name="stats_by_hour">Geblokkeerd per uur</string>
 </resources>

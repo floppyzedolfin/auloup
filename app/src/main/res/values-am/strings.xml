@@ -19,4 +19,6 @@
         <item quantity="one">%d ጥሪ ታግዷል</item>
         <item quantity="other">%d ጥሪዎች ታግደዋል</item>
     </plurals>
+    <string name="stats_per_day">በቀን የታገዱ</string>
+    <string name="stats_by_hour">በሰዓት የታገዱ</string>
 </resources>

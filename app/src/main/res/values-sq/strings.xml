@@ -19,4 +19,6 @@
         <item quantity="one">%d telefonatë e bllokuar</item>
         <item quantity="other">%d telefonata të bllokuara</item>
     </plurals>
+    <string name="stats_per_day">Të bllokuara në ditë</string>
+    <string name="stats_by_hour">Të bllokuara sipas orës</string>
 </resources>

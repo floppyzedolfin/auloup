@@ -19,4 +19,6 @@
         <item quantity="one">%d ਕਾਲ ਬਲੌਕ ਕੀਤੀ ਗਈ</item>
         <item quantity="other">%d ਕਾਲਾਂ ਬਲੌਕ ਕੀਤੀਆਂ ਗਈਆਂ</item>
     </plurals>
+    <string name="stats_per_day">ਪ੍ਰਤੀ ਦਿਨ ਬਲਾਕ ਕੀਤੇ</string>
+    <string name="stats_by_hour">ਘੰਟੇ ਅਨੁਸਾਰ ਬਲਾਕ ਕੀਤੇ</string>
 </resources>

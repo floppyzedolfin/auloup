@@ -19,4 +19,6 @@
         <item quantity="one">%d zəng bloklandı</item>
         <item quantity="other">%d zəng bloklandı</item>
     </plurals>
+    <string name="stats_per_day">Gündə bloklanan</string>
+    <string name="stats_by_hour">Saata görə bloklanan</string>
 </resources>

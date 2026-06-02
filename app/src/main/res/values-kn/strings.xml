@@ -20,4 +20,6 @@
         <item quantity="one">%d ಕರೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</item>
         <item quantity="other">%d ಕರೆಗಳು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</item>
     </plurals>
+    <string name="stats_per_day">ದಿನಕ್ಕೆ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
+    <string name="stats_by_hour">ಗಂಟೆಗೆ ಅನುಗುಣವಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
 </resources>

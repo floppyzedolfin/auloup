@@ -19,4 +19,6 @@
         <item quantity="one">%d chiamata bloccata</item>
         <item quantity="other">%d chiamate bloccate</item>
     </plurals>
+    <string name="stats_per_day">Bloccate al giorno</string>
+    <string name="stats_by_hour">Bloccate per ora</string>
 </resources>

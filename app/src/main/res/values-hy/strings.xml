@@ -19,4 +19,6 @@
         <item quantity="one">%d զանգ արգելափակված է</item>
         <item quantity="other">%d զանգ արգելափակված է</item>
     </plurals>
+    <string name="stats_per_day">Արգելափակված օրական</string>
+    <string name="stats_by_hour">Արգելափակված ըստ ժամի</string>
 </resources>

@@ -19,4 +19,6 @@
         <item quantity="one">%d કૉલ અવરોધિત થયો</item>
         <item quantity="other">%d કૉલ અવરોધિત થયા</item>
     </plurals>
+    <string name="stats_per_day">દિવસ દીઠ બ્લૉક કરેલ</string>
+    <string name="stats_by_hour">કલાક પ્રમાણે બ્લૉક કરેલ</string>
 </resources>

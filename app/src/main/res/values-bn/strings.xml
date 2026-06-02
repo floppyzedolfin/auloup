@@ -19,4 +19,6 @@
         <item quantity="one">%d টি কল ব্লক হয়েছে</item>
         <item quantity="other">%d টি কল ব্লক হয়েছে</item>
     </plurals>
+    <string name="stats_per_day">প্রতিদিন ব্লক করা</string>
+    <string name="stats_by_hour">ঘণ্টা অনুযায়ী ব্লক করা</string>
 </resources>
