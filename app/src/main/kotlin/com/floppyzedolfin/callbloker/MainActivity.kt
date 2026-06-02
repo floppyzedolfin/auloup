@@ -1,6 +1,8 @@
 package com.floppyzedolfin.callbloker
 
+import android.Manifest
 import android.app.role.RoleManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -30,10 +32,12 @@ import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -51,6 +55,7 @@ import kotlinx.coroutines.launch
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Notifications.ensureChannel(this)
         enableEdgeToEdge()
         setContent {
             MaterialTheme {
@@ -69,6 +74,7 @@ private fun CallBlokerScreen() {
     val scope = rememberCoroutineScope()
     val repository = remember { PrefixRepository(context.applicationContext) }
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
+    val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
 
     val roleManager = remember { context.getSystemService(RoleManager::class.java) }
     var roleHeld by remember {
@@ -79,6 +85,19 @@ private fun CallBlokerScreen() {
     ) {
         roleHeld = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
     }
+
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { /* The toggle reflects the user's intent regardless of the OS answer. */ }
+
+    fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+
+    // Ask once on first launch so the default-on notifications can actually show.
+    LaunchedEffect(Unit) { if (notificationsEnabled) requestNotificationPermission() }
 
     var country by remember { mutableStateOf(Countries.defaultFor(context)) }
     var number by remember { mutableStateOf("") }
@@ -112,6 +131,21 @@ private fun CallBlokerScreen() {
                         }
                     }
                 }
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Notify when a call is blocked")
+                Switch(
+                    checked = notificationsEnabled,
+                    onCheckedChange = { enabled ->
+                        scope.launch { repository.setNotificationsEnabled(enabled) }
+                        if (enabled) requestNotificationPermission()
+                    },
+                )
             }
 
             CountryDropdown(selected = country, onSelected = { country = it })
@@ -149,12 +183,13 @@ private fun CallBlokerScreen() {
                 )
             } else {
                 LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    items(prefixes, key = { it }) { prefix ->
+                    items(prefixes, key = { it.prefix }) { entry ->
                         ListItem(
-                            headlineContent = { Text(prefix) },
+                            headlineContent = { Text(entry.prefix) },
+                            supportingContent = { Text("Blocked ${entry.blockedCount}×") },
                             trailingContent = {
                                 TextButton(onClick = {
-                                    scope.launch { repository.remove(prefix) }
+                                    scope.launch { repository.remove(entry.prefix) }
                                 }) {
                                     Text("Remove")
                                 }

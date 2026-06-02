@@ -20,13 +20,24 @@ object Prefixes {
     }
 
     /**
+     * The single most specific (longest) stored prefix that [number] starts
+     * with, or null if none match. When several prefixes match the same call,
+     * the longest one wins — e.g. with "+3316212" and "+331621" stored, the
+     * call "+33162123455" matches "+3316212". Returns the prefix as stored.
+     */
+    fun longestMatch(number: String, prefixes: Collection<String>): String? {
+        val n = normalize(number) ?: return null
+        return prefixes
+            .mapNotNull { stored -> normalize(stored)?.let { stored to it } }
+            .filter { (_, normalized) -> n.startsWith(normalized) }
+            .maxByOrNull { (_, normalized) -> normalized.length }
+            ?.first
+    }
+
+    /**
      * True when [number] starts with any of the [prefixes]. Both sides are
      * normalized first, so "+1 (555)…" and "+1555…" compare equal.
      */
-    fun isBlocked(number: String, prefixes: Set<String>): Boolean {
-        val n = normalize(number) ?: return false
-        return prefixes.any { prefix ->
-            normalize(prefix)?.let { n.startsWith(it) } ?: false
-        }
-    }
+    fun isBlocked(number: String, prefixes: Collection<String>): Boolean =
+        longestMatch(number, prefixes) != null
 }

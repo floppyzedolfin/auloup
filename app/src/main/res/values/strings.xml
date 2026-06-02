@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CallBloker</string>
+    <string name="channel_blocked_calls">Blocked calls</string>
+    <string name="call_blocked">Call blocked</string>
+    <string name="unknown_number">Unknown number</string>
 </resources>

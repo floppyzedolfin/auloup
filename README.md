@@ -9,10 +9,14 @@ Free and open source (GPL-3.0). Android first; iOS is planned (see
 
 ## Status
 
-Early MVP. It does one thing:
+Early MVP:
 
-- Maintain a persistent list of blocked prefixes.
+- Maintain a persistent list of blocked prefixes, chosen via a country picker
+  (flag + calling code) plus a national-prefix field.
 - Reject incoming calls that match — silently, with no entry in your call log.
+- Count how many calls each prefix has blocked. When several prefixes match a
+  call, the most specific (longest) one is credited.
+- Optional silent status-bar notification when a call is blocked (toggleable).
 
 No accounts, no network, no tracking. Your prefix list never leaves the device.
 
@@ -36,10 +40,12 @@ PrefixCallScreeningService ─┘            ▲
                                    Prefixes (pure matching logic)
 ```
 
-- `Prefixes.kt` — pure, Android-free matching logic (`normalize`, `isBlocked`); unit-tested.
-- `PrefixRepository.kt` — persists the prefix set with Jetpack DataStore.
-- `PrefixCallScreeningService.kt` — the system binds this on each incoming call; it rejects matches.
-- `MainActivity.kt` — the Compose screen: enable blocking, add/remove prefixes.
+- `Prefixes.kt` — pure, Android-free matching logic (`normalize`, `longestMatch`, `isBlocked`); unit-tested.
+- `Countries.kt` — ISO→calling-code data; country names from `Locale`, flags as emoji.
+- `PrefixRepository.kt` — persists the prefixes, their block counts, and the notify preference (Jetpack DataStore).
+- `PrefixCallScreeningService.kt` — the system binds this on each incoming call; it rejects matches and records the block.
+- `Notifications.kt` — the silent "call blocked" notification channel and poster.
+- `MainActivity.kt` — the Compose screen: enable blocking, toggle notifications, add/remove prefixes, see counts.
 
 To block calls, the app must be granted the **call-screening role**
 (`RoleManager.ROLE_CALL_SCREENING`); the UI prompts for this.

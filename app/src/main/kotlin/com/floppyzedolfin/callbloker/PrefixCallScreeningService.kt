@@ -21,14 +21,17 @@ class PrefixCallScreeningService : CallScreeningService() {
         }
 
         val number = callDetails.handle?.schemeSpecificPart.orEmpty()
-        val prefixes = runBlocking { PrefixRepository(applicationContext).current() }
-        val blocked = Prefixes.isBlocked(number, prefixes)
+        val result = runBlocking { PrefixRepository(applicationContext).screenAndRecord(number) }
+
+        if (result.blocked && result.notify) {
+            Notifications.notifyBlocked(applicationContext, number)
+        }
 
         val response = CallResponse.Builder()
-            .setDisallowCall(blocked)
-            .setRejectCall(blocked)
-            .setSkipCallLog(blocked)
-            .setSkipNotification(blocked)
+            .setDisallowCall(result.blocked)
+            .setRejectCall(result.blocked)
+            .setSkipCallLog(result.blocked)
+            .setSkipNotification(result.blocked)
             .build()
         respondToCall(callDetails, response)
     }

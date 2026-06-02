@@ -39,4 +39,17 @@ class PrefixesTest {
         assertFalse(Prefixes.isBlocked("", setOf("+1900")))
         assertFalse(Prefixes.isBlocked("+1900123", emptySet()))
     }
+
+    @Test
+    fun longestMatch_picksTheMostSpecificPrefix() {
+        val prefixes = setOf("+3316212", "+331621")
+        // Both match, but the longer (more specific) one wins.
+        assertEquals("+3316212", Prefixes.longestMatch("+33162123455", prefixes))
+    }
+
+    @Test
+    fun longestMatch_isNullWhenNothingMatches() {
+        assertNull(Prefixes.longestMatch("+14155550100", setOf("+3316212")))
+        assertNull(Prefixes.longestMatch("", setOf("+33")))
+    }
 }
