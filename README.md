@@ -1,4 +1,4 @@
-# CallBloker
+# AuLoup!
 
 [![CI](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml)
 
@@ -79,6 +79,50 @@ you).
 ./gradlew installDebug   # install on a connected device/emulator
 ```
 
+### Build an APK and put it on your phone
+
+This produces an installable file you can copy to an Android phone by hand — no
+Android Studio, no USB debugging required.
+
+**1. Prerequisites** (one-time): an LTS JDK (17 or 21 — *not* 25, which current
+Gradle rejects) and the Android SDK. With Android Studio installed, both come
+bundled. Without it, install the
+[command-line tools](https://developer.android.com/tools), then:
+
+```sh
+sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # path to your SDK
+```
+
+**2. Build the APK** from the project root (point Gradle at the LTS JDK):
+
+```sh
+JAVA_HOME=/path/to/jdk-21 ./gradlew assembleDebug
+```
+
+The APK is written to:
+
+```
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+**3. Copy it to the phone.** Any transfer works — USB file copy (the phone shows
+up as a drive; drop the APK into `Download/`), Quick Share / Nearby Share, email,
+or a cloud drive.
+
+**4. Install it on the phone.** Open the **Files** app, tap `app-debug.apk` in
+`Download/`, and confirm **Install**. The first time, Android asks to *Allow
+install from this source* — toggle it on for Files (or your browser), then back
+out and tap the APK again. (Settings path if needed: *Apps → Special app access
+→ Install unknown apps*.)
+
+**5. First run.** Open **AuLoup!**, tap **Enable call blocking** and make it your
+call-screening app, allow the notification prompt, then add a prefix.
+
+> This is a **debug** APK signed with the throwaway debug key — perfect for
+> installing on your own phone. A Play Store release needs a proper signing
+> config, which isn't set up yet.
+
 ## Localization
 
 The UI is fully translatable — all strings live in `res/values/strings.xml`,
@@ -108,4 +152,4 @@ testDebugUnitTest` before opening a PR (CI runs the same).
 
 ## License
 
-[GPL-3.0](LICENSE). © CallBloker contributors.
+[GPL-3.0](LICENSE). © AuLoup! contributors.
