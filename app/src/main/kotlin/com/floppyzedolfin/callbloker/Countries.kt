@@ -82,11 +82,9 @@ object Countries {
     private val fallback = Country("US", 1)
 
     /** All countries, sorted by localized name. */
-    fun all(): List<Country> =
-        dialCodes.map { Country(it.key, it.value) }.sortedBy { it.displayName }
+    fun all(): List<Country> = dialCodes.map { Country(it.key, it.value) }.sortedBy { it.displayName }
 
-    fun forIso(iso: String): Country? =
-        dialCodes[iso.uppercase()]?.let { Country(iso.uppercase(), it) }
+    fun forIso(iso: String): Country? = dialCodes[iso.uppercase()]?.let { Country(iso.uppercase(), it) }
 
     /**
      * Best-effort default country: the SIM/network region if known, otherwise

@@ -52,4 +52,23 @@ class PrefixesTest {
         assertNull(Prefixes.longestMatch("+14155550100", setOf("+3316212")))
         assertNull(Prefixes.longestMatch("", setOf("+33")))
     }
+
+    @Test
+    fun longestMatch_isIndependentOfInsertionOrder() {
+        val number = "+33162123455"
+        assertEquals("+3316212", Prefixes.longestMatch(number, listOf("+331621", "+3316212")))
+        assertEquals("+3316212", Prefixes.longestMatch(number, listOf("+3316212", "+331621")))
+    }
+
+    @Test
+    fun longestMatch_emptyNationalPrefixBlocksWholeCountryCode() {
+        // "+33" with no national digits blocks any French number.
+        assertEquals("+33", Prefixes.longestMatch("+33162123455", setOf("+33")))
+    }
+
+    @Test
+    fun normalize_isIdempotent() {
+        val once = Prefixes.normalize("+33 (1) 62-12")
+        assertEquals(once, once?.let { Prefixes.normalize(it) })
+    }
 }

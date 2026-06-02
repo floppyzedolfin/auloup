@@ -38,6 +38,5 @@ object Prefixes {
      * True when [number] starts with any of the [prefixes]. Both sides are
      * normalized first, so "+1 (555)…" and "+1555…" compare equal.
      */
-    fun isBlocked(number: String, prefixes: Collection<String>): Boolean =
-        longestMatch(number, prefixes) != null
+    fun isBlocked(number: String, prefixes: Collection<String>): Boolean = longestMatch(number, prefixes) != null
 }

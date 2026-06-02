@@ -1,5 +1,7 @@
 # CallBloker
 
+[![CI](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/callbloker/actions/workflows/ci.yml)
+
 Block incoming calls by **phone-number prefix**. You keep a list of prefixes
 (e.g. `+1900`, `0900`); any incoming call whose number starts with one of them
 is rejected automatically.
@@ -76,9 +78,10 @@ you).
 
 ## Contributing
 
-Contributions welcome — the codebase is intentionally small and tidy. Please
-keep that bar: pure logic stays in `Prefixes.kt` with tests, and changes should
-build and pass `./gradlew test`.
+Contributions welcome — the codebase is intentionally small and tidy. See
+[CONTRIBUTING.md](CONTRIBUTING.md). In short: keep pure logic in `Prefixes.kt` /
+`Countries.kt` with tests, and run `./gradlew ktlintFormat ktlintCheck lintDebug
+testDebugUnitTest` before opening a PR (CI runs the same).
 
 ## License
 

@@ -51,12 +51,11 @@ class PrefixRepository(private val context: Context) {
         context.dataStore.data.map { it[notificationsKey] ?: true }
 
     /** Blocked calls for [prefix], most recent first. */
-    fun history(prefix: String): Flow<List<BlockedCall>> =
-        context.dataStore.data.map { prefs ->
-            decodeHistory(prefs[historyKey])
-                .filter { it.prefix == prefix }
-                .sortedByDescending { it.timeMillis }
-        }
+    fun history(prefix: String): Flow<List<BlockedCall>> = context.dataStore.data.map { prefs ->
+        decodeHistory(prefs[historyKey])
+            .filter { it.prefix == prefix }
+            .sortedByDescending { it.timeMillis }
+    }
 
     suspend fun add(raw: String) {
         val prefix = Prefixes.normalize(raw) ?: return

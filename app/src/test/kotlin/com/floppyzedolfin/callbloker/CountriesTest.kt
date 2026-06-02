@@ -1,6 +1,7 @@
 package com.floppyzedolfin.callbloker
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -14,8 +15,14 @@ class CountriesTest {
     }
 
     @Test
+    fun forIso_unknownReturnsNull() {
+        assertNull(Countries.forIso("ZZ"))
+    }
+
+    @Test
     fun flag_isDerivedFromIso() {
-        assertEquals("🇺🇸", Countries.forIso("US")?.flag) // 🇺🇸
+        assertEquals("🇺🇸", Countries.forIso("US")?.flag)
+        assertEquals("🇬🇧", Countries.forIso("GB")?.flag)
     }
 
     @Test

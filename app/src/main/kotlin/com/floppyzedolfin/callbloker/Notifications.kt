@@ -1,6 +1,7 @@
 package com.floppyzedolfin.callbloker
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -34,6 +35,8 @@ object Notifications {
     }
 
     /** Shows a status-bar notification that a call from [number] was blocked. */
+    // canPost() guards the notify() call below; lint can't follow the indirection.
+    @SuppressLint("MissingPermission")
     fun notifyBlocked(context: Context, number: String) {
         if (!canPost(context)) return
         ensureChannel(context)
@@ -48,8 +51,7 @@ object Notifications {
         NotificationManagerCompat.from(context).notify(number.hashCode(), notification)
     }
 
-    private fun canPost(context: Context): Boolean =
-        Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
-            PackageManager.PERMISSION_GRANTED
+    private fun canPost(context: Context): Boolean = Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) ==
+        PackageManager.PERMISSION_GRANTED
 }

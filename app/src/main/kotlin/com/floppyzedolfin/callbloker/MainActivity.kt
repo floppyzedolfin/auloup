@@ -54,9 +54,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.util.Date
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -223,11 +223,7 @@ private fun CallBlokerScreen() {
 /** History of every call blocked by [prefix], most recent first. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun BlockedCallsScreen(
-    repository: PrefixRepository,
-    prefix: String,
-    onBack: () -> Unit,
-) {
+private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onBack: () -> Unit) {
     BackHandler(onBack = onBack)
     val calls by repository.history(prefix).collectAsState(initial = emptyList())
     val formatter = remember {
