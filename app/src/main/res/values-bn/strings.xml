@@ -4,7 +4,7 @@
     <string name="unknown_number">অজানা নম্বর</string>
     <string name="blocking_on">কল ব্লকিং চালু আছে</string>
     <string name="blocking_off_title">কল ব্লকিং বন্ধ আছে</string>
-    <string name="blocking_off_message">কল ব্লক করতে AuLoup!-কে আপনার কল-স্ক্রিনিং অ্যাপ হিসেবে সেট করতে হবে।</string>
+    <string name="blocking_off_message">কল ব্লক করতে Au loup!-কে আপনার কল-স্ক্রিনিং অ্যাপ হিসেবে সেট করতে হবে।</string>
     <string name="enable_blocking">কল ব্লকিং চালু করুন</string>
     <string name="notify_label">কল ব্লক হলে জানান</string>
     <string name="country_label">দেশ</string>

@@ -4,7 +4,7 @@
     <string name="unknown_number">نامعلوم نمبر</string>
     <string name="blocking_on">کال بلاکنگ فعال ہے</string>
     <string name="blocking_off_title">کال بلاکنگ غیر فعال ہے</string>
-    <string name="blocking_off_message">کالوں کو بلاک کرنے کے لیے AuLoup! کو آپ کی کال اسکریننگ ایپ ہونا ضروری ہے۔</string>
+    <string name="blocking_off_message">کالوں کو بلاک کرنے کے لیے Au loup! کو آپ کی کال اسکریننگ ایپ ہونا ضروری ہے۔</string>
     <string name="enable_blocking">کال بلاکنگ فعال کریں</string>
     <string name="notify_label">کال بلاک ہونے پر اطلاع دیں</string>
     <string name="country_label">ملک</string>

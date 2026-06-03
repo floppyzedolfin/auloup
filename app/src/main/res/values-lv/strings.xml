@@ -4,7 +4,7 @@
     <string name="unknown_number">Nezināms numurs</string>
     <string name="blocking_on">Zvanu bloķēšana ir ieslēgta</string>
     <string name="blocking_off_title">Zvanu bloķēšana ir izslēgta</string>
-    <string name="blocking_off_message">Lai bloķētu zvanus, AuLoup! jābūt iestatītam kā jūsu zvanu pārbaudes lietotnei.</string>
+    <string name="blocking_off_message">Lai bloķētu zvanus, Au loup! jābūt iestatītam kā jūsu zvanu pārbaudes lietotnei.</string>
     <string name="enable_blocking">Ieslēgt zvanu bloķēšanu</string>
     <string name="notify_label">Paziņot, kad zvans tiek bloķēts</string>
     <string name="country_label">Valsts</string>

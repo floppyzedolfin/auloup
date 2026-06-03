@@ -4,7 +4,7 @@
     <string name="unknown_number">Tuntematon numero</string>
     <string name="blocking_on">Puheluiden esto on päällä</string>
     <string name="blocking_off_title">Puheluiden esto on pois päältä</string>
-    <string name="blocking_off_message">AuLoup! täytyy asettaa puheluiden seulontasovellukseksi, jotta puheluita voidaan estää.</string>
+    <string name="blocking_off_message">Au loup! täytyy asettaa puheluiden seulontasovellukseksi, jotta puheluita voidaan estää.</string>
     <string name="enable_blocking">Ota puheluiden esto käyttöön</string>
     <string name="notify_label">Ilmoita estetystä puhelusta</string>
     <string name="country_label">Maa</string>

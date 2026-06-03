@@ -25,7 +25,7 @@
 
         <!--
             The system binds this service for every incoming call once the user
-            grants AuLoup the call-screening role. It must require the
+            grants Au loup! the call-screening role. It must require the
             BIND_SCREENING_SERVICE permission so only the OS can bind to it.
         -->
         <service

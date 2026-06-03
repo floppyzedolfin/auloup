@@ -4,7 +4,7 @@
     <string name="unknown_number">Ukjent nummer</string>
     <string name="blocking_on">Anropsblokkering er på</string>
     <string name="blocking_off_title">Anropsblokkering er av</string>
-    <string name="blocking_off_message">AuLoup! må være din anropsfiltreringsapp for å blokkere anrop.</string>
+    <string name="blocking_off_message">Au loup! må være din anropsfiltreringsapp for å blokkere anrop.</string>
     <string name="enable_blocking">Aktiver anropsblokkering</string>
     <string name="notify_label">Varsle når et anrop blokkeres</string>
     <string name="country_label">Land</string>

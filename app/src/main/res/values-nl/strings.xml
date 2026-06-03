@@ -4,7 +4,7 @@
     <string name="unknown_number">Onbekend nummer</string>
     <string name="blocking_on">Gespreksblokkering is ingeschakeld</string>
     <string name="blocking_off_title">Gespreksblokkering is uitgeschakeld</string>
-    <string name="blocking_off_message">AuLoup! moet je gespreksscreening-app zijn om gesprekken te blokkeren.</string>
+    <string name="blocking_off_message">Au loup! moet je gespreksscreening-app zijn om gesprekken te blokkeren.</string>
     <string name="enable_blocking">Gespreksblokkering inschakelen</string>
     <string name="notify_label">Meldingen bij geblokkeerde gesprekken</string>
     <string name="country_label">Land</string>

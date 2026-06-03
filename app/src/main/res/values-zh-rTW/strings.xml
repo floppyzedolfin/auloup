@@ -4,7 +4,7 @@
     <string name="unknown_number">不明號碼</string>
     <string name="blocking_on">來電封鎖已開啟</string>
     <string name="blocking_off_title">來電封鎖已關閉</string>
-    <string name="blocking_off_message">AuLoup! 必須設為您的來電篩選應用程式才能封鎖來電。</string>
+    <string name="blocking_off_message">Au loup! 必須設為您的來電篩選應用程式才能封鎖來電。</string>
     <string name="enable_blocking">啟用來電封鎖</string>
     <string name="notify_label">封鎖來電時通知</string>
     <string name="country_label">國家／地區</string>

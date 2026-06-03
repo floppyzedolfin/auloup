@@ -4,7 +4,7 @@
     <string name="unknown_number">Neznana številka</string>
     <string name="blocking_on">Blokiranje klicev je vklopljeno</string>
     <string name="blocking_off_title">Blokiranje klicev je izklopljeno</string>
-    <string name="blocking_off_message">AuLoup! mora biti nastavljen kot vaša aplikacija za filtriranje klicev.</string>
+    <string name="blocking_off_message">Au loup! mora biti nastavljen kot vaša aplikacija za filtriranje klicev.</string>
     <string name="enable_blocking">Vklopi blokiranje klicev</string>
     <string name="notify_label">Obvesti ob blokiranem klicu</string>
     <string name="country_label">Država</string>

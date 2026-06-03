@@ -4,7 +4,7 @@
     <string name="unknown_number">Número desconhecido</string>
     <string name="blocking_on">Bloqueio de chamadas ativado</string>
     <string name="blocking_off_title">Bloqueio de chamadas desativado</string>
-    <string name="blocking_off_message">O AuLoup! tem de ser a sua aplicação de filtragem de chamadas para bloquear chamadas.</string>
+    <string name="blocking_off_message">O Au loup! tem de ser a sua aplicação de filtragem de chamadas para bloquear chamadas.</string>
     <string name="enable_blocking">Ativar bloqueio de chamadas</string>
     <string name="notify_label">Notificar quando uma chamada for bloqueada</string>
     <string name="country_label">País</string>

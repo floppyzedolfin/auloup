@@ -4,7 +4,7 @@
     <string name="unknown_number">Bilinmeyen numara</string>
     <string name="blocking_on">Arama engelleme açık</string>
     <string name="blocking_off_title">Arama engelleme kapalı</string>
-    <string name="blocking_off_message">AuLoup!\'in aramaları engellemesi için arama filtreleme uygulamanız olması gerekir.</string>
+    <string name="blocking_off_message">Au loup!\'in aramaları engellemesi için arama filtreleme uygulamanız olması gerekir.</string>
     <string name="enable_blocking">Arama engellemeyi etkinleştir</string>
     <string name="notify_label">Bir arama engellendiğinde bildir</string>
     <string name="country_label">Ülke</string>

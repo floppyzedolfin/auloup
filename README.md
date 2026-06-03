@@ -1,4 +1,4 @@
-# AuLoup!
+# Au loup!
 
 [![CI](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml)
 
@@ -134,12 +134,12 @@ install from this source* — toggle it on for Files (or your browser), then bac
 out and tap the APK again. (Settings path if needed: *Apps → Special app access
 → Install unknown apps*.)
 
-**5. First run.** Open **AuLoup!**, tap **Enable call blocking** and make it your
+**5. First run.** Open **Au loup!**, tap **Enable call blocking** and make it your
 call-screening app, allow the notification prompt, then add a prefix.
 
 > This is a **debug** APK signed with the throwaway debug key — perfect for
-> installing on your own phone. A Play Store release needs a proper signing
-> config, which isn't set up yet.
+> installing on your own phone. For a Play Store release (signed `.aab`), see
+> [RELEASE.md](RELEASE.md); build it with `make bundle`.
 
 ## Localization
 
@@ -170,4 +170,4 @@ testDebugUnitTest` before opening a PR (CI runs the same).
 
 ## License
 
-[GPL-3.0](LICENSE). © AuLoup! contributors.
+[GPL-3.0](LICENSE). © Au loup! contributors.

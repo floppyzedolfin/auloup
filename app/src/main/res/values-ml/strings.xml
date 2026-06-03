@@ -4,7 +4,7 @@
     <string name="unknown_number">അജ്ഞാത നമ്പർ</string>
     <string name="blocking_on">കോൾ ബ്ലോക്കിംഗ് സജീവമാണ്</string>
     <string name="blocking_off_title">കോൾ ബ്ലോക്കിംഗ് നിഷ്ക്രിയമാണ്</string>
-    <string name="blocking_off_message">കോളുകൾ തടയാൻ AuLoup! നിങ്ങളുടെ കോൾ സ്ക്രീനിംഗ് ആപ്പ് ആയിരിക്കണം.</string>
+    <string name="blocking_off_message">കോളുകൾ തടയാൻ Au loup! നിങ്ങളുടെ കോൾ സ്ക്രീനിംഗ് ആപ്പ് ആയിരിക്കണം.</string>
     <string name="enable_blocking">കോൾ ബ്ലോക്കിംഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="notify_label">കോൾ തടഞ്ഞാൽ അറിയിക്കുക</string>
     <string name="country_label">രാജ്യം</string>

@@ -4,7 +4,7 @@
     <string name="unknown_number">ያልታወቀ ቁጥር</string>
     <string name="blocking_on">የጥሪ ማገጃ ተነቅሏል</string>
     <string name="blocking_off_title">የጥሪ ማገጃ ጠፍቷል</string>
-    <string name="blocking_off_message">AuLoup! ጥሪዎችን ለማገድ የጥሪ ማጣሪያ መተግበሪያዎ መሆን አለበት።</string>
+    <string name="blocking_off_message">Au loup! ጥሪዎችን ለማገድ የጥሪ ማጣሪያ መተግበሪያዎ መሆን አለበት።</string>
     <string name="enable_blocking">የጥሪ ማገጃ አንቃ</string>
     <string name="notify_label">ጥሪ ሲታገድ አሳውቅ</string>
     <string name="country_label">ሀገር</string>

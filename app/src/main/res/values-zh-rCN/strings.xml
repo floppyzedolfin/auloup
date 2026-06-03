@@ -4,7 +4,7 @@
     <string name="unknown_number">未知号码</string>
     <string name="blocking_on">来电拦截已开启</string>
     <string name="blocking_off_title">来电拦截已关闭</string>
-    <string name="blocking_off_message">AuLoup! 需要被设为您的来电筛选应用才能拦截来电。</string>
+    <string name="blocking_off_message">Au loup! 需要被设为您的来电筛选应用才能拦截来电。</string>
     <string name="enable_blocking">启用来电拦截</string>
     <string name="notify_label">拦截来电时通知我</string>
     <string name="country_label">国家/地区</string>

@@ -4,7 +4,7 @@
     <string name="unknown_number">Naməlum nömrə</string>
     <string name="blocking_on">Zəng bloklaması aktivdir</string>
     <string name="blocking_off_title">Zəng bloklaması deaktivdir</string>
-    <string name="blocking_off_message">Zəngləri bloklamaq üçün AuLoup! tətbiqiniz zəng yoxlama tətbiqi olmalıdır.</string>
+    <string name="blocking_off_message">Zəngləri bloklamaq üçün Au loup! tətbiqiniz zəng yoxlama tətbiqi olmalıdır.</string>
     <string name="enable_blocking">Zəng bloklamasını aktiv et</string>
     <string name="notify_label">Zəng bloklandıqda bildiriş göndər</string>
     <string name="country_label">Ölkə</string>

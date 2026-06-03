@@ -1,4 +1,4 @@
-# Contributing to AuLoup!
+# Contributing to Au loup!
 
 Thanks for your interest! The codebase is intentionally small and tidy — please
 help keep it that way.

@@ -5,7 +5,7 @@ import android.telecom.CallScreeningService
 import kotlinx.coroutines.runBlocking
 
 /**
- * Screens every incoming call once AuLoup! holds the call-screening role,
+ * Screens every incoming call once Au loup! holds the call-screening role,
  * rejecting any call whose number starts with a blocked prefix.
  *
  * The system gives us only a few seconds to respond, so the small blocking
