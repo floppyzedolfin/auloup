@@ -613,25 +613,29 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
     val blink by transition.animateFloat(
         initialValue = 0f,
         targetValue = 1f,
-        animationSpec = infiniteRepeatable(tween(durationMillis = 9000, easing = LinearEasing)),
+        animationSpec = infiniteRepeatable(tween(durationMillis = 10000, easing = LinearEasing)),
         label = "blink",
     )
-    // She peeks well after the zzz have stopped (a long, quiet pause), then
-    // opens her eyes and closes them again.
+    // After a quiet pause she opens her eyes for ~1s, does two quick blinks, then
+    // settles back to sleep. (Cycle is 10s, so 0.01 ≈ 100ms.)
     val eyesOpen = when {
-        blink < 0.74f -> 0f
-        blink < 0.79f -> (blink - 0.74f) / 0.05f
-        blink < 0.84f -> 1f
-        blink < 0.89f -> (0.89f - blink) / 0.05f
+        blink < 0.60f -> 0f
+        blink < 0.62f -> (blink - 0.60f) / 0.02f // open
+        blink < 0.72f -> 1f // hold open ~1s
+        blink < 0.735f -> 1f - (blink - 0.72f) / 0.015f // blink 1 down
+        blink < 0.75f -> (blink - 0.735f) / 0.015f // blink 1 up
+        blink < 0.765f -> 1f - (blink - 0.75f) / 0.015f // blink 2 down
+        blink < 0.78f -> (blink - 0.765f) / 0.015f // blink 2 up
+        blink < 0.81f -> 1f - (blink - 0.78f) / 0.03f // settle closed
         else -> 0f
     }
-    // zzz stop early (before the pause), stay off through the blink, then resume
-    // slowly once her eyes are closed again.
+    // zzz stop before the pause, stay off through the blinks, and resume ~1s
+    // after the blinks (eyes back closed).
     val zzzGate = when {
-        blink < 0.60f -> 1f
-        blink < 0.65f -> (0.65f - blink) / 0.05f
-        blink < 0.90f -> 0f
-        else -> (blink - 0.90f) / 0.10f
+        blink < 0.48f -> 1f
+        blink < 0.53f -> (0.53f - blink) / 0.05f // fade out
+        blink < 0.88f -> 0f
+        else -> (blink - 0.88f) / 0.12f // resume ~1s after the blinks
     }
     Box(modifier = modifier.size(size)) {
         Image(
@@ -667,8 +671,8 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
             // circle) out past the top-right corner — a long trail so the three
             // z's are well spaced. Anchored by top-left, so convert the wanted
             // centre to that corner (glyph sits ~0.5em below box top, ~0.3em aside).
-            val centreX = size * (0.44f + 0.5f * progress)
-            val centreY = size * (0.55f - 0.55f * progress)
+            val centreX = size * (0.53f + 0.42f * progress)
+            val centreY = size * (0.58f - 0.56f * progress)
             Text(
                 text = "z",
                 color = Color(0xFFECEFF1),
