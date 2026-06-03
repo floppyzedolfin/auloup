@@ -171,7 +171,13 @@ private fun AuLoupScreen(repository: PrefixRepository) {
         return
     }
     if (showOfficialLists) {
-        OfficialListsScreen(repository = repository, onBack = { showOfficialLists = false })
+        OfficialListsScreen(
+            repository = repository,
+            // Launch on the (surviving) main-screen scope so navigating back
+            // doesn't cancel the import mid-flight.
+            onImport = { scope.launch { repository.importOfficial(it) } },
+            onBack = { showOfficialLists = false },
+        )
         return
     }
     val viewing = selectedPrefix
@@ -602,18 +608,19 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 label = "z$i",
             )
             val fade = when {
-                progress < 0.12f -> progress / 0.12f
-                progress > 0.8f -> (1f - progress) / 0.2f
+                progress < 0.1f -> progress / 0.1f
+                progress > 0.85f -> (1f - progress) / 0.15f
                 else -> 1f
             }
             // The "z" shrinks a touch as it floats up.
-            val zFont = size * (0.36f - 0.08f * progress)
+            val zFont = size * (0.34f - 0.06f * progress)
             // Glyph CENTRE travels diagonally from the muzzle (the middle of the
-            // circle) out to the top-right. We anchor the Text by its top-left, so
-            // convert the wanted centre to that corner (a glyph sits ~0.5em below
-            // the box top and is ~0.28em wide on each side).
-            val centreX = size * (0.5f + 0.32f * progress)
-            val centreY = size * (0.5f - 0.36f * progress)
+            // circle) out to the top-right corner, fading only once it gets there.
+            // We anchor the Text by its top-left, so convert the wanted centre to
+            // that corner — a glyph sits ~0.62em below the box top (so the trail
+            // starts at the muzzle, not the chin) and ~0.3em to each side.
+            val centreX = size * (0.46f + 0.4f * progress)
+            val centreY = size * (0.52f - 0.46f * progress)
             Text(
                 text = "z",
                 color = Color(0xFFECEFF1),
@@ -621,7 +628,7 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 fontSize = with(LocalDensity.current) { zFont.toSp() },
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = centreX - zFont * 0.28f, y = centreY - zFont * 0.5f)
+                    .offset(x = centreX - zFont * 0.3f, y = centreY - zFont * 0.62f)
                     .alpha(fade),
             )
         }
@@ -642,11 +649,11 @@ private fun LogoBackButton(onBack: () -> Unit) {
             .clickable(onClick = onBack)
             .padding(2.dp),
     ) {
-        AppLogo(size = 36.dp)
+        AppLogo(size = 44.dp)
         Box(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .size(20.dp)
+                .size(18.dp)
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.primary)
                 .padding(3.dp),
@@ -745,9 +752,12 @@ private fun openLanguageSettings(context: Context) {
 /** Official regulator block lists the user can import (currently France). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun OfficialListsScreen(repository: PrefixRepository, onBack: () -> Unit) {
+private fun OfficialListsScreen(
+    repository: PrefixRepository,
+    onImport: (List<String>) -> Unit,
+    onBack: () -> Unit,
+) {
     BackHandler(onBack = onBack)
-    val scope = rememberCoroutineScope()
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
     val current = remember(prefixes) { prefixes.map { it.prefix }.toSet() }
 
@@ -767,10 +777,15 @@ private fun OfficialListsScreen(repository: PrefixRepository, onBack: () -> Unit
                     headlineContent = {
                         Text(country?.let { "${it.flag}  ${it.displayName}" } ?: list.iso)
                     },
-                    supportingContent = { Text(list.prefixes.joinToString(", ")) },
+                    supportingContent = {
+                        Text(list.prefixes.joinToString(", ") { PhoneFormat.prefix(it, list.iso) })
+                    },
                     trailingContent = {
                         Button(
-                            onClick = { scope.launch { repository.importOfficial(list.prefixes) } },
+                            onClick = {
+                                onImport(list.prefixes)
+                                onBack()
+                            },
                             enabled = !imported,
                         ) {
                             Text(stringResource(R.string.import_action))
