@@ -28,7 +28,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -201,7 +200,10 @@ private fun AuLoupScreen(repository: PrefixRepository) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { AppBarTitle(stringResource(R.string.app_name)) },
+                // Logo lives in the navigation slot on every screen so it never
+                // shifts; here it's just the brand mark (no back action).
+                navigationIcon = { LogoNavIcon() },
+                title = { Text(stringResource(R.string.app_name)) },
                 actions = {
                     IconButton(onClick = { showHistory = true }) {
                         Icon(
@@ -412,7 +414,7 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
             TopAppBar(
                 // No app logo here — just the flag and the formatted prefix.
                 title = { Text(country?.flag?.let { "$it  $shownPrefix" } ?: shownPrefix) },
-                navigationIcon = { LogoBackButton(onBack) },
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
             )
         },
     ) { innerPadding ->
@@ -469,7 +471,7 @@ private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.history_title)) },
-                navigationIcon = { LogoBackButton(onBack) },
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
             )
         },
     ) { innerPadding ->
@@ -584,17 +586,7 @@ private fun FieldLabel(text: String) {
     )
 }
 
-/** A top-bar title that shows the app logo next to [text]. */
-@Composable
-private fun AppBarTitle(text: String) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        AppLogo()
-        Spacer(Modifier.width(8.dp))
-        Text(text)
-    }
-}
-
-/** The one logo size used everywhere (title and back button), so they match. */
+/** The one logo size used everywhere, so it never changes between screens. */
 private val AppLogoSize = 40.dp
 
 /**
@@ -668,35 +660,38 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
 }
 
 /**
- * The wolf logo used as the "back" affordance on sub-screens: tapping it returns
- * to the main page. A bold round badge with a back arrow sits in the corner so
- * it clearly — and cheerfully — reads as "go back".
+ * The wolf logo in the top bar's navigation slot — same position on every
+ * screen. On the main screen it is just the brand mark; on sub-screens [onBack]
+ * is set, so it becomes the tappable "back" control and gains a bold round badge
+ * with a back arrow in the corner.
  */
 @Composable
-private fun LogoBackButton(onBack: () -> Unit) {
+private fun LogoNavIcon(onBack: (() -> Unit)? = null) {
     Box(
         // No clip here: a CircleShape clip would cut off the corner back badge.
         modifier = Modifier
             .padding(start = 4.dp)
-            .clickable(onClick = onBack)
+            .then(if (onBack != null) Modifier.clickable(onClick = onBack) else Modifier)
             .padding(2.dp),
     ) {
         AppLogo()
-        Box(
-            modifier = Modifier
-                .align(Alignment.BottomStart)
-                .size(18.dp)
-                .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.primary)
-                .padding(3.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_arrow_back),
-                contentDescription = stringResource(R.string.back),
-                tint = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.fillMaxSize(),
-            )
+        if (onBack != null) {
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .size(18.dp)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.primary)
+                    .padding(3.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_arrow_back),
+                    contentDescription = stringResource(R.string.back),
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
         }
     }
 }
@@ -723,7 +718,7 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.settings_title)) },
-                navigationIcon = { LogoBackButton(onBack) },
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
             )
         },
     ) { innerPadding ->
@@ -823,7 +818,7 @@ private fun OfficialListsScreen(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.official_lists)) },
-                navigationIcon = { LogoBackButton(onBack) },
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
             )
         },
     ) { innerPadding ->
