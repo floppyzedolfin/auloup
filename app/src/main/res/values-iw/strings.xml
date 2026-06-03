@@ -46,4 +46,7 @@
         <item quantity="many">%d מסננים</item>
         <item quantity="other">%d מסננים</item>
     </plurals>
+    <string name="clear_history">מחק היסטוריית שיחות חסומות</string>
+    <string name="clear_history_confirm">למחוק את כל היסטוריית השיחות החסומות? מסנני החסימה שלך יישמרו. לא ניתן לבטל פעולה זו.</string>
+    <string name="cancel">ביטול</string>
 </resources>

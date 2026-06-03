@@ -52,4 +52,7 @@
         <item quantity="many">%d فلترًا</item>
         <item quantity="other">%d فلتر</item>
     </plurals>
+    <string name="clear_history">مسح سجل المكالمات المحظورة</string>
+    <string name="clear_history_confirm">هل تريد حذف سجل المكالمات المحظورة بالكامل؟ سيتم الاحتفاظ بفلاتر الحظر. لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="cancel">إلغاء</string>
 </resources>

@@ -46,4 +46,7 @@
         <item quantity="many">%d filtrów</item>
         <item quantity="other">%d filtra</item>
     </plurals>
+    <string name="clear_history">Wyczyść historię zablokowanych połączeń</string>
+    <string name="clear_history_confirm">Usunąć całą historię zablokowanych połączeń? Twoje filtry blokowania zostaną zachowane. Tej operacji nie można cofnąć.</string>
+    <string name="cancel">Anuluj</string>
 </resources>

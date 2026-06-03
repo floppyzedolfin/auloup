@@ -46,4 +46,7 @@
         <item quantity="many">%d filtra</item>
         <item quantity="other">%d filtrov</item>
     </plurals>
+    <string name="clear_history">Vymazať históriu blokovaných hovorov</string>
+    <string name="clear_history_confirm">Odstrániť celú históriu blokovaných hovorov? Vaše filtre blokovania zostanú zachované. Túto akciu nie je možné vrátiť späť.</string>
+    <string name="cancel">Zrušiť</string>
 </resources>

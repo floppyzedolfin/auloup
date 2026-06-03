@@ -40,4 +40,7 @@
         <item quantity="one">%d filtr</item>
         <item quantity="other">%d filtr</item>
     </plurals>
+    <string name="clear_history">Bloklanmış zənglər tarixçəsini təmizlə</string>
+    <string name="clear_history_confirm">Bütün bloklanmış zənglər tarixçəsi silinsin? Bloklama filtrləriniz saxlanılır. Bunu geri qaytarmaq mümkün deyil.</string>
+    <string name="cancel">Ləğv et</string>
 </resources>

@@ -40,4 +40,7 @@
         <item quantity="one">%d զտիչ</item>
         <item quantity="other">%d զտիչ</item>
     </plurals>
+    <string name="clear_history">Մաքրել արգելափակված զանգերի պատմությունը</string>
+    <string name="clear_history_confirm">Ջնջե՞լ արգելափակված զանգերի ամբողջ պատմությունը։ Ձեր արգելափակման զտիչները պահպանվում են։ Այս գործողությունը հնարավոր չէ հետարկել։</string>
+    <string name="cancel">Չեղարկել</string>
 </resources>

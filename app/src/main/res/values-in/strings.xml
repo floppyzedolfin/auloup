@@ -37,4 +37,7 @@
     <plurals name="filters_count">
         <item quantity="other">%d filter</item>
     </plurals>
+    <string name="clear_history">Hapus riwayat panggilan yang diblokir</string>
+    <string name="clear_history_confirm">Hapus seluruh riwayat panggilan yang diblokir? Filter pemblokiran Anda tetap dipertahankan. Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="cancel">Batal</string>
 </resources>

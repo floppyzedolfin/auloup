@@ -40,4 +40,7 @@
         <item quantity="one">%d filtro</item>
         <item quantity="other">%d filtri</item>
     </plurals>
+    <string name="clear_history">Cancella cronologia chiamate bloccate</string>
+    <string name="clear_history_confirm">Eliminare l\'intera cronologia delle chiamate bloccate? I tuoi filtri di blocco vengono mantenuti. Questa azione non può essere annullata.</string>
+    <string name="cancel">Annulla</string>
 </resources>

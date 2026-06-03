@@ -43,4 +43,7 @@
         <item quantity="few">%d филтера</item>
         <item quantity="other">%d филтера</item>
     </plurals>
+    <string name="clear_history">Обриши историју блокираних позива</string>
+    <string name="clear_history_confirm">Да обришем целу историју блокираних позива? Ваши филтери блокирања се задржавају. Ова радња се не може опозвати.</string>
+    <string name="cancel">Откажи</string>
 </resources>

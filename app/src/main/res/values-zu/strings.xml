@@ -40,4 +40,7 @@
         <item quantity="one">%d isihlungi</item>
         <item quantity="other">%d izihlungi</item>
     </plurals>
+    <string name="clear_history">Sula umlando wamakholi avinjelwe</string>
+    <string name="clear_history_confirm">Susa wonke umlando wamakholi avinjelwe? Izihlungi zakho zokuvinjela zizogcinwa. Lokhu akukwazi ukuhlehliswa.</string>
+    <string name="cancel">Khansela</string>
 </resources>

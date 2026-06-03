@@ -40,4 +40,7 @@
         <item quantity="one">%d penapis</item>
         <item quantity="other">%d penapis</item>
     </plurals>
+    <string name="clear_history">Kosongkan sejarah panggilan disekat</string>
+    <string name="clear_history_confirm">Padamkan keseluruhan sejarah panggilan disekat? Penapis sekatan anda dikekalkan. Tindakan ini tidak boleh dibatalkan.</string>
+    <string name="cancel">Batal</string>
 </resources>

@@ -44,6 +44,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
@@ -710,6 +711,7 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
     val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
     var themeExpanded by remember { mutableStateOf(false) }
+    var showClearDialog by remember { mutableStateOf(false) }
     val currentLanguage = remember {
         Locale.getDefault().getDisplayLanguage(Locale.getDefault())
             .replaceFirstChar { it.uppercase() }
@@ -788,6 +790,41 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                                 )
                             }
                         }
+                    }
+                },
+            )
+            // 4. Data — clear the blocked-call history (filters are kept)
+            HorizontalDivider()
+            ListItem(
+                modifier = Modifier.clickable { showClearDialog = true },
+                headlineContent = {
+                    Text(
+                        stringResource(R.string.clear_history),
+                        color = MaterialTheme.colorScheme.error,
+                    )
+                },
+            )
+        }
+
+        if (showClearDialog) {
+            AlertDialog(
+                onDismissRequest = { showClearDialog = false },
+                title = { Text(stringResource(R.string.clear_history)) },
+                text = { Text(stringResource(R.string.clear_history_confirm)) },
+                confirmButton = {
+                    TextButton(onClick = {
+                        scope.launch { repository.clearHistory() }
+                        showClearDialog = false
+                    }) {
+                        Text(
+                            stringResource(R.string.remove),
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showClearDialog = false }) {
+                        Text(stringResource(R.string.cancel))
                     }
                 },
             )

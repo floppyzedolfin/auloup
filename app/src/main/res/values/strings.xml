@@ -49,6 +49,9 @@
     <string name="theme_system">System default</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
+    <string name="clear_history">Clear blocked-call history</string>
+    <string name="clear_history_confirm">Delete the entire blocked-call history? Your blocking filters are kept. This can\'t be undone.</string>
+    <string name="cancel">Cancel</string>
 
     <!-- Official block lists -->
     <string name="official">Official</string>

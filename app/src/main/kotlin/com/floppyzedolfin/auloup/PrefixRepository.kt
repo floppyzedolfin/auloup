@@ -123,6 +123,11 @@ class PrefixRepository(private val context: Context) {
         context.dataStore.edit { it[themeKey] = mode }
     }
 
+    /** Forgets the whole blocked-call history. The configured prefixes are kept. */
+    suspend fun clearHistory() {
+        context.dataStore.edit { it.remove(historyKey) }
+    }
+
     /**
      * Screens a call against the stored prefixes. [internationalNumber] is the
      * caller's number canonicalised to international form for matching, while

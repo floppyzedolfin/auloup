@@ -40,4 +40,7 @@
         <item quantity="one">%d filtre</item>
         <item quantity="other">%d filtre</item>
     </plurals>
+    <string name="clear_history">Engellenen arama geçmişini temizle</string>
+    <string name="clear_history_confirm">Tüm engellenen arama geçmişi silinsin mi? Engelleme filtreleriniz korunur. Bu işlem geri alınamaz.</string>
+    <string name="cancel">İptal</string>
 </resources>

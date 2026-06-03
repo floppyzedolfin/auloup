@@ -41,4 +41,7 @@
         <item quantity="one">%d Filter</item>
         <item quantity="other">%d Filter</item>
     </plurals>
+    <string name="clear_history">Verlauf blockierter Anrufe löschen</string>
+    <string name="clear_history_confirm">Den gesamten Verlauf blockierter Anrufe löschen? Deine Blockierfilter bleiben erhalten. Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="cancel">Abbrechen</string>
 </resources>

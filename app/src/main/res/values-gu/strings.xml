@@ -40,4 +40,7 @@
         <item quantity="one">%d ફિલ્ટર</item>
         <item quantity="other">%d ફિલ્ટર</item>
     </plurals>
+    <string name="clear_history">અવરોધિત કૉલનો ઇતિહાસ સાફ કરો</string>
+    <string name="clear_history_confirm">સંપૂર્ણ અવરોધિત કૉલનો ઇતિહાસ કાઢી નાખવો છે? તમારા અવરોધ ફિલ્ટર રાખવામાં આવશે. આ ક્રિયા પાછી ફેરવી શકાતી નથી.</string>
+    <string name="cancel">રદ કરો</string>
 </resources>

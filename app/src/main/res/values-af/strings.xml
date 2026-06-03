@@ -40,4 +40,7 @@
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
     </plurals>
+    <string name="clear_history">Vee geblokkeerde-oproepgeskiedenis uit</string>
+    <string name="clear_history_confirm">Vee die hele geblokkeerde-oproepgeskiedenis uit? Jou blokkeerfilters word behou. Dit kan nie ongedaan gemaak word nie.</string>
+    <string name="cancel">Kanselleer</string>
 </resources>

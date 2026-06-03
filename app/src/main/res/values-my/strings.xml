@@ -37,4 +37,7 @@
     <plurals name="filters_count">
         <item quantity="other">%d စစ်ထုတ်မှု</item>
     </plurals>
+    <string name="clear_history">ပိတ်ဆို့ထားသောခေါ်ဆိုမှုမှတ်တမ်းကို ရှင်းလင်းမည်</string>
+    <string name="clear_history_confirm">ပိတ်ဆို့ထားသောခေါ်ဆိုမှုမှတ်တမ်းတစ်ခုလုံးကို ဖျက်မလား။ သင်၏ ပိတ်ဆို့ခြင်းစစ်ထုတ်မှုများကို ထိန်းသိမ်းထားသည်။ ၎င်းကို ပြန်ဖျက်၍မရပါ။</string>
+    <string name="cancel">ပယ်ဖျက်ပါ</string>
 </resources>

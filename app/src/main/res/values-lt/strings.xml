@@ -46,4 +46,7 @@
         <item quantity="many">%d filtro</item>
         <item quantity="other">%d filtrų</item>
     </plurals>
+    <string name="clear_history">Išvalyti užblokuotų skambučių istoriją</string>
+    <string name="clear_history_confirm">Ištrinti visą užblokuotų skambučių istoriją? Jūsų blokavimo filtrai bus išsaugoti. Šio veiksmo nebus galima atšaukti.</string>
+    <string name="cancel">Atšaukti</string>
 </resources>

@@ -40,4 +40,7 @@
         <item quantity="one">Kichujio %d</item>
         <item quantity="other">Vichujio %d</item>
     </plurals>
+    <string name="clear_history">Futa historia ya simu zilizozuiwa</string>
+    <string name="clear_history_confirm">Futa historia yote ya simu zilizozuiwa? Vichujio vyako vya kuzuia vitahifadhiwa. Kitendo hiki hakiwezi kutenduliwa.</string>
+    <string name="cancel">Ghairi</string>
 </resources>

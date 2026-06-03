@@ -40,4 +40,7 @@
         <item quantity="one">%d ਫਿਲਟਰ</item>
         <item quantity="other">%d ਫਿਲਟਰ</item>
     </plurals>
+    <string name="clear_history">ਬਲੌਕ ਕੀਤੀਆਂ ਕਾਲਾਂ ਦਾ ਇਤਿਹਾਸ ਸਾਫ਼ ਕਰੋ</string>
+    <string name="clear_history_confirm">ਕੀ ਬਲੌਕ ਕੀਤੀਆਂ ਕਾਲਾਂ ਦਾ ਪੂਰਾ ਇਤਿਹਾਸ ਮਿਟਾਉਣਾ ਹੈ? ਤੁਹਾਡੇ ਬਲੌਕਿੰਗ ਫਿਲਟਰ ਰੱਖੇ ਜਾਂਦੇ ਹਨ। ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
+    <string name="cancel">ਰੱਦ ਕਰੋ</string>
 </resources>

@@ -40,4 +40,7 @@
         <item quantity="one">පෙරහන් %d ක්</item>
         <item quantity="other">පෙරහන් %d ක්</item>
     </plurals>
+    <string name="clear_history">අවහිර කළ ඇමතුම් ඉතිහාසය හිස් කරන්න</string>
+    <string name="clear_history_confirm">අවහිර කළ ඇමතුම් ඉතිහාසය මුළුමනින්ම මකන්නද? ඔබගේ අවහිර පෙරහන් රඳවා තබා ගනී. මෙය ආපසු හැරවිය නොහැක.</string>
+    <string name="cancel">අවලංගු කරන්න</string>
 </resources>

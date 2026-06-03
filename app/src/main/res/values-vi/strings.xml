@@ -37,4 +37,7 @@
     <plurals name="filters_count">
         <item quantity="other">%d bộ lọc</item>
     </plurals>
+    <string name="clear_history">Xóa lịch sử cuộc gọi bị chặn</string>
+    <string name="clear_history_confirm">Xóa toàn bộ lịch sử cuộc gọi bị chặn? Các bộ lọc chặn của bạn vẫn được giữ lại. Hành động này không thể hoàn tác.</string>
+    <string name="cancel">Hủy</string>
 </resources>

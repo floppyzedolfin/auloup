@@ -40,4 +40,7 @@
         <item quantity="one">%d филтър</item>
         <item quantity="other">%d филтъра</item>
     </plurals>
+    <string name="clear_history">Изчистване на историята на блокираните обаждания</string>
+    <string name="clear_history_confirm">Да се изтрие ли цялата история на блокираните обаждания? Вашите филтри за блокиране се запазват. Това действие е необратимо.</string>
+    <string name="cancel">Отказ</string>
 </resources>

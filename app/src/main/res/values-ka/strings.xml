@@ -40,4 +40,7 @@
         <item quantity="one">%d ფილტრი</item>
         <item quantity="other">%d ფილტრი</item>
     </plurals>
+    <string name="clear_history">დაბლოკილი ზარების ისტორიის გასუფთავება</string>
+    <string name="clear_history_confirm">წავშალოთ დაბლოკილი ზარების მთელი ისტორია? თქვენი დაბლოკვის ფილტრები შენარჩუნდება. ამ მოქმედების გაუქმება შეუძლებელია.</string>
+    <string name="cancel">გაუქმება</string>
 </resources>

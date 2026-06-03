@@ -43,4 +43,7 @@
         <item quantity="few">%d filtra</item>
         <item quantity="other">%d filtara</item>
     </plurals>
+    <string name="clear_history">Izbriši povijest blokiranih poziva</string>
+    <string name="clear_history_confirm">Izbrisati cijelu povijest blokiranih poziva? Vaši filtri za blokiranje se zadržavaju. Ovo se ne može poništiti.</string>
+    <string name="cancel">Odustani</string>
 </resources>

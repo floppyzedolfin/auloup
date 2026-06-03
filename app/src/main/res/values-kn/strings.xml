@@ -41,4 +41,7 @@
         <item quantity="one">%d ಫಿಲ್ಟರ್</item>
         <item quantity="other">%d ಫಿಲ್ಟರ್‌ಗಳು</item>
     </plurals>
+    <string name="clear_history">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಗಳ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
+    <string name="clear_history_confirm">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಗಳ ಸಂಪೂರ್ಣ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ? ನಿಮ್ಮ ನಿರ್ಬಂಧ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗದು.</string>
+    <string name="cancel">ರದ್ದುಮಾಡಿ</string>
 </resources>

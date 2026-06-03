@@ -40,4 +40,7 @@
         <item quantity="one">%d ఫిల్టర్</item>
         <item quantity="other">%d ఫిల్టర్‌లు</item>
     </plurals>
+    <string name="clear_history">బ్లాక్ చేసిన కాల్ చరిత్రను తొలగించు</string>
+    <string name="clear_history_confirm">బ్లాక్ చేసిన కాల్ చరిత్ర మొత్తాన్ని తొలగించాలా? మీ బ్లాకింగ్ ఫిల్టర్‌లు ఉంచబడతాయి. దీన్ని తిరిగి పొందలేరు.</string>
+    <string name="cancel">రద్దు చేయి</string>
 </resources>

@@ -40,4 +40,7 @@
         <item quantity="one">%d suodatin</item>
         <item quantity="other">%d suodatinta</item>
     </plurals>
+    <string name="clear_history">Tyhjennä estettyjen puheluiden historia</string>
+    <string name="clear_history_confirm">Poistetaanko koko estettyjen puheluiden historia? Estosuodattimesi säilytetään. Tätä ei voi kumota.</string>
+    <string name="cancel">Peruuta</string>
 </resources>

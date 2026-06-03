@@ -43,4 +43,7 @@
         <item quantity="few">%d filtre</item>
         <item quantity="other">%d de filtre</item>
     </plurals>
+    <string name="clear_history">Șterge istoricul apelurilor blocate</string>
+    <string name="clear_history_confirm">Ștergi tot istoricul apelurilor blocate? Filtrele tale de blocare sunt păstrate. Această acțiune nu poate fi anulată.</string>
+    <string name="cancel">Anulează</string>
 </resources>

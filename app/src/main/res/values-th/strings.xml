@@ -37,4 +37,7 @@
     <plurals name="filters_count">
         <item quantity="other">%d ตัวกรอง</item>
     </plurals>
+    <string name="clear_history">ล้างประวัติสายที่ถูกบล็อก</string>
+    <string name="clear_history_confirm">ลบประวัติสายที่ถูกบล็อกทั้งหมดหรือไม่? ตัวกรองการบล็อกของคุณจะถูกเก็บไว้ การกระทำนี้ไม่สามารถยกเลิกได้</string>
+    <string name="cancel">ยกเลิก</string>
 </resources>

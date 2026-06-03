@@ -40,4 +40,7 @@
         <item quantity="one">%d filtro</item>
         <item quantity="other">%d filtros</item>
     </plurals>
+    <string name="clear_history">Borrar el historial de llamadas bloqueadas</string>
+    <string name="clear_history_confirm">¿Eliminar todo el historial de llamadas bloqueadas? Tus filtros de bloqueo se conservan. Esta acción no se puede deshacer.</string>
+    <string name="cancel">Cancelar</string>
 </resources>

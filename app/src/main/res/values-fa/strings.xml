@@ -40,4 +40,7 @@
         <item quantity="one">%d فیلتر</item>
         <item quantity="other">%d فیلتر</item>
     </plurals>
+    <string name="clear_history">پاک کردن تاریخچه تماس‌های مسدودشده</string>
+    <string name="clear_history_confirm">کل تاریخچه تماس‌های مسدودشده حذف شود؟ فیلترهای مسدودسازی شما حفظ می‌شوند. این عمل قابل بازگشت نیست.</string>
+    <string name="cancel">لغو</string>
 </resources>

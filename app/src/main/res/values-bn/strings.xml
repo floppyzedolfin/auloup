@@ -40,4 +40,7 @@
         <item quantity="one">%d টি ফিল্টার</item>
         <item quantity="other">%d টি ফিল্টার</item>
     </plurals>
+    <string name="clear_history">ব্লক করা কলের ইতিহাস মুছুন</string>
+    <string name="clear_history_confirm">ব্লক করা কলের সম্পূর্ণ ইতিহাস মুছবেন? আপনার ব্লকিং ফিল্টারগুলি রাখা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
+    <string name="cancel">বাতিল</string>
 </resources>

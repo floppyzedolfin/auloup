@@ -40,4 +40,7 @@
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filter</item>
     </plurals>
+    <string name="clear_history">Rensa historiken över blockerade samtal</string>
+    <string name="clear_history_confirm">Vill du radera hela historiken över blockerade samtal? Dina blockeringsfilter behålls. Detta kan inte ångras.</string>
+    <string name="cancel">Avbryt</string>
 </resources>

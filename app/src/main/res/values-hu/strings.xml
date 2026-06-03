@@ -40,4 +40,7 @@
         <item quantity="one">%d szűrő</item>
         <item quantity="other">%d szűrő</item>
     </plurals>
+    <string name="clear_history">Blokkolt hívások előzményeinek törlése</string>
+    <string name="clear_history_confirm">Törlöd a blokkolt hívások teljes előzményét? A blokkolási szűrőid megmaradnak. Ez nem vonható vissza.</string>
+    <string name="cancel">Mégse</string>
 </resources>

@@ -40,4 +40,7 @@
         <item quantity="one">%d வடிகட்டி</item>
         <item quantity="other">%d வடிகட்டிகள்</item>
     </plurals>
+    <string name="clear_history">தடுக்கப்பட்ட அழைப்பு வரலாற்றை அழி</string>
+    <string name="clear_history_confirm">தடுக்கப்பட்ட அழைப்பு வரலாறு முழுவதையும் நீக்கவா? உங்கள் தடுப்பு வடிகட்டிகள் வைத்திருக்கப்படும். இதை மீட்டெடுக்க முடியாது.</string>
+    <string name="cancel">ரத்துசெய்</string>
 </resources>

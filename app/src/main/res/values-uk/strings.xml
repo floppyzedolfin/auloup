@@ -46,4 +46,7 @@
         <item quantity="many">%d фільтрів</item>
         <item quantity="other">%d фільтра</item>
     </plurals>
+    <string name="clear_history">Очистити історію заблокованих дзвінків</string>
+    <string name="clear_history_confirm">Видалити всю історію заблокованих дзвінків? Ваші фільтри блокування буде збережено. Цю дію неможливо скасувати.</string>
+    <string name="cancel">Скасувати</string>
 </resources>

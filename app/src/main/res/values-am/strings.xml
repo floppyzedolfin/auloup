@@ -40,4 +40,7 @@
         <item quantity="one">%d ማጣሪያ</item>
         <item quantity="other">%d ማጣሪያዎች</item>
     </plurals>
+    <string name="clear_history">የታገዱ ጥሪዎች ታሪክን አጽዳ</string>
+    <string name="clear_history_confirm">ሙሉ የታገዱ ጥሪዎች ታሪክን ይሰረዝ? የማገጃ ማጣሪያዎችዎ ይቀመጣሉ። ይህ መቀልበስ አይቻልም።</string>
+    <string name="cancel">ሰርዝ</string>
 </resources>
