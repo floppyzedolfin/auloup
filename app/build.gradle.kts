@@ -1,5 +1,7 @@
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -12,6 +14,18 @@ ktlint {
     android.set(true)
 }
 
+// Release signing reads from a gitignored keystore.properties (copy
+// keystore.properties.example and fill it in). When it's absent the release
+// build falls back to the debug key, so it stays installable for local testing
+// but is NOT suitable for the Play Store.
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties =
+    Properties().apply {
+        if (keystorePropertiesFile.exists()) {
+            FileInputStream(keystorePropertiesFile).use { load(it) }
+        }
+    }
+
 android {
     namespace = "com.floppyzedolfin.auloup"
     compileSdk = 35
@@ -21,16 +35,36 @@ android {
         minSdk = 29
         targetSdk = 35
         versionCode = 1
-        versionName = "0.1.0"
+        versionName = "1.0.0"
+    }
+
+    signingConfigs {
+        // Only define the release config when the keystore is present; otherwise
+        // the release build below falls back to the debug key.
+        if (keystorePropertiesFile.exists()) {
+            create("release") {
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+            signingConfig =
+                if (keystorePropertiesFile.exists()) {
+                    signingConfigs.getByName("release")
+                } else {
+                    signingConfigs.getByName("debug")
+                }
         }
     }
 

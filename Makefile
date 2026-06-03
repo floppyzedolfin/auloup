@@ -1,8 +1,10 @@
-# Simple build entry point for AuLoup.
+# Simple build entry point for Au loup!.
 #
 #   make            build the debug APK -> app/build/outputs/apk/debug/auloup.apk
 #   make install    build and install on a connected device/emulator
-#   make clean       remove build outputs
+#   make bundle     build the release .aab for the Play Store (see RELEASE.md)
+#   make release    build the release APK (for sideloading / testing)
+#   make clean      remove build outputs
 #
 # Gradle needs an LTS JDK (17 or 21); the common system default JDK 25 is
 # rejected. This Makefile finds a compatible JDK automatically. If it can't,
@@ -12,6 +14,8 @@
 #   gradlew.bat assembleDebug
 
 APK := app/build/outputs/apk/debug/auloup.apk
+RELEASE_APK := app/build/outputs/apk/release/auloup.apk
+AAB := app/build/outputs/bundle/release/app-release.aab
 
 # Find a usable JDK (17 or 21): the Android Studio bundle, a system install, an
 # SDKMAN candidate, or one unpacked under ~/tools. First match with a working
@@ -26,7 +30,7 @@ JAVA_HOME ?= $(firstword $(wildcard \
 
 export JAVA_HOME
 
-.PHONY: build install clean check-jdk
+.PHONY: build install bundle release clean check-jdk
 
 build: check-jdk
 	./gradlew assembleDebug
@@ -35,6 +39,18 @@ build: check-jdk
 
 install: check-jdk
 	./gradlew installDebug
+
+bundle: check-jdk
+	./gradlew bundleRelease
+	@echo
+	@echo "Built: $(AAB)"
+	@echo "Upload this to the Play Console. Without keystore.properties it is"
+	@echo "debug-signed and only usable for testing - see RELEASE.md."
+
+release: check-jdk
+	./gradlew assembleRelease
+	@echo
+	@echo "Built: $(RELEASE_APK)"
 
 clean:
 	./gradlew clean
