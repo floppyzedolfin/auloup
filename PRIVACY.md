@@ -24,8 +24,28 @@ leaves it:
   is blocked).
 
 This is stored using Android's standard on-device storage (Jetpack DataStore).
-Removing a prefix deletes its blocked-call history. Uninstalling the app deletes
-everything.
+Removing a prefix deletes its blocked-call history, and uninstalling the app
+deletes everything. The app also **disables Android's automatic backup**
+(`allowBackup="false"`), so this data is never copied to any cloud.
+
+## Your data rights (GDPR)
+
+Au loup! is designed so EU data-protection law (the GDPR) is a non-issue:
+nothing leaves your device, so the developer never holds your data and is not a
+"data controller" for it — running the app on your own phone is personal /
+household use.
+
+The only personal data involved (a caller's number while a call is screened, and
+the prefixes and history you save) is processed **locally**, solely to do the one
+thing you asked: block calls. There is no profiling, no advertising, no
+third-party sharing, and no international data transfer.
+
+You keep full control:
+
+- **Access & portability** — all your data is the prefix list and blocked-call
+  history shown in the app, on your device.
+- **Erasure** — remove a prefix to delete its blocked-call history, or uninstall
+  the app to erase everything. (No cloud copy exists to delete.)
 
 ## Permissions the app uses, and why
 
