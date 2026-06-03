@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Just the wolf's OPEN (purple) eyes, overlaid on ic_logo during a blink. Same
-     108x108 viewport and the same scaled group as ic_logo, so the open eyes line
-     up over the sleepy (closed) ones. -->
+<!-- Iris's OPEN (purple) eyes, overlaid on ic_logo during a blink. Same 108x108
+     viewport and the same scaled group as ic_logo, so the open eyes line up over
+     the sleepy (closed) ones. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="48dp"
