@@ -98,6 +98,9 @@ automatically.
 PRIVACY: Au loup! has no accounts, no ads, no tracking, and makes no network
 connections. Your prefix list and block history never leave your device.
 
+Au loup! is guarded by Iris, a sleepy she-wolf: silence the callers who keep
+crying wolf, and she finally gets to sleep.
+
 Free and open source (GPL-3.0). Source: https://github.com/floppyzedolfin/auloup
 ```
 
