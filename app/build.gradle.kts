@@ -103,4 +103,5 @@ dependencies {
     implementation(libs.libphonenumber)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
+    testImplementation(libs.json)
 }

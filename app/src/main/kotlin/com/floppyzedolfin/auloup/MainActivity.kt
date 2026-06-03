@@ -112,11 +112,7 @@ class MainActivity : ComponentActivity() {
             val context = LocalContext.current
             val repository = remember { PrefixRepository(context.applicationContext) }
             val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
-            val dark = when (themeMode) {
-                ThemeMode.LIGHT -> false
-                ThemeMode.DARK -> true
-                else -> isSystemInDarkTheme()
-            }
+            val dark = ThemeMode.isDark(themeMode, isSystemInDarkTheme())
             MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     AuLoupScreen(repository)
@@ -616,27 +612,8 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
         animationSpec = infiniteRepeatable(tween(durationMillis = 10000, easing = LinearEasing)),
         label = "blink",
     )
-    // After a quiet pause she opens her eyes for ~1s, does two quick blinks, then
-    // settles back to sleep. (Cycle is 10s, so 0.01 ≈ 100ms.)
-    val eyesOpen = when {
-        blink < 0.60f -> 0f
-        blink < 0.62f -> (blink - 0.60f) / 0.02f // open
-        blink < 0.72f -> 1f // hold open ~1s
-        blink < 0.735f -> 1f - (blink - 0.72f) / 0.015f // blink 1 down
-        blink < 0.75f -> (blink - 0.735f) / 0.015f // blink 1 up
-        blink < 0.765f -> 1f - (blink - 0.75f) / 0.015f // blink 2 down
-        blink < 0.78f -> (blink - 0.765f) / 0.015f // blink 2 up
-        blink < 0.81f -> 1f - (blink - 0.78f) / 0.03f // settle closed
-        else -> 0f
-    }
-    // zzz stop before the pause, stay off through the blinks, and resume ~1s
-    // after the blinks (eyes back closed).
-    val zzzGate = when {
-        blink < 0.48f -> 1f
-        blink < 0.53f -> (0.53f - blink) / 0.05f // fade out
-        blink < 0.88f -> 0f
-        else -> (blink - 0.88f) / 0.12f // resume ~1s after the blinks
-    }
+    val eyesOpen = WolfAnimation.eyesOpen(blink)
+    val zzzGate = WolfAnimation.zzzGate(blink)
     Box(modifier = modifier.size(size)) {
         Image(
             painter = painterResource(R.drawable.ic_logo),
