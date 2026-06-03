@@ -39,17 +39,16 @@ No accounts, no network, no tracking. Your prefix list never leaves the device.
 ## Support the wolves
 
 Au loup! is free and asks nothing for itself. If you'd like to give back, support
-**real** wolves: the project's "Sponsor" link points to
-**[FERUS](https://www.ferus.fr/)**, France's national association for the
-protection of wolves (and bears and lynx).
+**real** wolves through either of these French associations that defend them
+(both founding members of the [CAP Loup](https://www.cap-loup.fr/) collective):
 
-- **Donate online:** <https://www.ferus.fr/soutenez-nos-actions/dons-2> — by card
-  via HelloAsso. In France 66% of your gift is tax-deductible (a €50 donation
-  costs you €17).
-- **Become a member:** <https://www.ferus.fr/soutenez-nos-actions/adhesions>
+- **[ASPAS](https://www.aspas-nature.org/)** — protection of wild animals
+  (recognised as a public-interest body). Donate online:
+  <https://www.aspas-nature.org/nous-soutenir/faire-un-don/>
+- **[FERUS](https://www.ferus.fr/)** — protection of wolves, bears and lynx.
+  Donate online: <https://www.ferus.fr/soutenez-nos-actions/dons-2>
 
-(FERUS is a founding member of the [CAP Loup](https://www.cap-loup.fr/) collective;
-[ASPAS](https://www.aspas-nature.org/) also defends wolves if you'd prefer them.)
+In France, 66% of your gift is tax-deductible (a €50 donation costs you €17).
 
 ## Platform support
 
