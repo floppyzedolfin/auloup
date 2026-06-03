@@ -25,4 +25,16 @@
     <string name="official">官方</string>
     <string name="official_lists">官方清單</string>
     <string name="import_action">匯入</string>
+    <string name="history_title">紀錄</string>
+    <string name="no_calls_yet">尚無封鎖的來電。</string>
+    <string name="theme">主題</string>
+    <string name="theme_system">跟隨系統</string>
+    <string name="theme_light">淺色</string>
+    <string name="theme_dark">深色</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">今天已封鎖 %d 通來電</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d 個篩選條件</item>
+    </plurals>
 </resources>

@@ -26,4 +26,18 @@
     <string name="official">ਅਧਿਕਾਰਤ</string>
     <string name="official_lists">ਅਧਿਕਾਰਤ ਸੂਚੀਆਂ</string>
     <string name="import_action">ਆਯਾਤ ਕਰੋ</string>
+    <string name="history_title">ਇਤਿਹਾਸ</string>
+    <string name="no_calls_yet">ਅਜੇ ਕੋਈ ਕਾਲ ਬਲੌਕ ਨਹੀਂ ਹੋਈ।</string>
+    <string name="theme">ਥੀਮ</string>
+    <string name="theme_system">ਸਿਸਟਮ ਡਿਫਾਲਟ</string>
+    <string name="theme_light">ਹਲਕਾ</string>
+    <string name="theme_dark">ਗੂੜ੍ਹਾ</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">ਅੱਜ %d ਕਾਲ ਬਲੌਕ ਕੀਤੀ ਗਈ</item>
+        <item quantity="other">ਅੱਜ %d ਕਾਲਾਂ ਬਲੌਕ ਕੀਤੀਆਂ ਗਈਆਂ</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ਫਿਲਟਰ</item>
+        <item quantity="other">%d ਫਿਲਟਰ</item>
+    </plurals>
 </resources>

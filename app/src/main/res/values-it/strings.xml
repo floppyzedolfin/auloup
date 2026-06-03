@@ -26,4 +26,18 @@
     <string name="official">Ufficiale</string>
     <string name="official_lists">Elenchi ufficiali</string>
     <string name="import_action">Importa</string>
+    <string name="history_title">Cronologia</string>
+    <string name="no_calls_yet">Nessuna chiamata ancora bloccata.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Predefinito di sistema</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d chiamata bloccata oggi</item>
+        <item quantity="other">%d chiamate bloccate oggi</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtro</item>
+        <item quantity="other">%d filtri</item>
+    </plurals>
 </resources>

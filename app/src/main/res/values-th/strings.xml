@@ -25,4 +25,16 @@
     <string name="official">ทางการ</string>
     <string name="official_lists">รายการทางการ</string>
     <string name="import_action">นำเข้า</string>
+    <string name="history_title">ประวัติ</string>
+    <string name="no_calls_yet">ยังไม่มีสายที่ถูกบล็อก</string>
+    <string name="theme">ธีม</string>
+    <string name="theme_system">ค่าเริ่มต้นของระบบ</string>
+    <string name="theme_light">สว่าง</string>
+    <string name="theme_dark">มืด</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">บล็อก %d สายวันนี้</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d ตัวกรอง</item>
+    </plurals>
 </resources>

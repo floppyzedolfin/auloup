@@ -26,4 +26,18 @@
     <string name="official">رسمی</string>
     <string name="official_lists">فهرست‌های رسمی</string>
     <string name="import_action">وارد کردن</string>
+    <string name="history_title">تاریخچه</string>
+    <string name="no_calls_yet">هنوز هیچ تماسی مسدود نشده است.</string>
+    <string name="theme">زمینه</string>
+    <string name="theme_system">پیش‌فرض سیستم</string>
+    <string name="theme_light">روشن</string>
+    <string name="theme_dark">تیره</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d تماس امروز مسدود شد</item>
+        <item quantity="other">%d تماس امروز مسدود شد</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d فیلتر</item>
+        <item quantity="other">%d فیلتر</item>
+    </plurals>
 </resources>

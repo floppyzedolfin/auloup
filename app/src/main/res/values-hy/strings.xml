@@ -26,4 +26,18 @@
     <string name="official">Պաշտոնական</string>
     <string name="official_lists">Պաշտոնական ցուցակներ</string>
     <string name="import_action">Ներմուծել</string>
+    <string name="history_title">Պատմություն</string>
+    <string name="no_calls_yet">Դեռ արգելափակված զանգ չկա։</string>
+    <string name="theme">Թեմա</string>
+    <string name="theme_system">Համակարգի կանխադրված</string>
+    <string name="theme_light">Բաց</string>
+    <string name="theme_dark">Մուգ</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d զանգ արգելափակված է այսօր</item>
+        <item quantity="other">%d զանգ արգելափակված է այսօր</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d զտիչ</item>
+        <item quantity="other">%d զտիչ</item>
+    </plurals>
 </resources>

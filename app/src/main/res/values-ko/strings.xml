@@ -25,4 +25,16 @@
     <string name="official">공식</string>
     <string name="official_lists">공식 목록</string>
     <string name="import_action">가져오기</string>
+    <string name="history_title">기록</string>
+    <string name="no_calls_yet">아직 차단된 통화가 없습니다.</string>
+    <string name="theme">테마</string>
+    <string name="theme_system">시스템 기본값</string>
+    <string name="theme_light">밝게</string>
+    <string name="theme_dark">어둡게</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">오늘 %d건의 통화 차단됨</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">필터 %d개</item>
+    </plurals>
 </resources>

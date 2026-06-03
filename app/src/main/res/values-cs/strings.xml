@@ -28,4 +28,22 @@
     <string name="official">Oficiální</string>
     <string name="official_lists">Oficiální seznamy</string>
     <string name="import_action">Importovat</string>
+    <string name="history_title">Historie</string>
+    <string name="no_calls_yet">Zatím nebyly blokovány žádné hovory.</string>
+    <string name="theme">Motiv</string>
+    <string name="theme_system">Výchozí nastavení systému</string>
+    <string name="theme_light">Světlý</string>
+    <string name="theme_dark">Tmavý</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">Dnes %d hovor zablokován</item>
+        <item quantity="few">Dnes %d hovory zablokovány</item>
+        <item quantity="many">Dnes %d hovoru zablokováno</item>
+        <item quantity="other">Dnes %d hovorů zablokováno</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtr</item>
+        <item quantity="few">%d filtry</item>
+        <item quantity="many">%d filtru</item>
+        <item quantity="other">%d filtrů</item>
+    </plurals>
 </resources>

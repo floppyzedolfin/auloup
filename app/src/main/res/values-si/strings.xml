@@ -26,4 +26,18 @@
     <string name="official">නිල</string>
     <string name="official_lists">නිල ලැයිස්තු</string>
     <string name="import_action">ආයාත කරන්න</string>
+    <string name="history_title">ඉතිහාසය</string>
+    <string name="no_calls_yet">තවම ඇමතුමක් අවහිර කර නොමැත.</string>
+    <string name="theme">තේමාව</string>
+    <string name="theme_system">පද්ධති පෙරනිමිය</string>
+    <string name="theme_light">ආලෝකවත්</string>
+    <string name="theme_dark">අඳුරු</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">අද ඇමතුම් %d ක් අවහිර කරන ලදී</item>
+        <item quantity="other">අද ඇමතුම් %d ක් අවහිර කරන ලදී</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">පෙරහන් %d ක්</item>
+        <item quantity="other">පෙරහන් %d ක්</item>
+    </plurals>
 </resources>

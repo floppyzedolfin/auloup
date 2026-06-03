@@ -26,4 +26,18 @@
     <string name="official">Rasmi</string>
     <string name="official_lists">Senarai rasmi</string>
     <string name="import_action">Import</string>
+    <string name="history_title">Sejarah</string>
+    <string name="no_calls_yet">Tiada panggilan disekat lagi.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Lalai sistem</string>
+    <string name="theme_light">Cerah</string>
+    <string name="theme_dark">Gelap</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d panggilan disekat hari ini</item>
+        <item quantity="other">%d panggilan disekat hari ini</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d penapis</item>
+        <item quantity="other">%d penapis</item>
+    </plurals>
 </resources>

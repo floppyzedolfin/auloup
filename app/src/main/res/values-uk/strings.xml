@@ -28,4 +28,22 @@
     <string name="official">Офіційний</string>
     <string name="official_lists">Офіційні списки</string>
     <string name="import_action">Імпортувати</string>
+    <string name="history_title">Історія</string>
+    <string name="no_calls_yet">Поки що немає заблокованих дзвінків.</string>
+    <string name="theme">Тема</string>
+    <string name="theme_system">За замовчуванням системи</string>
+    <string name="theme_light">Світла</string>
+    <string name="theme_dark">Темна</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">Сьогодні заблоковано %d дзвінок</item>
+        <item quantity="few">Сьогодні заблоковано %d дзвінки</item>
+        <item quantity="many">Сьогодні заблоковано %d дзвінків</item>
+        <item quantity="other">Сьогодні заблоковано %d дзвінка</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d фільтр</item>
+        <item quantity="few">%d фільтри</item>
+        <item quantity="many">%d фільтрів</item>
+        <item quantity="other">%d фільтра</item>
+    </plurals>
 </resources>

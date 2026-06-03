@@ -26,4 +26,18 @@
     <string name="official">Zyrtare</string>
     <string name="official_lists">Listat zyrtare</string>
     <string name="import_action">Importo</string>
+    <string name="history_title">Historiku</string>
+    <string name="no_calls_yet">Asnjë telefonatë e bllokuar ende.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Parazgjedhja e sistemit</string>
+    <string name="theme_light">E çelët</string>
+    <string name="theme_dark">E errët</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d telefonatë e bllokuar sot</item>
+        <item quantity="other">%d telefonata të bllokuara sot</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtër</item>
+        <item quantity="other">%d filtra</item>
+    </plurals>
 </resources>

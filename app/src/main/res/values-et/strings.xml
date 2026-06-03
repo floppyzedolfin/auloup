@@ -26,4 +26,18 @@
     <string name="official">Ametlik</string>
     <string name="official_lists">Ametlikud loendid</string>
     <string name="import_action">Impordi</string>
+    <string name="history_title">Ajalugu</string>
+    <string name="no_calls_yet">Ühtegi kõnet pole veel blokeeritud.</string>
+    <string name="theme">Teema</string>
+    <string name="theme_system">Süsteemi vaikeseade</string>
+    <string name="theme_light">Hele</string>
+    <string name="theme_dark">Tume</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d kõne täna blokeeritud</item>
+        <item quantity="other">%d kõnet täna blokeeritud</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filtrit</item>
+    </plurals>
 </resources>

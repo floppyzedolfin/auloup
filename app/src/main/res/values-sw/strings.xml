@@ -26,4 +26,18 @@
     <string name="official">Rasmi</string>
     <string name="official_lists">Orodha rasmi</string>
     <string name="import_action">Ingiza</string>
+    <string name="history_title">Historia</string>
+    <string name="no_calls_yet">Hakuna simu zilizozuiwa bado.</string>
+    <string name="theme">Mandhari</string>
+    <string name="theme_system">Chaguomsingi la mfumo</string>
+    <string name="theme_light">Nyepesi</string>
+    <string name="theme_dark">Nyeusi</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">Simu %d imezuiwa leo</item>
+        <item quantity="other">Simu %d zimezuiwa leo</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">Kichujio %d</item>
+        <item quantity="other">Vichujio %d</item>
+    </plurals>
 </resources>

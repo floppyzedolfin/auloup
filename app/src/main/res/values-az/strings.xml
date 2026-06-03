@@ -26,4 +26,18 @@
     <string name="official">Rəsmi</string>
     <string name="official_lists">Rəsmi siyahılar</string>
     <string name="import_action">İdxal et</string>
+    <string name="history_title">Tarixçə</string>
+    <string name="no_calls_yet">Hələ heç bir zəng bloklanmayıb.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistem standartı</string>
+    <string name="theme_light">İşıqlı</string>
+    <string name="theme_dark">Tünd</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">Bu gün %d zəng bloklandı</item>
+        <item quantity="other">Bu gün %d zəng bloklandı</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtr</item>
+        <item quantity="other">%d filtr</item>
+    </plurals>
 </resources>

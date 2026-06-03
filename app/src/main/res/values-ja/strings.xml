@@ -25,4 +25,16 @@
     <string name="official">公式</string>
     <string name="official_lists">公式リスト</string>
     <string name="import_action">インポート</string>
+    <string name="history_title">履歴</string>
+    <string name="no_calls_yet">まだブロックされた通話はありません。</string>
+    <string name="theme">テーマ</string>
+    <string name="theme_system">システムのデフォルト</string>
+    <string name="theme_light">ライト</string>
+    <string name="theme_dark">ダーク</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">本日 %d 件の通話をブロックしました</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d 件のフィルター</item>
+    </plurals>
 </resources>

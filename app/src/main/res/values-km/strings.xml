@@ -25,4 +25,16 @@
     <string name="official">ផ្លូវការ</string>
     <string name="official_lists">បញ្ជីផ្លូវការ</string>
     <string name="import_action">នាំចូល</string>
+    <string name="history_title">ប្រវត្តិ</string>
+    <string name="no_calls_yet">មិនទាន់មានការហៅទូរសព្ទត្រូវបានទប់ស្កាត់ទេ។</string>
+    <string name="theme">រូបរាង</string>
+    <string name="theme_system">លំនាំដើមរបស់ប្រព័ន្ធ</string>
+    <string name="theme_light">ភ្លឺ</string>
+    <string name="theme_dark">ងងឹត</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">%d ការហៅទូរសព្ទត្រូវបានទប់ស្កាត់ថ្ងៃនេះ</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d តម្រង</item>
+    </plurals>
 </resources>

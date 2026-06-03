@@ -26,4 +26,18 @@
     <string name="official">அதிகாரப்பூர்வம்</string>
     <string name="official_lists">அதிகாரப்பூர்வ பட்டியல்கள்</string>
     <string name="import_action">இறக்குமதி</string>
+    <string name="history_title">வரலாறு</string>
+    <string name="no_calls_yet">இன்னும் எந்த அழைப்பும் தடுக்கப்படவில்லை.</string>
+    <string name="theme">தீம்</string>
+    <string name="theme_system">கணினி இயல்புநிலை</string>
+    <string name="theme_light">வெளிர்</string>
+    <string name="theme_dark">இருள்</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">இன்று %d அழைப்பு தடுக்கப்பட்டது</item>
+        <item quantity="other">இன்று %d அழைப்புகள் தடுக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d வடிகட்டி</item>
+        <item quantity="other">%d வடிகட்டிகள்</item>
+    </plurals>
 </resources>

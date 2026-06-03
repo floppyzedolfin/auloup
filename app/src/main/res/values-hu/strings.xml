@@ -26,4 +26,18 @@
     <string name="official">Hivatalos</string>
     <string name="official_lists">Hivatalos listák</string>
     <string name="import_action">Importálás</string>
+    <string name="history_title">Előzmények</string>
+    <string name="no_calls_yet">Még nincs blokkolt hívás.</string>
+    <string name="theme">Téma</string>
+    <string name="theme_system">Rendszer alapértelmezett</string>
+    <string name="theme_light">Világos</string>
+    <string name="theme_dark">Sötét</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d hívás blokkolva ma</item>
+        <item quantity="other">%d hívás blokkolva ma</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d szűrő</item>
+        <item quantity="other">%d szűrő</item>
+    </plurals>
 </resources>

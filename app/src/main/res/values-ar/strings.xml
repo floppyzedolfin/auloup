@@ -30,4 +30,26 @@
     <string name="official">رسمي</string>
     <string name="official_lists">قوائم رسمية</string>
     <string name="import_action">استيراد</string>
+    <string name="history_title">السجل</string>
+    <string name="no_calls_yet">لم يتم حظر أي مكالمات بعد.</string>
+    <string name="theme">المظهر</string>
+    <string name="theme_system">إعداد النظام الافتراضي</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_dark">داكن</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="zero">لم يتم حظر مكالمات اليوم (%d)</item>
+        <item quantity="one">تم حظر مكالمة واحدة اليوم (%d)</item>
+        <item quantity="two">تم حظر مكالمتين اليوم (%d)</item>
+        <item quantity="few">تم حظر %d مكالمات اليوم</item>
+        <item quantity="many">تم حظر %d مكالمة اليوم</item>
+        <item quantity="other">تم حظر %d مكالمة اليوم</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="zero">%d فلتر</item>
+        <item quantity="one">فلتر واحد (%d)</item>
+        <item quantity="two">فلتران (%d)</item>
+        <item quantity="few">%d فلاتر</item>
+        <item quantity="many">%d فلترًا</item>
+        <item quantity="other">%d فلتر</item>
+    </plurals>
 </resources>

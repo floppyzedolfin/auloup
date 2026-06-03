@@ -25,4 +25,16 @@
     <string name="official">Resmi</string>
     <string name="official_lists">Daftar resmi</string>
     <string name="import_action">Impor</string>
+    <string name="history_title">Riwayat</string>
+    <string name="no_calls_yet">Belum ada panggilan yang diblokir.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Default sistem</string>
+    <string name="theme_light">Terang</string>
+    <string name="theme_dark">Gelap</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">%d panggilan diblokir hari ini</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d filter</item>
+    </plurals>
 </resources>

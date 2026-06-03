@@ -1,12 +1,12 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name" translatable="false">Au loup!</string>
 
     <!-- Notification -->
     <string name="channel_blocked_calls">Blocked calls</string>
     <string name="call_blocked">Call blocked</string>
     <string name="unknown_number">Unknown number</string>
-    <!-- Notification body. New strings default to English until translated. -->
-    <plurals name="calls_blocked_today" tools:ignore="MissingTranslation">
+    <!-- Notification body -->
+    <plurals name="calls_blocked_today">
         <item quantity="one">%d call blocked today</item>
         <item quantity="other">%d calls blocked today</item>
     </plurals>
@@ -27,7 +27,7 @@
         <item quantity="one">%d call blocked</item>
         <item quantity="other">%d calls blocked</item>
     </plurals>
-    <plurals name="filters_count" tools:ignore="MissingTranslation">
+    <plurals name="filters_count">
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
     </plurals>
@@ -35,8 +35,8 @@
     <!-- Blocked-call history screen -->
     <string name="back">Back</string>
     <string name="no_calls_for_prefix">No calls blocked for this prefix yet.</string>
-    <string name="history_title" tools:ignore="MissingTranslation">History</string>
-    <string name="no_calls_yet" tools:ignore="MissingTranslation">No calls blocked yet.</string>
+    <string name="history_title">History</string>
+    <string name="no_calls_yet">No calls blocked yet.</string>
 
     <!-- Statistics charts -->
     <string name="stats_per_day">Blocked per day</string>
@@ -45,10 +45,10 @@
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="language">Language</string>
-    <string name="theme" tools:ignore="MissingTranslation">Theme</string>
-    <string name="theme_system" tools:ignore="MissingTranslation">System default</string>
-    <string name="theme_light" tools:ignore="MissingTranslation">Light</string>
-    <string name="theme_dark" tools:ignore="MissingTranslation">Dark</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
 
     <!-- Official block lists -->
     <string name="official">Official</string>

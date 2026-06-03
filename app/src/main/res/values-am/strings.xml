@@ -26,4 +26,18 @@
     <string name="official">ኦፊሴላዊ</string>
     <string name="official_lists">ኦፊሴላዊ ዝርዝሮች</string>
     <string name="import_action">አስገባ</string>
+    <string name="history_title">ታሪክ</string>
+    <string name="no_calls_yet">እስካሁን የታገደ ጥሪ የለም።</string>
+    <string name="theme">ገጽታ</string>
+    <string name="theme_system">የስርዓት ነባሪ</string>
+    <string name="theme_light">ብሩህ</string>
+    <string name="theme_dark">ጨለማ</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">ዛሬ %d ጥሪ ታግዷል</item>
+        <item quantity="other">ዛሬ %d ጥሪዎች ታግደዋል</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ማጣሪያ</item>
+        <item quantity="other">%d ማጣሪያዎች</item>
+    </plurals>
 </resources>

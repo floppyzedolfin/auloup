@@ -1,3 +1,4 @@
+
 <resources>
     <string name="channel_blocked_calls">Blockierte Anrufe</string>
     <string name="call_blocked">Anruf blockiert</string>
@@ -26,4 +27,18 @@
     <string name="official">Offiziell</string>
     <string name="official_lists">Offizielle Listen</string>
     <string name="import_action">Importieren</string>
+    <string name="history_title">Verlauf</string>
+    <string name="no_calls_yet">Noch keine Anrufe blockiert.</string>
+    <string name="theme">Design</string>
+    <string name="theme_system">Systemstandard</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d Anruf heute blockiert</item>
+        <item quantity="other">%d Anrufe heute blockiert</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d Filter</item>
+        <item quantity="other">%d Filter</item>
+    </plurals>
 </resources>

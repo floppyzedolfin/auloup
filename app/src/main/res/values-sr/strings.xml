@@ -27,4 +27,20 @@
     <string name="official">Званично</string>
     <string name="official_lists">Званичне листе</string>
     <string name="import_action">Увези</string>
+    <string name="history_title">Историја</string>
+    <string name="no_calls_yet">Још нема блокираних позива.</string>
+    <string name="theme">Тема</string>
+    <string name="theme_system">Подразумевано за систем</string>
+    <string name="theme_light">Светла</string>
+    <string name="theme_dark">Тамна</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d позив блокиран данас</item>
+        <item quantity="few">%d позива блокирана данас</item>
+        <item quantity="other">%d позива блокирано данас</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d филтер</item>
+        <item quantity="few">%d филтера</item>
+        <item quantity="other">%d филтера</item>
+    </plurals>
 </resources>

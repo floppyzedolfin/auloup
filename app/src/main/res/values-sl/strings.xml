@@ -28,4 +28,22 @@
     <string name="official">Uradno</string>
     <string name="official_lists">Uradni seznami</string>
     <string name="import_action">Uvozi</string>
+    <string name="history_title">Zgodovina</string>
+    <string name="no_calls_yet">Še ni blokiranih klicev.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Privzeto za sistem</string>
+    <string name="theme_light">Svetla</string>
+    <string name="theme_dark">Temna</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d klic blokiran danes</item>
+        <item quantity="two">%d klica blokirana danes</item>
+        <item quantity="few">%d klici blokirani danes</item>
+        <item quantity="other">%d klicev blokiranih danes</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filter</item>
+        <item quantity="two">%d filtra</item>
+        <item quantity="few">%d filtri</item>
+        <item quantity="other">%d filtrov</item>
+    </plurals>
 </resources>

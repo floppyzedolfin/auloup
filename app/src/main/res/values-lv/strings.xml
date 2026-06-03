@@ -27,4 +27,20 @@
     <string name="official">Oficiāls</string>
     <string name="official_lists">Oficiālie saraksti</string>
     <string name="import_action">Importēt</string>
+    <string name="history_title">Vēsture</string>
+    <string name="no_calls_yet">Vēl nav bloķētu zvanu.</string>
+    <string name="theme">Motīvs</string>
+    <string name="theme_system">Sistēmas noklusējums</string>
+    <string name="theme_light">Gaišs</string>
+    <string name="theme_dark">Tumšs</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="zero">Šodien bloķēti %d zvani</item>
+        <item quantity="one">Šodien bloķēts %d zvans</item>
+        <item quantity="other">Šodien bloķēti %d zvani</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="zero">%d filtru</item>
+        <item quantity="one">%d filtrs</item>
+        <item quantity="other">%d filtri</item>
+    </plurals>
 </resources>

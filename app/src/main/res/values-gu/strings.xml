@@ -26,4 +26,18 @@
     <string name="official">અધિકૃત</string>
     <string name="official_lists">અધિકૃત સૂચિઓ</string>
     <string name="import_action">આયાત કરો</string>
+    <string name="history_title">ઇતિહાસ</string>
+    <string name="no_calls_yet">હજી સુધી કોઈ કૉલ અવરોધિત થયો નથી.</string>
+    <string name="theme">થીમ</string>
+    <string name="theme_system">સિસ્ટમ ડિફૉલ્ટ</string>
+    <string name="theme_light">આછું</string>
+    <string name="theme_dark">ઘેરું</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">આજે %d કૉલ અવરોધિત થયો</item>
+        <item quantity="other">આજે %d કૉલ અવરોધિત થયા</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ફિલ્ટર</item>
+        <item quantity="other">%d ફિલ્ટર</item>
+    </plurals>
 </resources>

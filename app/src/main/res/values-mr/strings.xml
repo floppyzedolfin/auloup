@@ -26,4 +26,18 @@
     <string name="official">अधिकृत</string>
     <string name="official_lists">अधिकृत याद्या</string>
     <string name="import_action">आयात करा</string>
+    <string name="history_title">इतिहास</string>
+    <string name="no_calls_yet">अद्याप कोणताही कॉल ब्लॉक केलेला नाही.</string>
+    <string name="theme">थीम</string>
+    <string name="theme_system">सिस्टम डीफॉल्ट</string>
+    <string name="theme_light">उजळ</string>
+    <string name="theme_dark">गडद</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">आज %d कॉल ब्लॉक केला</item>
+        <item quantity="other">आज %d कॉल ब्लॉक केले</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d फिल्टर</item>
+        <item quantity="other">%d फिल्टर</item>
+    </plurals>
 </resources>

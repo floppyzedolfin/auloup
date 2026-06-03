@@ -27,4 +27,20 @@
     <string name="official">Službeno</string>
     <string name="official_lists">Službeni popisi</string>
     <string name="import_action">Uvezi</string>
+    <string name="history_title">Povijest</string>
+    <string name="no_calls_yet">Još nema blokiranih poziva.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Zadano sustava</string>
+    <string name="theme_light">Svijetlo</string>
+    <string name="theme_dark">Tamno</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d poziv blokiran danas</item>
+        <item quantity="few">%d poziva blokirana danas</item>
+        <item quantity="other">%d poziva blokirano danas</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtar</item>
+        <item quantity="few">%d filtra</item>
+        <item quantity="other">%d filtara</item>
+    </plurals>
 </resources>

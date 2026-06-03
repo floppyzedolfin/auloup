@@ -28,4 +28,22 @@
     <string name="official">Oficjalne</string>
     <string name="official_lists">Listy oficjalne</string>
     <string name="import_action">Importuj</string>
+    <string name="history_title">Historia</string>
+    <string name="no_calls_yet">Nie zablokowano jeszcze żadnych połączeń.</string>
+    <string name="theme">Motyw</string>
+    <string name="theme_system">Domyślny systemu</string>
+    <string name="theme_light">Jasny</string>
+    <string name="theme_dark">Ciemny</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d połączenie zablokowane dzisiaj</item>
+        <item quantity="few">%d połączenia zablokowane dzisiaj</item>
+        <item quantity="many">%d połączeń zablokowanych dzisiaj</item>
+        <item quantity="other">%d połączenia zablokowane dzisiaj</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtr</item>
+        <item quantity="few">%d filtry</item>
+        <item quantity="many">%d filtrów</item>
+        <item quantity="other">%d filtra</item>
+    </plurals>
 </resources>

@@ -26,4 +26,18 @@
     <string name="official">ഔദ്യോഗികം</string>
     <string name="official_lists">ഔദ്യോഗിക പട്ടികകൾ</string>
     <string name="import_action">ഇറക്കുമതി</string>
+    <string name="history_title">ചരിത്രം</string>
+    <string name="no_calls_yet">ഇതുവരെ കോളുകൾ ഒന്നും തടഞ്ഞിട്ടില്ല.</string>
+    <string name="theme">തീം</string>
+    <string name="theme_system">സിസ്റ്റം ഡിഫോൾട്ട്</string>
+    <string name="theme_light">ഇളം</string>
+    <string name="theme_dark">ഇരുണ്ട</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">ഇന്ന് %d കോൾ തടഞ്ഞു</item>
+        <item quantity="other">ഇന്ന് %d കോളുകൾ തടഞ്ഞു</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ഫിൽട്ടർ</item>
+        <item quantity="other">%d ഫിൽട്ടറുകൾ</item>
+    </plurals>
 </resources>

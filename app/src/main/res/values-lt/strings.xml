@@ -28,4 +28,22 @@
     <string name="official">Oficialus</string>
     <string name="official_lists">Oficialūs sąrašai</string>
     <string name="import_action">Importuoti</string>
+    <string name="history_title">Istorija</string>
+    <string name="no_calls_yet">Kol kas neužblokuota jokių skambučių.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Sistemos numatytoji</string>
+    <string name="theme_light">Šviesi</string>
+    <string name="theme_dark">Tamsi</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">Šiandien užblokuotas %d skambutis</item>
+        <item quantity="few">Šiandien užblokuoti %d skambučiai</item>
+        <item quantity="many">Šiandien užblokuota %d skambučio</item>
+        <item quantity="other">Šiandien užblokuota %d skambučių</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtras</item>
+        <item quantity="few">%d filtrai</item>
+        <item quantity="many">%d filtro</item>
+        <item quantity="other">%d filtrų</item>
+    </plurals>
 </resources>

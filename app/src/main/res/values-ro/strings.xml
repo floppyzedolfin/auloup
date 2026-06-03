@@ -27,4 +27,20 @@
     <string name="official">Oficial</string>
     <string name="official_lists">Liste oficiale</string>
     <string name="import_action">Importă</string>
+    <string name="history_title">Istoric</string>
+    <string name="no_calls_yet">Niciun apel blocat încă.</string>
+    <string name="theme">Temă</string>
+    <string name="theme_system">Implicit din sistem</string>
+    <string name="theme_light">Luminoasă</string>
+    <string name="theme_dark">Întunecată</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d apel blocat astăzi</item>
+        <item quantity="few">%d apeluri blocate astăzi</item>
+        <item quantity="other">%d de apeluri blocate astăzi</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtru</item>
+        <item quantity="few">%d filtre</item>
+        <item quantity="other">%d de filtre</item>
+    </plurals>
 </resources>

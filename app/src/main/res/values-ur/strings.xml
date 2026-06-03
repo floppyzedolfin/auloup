@@ -26,4 +26,18 @@
     <string name="official">سرکاری</string>
     <string name="official_lists">سرکاری فہرستیں</string>
     <string name="import_action">درآمد کریں</string>
+    <string name="history_title">تاریخ</string>
+    <string name="no_calls_yet">ابھی تک کوئی کال بلاک نہیں ہوئی۔</string>
+    <string name="theme">تھیم</string>
+    <string name="theme_system">سسٹم ڈیفالٹ</string>
+    <string name="theme_light">ہلکا</string>
+    <string name="theme_dark">گہرا</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">آج %d کال بلاک کی گئی</item>
+        <item quantity="other">آج %d کالیں بلاک کی گئیں</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d فلٹر</item>
+        <item quantity="other">%d فلٹرز</item>
+    </plurals>
 </resources>

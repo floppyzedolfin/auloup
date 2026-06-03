@@ -26,4 +26,18 @@
     <string name="official">অফিসিয়াল</string>
     <string name="official_lists">অফিসিয়াল তালিকা</string>
     <string name="import_action">আমদানি</string>
+    <string name="history_title">ইতিহাস</string>
+    <string name="no_calls_yet">এখনও কোনো কল ব্লক হয়নি।</string>
+    <string name="theme">থিম</string>
+    <string name="theme_system">সিস্টেম ডিফল্ট</string>
+    <string name="theme_light">আলো</string>
+    <string name="theme_dark">অন্ধকার</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">আজ %d টি কল ব্লক হয়েছে</item>
+        <item quantity="other">আজ %d টি কল ব্লক হয়েছে</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d টি ফিল্টার</item>
+        <item quantity="other">%d টি ফিল্টার</item>
+    </plurals>
 </resources>

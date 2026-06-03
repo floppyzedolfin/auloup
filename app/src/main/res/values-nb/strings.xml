@@ -26,4 +26,18 @@
     <string name="official">Offisiell</string>
     <string name="official_lists">Offisielle lister</string>
     <string name="import_action">Importer</string>
+    <string name="history_title">Historikk</string>
+    <string name="no_calls_yet">Ingen anrop blokkert ennå.</string>
+    <string name="theme">Tema</string>
+    <string name="theme_system">Systemstandard</string>
+    <string name="theme_light">Lyst</string>
+    <string name="theme_dark">Mørkt</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d anrop blokkert i dag</item>
+        <item quantity="other">%d anrop blokkert i dag</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filtre</item>
+    </plurals>
 </resources>

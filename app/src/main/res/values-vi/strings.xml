@@ -25,4 +25,16 @@
     <string name="official">Chính thức</string>
     <string name="official_lists">Danh sách chính thức</string>
     <string name="import_action">Nhập</string>
+    <string name="history_title">Lịch sử</string>
+    <string name="no_calls_yet">Chưa có cuộc gọi nào bị chặn.</string>
+    <string name="theme">Giao diện</string>
+    <string name="theme_system">Mặc định hệ thống</string>
+    <string name="theme_light">Sáng</string>
+    <string name="theme_dark">Tối</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="other">Đã chặn %d cuộc gọi hôm nay</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="other">%d bộ lọc</item>
+    </plurals>
 </resources>

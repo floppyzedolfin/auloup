@@ -26,4 +26,18 @@
     <string name="official">Επίσημο</string>
     <string name="official_lists">Επίσημες λίστες</string>
     <string name="import_action">Εισαγωγή</string>
+    <string name="history_title">Ιστορικό</string>
+    <string name="no_calls_yet">Δεν έχει αποκλειστεί καμία κλήση ακόμα.</string>
+    <string name="theme">Θέμα</string>
+    <string name="theme_system">Προεπιλογή συστήματος</string>
+    <string name="theme_light">Φωτεινό</string>
+    <string name="theme_dark">Σκούρο</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d κλήση αποκλείστηκε σήμερα</item>
+        <item quantity="other">%d κλήσεις αποκλείστηκαν σήμερα</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d φίλτρο</item>
+        <item quantity="other">%d φίλτρα</item>
+    </plurals>
 </resources>

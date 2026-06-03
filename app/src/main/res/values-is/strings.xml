@@ -26,4 +26,18 @@
     <string name="official">Opinbert</string>
     <string name="official_lists">Opinberir listar</string>
     <string name="import_action">Flytja inn</string>
+    <string name="history_title">Ferill</string>
+    <string name="no_calls_yet">Engin símtöl hafa enn verið lokuð.</string>
+    <string name="theme">Þema</string>
+    <string name="theme_system">Sjálfgefið kerfis</string>
+    <string name="theme_light">Ljóst</string>
+    <string name="theme_dark">Dökkt</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d símtali lokað í dag</item>
+        <item quantity="other">%d símtölum lokað í dag</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d sía</item>
+        <item quantity="other">%d síur</item>
+    </plurals>
 </resources>

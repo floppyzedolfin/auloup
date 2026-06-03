@@ -26,4 +26,18 @@
     <string name="official">అధికారిక</string>
     <string name="official_lists">అధికారిక జాబితాలు</string>
     <string name="import_action">దిగుమతి</string>
+    <string name="history_title">చరిత్ర</string>
+    <string name="no_calls_yet">ఇంకా ఏ కాల్‌లూ బ్లాక్ చేయబడలేదు.</string>
+    <string name="theme">థీమ్</string>
+    <string name="theme_system">సిస్టమ్ డిఫాల్ట్</string>
+    <string name="theme_light">లేత</string>
+    <string name="theme_dark">ముదురు</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">ఈ రోజు %d కాల్ బ్లాక్ చేయబడింది</item>
+        <item quantity="other">ఈ రోజు %d కాల్‌లు బ్లాక్ చేయబడ్డాయి</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ఫిల్టర్</item>
+        <item quantity="other">%d ఫిల్టర్‌లు</item>
+    </plurals>
 </resources>

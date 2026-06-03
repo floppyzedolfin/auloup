@@ -28,4 +28,22 @@
     <string name="official">רשמי</string>
     <string name="official_lists">רשימות רשמיות</string>
     <string name="import_action">ייבוא</string>
+    <string name="history_title">היסטוריה</string>
+    <string name="no_calls_yet">עדיין לא נחסמו שיחות.</string>
+    <string name="theme">ערכת נושא</string>
+    <string name="theme_system">ברירת מחדל של המערכת</string>
+    <string name="theme_light">בהיר</string>
+    <string name="theme_dark">כהה</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">שיחה אחת נחסמה היום</item>
+        <item quantity="two">%d שיחות נחסמו היום</item>
+        <item quantity="many">%d שיחות נחסמו היום</item>
+        <item quantity="other">%d שיחות נחסמו היום</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">מסנן אחד</item>
+        <item quantity="two">%d מסננים</item>
+        <item quantity="many">%d מסננים</item>
+        <item quantity="other">%d מסננים</item>
+    </plurals>
 </resources>

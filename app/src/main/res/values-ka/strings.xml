@@ -26,4 +26,18 @@
     <string name="official">ოფიციალური</string>
     <string name="official_lists">ოფიციალური სიები</string>
     <string name="import_action">იმპორტი</string>
+    <string name="history_title">ისტორია</string>
+    <string name="no_calls_yet">ჯერ არცერთი ზარი არ დაბლოკილა.</string>
+    <string name="theme">თემა</string>
+    <string name="theme_system">სისტემის ნაგულისხმევი</string>
+    <string name="theme_light">ღია</string>
+    <string name="theme_dark">მუქი</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d ზარი დაბლოკილია დღეს</item>
+        <item quantity="other">%d ზარი დაბლოკილია დღეს</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d ფილტრი</item>
+        <item quantity="other">%d ფილტრი</item>
+    </plurals>
 </resources>

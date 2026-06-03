@@ -26,4 +26,18 @@
     <string name="official">Virallinen</string>
     <string name="official_lists">Viralliset luettelot</string>
     <string name="import_action">Tuo</string>
+    <string name="history_title">Historia</string>
+    <string name="no_calls_yet">Yhtään puhelua ei ole vielä estetty.</string>
+    <string name="theme">Teema</string>
+    <string name="theme_system">Järjestelmän oletus</string>
+    <string name="theme_light">Vaalea</string>
+    <string name="theme_dark">Tumma</string>
+    <plurals name="calls_blocked_today">
+        <item quantity="one">%d puhelu estetty tänään</item>
+        <item quantity="other">%d puhelua estetty tänään</item>
+    </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d suodatin</item>
+        <item quantity="other">%d suodatinta</item>
+    </plurals>
 </resources>
