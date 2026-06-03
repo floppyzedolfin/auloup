@@ -46,6 +46,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -58,7 +59,6 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
@@ -87,7 +87,9 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
@@ -98,6 +100,7 @@ import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.time.ZoneId
 import java.util.Date
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -331,14 +334,25 @@ private fun AuLoupScreen(repository: PrefixRepository) {
                                     style = MaterialTheme.typography.titleSmall,
                                     modifier = Modifier.weight(1f),
                                 )
-                                Text(
-                                    text = pluralStringResource(
-                                        R.plurals.calls_blocked,
-                                        countryTotal,
-                                        countryTotal,
-                                    ),
-                                    style = MaterialTheme.typography.labelMedium,
-                                )
+                                Column(horizontalAlignment = Alignment.End) {
+                                    Text(
+                                        text = pluralStringResource(
+                                            R.plurals.filters_count,
+                                            entries.size,
+                                            entries.size,
+                                        ),
+                                        style = MaterialTheme.typography.labelMedium,
+                                    )
+                                    Text(
+                                        text = pluralStringResource(
+                                            R.plurals.calls_blocked,
+                                            countryTotal,
+                                            countryTotal,
+                                        ),
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                }
                             }
                         }
                         if (!collapsed) {
@@ -626,9 +640,12 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 color = Color(0xFFECEFF1),
                 fontWeight = FontWeight.Bold,
                 fontSize = with(LocalDensity.current) { zFont.toSp() },
+                // No font padding, so the glyph sits at a predictable place in its
+                // box and the trail lands the same way at any logo size.
+                style = TextStyle(platformStyle = PlatformTextStyle(includeFontPadding = false)),
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = centreX - zFont * 0.3f, y = centreY - zFont * 0.62f)
+                    .offset(x = centreX - zFont * 0.3f, y = centreY - zFont * 0.5f)
                     .alpha(fade),
             )
         }
@@ -643,9 +660,9 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
 @Composable
 private fun LogoBackButton(onBack: () -> Unit) {
     Box(
+        // No clip here: a CircleShape clip would cut off the corner back badge.
         modifier = Modifier
             .padding(start = 4.dp)
-            .clip(CircleShape)
             .clickable(onClick = onBack)
             .padding(2.dp),
     ) {
@@ -678,6 +695,11 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val scope = rememberCoroutineScope()
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
     val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
+    var themeExpanded by remember { mutableStateOf(false) }
+    val currentLanguage = remember {
+        Locale.getDefault().getDisplayLanguage(Locale.getDefault())
+            .replaceFirstChar { it.uppercase() }
+    }
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { }
@@ -691,10 +713,7 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         },
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
-            ListItem(
-                modifier = Modifier.clickable { openLanguageSettings(context) },
-                headlineContent = { Text(stringResource(R.string.language)) },
-            )
+            // 1. Notification
             ListItem(
                 headlineContent = { Text(stringResource(R.string.notify_label)) },
                 trailingContent = {
@@ -709,31 +728,55 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                     )
                 },
             )
-            HorizontalDivider()
+            // 2. Language
             ListItem(
-                headlineContent = {
-                    Text(
-                        stringResource(R.string.theme),
-                        style = MaterialTheme.typography.titleSmall,
-                    )
+                modifier = Modifier.clickable { openLanguageSettings(context) },
+                leadingContent = {
+                    Icon(painter = painterResource(R.drawable.ic_language), contentDescription = null)
+                },
+                headlineContent = { Text(stringResource(R.string.language)) },
+                supportingContent = { Text(currentLanguage) },
+            )
+            // 3. Theme (compact dropdown)
+            val themeLabel = stringResource(
+                when (themeMode) {
+                    ThemeMode.LIGHT -> R.string.theme_light
+                    ThemeMode.DARK -> R.string.theme_dark
+                    else -> R.string.theme_system
                 },
             )
-            listOf(
-                ThemeMode.SYSTEM to R.string.theme_system,
-                ThemeMode.LIGHT to R.string.theme_light,
-                ThemeMode.DARK to R.string.theme_dark,
-            ).forEach { (mode, labelRes) ->
-                ListItem(
-                    modifier = Modifier.clickable { scope.launch { repository.setThemeMode(mode) } },
-                    leadingContent = {
-                        RadioButton(
-                            selected = themeMode == mode,
-                            onClick = { scope.launch { repository.setThemeMode(mode) } },
-                        )
-                    },
-                    headlineContent = { Text(stringResource(labelRes)) },
-                )
-            }
+            ListItem(
+                headlineContent = { Text(stringResource(R.string.theme)) },
+                trailingContent = {
+                    Box {
+                        TextButton(onClick = { themeExpanded = true }) {
+                            Text(themeLabel)
+                            Icon(
+                                painter = painterResource(R.drawable.ic_arrow_drop_down),
+                                contentDescription = null,
+                            )
+                        }
+                        DropdownMenu(
+                            expanded = themeExpanded,
+                            onDismissRequest = { themeExpanded = false },
+                        ) {
+                            listOf(
+                                ThemeMode.SYSTEM to R.string.theme_system,
+                                ThemeMode.LIGHT to R.string.theme_light,
+                                ThemeMode.DARK to R.string.theme_dark,
+                            ).forEach { (mode, labelRes) ->
+                                DropdownMenuItem(
+                                    text = { Text(stringResource(labelRes)) },
+                                    onClick = {
+                                        scope.launch { repository.setThemeMode(mode) }
+                                        themeExpanded = false
+                                    },
+                                )
+                            }
+                        }
+                    }
+                },
+            )
         }
     }
 }

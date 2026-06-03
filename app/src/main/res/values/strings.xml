@@ -27,6 +27,10 @@
         <item quantity="one">%d call blocked</item>
         <item quantity="other">%d calls blocked</item>
     </plurals>
+    <plurals name="filters_count" tools:ignore="MissingTranslation">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
 
     <!-- Blocked-call history screen -->
     <string name="back">Back</string>

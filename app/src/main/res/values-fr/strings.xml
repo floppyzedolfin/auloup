@@ -24,6 +24,10 @@
         <item quantity="one">%d appel bloqué</item>
         <item quantity="other">%d appels bloqués</item>
     </plurals>
+    <plurals name="filters_count">
+        <item quantity="one">%d filtre</item>
+        <item quantity="other">%d filtres</item>
+    </plurals>
 
     <!-- Blocked-call history screen -->
     <string name="back">Retour</string>
