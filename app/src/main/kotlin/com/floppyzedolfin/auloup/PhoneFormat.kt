@@ -39,10 +39,26 @@ object PhoneFormat {
     fun number(rawNumber: String, country: Country?): String = group(rawNumber, country?.iso)
 
     /**
-     * Groups the national digits being typed into the input field (no country
-     * code) for [iso], so spacing appears live as the user types.
+     * Groups the national digits being typed into the input field (the "+CC" is
+     * shown separately as an adornment), so spacing appears live as the user
+     * types — for every country, including those with a trunk prefix.
+     *
+     * National-only grouping fails for trunk-prefix countries (France, the UK,
+     * …) because the typed digits omit the leading "0". So we format the full
+     * international form ("+CC" + the significant digits) — which always groups
+     * the national part correctly — then strip the "+CC" back off.
      */
-    fun national(input: String, iso: String?): String = group(input, iso)
+    fun national(input: String, country: Country): String {
+        val significant = Prefixes.nationalDigits(input, country.trunkPrefix)
+        if (significant.isEmpty()) return ""
+        val phoneUtil = util ?: return input
+        val formatter = phoneUtil.getAsYouTypeFormatter(country.iso)
+        var formatted = ""
+        for (c in "+${country.dialCode}$significant") {
+            if (c == '+' || c.isDigit()) formatted = formatter.inputDigit(c)
+        }
+        return formatted.removePrefix("+${country.dialCode}").trimStart()
+    }
 
     /**
      * Feeds [raw]'s '+' and digits through an as-you-type formatter so partial

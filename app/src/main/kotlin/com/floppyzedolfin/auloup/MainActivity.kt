@@ -266,7 +266,7 @@ private fun AuLoupScreen(repository: PrefixRepository) {
                         // caret at the end so inserting separators never reorders
                         // what the user types.
                         onValueChange = {
-                            val grouped = PhoneFormat.national(it.text, country.iso)
+                            val grouped = PhoneFormat.national(it.text, country)
                             number = it.copy(text = grouped, selection = TextRange(grouped.length))
                         },
                         prefix = { Text("+${country.dialCode}") },
@@ -613,7 +613,9 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 fontSize = with(LocalDensity.current) { (size * 0.3f).toSp() },
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .offset(x = size * (0.5f + 0.12f * progress), y = size * (0.5f - 0.42f * progress))
+                    // Rise from the muzzle (~0.58) up to the top of the head (~0.05),
+                    // drifting slightly to the side as they go.
+                    .offset(x = size * (0.46f + 0.14f * progress), y = size * (0.58f - 0.53f * progress))
                     .alpha(fade),
             )
         }
