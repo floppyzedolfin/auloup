@@ -1,4 +1,5 @@
-# Au loup!
+# Au loup! <img src="docs/iris.svg" alt="Iris, the sleepy wolf" align="right" width="76">
+
 
 [![CI](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml)
 
@@ -6,8 +7,9 @@ Block incoming calls by **phone-number prefix**. You keep a list of prefixes
 (e.g. `+1900`, `0900`); any incoming call whose number starts with one of them
 is rejected automatically.
 
-Meet **Iris** 🐺💜, the app's sleepy she-wolf. The name plays on *crier au loup*
-("the boy who cried wolf"): the spam "criers" get silenced, so Iris can sleep.
+Meet **Iris** (shown right), the app's sleepy she-wolf — a wolf with a heart (for
+a muzzle). The name plays on *crier au loup* ("the boy who cried wolf"): the spam
+"criers" get silenced, so Iris can sleep.
 
 Free and open source (GPL-3.0). Android first; iOS is planned (see
 [Platform support](#platform-support)).
