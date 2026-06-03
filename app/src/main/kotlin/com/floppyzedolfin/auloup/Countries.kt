@@ -283,13 +283,17 @@ object Countries {
         for (iso in listOf(
             "US", "CA", "AG", "AI", "AS", "BB", "BM", "BS", "DM", "DO", "GD", "GU",
             "JM", "KN", "KY", "LC", "MP", "MS", "PR", "SX", "TC", "TT", "VC", "VG", "VI",
-        )) put(iso, "1")
+        )) {
+            put(iso, "1")
+        }
         // Trunk prefix "8"
         for (iso in listOf("RU", "KZ", "BY", "LT")) put(iso, "8")
         // No trunk prefix (closed numbering / leading digit kept)
         for (iso in listOf(
             "IT", "ES", "PT", "DK", "NO", "IS", "EE", "LV", "CZ", "PL", "MX", "HK", "SG",
-        )) put(iso, "")
+        )) {
+            put(iso, "")
+        }
         // Multi-digit trunk
         put("HU", "06")
     }
