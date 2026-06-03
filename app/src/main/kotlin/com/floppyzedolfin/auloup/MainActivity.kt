@@ -302,7 +302,7 @@ private fun AuLoupScreen() {
                                     } else {
                                         null
                                     },
-                                    headlineContent = { Text(entry.prefix) },
+                                    headlineContent = { Text(PhoneFormat.prefix(entry.prefix, country?.iso)) },
                                     supportingContent = {
                                         Text(
                                             pluralStringResource(
@@ -338,11 +338,16 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
     val formatter = remember {
         DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
     }
+    // The country this prefix belongs to: its flag and grouping go in the title,
+    // and it formats each blocked call's number below.
+    val country = remember(prefix) { Countries.countryForPrefix(prefix) }
+    val shownPrefix = remember(prefix, country) { PhoneFormat.prefix(prefix, country?.iso) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { AppBarTitle(prefix) },
+                // No app logo here — just the flag and the formatted prefix.
+                title = { Text(country?.flag?.let { "$it  $shownPrefix" } ?: shownPrefix) },
                 navigationIcon = {
                     TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
                 },
@@ -372,7 +377,13 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
                 items(calls) { call ->
                     ListItem(
                         headlineContent = {
-                            Text(call.number.ifBlank { stringResource(R.string.unknown_number) })
+                            Text(
+                                if (call.number.isBlank()) {
+                                    stringResource(R.string.unknown_number)
+                                } else {
+                                    PhoneFormat.number(call.number, country)
+                                },
+                            )
                         },
                         supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
                     )
@@ -383,8 +394,8 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
 }
 
 /**
- * Compact country selector: the collapsed box shows only the flag and calling
- * code; the dropdown lists the full name (with type-to-filter search).
+ * Compact country selector: the collapsed box shows only the flag; the dropdown
+ * lists the full name and calling code (with type-to-filter search).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -414,7 +425,7 @@ private fun CountryPicker(
         modifier = modifier,
     ) {
         OutlinedTextField(
-            value = if (expanded) query else "${selected.flag} +${selected.dialCode}",
+            value = if (expanded) query else selected.flag,
             onValueChange = {
                 query = it
                 expanded = true
