@@ -3,40 +3,38 @@ package com.floppyzedolfin.auloup
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import kotlin.random.Random
 
 class WolfAnimationTest {
 
     @Test
-    fun asleep_eyesClosedAndZzzVisible() {
-        for (p in listOf(0f, 0.2f, 0.4f)) {
-            assertEquals("eyes at $p", 0f, WolfAnimation.eyesOpen(p), 1e-4f)
-            assertEquals("zzz at $p", 1f, WolfAnimation.zzzGate(p), 1e-4f)
-        }
+    fun atEachEndOfTheEventSheIsAsleepWithZzzShowing() {
+        // progress 0 = just woke from sleep, 1 = back asleep; both: eyes shut, zzz on.
+        assertEquals(0f, WolfAnimation.eyesOpen(0f), 1e-4f)
+        assertEquals(1f, WolfAnimation.zzzGate(0f), 1e-4f)
+        assertEquals(0f, WolfAnimation.eyesOpen(1f), 1e-4f)
+        assertEquals(1f, WolfAnimation.zzzGate(1f), 1e-4f)
     }
 
     @Test
     fun eyesHoldFullyOpenForAboutASecond() {
-        // The ~1s hold sits between 0.62 and 0.72 of the 10s cycle.
-        for (p in listOf(0.63f, 0.67f, 0.71f)) {
+        for (p in listOf(0.32f, 0.45f, 0.54f)) {
             assertEquals("held open at $p", 1f, WolfAnimation.eyesOpen(p), 1e-4f)
         }
     }
 
     @Test
     fun twoQuickBlinksAfterTheHold() {
-        // Eyes dip closed twice (the blinks) but reopen between them.
-        assertEquals(0f, WolfAnimation.eyesOpen(0.735f), 1e-4f) // blink 1 fully closed
-        assertEquals(1f, WolfAnimation.eyesOpen(0.75f), 1e-4f) // open between blinks
-        assertEquals(0f, WolfAnimation.eyesOpen(0.765f), 1e-4f) // blink 2 fully closed
+        assertEquals(0f, WolfAnimation.eyesOpen(0.575f), 1e-4f) // blink 1 fully closed
+        assertEquals(1f, WolfAnimation.eyesOpen(0.60f), 1e-4f) // open between blinks
+        assertEquals(0f, WolfAnimation.eyesOpen(0.625f), 1e-4f) // blink 2 fully closed
     }
 
     @Test
-    fun zzzAreOffThroughTheBlinkAndBackByEndOfCycle() {
-        for (p in listOf(0.6f, 0.7f, 0.85f)) {
+    fun zzzAreOffThroughTheBlink() {
+        for (p in listOf(0.2f, 0.5f, 0.8f)) {
             assertEquals("zzz hidden at $p", 0f, WolfAnimation.zzzGate(p), 1e-4f)
         }
-        assertEquals("fully resumed at the cycle end", 1f, WolfAnimation.zzzGate(1f), 1e-4f)
-        assertEquals("asleep again at start", 0f, WolfAnimation.eyesOpen(0.999f), 1e-4f)
     }
 
     @Test
@@ -54,11 +52,19 @@ class WolfAnimationTest {
     fun bothSignalsStayWithinUnitRange() {
         var p = 0f
         while (p <= 1f) {
-            val e = WolfAnimation.eyesOpen(p)
-            val z = WolfAnimation.zzzGate(p)
-            assertTrue("eyesOpen out of range at $p: $e", e in 0f..1f)
-            assertTrue("zzzGate out of range at $p: $z", z in 0f..1f)
+            assertTrue(WolfAnimation.eyesOpen(p) in 0f..1f)
+            assertTrue(WolfAnimation.zzzGate(p) in 0f..1f)
             p += 0.005f
         }
+    }
+
+    @Test
+    fun sleepIsLongAndVariesBetweenBlinks() {
+        val random = Random(42)
+        val draws = List(200) { WolfAnimation.nextSleepMillis(random) }
+        // Always a long stretch...
+        assertTrue("min ${draws.min()}", draws.all { it in 8_000L until 22_000L })
+        // ...but not a constant one.
+        assertTrue("should vary", draws.distinct().size > 1)
     }
 }

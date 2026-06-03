@@ -14,6 +14,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.animateFloat
@@ -95,6 +96,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.DateFormat
 import java.time.ZoneId
@@ -597,15 +599,17 @@ private val AppLogoSize = 40.dp
 @Composable
 private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
     val transition = rememberInfiniteTransition(label = "wolf")
-    // One slow cycle drives the occasional blink and the zzz pause around it.
-    val blink by transition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(tween(durationMillis = 10000, easing = LinearEasing)),
-        label = "blink",
-    )
-    val eyesOpen = WolfAnimation.eyesOpen(blink)
-    val zzzGate = WolfAnimation.zzzGate(blink)
+    // Sleep (a long, random stretch) then one fixed-length blink event, forever.
+    val event = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(WolfAnimation.nextSleepMillis())
+            event.snapTo(0f)
+            event.animateTo(1f, tween(durationMillis = WolfAnimation.EVENT_MILLIS, easing = LinearEasing))
+        }
+    }
+    val eyesOpen = WolfAnimation.eyesOpen(event.value)
+    val zzzGate = WolfAnimation.zzzGate(event.value)
     Box(modifier = modifier.size(size)) {
         Image(
             painter = painterResource(R.drawable.ic_logo),
