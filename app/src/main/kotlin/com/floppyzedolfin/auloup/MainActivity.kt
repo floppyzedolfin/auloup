@@ -596,26 +596,32 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 initialValue = 0f,
                 targetValue = 1f,
                 animationSpec = infiniteRepeatable(
-                    animation = tween(durationMillis = 2400, easing = LinearEasing),
-                    initialStartOffset = StartOffset(i * 800),
+                    animation = tween(durationMillis = 3000, easing = LinearEasing),
+                    initialStartOffset = StartOffset(i * 1000),
                 ),
                 label = "z$i",
             )
             val fade = when {
-                progress < 0.15f -> progress / 0.15f
-                progress > 0.7f -> (1f - progress) / 0.3f
+                progress < 0.12f -> progress / 0.12f
+                progress > 0.8f -> (1f - progress) / 0.2f
                 else -> 1f
             }
+            // The "z" shrinks a touch as it floats up.
+            val zFont = size * (0.36f - 0.08f * progress)
+            // Glyph CENTRE travels diagonally from the muzzle (the middle of the
+            // circle) out to the top-right. We anchor the Text by its top-left, so
+            // convert the wanted centre to that corner (a glyph sits ~0.5em below
+            // the box top and is ~0.28em wide on each side).
+            val centreX = size * (0.5f + 0.32f * progress)
+            val centreY = size * (0.5f - 0.36f * progress)
             Text(
                 text = "z",
                 color = Color(0xFFECEFF1),
                 fontWeight = FontWeight.Bold,
-                fontSize = with(LocalDensity.current) { (size * 0.3f).toSp() },
+                fontSize = with(LocalDensity.current) { zFont.toSp() },
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    // Rise from the muzzle (~0.58) up to the top of the head (~0.05),
-                    // drifting slightly to the side as they go.
-                    .offset(x = size * (0.46f + 0.14f * progress), y = size * (0.58f - 0.53f * progress))
+                    .offset(x = centreX - zFont * 0.28f, y = centreY - zFont * 0.5f)
                     .alpha(fade),
             )
         }
@@ -624,7 +630,8 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
 
 /**
  * The wolf logo used as the "back" affordance on sub-screens: tapping it returns
- * to the main page. A small back arrow is tucked into its corner as a hint.
+ * to the main page. A bold round badge with a back arrow sits in the corner so
+ * it clearly — and cheerfully — reads as "go back".
  */
 @Composable
 private fun LogoBackButton(onBack: () -> Unit) {
@@ -633,17 +640,25 @@ private fun LogoBackButton(onBack: () -> Unit) {
             .padding(start = 4.dp)
             .clip(CircleShape)
             .clickable(onClick = onBack)
-            .padding(4.dp),
+            .padding(2.dp),
     ) {
-        AppLogo(size = 32.dp)
-        Icon(
-            painter = painterResource(R.drawable.ic_arrow_back),
-            contentDescription = stringResource(R.string.back),
-            tint = MaterialTheme.colorScheme.primary,
+        AppLogo(size = 36.dp)
+        Box(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .size(15.dp),
-        )
+                .size(20.dp)
+                .clip(CircleShape)
+                .background(MaterialTheme.colorScheme.primary)
+                .padding(3.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                painter = painterResource(R.drawable.ic_arrow_back),
+                contentDescription = stringResource(R.string.back),
+                tint = MaterialTheme.colorScheme.onPrimary,
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
     }
 }
 
