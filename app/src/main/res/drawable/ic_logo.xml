@@ -30,22 +30,6 @@
         android:strokeLineCap="round"
         android:pathData="M57,54 Q63,59 69,54" />
     <path android:fillColor="#2C3E50" android:pathData="M51,65 L57,65 L54,70 Z" />
-    <path
-        android:strokeColor="#ECEFF1"
-        android:strokeWidth="2"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M58,41 L62,41 L58,45 L62,45" />
-    <path
-        android:strokeColor="#ECEFF1"
-        android:strokeWidth="2.2"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M64,33 L69,33 L64,38 L69,38" />
-    <path
-        android:strokeColor="#ECEFF1"
-        android:strokeWidth="2.4"
-        android:strokeLineCap="round"
-        android:strokeLineJoin="round"
-        android:pathData="M70,24 L77,24 L70,31 L77,31" />
+    <!-- The sleepy "zzz" is animated in AppLogo (Compose), drifting up from the
+         muzzle; it is intentionally not baked into this vector. -->
 </vector>

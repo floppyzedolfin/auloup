@@ -47,12 +47,14 @@ object Notifications {
     fun notifyBlockedToday(context: Context, todayCount: Int) {
         if (!canPost(context)) return
         ensureChannel(context)
-        val text = context.resources.getQuantityString(R.plurals.calls_blocked, todayCount, todayCount)
+        val text = context.resources.getQuantityString(R.plurals.calls_blocked_today, todayCount, todayCount)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle(context.getString(R.string.blocked_today_title))
-            .setContentText(text)
+            // The system header already shows the app name + relative time
+            // ("Au loup! · 39m"), so the single content line is just the count.
+            .setContentTitle(text)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
+            .setShowWhen(true)
             .setOnlyAlertOnce(true)
             .setAutoCancel(true)
             .build()

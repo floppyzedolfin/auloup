@@ -4,9 +4,12 @@
     <!-- Notification -->
     <string name="channel_blocked_calls">Blocked calls</string>
     <string name="call_blocked">Call blocked</string>
-    <!-- New strings default to English in other locales until translated. -->
-    <string name="blocked_today_title" tools:ignore="MissingTranslation">Blocked today</string>
     <string name="unknown_number">Unknown number</string>
+    <!-- Notification body. New strings default to English until translated. -->
+    <plurals name="calls_blocked_today" tools:ignore="MissingTranslation">
+        <item quantity="one">%d call blocked today</item>
+        <item quantity="other">%d calls blocked today</item>
+    </plurals>
 
     <!-- Main screen -->
     <string name="blocking_on">Call blocking is on</string>
@@ -38,6 +41,10 @@
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="language">Language</string>
+    <string name="theme" tools:ignore="MissingTranslation">Theme</string>
+    <string name="theme_system" tools:ignore="MissingTranslation">System default</string>
+    <string name="theme_light" tools:ignore="MissingTranslation">Light</string>
+    <string name="theme_dark" tools:ignore="MissingTranslation">Dark</string>
 
     <!-- Official block lists -->
     <string name="official">Official</string>

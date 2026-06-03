@@ -22,4 +22,7 @@ object OfficialLists {
             ),
         ),
     )
+
+    /** The official list for [iso], or null if that country has none. */
+    fun forIso(iso: String): OfficialList? = all.firstOrNull { it.iso == iso }
 }

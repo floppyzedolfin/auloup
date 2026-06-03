@@ -25,6 +25,13 @@ data class BlockedCall(val prefix: String, val number: String, val timeMillis: L
 /** The decision for one screened call, plus how many were blocked today. */
 data class ScreenResult(val blocked: Boolean, val notify: Boolean, val blockedToday: Int = 0)
 
+/** Stored values for the theme preference. */
+object ThemeMode {
+    const val SYSTEM = "system"
+    const val LIGHT = "light"
+    const val DARK = "dark"
+}
+
 private val Context.dataStore by preferencesDataStore(name = "auloup")
 
 /**
@@ -41,6 +48,7 @@ class PrefixRepository(private val context: Context) {
     private val prefixesKey = stringPreferencesKey("prefixes")
     private val historyKey = stringPreferencesKey("history")
     private val notificationsKey = booleanPreferencesKey("notifications_enabled")
+    private val themeKey = stringPreferencesKey("theme_mode")
 
     /** Configured prefixes with their derived block counts, sorted by prefix. */
     val prefixes: Flow<List<BlockedPrefix>> =
@@ -54,6 +62,10 @@ class PrefixRepository(private val context: Context) {
     /** Whether to show a notification when a call is blocked (default on). */
     val notificationsEnabled: Flow<Boolean> =
         context.dataStore.data.map { it[notificationsKey] ?: true }
+
+    /** Theme preference: "system" (default), "light", or "dark". */
+    val themeMode: Flow<String> =
+        context.dataStore.data.map { it[themeKey] ?: ThemeMode.SYSTEM }
 
     /** Every blocked call, most recent first. */
     val allCalls: Flow<List<BlockedCall>> =
@@ -101,6 +113,10 @@ class PrefixRepository(private val context: Context) {
 
     suspend fun setNotificationsEnabled(enabled: Boolean) {
         context.dataStore.edit { it[notificationsKey] = enabled }
+    }
+
+    suspend fun setThemeMode(mode: String) {
+        context.dataStore.edit { it[themeKey] = mode }
     }
 
     /**

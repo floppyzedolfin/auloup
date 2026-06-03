@@ -14,9 +14,16 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +33,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -50,12 +58,15 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -68,14 +79,20 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import java.text.DateFormat
@@ -89,9 +106,17 @@ class MainActivity : ComponentActivity() {
         PhoneFormat.init(this)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme {
+            val context = LocalContext.current
+            val repository = remember { PrefixRepository(context.applicationContext) }
+            val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
+            val dark = when (themeMode) {
+                ThemeMode.LIGHT -> false
+                ThemeMode.DARK -> true
+                else -> isSystemInDarkTheme()
+            }
+            MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    AuLoupScreen()
+                    AuLoupScreen(repository)
                 }
             }
         }
@@ -100,10 +125,9 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AuLoupScreen() {
+private fun AuLoupScreen(repository: PrefixRepository) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
-    val repository = remember { PrefixRepository(context.applicationContext) }
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
     val allCalls by repository.allCalls.collectAsState(initial = emptyList())
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
@@ -225,7 +249,7 @@ private fun AuLoupScreen() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.Bottom,
             ) {
-                Column(modifier = Modifier.weight(1f)) {
+                Column(modifier = Modifier.width(96.dp)) {
                     FieldLabel(stringResource(R.string.country_label))
                     CountryPicker(
                         selected = country,
@@ -233,7 +257,7 @@ private fun AuLoupScreen() {
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
-                Column(modifier = Modifier.weight(1.3f)) {
+                Column(modifier = Modifier.weight(1f)) {
                     FieldLabel(stringResource(R.string.number_prefix_label))
                     OutlinedTextField(
                         value = number,
@@ -263,8 +287,11 @@ private fun AuLoupScreen() {
                 }
             }
 
-            TextButton(onClick = { showOfficialLists = true }) {
-                Text(stringResource(R.string.official_lists))
+            // Only offered for countries that actually have an official list.
+            if (OfficialLists.forIso(country.iso) != null) {
+                TextButton(onClick = { showOfficialLists = true }) {
+                    Text(stringResource(R.string.official_lists))
+                }
             }
 
             HorizontalDivider()
@@ -369,9 +396,7 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
             TopAppBar(
                 // No app logo here — just the flag and the formatted prefix.
                 title = { Text(country?.flag?.let { "$it  $shownPrefix" } ?: shownPrefix) },
-                navigationIcon = {
-                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
-                },
+                navigationIcon = { LogoBackButton(onBack) },
             )
         },
     ) { innerPadding ->
@@ -427,10 +452,8 @@ private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { AppBarTitle(stringResource(R.string.history_title)) },
-                navigationIcon = {
-                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
-                },
+                title = { Text(stringResource(R.string.history_title)) },
+                navigationIcon = { LogoBackButton(onBack) },
             )
         },
     ) { innerPadding ->
@@ -549,13 +572,76 @@ private fun FieldLabel(text: String) {
 @Composable
 private fun AppBarTitle(text: String) {
     Row(verticalAlignment = Alignment.CenterVertically) {
+        AppLogo(size = 28.dp)
+        Spacer(Modifier.width(8.dp))
+        Text(text)
+    }
+}
+
+/**
+ * The sleepy-wolf logo, with three "z"s drifting up from its muzzle and fading,
+ * staggered so there's always one in the air. Purely decorative.
+ */
+@Composable
+private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
+    val transition = rememberInfiniteTransition(label = "wolf")
+    Box(modifier = modifier.size(size)) {
         Image(
             painter = painterResource(R.drawable.ic_logo),
             contentDescription = null,
-            modifier = Modifier.size(28.dp),
+            modifier = Modifier.fillMaxSize(),
         )
-        Spacer(Modifier.width(8.dp))
-        Text(text)
+        repeat(3) { i ->
+            val progress by transition.animateFloat(
+                initialValue = 0f,
+                targetValue = 1f,
+                animationSpec = infiniteRepeatable(
+                    animation = tween(durationMillis = 2400, easing = LinearEasing),
+                    initialStartOffset = StartOffset(i * 800),
+                ),
+                label = "z$i",
+            )
+            val fade = when {
+                progress < 0.15f -> progress / 0.15f
+                progress > 0.7f -> (1f - progress) / 0.3f
+                else -> 1f
+            }
+            Text(
+                text = "z",
+                color = Color(0xFFECEFF1),
+                fontWeight = FontWeight.Bold,
+                fontSize = with(LocalDensity.current) { (size * 0.3f).toSp() },
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .offset(x = size * (0.5f + 0.12f * progress), y = size * (0.5f - 0.42f * progress))
+                    .alpha(fade),
+            )
+        }
+    }
+}
+
+/**
+ * The wolf logo used as the "back" affordance on sub-screens: tapping it returns
+ * to the main page. A small back arrow is tucked into its corner as a hint.
+ */
+@Composable
+private fun LogoBackButton(onBack: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .padding(start = 4.dp)
+            .clip(CircleShape)
+            .clickable(onClick = onBack)
+            .padding(4.dp),
+    ) {
+        AppLogo(size = 32.dp)
+        Icon(
+            painter = painterResource(R.drawable.ic_arrow_back),
+            contentDescription = stringResource(R.string.back),
+            tint = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .align(Alignment.BottomStart)
+                .size(15.dp),
+        )
     }
 }
 
@@ -567,6 +653,7 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
+    val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { }
@@ -574,10 +661,8 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { AppBarTitle(stringResource(R.string.settings_title)) },
-                navigationIcon = {
-                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
-                },
+                title = { Text(stringResource(R.string.settings_title)) },
+                navigationIcon = { LogoBackButton(onBack) },
             )
         },
     ) { innerPadding ->
@@ -600,6 +685,31 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                     )
                 },
             )
+            HorizontalDivider()
+            ListItem(
+                headlineContent = {
+                    Text(
+                        stringResource(R.string.theme),
+                        style = MaterialTheme.typography.titleSmall,
+                    )
+                },
+            )
+            listOf(
+                ThemeMode.SYSTEM to R.string.theme_system,
+                ThemeMode.LIGHT to R.string.theme_light,
+                ThemeMode.DARK to R.string.theme_dark,
+            ).forEach { (mode, labelRes) ->
+                ListItem(
+                    modifier = Modifier.clickable { scope.launch { repository.setThemeMode(mode) } },
+                    leadingContent = {
+                        RadioButton(
+                            selected = themeMode == mode,
+                            onClick = { scope.launch { repository.setThemeMode(mode) } },
+                        )
+                    },
+                    headlineContent = { Text(stringResource(labelRes)) },
+                )
+            }
         }
     }
 }
@@ -627,10 +737,8 @@ private fun OfficialListsScreen(repository: PrefixRepository, onBack: () -> Unit
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { AppBarTitle(stringResource(R.string.official_lists)) },
-                navigationIcon = {
-                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
-                },
+                title = { Text(stringResource(R.string.official_lists)) },
+                navigationIcon = { LogoBackButton(onBack) },
             )
         },
     ) { innerPadding ->
