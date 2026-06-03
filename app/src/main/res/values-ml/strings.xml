@@ -43,4 +43,5 @@
     <string name="clear_history">തടഞ്ഞ കോളുകളുടെ ചരിത്രം മായ്ക്കുക</string>
     <string name="clear_history_confirm">തടഞ്ഞ കോളുകളുടെ മുഴുവൻ ചരിത്രവും ഇല്ലാതാക്കണോ? നിങ്ങളുടെ ബ്ലോക്കിംഗ് ഫിൽട്ടറുകൾ നിലനിർത്തും. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.</string>
     <string name="cancel">റദ്ദാക്കുക</string>
+    <string name="licenses">ഓപ്പൺ സോഴ്സ് ലൈസൻസുകൾ</string>
 </resources>

@@ -43,4 +43,5 @@
     <string name="clear_history">Cancella cronologia chiamate bloccate</string>
     <string name="clear_history_confirm">Eliminare l\'intera cronologia delle chiamate bloccate? I tuoi filtri di blocco vengono mantenuti. Questa azione non può essere annullata.</string>
     <string name="cancel">Annulla</string>
+    <string name="licenses">Licenze open source</string>
 </resources>

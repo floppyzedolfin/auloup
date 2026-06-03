@@ -43,4 +43,5 @@
     <string name="clear_history">Tøm historikk over blokkerte anrop</string>
     <string name="clear_history_confirm">Slette hele historikken over blokkerte anrop? Blokkeringsfiltrene dine beholdes. Dette kan ikke angres.</string>
     <string name="cancel">Avbryt</string>
+    <string name="licenses">Lisenser for åpen kildekode</string>
 </resources>

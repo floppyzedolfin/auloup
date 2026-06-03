@@ -1,0 +1,27 @@
+Au loup! bloque les appels entrants indésirables par PRÉFIXE de numéro, et pas
+seulement par numéro complet. Vous gardez une liste de préfixes (par exemple une
+plage de démarchage d'un pays, ou un indicatif) et tout appel dont le numéro
+commence par l'un d'eux est rejeté automatiquement.
+
+• Blocage par préfixe — choisissez un pays (drapeau + indicatif) et un préfixe
+  national.
+• Comprend le préfixe d'acheminement de chaque pays : « 01 60 » en France
+  équivaut à « +33 1 60 », et un appel correspond que son numéro arrive au
+  format national ou international.
+• Voyez combien d'appels chaque préfixe a bloqués, avec des graphiques par jour
+  et par heure.
+• Touchez un préfixe pour voir les appels bloqués, avec les numéros mis en forme
+  selon les conventions de chaque pays.
+• Importez les listes officielles des régulateurs (plages de démarchage ARCEP en
+  France), marquées « Officiel ».
+• Thème clair / sombre / système, notification discrète facultative, et
+  effacement de l'historique en un geste.
+• Disponible en français, anglais et plus de 60 autres langues.
+
+CONFIDENTIALITÉ : Au loup! n'a aucun compte, aucune publicité, aucun pistage,
+aucune sauvegarde cloud, et n'établit aucune connexion réseau. Votre liste de
+préfixes et votre historique ne quittent jamais l'appareil.
+
+Au loup! ne demande rien pour elle-même : ses liens de don pointent vers des
+associations françaises de protection des loups (ASPAS, FERUS, WWF France).
+Libre et open source (GPL-3.0).

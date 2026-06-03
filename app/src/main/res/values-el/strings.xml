@@ -43,4 +43,5 @@
     <string name="clear_history">Διαγραφή ιστορικού αποκλεισμένων κλήσεων</string>
     <string name="clear_history_confirm">Διαγραφή ολόκληρου του ιστορικού αποκλεισμένων κλήσεων; Τα φίλτρα αποκλεισμού διατηρούνται. Η ενέργεια είναι μη αναστρέψιμη.</string>
     <string name="cancel">Άκυρο</string>
+    <string name="licenses">Άδειες ανοιχτού κώδικα</string>
 </resources>

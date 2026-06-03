@@ -43,4 +43,5 @@
     <string name="clear_history">ब्लॉक किए गए कॉल का इतिहास साफ़ करें</string>
     <string name="clear_history_confirm">ब्लॉक किए गए कॉल का पूरा इतिहास हटाएं? आपके ब्लॉकिंग फ़िल्टर बने रहेंगे। इसे पूर्ववत नहीं किया जा सकता।</string>
     <string name="cancel">रद्द करें</string>
+    <string name="licenses">ओपन-सोर्स लाइसेंस</string>
 </resources>

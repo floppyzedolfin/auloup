@@ -41,9 +41,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
@@ -465,7 +467,9 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
 @Composable
 private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
     BackHandler(onBack = onBack)
+    val scope = rememberCoroutineScope()
     val calls by repository.allCalls.collectAsState(initial = emptyList())
+    var showClearDialog by remember { mutableStateOf(false) }
     val formatter = remember {
         DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
     }
@@ -475,6 +479,16 @@ private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
             TopAppBar(
                 title = { Text(stringResource(R.string.history_title)) },
                 navigationIcon = { LogoNavIcon(onBack = onBack) },
+                actions = {
+                    if (calls.isNotEmpty()) {
+                        IconButton(onClick = { showClearDialog = true }) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_delete),
+                                contentDescription = stringResource(R.string.clear_history),
+                            )
+                        }
+                    }
+                },
             )
         },
     ) { innerPadding ->
@@ -508,6 +522,30 @@ private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
                     )
                 }
             }
+        }
+
+        if (showClearDialog) {
+            AlertDialog(
+                onDismissRequest = { showClearDialog = false },
+                title = { Text(stringResource(R.string.clear_history)) },
+                text = { Text(stringResource(R.string.clear_history_confirm)) },
+                confirmButton = {
+                    TextButton(onClick = {
+                        scope.launch { repository.clearHistory() }
+                        showClearDialog = false
+                    }) {
+                        Text(
+                            stringResource(R.string.remove),
+                            color = MaterialTheme.colorScheme.error,
+                        )
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showClearDialog = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                },
+            )
         }
     }
 }
@@ -705,13 +743,17 @@ private fun LogoNavIcon(onBack: (() -> Unit)? = null) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
+    var showLicenses by rememberSaveable { mutableStateOf(false) }
+    if (showLicenses) {
+        LicensesScreen(onBack = { showLicenses = false })
+        return
+    }
     BackHandler(onBack = onBack)
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
     val themeMode by repository.themeMode.collectAsState(initial = ThemeMode.SYSTEM)
     var themeExpanded by remember { mutableStateOf(false) }
-    var showClearDialog by remember { mutableStateOf(false) }
     val currentLanguage = remember {
         Locale.getDefault().getDisplayLanguage(Locale.getDefault())
             .replaceFirstChar { it.uppercase() }
@@ -793,40 +835,52 @@ private fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                     }
                 },
             )
-            // 4. Data — clear the blocked-call history (filters are kept)
-            HorizontalDivider()
+            // 4. Open-source licenses
             ListItem(
-                modifier = Modifier.clickable { showClearDialog = true },
-                headlineContent = {
-                    Text(
-                        stringResource(R.string.clear_history),
-                        color = MaterialTheme.colorScheme.error,
-                    )
-                },
+                modifier = Modifier.clickable { showLicenses = true },
+                headlineContent = { Text(stringResource(R.string.licenses)) },
             )
         }
+    }
+}
 
-        if (showClearDialog) {
-            AlertDialog(
-                onDismissRequest = { showClearDialog = false },
-                title = { Text(stringResource(R.string.clear_history)) },
-                text = { Text(stringResource(R.string.clear_history_confirm)) },
-                confirmButton = {
-                    TextButton(onClick = {
-                        scope.launch { repository.clearHistory() }
-                        showClearDialog = false
-                    }) {
-                        Text(
-                            stringResource(R.string.remove),
-                            color = MaterialTheme.colorScheme.error,
-                        )
-                    }
-                },
-                dismissButton = {
-                    TextButton(onClick = { showClearDialog = false }) {
-                        Text(stringResource(R.string.cancel))
-                    }
-                },
+/** The open-source components Au loup! bundles, and their licenses. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun LicensesScreen(onBack: () -> Unit) {
+    BackHandler(onBack = onBack)
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.licenses)) },
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Text(
+                "Au loup! is licensed under the GPL-3.0. It bundles these " +
+                    "open-source components, each under the Apache License 2.0:",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                "• libphonenumber-android (io.michaelrocks) — © Google Inc.; " +
+                    "Android port © Michael Rozumyanskiy\n" +
+                    "• AndroidX / Jetpack & Jetpack Compose — © The Android Open Source Project\n" +
+                    "• Kotlin standard library & kotlinx.coroutines — © JetBrains s.r.o.",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                "Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0 " +
+                    "— full notices are in THIRD_PARTY_LICENSES in the project source.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }

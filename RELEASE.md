@@ -4,6 +4,30 @@ This is the end-to-end checklist for publishing to the Play Store. The repo is
 already set up to produce a signed release bundle; the remaining steps are an
 account, a signing key, and the store listing.
 
+## Pre-flight checklist
+
+Already done in the repo:
+
+- [x] `versionName 1.0.0`, `versionCode 1`, `targetSdk 35`.
+- [x] R8 minify + resource shrinking; release build verified to run.
+- [x] No `INTERNET` permission, no analytics/network libs; `allowBackup=false`.
+- [x] `PRIVACY.md` (GDPR) and `THIRD_PARTY_LICENSES.md`; in-app open-source
+      licenses screen.
+- [x] Store/listing copy and Data Safety answers (below), plus F-Droid metadata
+      under `fastlane/metadata/android/`.
+- [x] Store-art sources: `docs/store/icon-512.svg`, `docs/store/feature-graphic.svg`.
+
+Still on you (the order to do them):
+
+- [ ] 1 — Google Play developer account (§1).
+- [ ] 2 — Create the upload keystore + `keystore.properties` (§2).
+- [ ] 3 — Export the store art to PNG and capture ≥2 phone screenshots (§6).
+- [ ] 4 — Host `PRIVACY.md` at a public URL (§7).
+- [ ] 5 — `make bundle`, then create the app in Play Console and fill the
+      listing / Data Safety / content rating, and upload the AAB (§3–§9).
+- [ ] 6 — Test the signed build on a real device first (call screening varies by
+      manufacturer).
+
 ## 1. One-time prerequisites
 
 - [ ] A **Google Play Developer account** (one-time US$25): <https://play.google.com/console/signup>.
@@ -108,19 +132,19 @@ Free and open source (GPL-3.0). Source: https://github.com/floppyzedolfin/auloup
 - [ ] **Contact email**: confirm before publishing (privacy policy currently
       lists `floppyzedolfin@gmail.com`).
 
-## 6. Graphics assets (you must supply these)
+## 6. Graphics assets
 
-Play requires, at minimum:
+The art is ready as SVG in `docs/store/`; just export each to PNG (Inkscape,
+`rsvg-convert`, `cairosvg`, or an online converter).
 
-- [ ] **App icon** — 512 × 512 px, 32-bit PNG. Generate from the in-app logo
-      (`app/src/main/res/drawable/ic_logo.xml` / `ic_launcher_foreground.xml`),
-      e.g. via Android Studio → right-click `res` → New → Image Asset, or export
-      the vector to a 512 PNG.
-- [ ] **Feature graphic** — 1024 × 500 px PNG/JPG.
-- [ ] **Phone screenshots** — at least 2 (up to 8), 16:9 or 9:16, min 320 px.
-      You can capture these from a device/emulator:
-      `adb exec-out screencap -p > screenshot.png`. Good candidates: the main
-      list grouped by country, and a per-prefix stats page.
+- [ ] **App icon** — 512 × 512 PNG, from `docs/store/icon-512.svg`.
+- [ ] **Feature graphic** — 1024 × 500 PNG, from `docs/store/feature-graphic.svg`.
+- [ ] **Phone screenshots** — at least 2 (up to 8), 9:16. Capture from a
+      device/emulator: `adb exec-out screencap -p > screenshot.png`. Good
+      candidates: the main list grouped by country, and a per-prefix stats page.
+
+(The same assets/text are mirrored under `fastlane/metadata/android/` for an
+F-Droid submission — drop the PNGs into the `…/images/` folders there.)
 
 ## 7. Privacy policy (required)
 

@@ -46,4 +46,5 @@
     <string name="clear_history">Notīrīt bloķēto zvanu vēsturi</string>
     <string name="clear_history_confirm">Vai dzēst visu bloķēto zvanu vēsturi? Jūsu bloķēšanas filtri tiek saglabāti. Šo darbību nevar atsaukt.</string>
     <string name="cancel">Atcelt</string>
+    <string name="licenses">Atvērtā pirmkoda licences</string>
 </resources>

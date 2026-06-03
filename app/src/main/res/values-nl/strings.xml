@@ -43,4 +43,5 @@
     <string name="clear_history">Geschiedenis van geblokkeerde gesprekken wissen</string>
     <string name="clear_history_confirm">De volledige geschiedenis van geblokkeerde gesprekken verwijderen? Je blokkeerfilters blijven behouden. Dit kan niet ongedaan worden gemaakt.</string>
     <string name="cancel">Annuleren</string>
+    <string name="licenses">Opensourcelicenties</string>
 </resources>

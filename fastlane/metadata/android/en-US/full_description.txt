@@ -1,0 +1,25 @@
+Au loup! blocks unwanted incoming calls by phone-number PREFIX, not just full
+numbers. Keep a list of prefixes (for example a country's telemarketing range,
+or an area code) and any call whose number starts with one of them is rejected
+automatically.
+
+• Block by prefix — add a country (flag + calling code) and a national prefix.
+• Understands each country's trunk prefix, so "01 60" in France and "+33 1 60"
+  are the same, and a call matches whether its caller ID arrives in national or
+  international form.
+• See how many calls each prefix has blocked, with per-day and per-hour charts.
+• Tap a prefix to view the calls it blocked, with numbers formatted the way each
+  country writes them.
+• Import official regulator block lists (e.g. France's ARCEP telemarketing
+  ranges), shown as "Official" vs. your own entries.
+• Light / dark / system theme, optional silent "call blocked" notification, and a
+  one-tap "clear blocked-call history".
+• Available in English, French, and 60+ other languages.
+
+PRIVACY: Au loup! has no accounts, no ads, no tracking, no cloud backup, and
+makes no network connections. Your prefix list and block history never leave
+your device.
+
+Au loup! asks nothing for itself — it points its donation links at French
+associations that protect wolves (ASPAS, FERUS, WWF France). Free and open
+source (GPL-3.0).

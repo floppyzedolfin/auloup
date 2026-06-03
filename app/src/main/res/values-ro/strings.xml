@@ -46,4 +46,5 @@
     <string name="clear_history">Șterge istoricul apelurilor blocate</string>
     <string name="clear_history_confirm">Ștergi tot istoricul apelurilor blocate? Filtrele tale de blocare sunt păstrate. Această acțiune nu poate fi anulată.</string>
     <string name="cancel">Anulează</string>
+    <string name="licenses">Licențe open-source</string>
 </resources>

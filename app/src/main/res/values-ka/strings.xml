@@ -43,4 +43,5 @@
     <string name="clear_history">დაბლოკილი ზარების ისტორიის გასუფთავება</string>
     <string name="clear_history_confirm">წავშალოთ დაბლოკილი ზარების მთელი ისტორია? თქვენი დაბლოკვის ფილტრები შენარჩუნდება. ამ მოქმედების გაუქმება შეუძლებელია.</string>
     <string name="cancel">გაუქმება</string>
+    <string name="licenses">ღია კოდის ლიცენზიები</string>
 </resources>

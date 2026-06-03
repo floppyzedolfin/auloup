@@ -49,4 +49,5 @@
     <string name="clear_history">Počisti zgodovino blokiranih klicev</string>
     <string name="clear_history_confirm">Izbrišem celotno zgodovino blokiranih klicev? Vaši filtri blokiranja se ohranijo. Tega dejanja ni mogoče razveljaviti.</string>
     <string name="cancel">Prekliči</string>
+    <string name="licenses">Odprtokodne licence</string>
 </resources>

@@ -43,4 +43,5 @@
     <string name="clear_history">Blokkolt hívások előzményeinek törlése</string>
     <string name="clear_history_confirm">Törlöd a blokkolt hívások teljes előzményét? A blokkolási szűrőid megmaradnak. Ez nem vonható vissza.</string>
     <string name="cancel">Mégse</string>
+    <string name="licenses">Nyílt forráskódú licencek</string>
 </resources>

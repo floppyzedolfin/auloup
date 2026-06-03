@@ -49,4 +49,5 @@
     <string name="clear_history">Vymazat historii blokovaných hovorů</string>
     <string name="clear_history_confirm">Smazat celou historii blokovaných hovorů? Vaše blokovací filtry zůstanou zachovány. Tuto akci nelze vrátit zpět.</string>
     <string name="cancel">Zrušit</string>
+    <string name="licenses">Licence open source</string>
 </resources>

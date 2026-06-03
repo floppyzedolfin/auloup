@@ -46,4 +46,5 @@
     <string name="clear_history">Izbriši povijest blokiranih poziva</string>
     <string name="clear_history_confirm">Izbrisati cijelu povijest blokiranih poziva? Vaši filtri za blokiranje se zadržavaju. Ovo se ne može poništiti.</string>
     <string name="cancel">Odustani</string>
+    <string name="licenses">Licence otvorenog koda</string>
 </resources>

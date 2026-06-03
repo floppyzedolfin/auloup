@@ -43,4 +43,5 @@
     <string name="clear_history">ब्लक भएका कलहरूको इतिहास खाली गर्नुहोस्</string>
     <string name="clear_history_confirm">ब्लक भएका कलहरूको सम्पूर्ण इतिहास मेटाउने हो? तपाईंका ब्लकिङ फिल्टरहरू राखिनेछन्। यो पूर्ववत गर्न सकिँदैन।</string>
     <string name="cancel">रद्द गर्नुहोस्</string>
+    <string name="licenses">खुला स्रोत इजाजतपत्रहरू</string>
 </resources>

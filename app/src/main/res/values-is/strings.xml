@@ -43,4 +43,5 @@
         <item quantity="one">%d sía</item>
         <item quantity="other">%d síur</item>
     </plurals>
+    <string name="licenses">Opin hugbúnaðarleyfi</string>
 </resources>

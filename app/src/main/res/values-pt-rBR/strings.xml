@@ -43,4 +43,5 @@
     <string name="clear_history">Limpar o histórico de chamadas bloqueadas</string>
     <string name="clear_history_confirm">Excluir todo o histórico de chamadas bloqueadas? Seus filtros de bloqueio serão mantidos. Esta ação não pode ser desfeita.</string>
     <string name="cancel">Cancelar</string>
+    <string name="licenses">Licenças de código aberto</string>
 </resources>

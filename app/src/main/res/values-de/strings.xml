@@ -44,4 +44,5 @@
     <string name="clear_history">Verlauf blockierter Anrufe löschen</string>
     <string name="clear_history_confirm">Den gesamten Verlauf blockierter Anrufe löschen? Deine Blockierfilter bleiben erhalten. Dies kann nicht rückgängig gemacht werden.</string>
     <string name="cancel">Abbrechen</string>
+    <string name="licenses">Open-Source-Lizenzen</string>
 </resources>

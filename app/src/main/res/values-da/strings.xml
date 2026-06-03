@@ -43,4 +43,5 @@
     <string name="clear_history">Ryd historik over blokerede opkald</string>
     <string name="clear_history_confirm">Slet hele historikken over blokerede opkald? Dine blokeringsfiltre bevares. Dette kan ikke fortrydes.</string>
     <string name="cancel">Annuller</string>
+    <string name="licenses">Open source-licenser</string>
 </resources>
