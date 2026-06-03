@@ -592,24 +592,59 @@ private fun FieldLabel(text: String) {
 @Composable
 private fun AppBarTitle(text: String) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        AppLogo(size = 28.dp)
+        AppLogo()
         Spacer(Modifier.width(8.dp))
         Text(text)
     }
 }
 
+/** The one logo size used everywhere (title and back button), so they match. */
+private val AppLogoSize = 40.dp
+
 /**
- * The sleepy-wolf logo, with three "z"s drifting up from its muzzle and fading,
- * staggered so there's always one in the air. Purely decorative.
+ * The sleepy-wolf logo. Three "z"s drift from her muzzle to the top-right and
+ * fade. Every so often she peeks — the zzz pause, she opens her eyes, then
+ * closes them again and the zzz resume. Purely decorative.
  */
 @Composable
-private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
+private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
     val transition = rememberInfiniteTransition(label = "wolf")
+    // One slow cycle drives the occasional blink and the zzz pause around it.
+    val blink by transition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(tween(durationMillis = 9000, easing = LinearEasing)),
+        label = "blink",
+    )
+    // She peeks well after the zzz have stopped (a long, quiet pause), then
+    // opens her eyes and closes them again.
+    val eyesOpen = when {
+        blink < 0.74f -> 0f
+        blink < 0.79f -> (blink - 0.74f) / 0.05f
+        blink < 0.84f -> 1f
+        blink < 0.89f -> (0.89f - blink) / 0.05f
+        else -> 0f
+    }
+    // zzz stop early (before the pause), stay off through the blink, then resume
+    // slowly once her eyes are closed again.
+    val zzzGate = when {
+        blink < 0.60f -> 1f
+        blink < 0.65f -> (0.65f - blink) / 0.05f
+        blink < 0.90f -> 0f
+        else -> (blink - 0.90f) / 0.10f
+    }
     Box(modifier = modifier.size(size)) {
         Image(
             painter = painterResource(R.drawable.ic_logo),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
+        )
+        Image(
+            painter = painterResource(R.drawable.ic_logo_eyes_open),
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .alpha(eyesOpen),
         )
         repeat(3) { i ->
             val progress by transition.animateFloat(
@@ -627,14 +662,13 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 else -> 1f
             }
             // The "z" shrinks a touch as it floats up.
-            val zFont = size * (0.34f - 0.06f * progress)
+            val zFont = size * (0.34f - 0.08f * progress)
             // Glyph CENTRE travels diagonally from the muzzle (the middle of the
-            // circle) out to the top-right corner, fading only once it gets there.
-            // We anchor the Text by its top-left, so convert the wanted centre to
-            // that corner — a glyph sits ~0.62em below the box top (so the trail
-            // starts at the muzzle, not the chin) and ~0.3em to each side.
-            val centreX = size * (0.46f + 0.4f * progress)
-            val centreY = size * (0.52f - 0.46f * progress)
+            // circle) out past the top-right corner — a long trail so the three
+            // z's are well spaced. Anchored by top-left, so convert the wanted
+            // centre to that corner (glyph sits ~0.5em below box top, ~0.3em aside).
+            val centreX = size * (0.44f + 0.5f * progress)
+            val centreY = size * (0.55f - 0.55f * progress)
             Text(
                 text = "z",
                 color = Color(0xFFECEFF1),
@@ -646,7 +680,7 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = 28.dp) {
                 modifier = Modifier
                     .align(Alignment.TopStart)
                     .offset(x = centreX - zFont * 0.3f, y = centreY - zFont * 0.5f)
-                    .alpha(fade),
+                    .alpha(fade * zzzGate),
             )
         }
     }
@@ -666,7 +700,7 @@ private fun LogoBackButton(onBack: () -> Unit) {
             .clickable(onClick = onBack)
             .padding(2.dp),
     ) {
-        AppLogo(size = 44.dp)
+        AppLogo()
         Box(
             modifier = Modifier
                 .align(Alignment.BottomStart)
