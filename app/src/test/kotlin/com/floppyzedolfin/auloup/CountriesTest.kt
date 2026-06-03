@@ -34,6 +34,26 @@ class CountriesTest {
     }
 
     @Test
+    fun countryForPrefix_mapsToTheCallingCode() {
+        assertEquals("FR", Countries.countryForPrefix("+33162")?.iso)
+        assertEquals("IT", Countries.countryForPrefix("+39061")?.iso)
+        assertEquals("MA", Countries.countryForPrefix("+212600")?.iso) // 3-digit code
+    }
+
+    @Test
+    fun countryForPrefix_picksThePrimaryForSharedCodes() {
+        // Several territories share a calling code; the representative one wins.
+        assertEquals("US", Countries.countryForPrefix("+15553209384")?.iso) // code 1
+        assertEquals("GB", Countries.countryForPrefix("+447911")?.iso) // code 44
+    }
+
+    @Test
+    fun countryForPrefix_isNullWhenNothingMatches() {
+        assertNull(Countries.countryForPrefix(""))
+        assertNull(Countries.countryForPrefix("+999")) // not an assigned calling code
+    }
+
+    @Test
     fun trunkPrefix_perCountry() {
         assertEquals("0", Countries.forIso("FR")?.trunkPrefix) // most of the world
         assertEquals("0", Countries.forIso("GB")?.trunkPrefix)
