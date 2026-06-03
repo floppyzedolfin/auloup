@@ -3,6 +3,8 @@
 
 [![CI](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml)
 
+**English** · [Français](README.fr.md)
+
 Block incoming calls by **phone-number prefix**. You keep a list of prefixes
 (e.g. `+1900`, `0900`); any incoming call whose number starts with one of them
 is rejected automatically.
@@ -13,6 +15,23 @@ a muzzle). The name plays on *crier au loup* ("the boy who cried wolf"): the spa
 
 Free and open source (GPL-3.0). Android first; iOS is planned (see
 [Platform support](#platform-support)).
+
+## Support the wolves
+
+Au loup! is free and asks nothing for itself. If you'd like to give back, support
+**real** wolves through any of these French associations that defend them (all
+founding members of the [CAP Loup](https://www.cap-loup.fr/) collective):
+
+- **[ASPAS](https://www.aspas-nature.org/)** — wild-animal protection; a
+  public-interest body with independently audited accounts. Donate online:
+  <https://www.aspas-nature.org/nous-soutenir/faire-un-don/>
+- **[FERUS](https://www.ferus.fr/)** — the specialist for wolves, bears and
+  lynx. Donate online: <https://www.ferus.fr/soutenez-nos-actions/dons-2>
+- **[WWF France](https://www.wwf.fr/)** — global nature conservation; a
+  public-interest foundation. Donate online: <https://faireundon.wwf.fr/>
+
+All donate online by card; in France 66% of your gift is tax-deductible (a €50
+donation costs you €17).
 
 ## Status
 
@@ -35,23 +54,6 @@ Early MVP:
 - Settings page: change the app language and toggle notifications.
 
 No accounts, no network, no tracking. Your prefix list never leaves the device.
-
-## Support the wolves
-
-Au loup! is free and asks nothing for itself. If you'd like to give back, support
-**real** wolves through any of these French associations that defend them (all
-founding members of the [CAP Loup](https://www.cap-loup.fr/) collective):
-
-- **[ASPAS](https://www.aspas-nature.org/)** — wild-animal protection; a
-  public-interest body with independently audited accounts. Donate online:
-  <https://www.aspas-nature.org/nous-soutenir/faire-un-don/>
-- **[FERUS](https://www.ferus.fr/)** — the specialist for wolves, bears and
-  lynx. Donate online: <https://www.ferus.fr/soutenez-nos-actions/dons-2>
-- **[WWF France](https://www.wwf.fr/)** — global nature conservation; a
-  public-interest foundation. Donate online: <https://faireundon.wwf.fr/>
-
-All donate online by card; in France 66% of your gift is tax-deductible (a €50
-donation costs you €17).
 
 ## Platform support
 
