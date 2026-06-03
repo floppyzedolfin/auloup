@@ -1,6 +1,7 @@
-# Au loup! asks nothing for itself. Its "Sponsor" links point to two French
-# associations that protect wolves (both founding members of the CAP Loup
+# Au loup! asks nothing for itself. Its "Sponsor" links point to three French
+# associations that protect wolves (all founding members of the CAP Loup
 # collective) — so any goodwill goes to the real wolves, not the app.
 custom:
   - "https://www.aspas-nature.org/nous-soutenir/faire-un-don/"
   - "https://www.ferus.fr/soutenez-nos-actions/dons-2"
+  - "https://faireundon.wwf.fr/"
