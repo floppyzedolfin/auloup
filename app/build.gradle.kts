@@ -1,3 +1,6 @@
+import com.android.build.gradle.AppExtension
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -42,6 +45,14 @@ android {
 
     buildFeatures {
         compose = true
+    }
+}
+
+// Name every built APK "auloup.apk" instead of the Gradle default ("app-<variant>.apk").
+// Each variant writes to its own directory (debug/, release/), so the names never collide.
+extensions.getByType(AppExtension::class.java).applicationVariants.all {
+    outputs.all {
+        (this as BaseVariantOutputImpl).outputFileName = "auloup.apk"
     }
 }
 

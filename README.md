@@ -74,13 +74,26 @@ To block calls, the app must be granted the **call-screening role**
 ### From the command line
 
 Requires the Android SDK and an LTS JDK (17 or 21 — current Gradle does not yet
-support JDK 25). Point Gradle at it with `JAVA_HOME` or `org.gradle.java.home`,
-and set `sdk.dir` in a `local.properties` file (Android Studio writes this for
-you).
+support JDK 25). Set `sdk.dir` in a `local.properties` file (Android Studio
+writes this for you).
+
+The simplest path is `make`, which finds a compatible JDK for you and writes the
+APK to `app/build/outputs/apk/debug/auloup.apk`:
+
+```sh
+make            # build the debug APK (auloup.apk)
+make install    # build and install on a connected device/emulator
+make clean      # remove build outputs
+```
+
+If `make` can't find a JDK, point it at one: `make JAVA_HOME=/path/to/jdk-21`.
+
+Or call Gradle directly (works on Windows too via `gradlew.bat`; point it at the
+LTS JDK with `JAVA_HOME` or `org.gradle.java.home`):
 
 ```sh
 ./gradlew test           # run the JVM unit tests
-./gradlew assembleDebug  # build a debug APK
+./gradlew assembleDebug  # build a debug APK -> auloup.apk
 ./gradlew installDebug   # install on a connected device/emulator
 ```
 
@@ -99,23 +112,23 @@ sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # path to your SDK
 ```
 
-**2. Build the APK** from the project root (point Gradle at the LTS JDK):
+**2. Build the APK** from the project root:
 
 ```sh
-JAVA_HOME=/path/to/jdk-21 ./gradlew assembleDebug
+make
 ```
 
 The APK is written to:
 
 ```
-app/build/outputs/apk/debug/app-debug.apk
+app/build/outputs/apk/debug/auloup.apk
 ```
 
 **3. Copy it to the phone.** Any transfer works — USB file copy (the phone shows
 up as a drive; drop the APK into `Download/`), Quick Share / Nearby Share, email,
 or a cloud drive.
 
-**4. Install it on the phone.** Open the **Files** app, tap `app-debug.apk` in
+**4. Install it on the phone.** Open the **Files** app, tap `auloup.apk` in
 `Download/`, and confirm **Install**. The first time, Android asks to *Allow
 install from this source* — toggle it on for Files (or your browser), then back
 out and tap the APK again. (Settings path if needed: *Apps → Special app access
