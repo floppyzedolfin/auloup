@@ -1,9 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Au loup!</string>
 
     <!-- Notification -->
     <string name="channel_blocked_calls">Blocked calls</string>
     <string name="call_blocked">Call blocked</string>
+    <!-- New strings default to English in other locales until translated. -->
+    <string name="blocked_today_title" tools:ignore="MissingTranslation">Blocked today</string>
     <string name="unknown_number">Unknown number</string>
 
     <!-- Main screen -->
@@ -26,6 +28,8 @@
     <!-- Blocked-call history screen -->
     <string name="back">Back</string>
     <string name="no_calls_for_prefix">No calls blocked for this prefix yet.</string>
+    <string name="history_title" tools:ignore="MissingTranslation">History</string>
+    <string name="no_calls_yet" tools:ignore="MissingTranslation">No calls blocked yet.</string>
 
     <!-- Statistics charts -->
     <string name="stats_per_day">Blocked per day</string>

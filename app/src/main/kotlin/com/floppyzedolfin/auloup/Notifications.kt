@@ -11,10 +11,14 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 
-/** Posts the silent "call blocked" notification. */
+/** Posts the silent "calls blocked today" notification. */
 object Notifications {
 
     private const val CHANNEL_ID = "blocked_calls"
+
+    // A single, stable notification we keep updating with today's running count,
+    // rather than one notification per blocked number.
+    private const val BLOCKED_TODAY_ID = 1
 
     /** Creates the (silent, low-importance) channel if it doesn't exist yet. */
     fun ensureChannel(context: Context) {
@@ -34,21 +38,26 @@ object Notifications {
         }
     }
 
-    /** Shows a status-bar notification that a call from [number] was blocked. */
+    /**
+     * Shows/updates one status-bar notification with how many calls were blocked
+     * today ([todayCount]) — not the individual numbers.
+     */
     // canPost() guards the notify() call below; lint can't follow the indirection.
     @SuppressLint("MissingPermission")
-    fun notifyBlocked(context: Context, number: String) {
+    fun notifyBlockedToday(context: Context, todayCount: Int) {
         if (!canPost(context)) return
         ensureChannel(context)
+        val text = context.resources.getQuantityString(R.plurals.calls_blocked, todayCount, todayCount)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentTitle(context.getString(R.string.call_blocked))
-            .setContentText(number.ifBlank { context.getString(R.string.unknown_number) })
+            .setContentTitle(context.getString(R.string.blocked_today_title))
+            .setContentText(text)
             .setCategory(NotificationCompat.CATEGORY_STATUS)
+            .setOnlyAlertOnce(true)
             .setAutoCancel(true)
             .build()
-        // One notification per number, so repeat calls update rather than stack.
-        NotificationManagerCompat.from(context).notify(number.hashCode(), notification)
+        // Always the same id, so each block updates the count in place.
+        NotificationManagerCompat.from(context).notify(BLOCKED_TODAY_ID, notification)
     }
 
     private fun canPost(context: Context): Boolean = Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||

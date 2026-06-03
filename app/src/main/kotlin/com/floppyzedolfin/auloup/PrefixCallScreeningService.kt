@@ -31,7 +31,7 @@ class PrefixCallScreeningService : CallScreeningService() {
         }
 
         if (result.blocked && result.notify) {
-            Notifications.notifyBlocked(applicationContext, number)
+            Notifications.notifyBlockedToday(applicationContext, result.blockedToday)
         }
 
         val response = CallResponse.Builder()

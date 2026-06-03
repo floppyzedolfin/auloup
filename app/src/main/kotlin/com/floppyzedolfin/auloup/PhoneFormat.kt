@@ -1,46 +1,62 @@
 package com.floppyzedolfin.auloup
 
-import android.telephony.PhoneNumberUtils
+import android.content.Context
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 
 /**
  * Display-only phone-number formatting that groups digits the way each country
- * writes them (e.g. US "(555) 320-9384", France "+33 1 67 38 92 37", UK
- * "07878 902 249").
+ * writes them — including **incomplete** numbers, so "+155524" shows as
+ * "+1 555 24" and a national "167" being typed for France shows as "1 67".
  *
- * The grouping rules differ per country and there are hundreds of them, so we
- * don't maintain any ourselves: we defer to the platform's bundled
- * libphonenumber via [PhoneNumberUtils]. It formats in the number's original
- * style (national vs international), which is why an as-arrived national number
- * keeps its trunk "0" while an international one keeps its "+CC".
+ * It uses libphonenumber's [AsYouTypeFormatter][PhoneNumberUtil.getAsYouTypeFormatter],
+ * which formats progressively (unlike the platform's PhoneNumberUtils.formatNumber,
+ * which only groups fully valid numbers). [init] must be called once with a
+ * Context before use; until then formatting is a no-op that returns the input.
  */
 object PhoneFormat {
 
-    /**
-     * Formats a stored prefix (a canonical "+CC…" string) using [iso]'s
-     * grouping. Prefixes are partial numbers, so this is best-effort and falls
-     * back to the raw prefix when the platform can't group it.
-     */
-    fun prefix(prefix: String, iso: String?): String = format(prefix, prefix, iso)
+    @Volatile
+    private var util: PhoneNumberUtil? = null
 
-    /**
-     * Formats a blocked call's [rawNumber] (as it arrived — national or
-     * international) the way [country] writes its numbers. Falls back to the
-     * raw number when [country] is unknown or it can't be formatted.
-     */
-    fun number(rawNumber: String, country: Country?): String {
-        if (country == null) return rawNumber
-        val e164 = Prefixes.toInternational(rawNumber, country.dialCode, country.trunkPrefix) ?: rawNumber
-        return format(rawNumber, e164, country.iso)
+    /** Loads libphonenumber's metadata once (cheap to call repeatedly). */
+    fun init(context: Context) {
+        if (util == null) {
+            synchronized(this) {
+                if (util == null) {
+                    util = PhoneNumberUtil.createInstance(context.applicationContext)
+                }
+            }
+        }
     }
 
+    /** Groups a stored prefix (a "+CC…" string, possibly partial) per [iso]. */
+    fun prefix(prefix: String, iso: String?): String = group(prefix, iso)
+
     /**
-     * [display] is the number to format (its national/international style is
-     * preserved), [e164] its international form (used to pick the calling code),
-     * and [iso] the fallback region. Returns [display] unchanged when it can't
-     * be formatted.
+     * Groups a blocked call's [rawNumber] (as it arrived — national or
+     * international) the way [country] writes its numbers.
      */
-    private fun format(display: String, e164: String, iso: String?): String {
-        if (iso.isNullOrBlank()) return display
-        return PhoneNumberUtils.formatNumber(display, e164, iso)?.takeIf { it.isNotBlank() } ?: display
+    fun number(rawNumber: String, country: Country?): String = group(rawNumber, country?.iso)
+
+    /**
+     * Groups the national digits being typed into the input field (no country
+     * code) for [iso], so spacing appears live as the user types.
+     */
+    fun national(input: String, iso: String?): String = group(input, iso)
+
+    /**
+     * Feeds [raw]'s '+' and digits through an as-you-type formatter so partial
+     * numbers are grouped too. The [iso] region only matters for national input
+     * ("+CC…" auto-detects its country). Returns [raw] unchanged if the library
+     * isn't initialised or nothing formattable is present.
+     */
+    private fun group(raw: String, iso: String?): String {
+        val phoneUtil = util ?: return raw
+        val formatter = phoneUtil.getAsYouTypeFormatter(iso ?: "US")
+        var formatted = ""
+        for (c in raw) {
+            if (c == '+' || c.isDigit()) formatted = formatter.inputDigit(c)
+        }
+        return formatted.ifBlank { raw }
     }
 }

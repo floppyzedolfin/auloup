@@ -72,7 +72,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -84,6 +86,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Notifications.ensureChannel(this)
+        PhoneFormat.init(this)
         enableEdgeToEdge()
         setContent {
             MaterialTheme {
@@ -129,13 +132,18 @@ private fun AuLoupScreen() {
     LaunchedEffect(Unit) { if (notificationsEnabled) requestNotificationPermission() }
 
     var country by remember { mutableStateOf(Countries.defaultFor(context)) }
-    var number by remember { mutableStateOf("") }
+    var number by remember { mutableStateOf(TextFieldValue()) }
     var selectedPrefix by rememberSaveable { mutableStateOf<String?>(null) }
     var showSettings by rememberSaveable { mutableStateOf(false) }
     var showOfficialLists by rememberSaveable { mutableStateOf(false) }
+    var showHistory by rememberSaveable { mutableStateOf(false) }
 
     if (showSettings) {
         SettingsScreen(repository = repository, onBack = { showSettings = false })
+        return
+    }
+    if (showHistory) {
+        HistoryScreen(repository = repository, onBack = { showHistory = false })
         return
     }
     if (showOfficialLists) {
@@ -166,6 +174,12 @@ private fun AuLoupScreen() {
             TopAppBar(
                 title = { AppBarTitle(stringResource(R.string.app_name)) },
                 actions = {
+                    IconButton(onClick = { showHistory = true }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_history),
+                            contentDescription = stringResource(R.string.history_title),
+                        )
+                    }
                     IconButton(onClick = { showSettings = true }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_settings),
@@ -223,17 +237,24 @@ private fun AuLoupScreen() {
                     FieldLabel(stringResource(R.string.number_prefix_label))
                     OutlinedTextField(
                         value = number,
-                        onValueChange = { number = it },
+                        // Group the national digits as the user types (the digits
+                        // are stripped again when the prefix is built). Keep the
+                        // caret at the end so inserting separators never reorders
+                        // what the user types.
+                        onValueChange = {
+                            val grouped = PhoneFormat.national(it.text, country.iso)
+                            number = it.copy(text = grouped, selection = TextRange(grouped.length))
+                        },
                         prefix = { Text("+${country.dialCode}") },
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
-                val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number)
+                val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number.text)
                 Button(
                     onClick = {
-                        number = ""
+                        number = TextFieldValue()
                         prefix?.let { scope.launch { repository.add(it) } }
                     },
                     enabled = prefix != null,
@@ -376,6 +397,60 @@ private fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onB
                 }
                 items(calls) { call ->
                     ListItem(
+                        headlineContent = {
+                            Text(
+                                if (call.number.isBlank()) {
+                                    stringResource(R.string.unknown_number)
+                                } else {
+                                    PhoneFormat.number(call.number, country)
+                                },
+                            )
+                        },
+                        supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** The full history of blocked calls across every prefix, most recent first. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
+    BackHandler(onBack = onBack)
+    val calls by repository.allCalls.collectAsState(initial = emptyList())
+    val formatter = remember {
+        DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
+    }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { AppBarTitle(stringResource(R.string.history_title)) },
+                navigationIcon = {
+                    TextButton(onClick = onBack) { Text(stringResource(R.string.back)) }
+                },
+            )
+        },
+    ) { innerPadding ->
+        if (calls.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .padding(16.dp),
+            ) {
+                Text(
+                    stringResource(R.string.no_calls_yet),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+        } else {
+            LazyColumn(modifier = Modifier.padding(innerPadding)) {
+                items(calls) { call ->
+                    val country = Countries.countryForPrefix(call.prefix)
+                    ListItem(
+                        leadingContent = country?.flag?.let { flag -> { Text(flag) } },
                         headlineContent = {
                             Text(
                                 if (call.number.isBlank()) {

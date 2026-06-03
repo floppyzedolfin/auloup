@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import org.json.JSONArray
 import org.json.JSONObject
+import java.time.Instant
+import java.time.ZoneId
 
 /**
  * A blocked prefix: how many calls it has blocked, and whether it came from an
@@ -20,8 +22,8 @@ data class BlockedPrefix(val prefix: String, val blockedCount: Int, val official
 /** One blocked call: the matched prefix, the caller's number, and when. */
 data class BlockedCall(val prefix: String, val number: String, val timeMillis: Long)
 
-/** The decision for one screened call. */
-data class ScreenResult(val blocked: Boolean, val notify: Boolean)
+/** The decision for one screened call, plus how many were blocked today. */
+data class ScreenResult(val blocked: Boolean, val notify: Boolean, val blockedToday: Int = 0)
 
 private val Context.dataStore by preferencesDataStore(name = "auloup")
 
@@ -114,12 +116,16 @@ class PrefixRepository(private val context: Context) {
         val match = Prefixes.longestMatch(internationalNumber, decodePrefixes(prefs[prefixesKey]).keys)
             ?: return ScreenResult(blocked = false, notify = notify)
 
+        var blockedToday = 0
         context.dataStore.edit { p ->
             val history = decodeHistory(p[historyKey]).toMutableList()
             history.add(BlockedCall(match, rawNumber, timeMillis))
             p[historyKey] = encodeHistory(history)
+            val zone = ZoneId.systemDefault()
+            val day = Instant.ofEpochMilli(timeMillis).atZone(zone).toLocalDate()
+            blockedToday = history.count { Instant.ofEpochMilli(it.timeMillis).atZone(zone).toLocalDate() == day }
         }
-        return ScreenResult(blocked = true, notify = notify)
+        return ScreenResult(blocked = true, notify = notify, blockedToday = blockedToday)
     }
 
     /**
