@@ -43,9 +43,9 @@ Au loup! is free and asks nothing for itself. If you'd like to give back, suppor
 **[FERUS](https://www.ferus.fr/)**, France's national association for the
 protection of wolves (and bears and lynx).
 
-- **Donate:** <https://www.ferus.fr/soutenez-nos-actions/dons-2> — online via
-  HelloAsso, or by cheque to FERUS. In France 66% of your gift is tax-deductible
-  (a €50 donation costs you €17).
+- **Donate online:** <https://www.ferus.fr/soutenez-nos-actions/dons-2> — by card
+  via HelloAsso. In France 66% of your gift is tax-deductible (a €50 donation
+  costs you €17).
 - **Become a member:** <https://www.ferus.fr/soutenez-nos-actions/adhesions>
 
 (FERUS is a founding member of the [CAP Loup](https://www.cap-loup.fr/) collective;
