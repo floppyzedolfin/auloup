@@ -126,7 +126,11 @@ private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
     Image(
         painter = painterResource(if (dark) R.drawable.iris_dark else R.drawable.iris_light),
         contentDescription = null,
-        modifier = modifier.size(size),
+        // Clip the square artwork to a circle (only the image — LogoNavIcon's
+        // corner back badge sits outside this and must not be clipped).
+        modifier = modifier
+            .size(size)
+            .clip(CircleShape),
     )
 }
 
