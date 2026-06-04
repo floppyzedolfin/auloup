@@ -105,10 +105,15 @@ androidComponents {
                 inputs.dir(apkDir)
                 doLast {
                     val dir = apkDir.get().asFile
+                    val target = dir.resolve("auloup.apk")
+                    // Exclude our own copy from the candidates: on an incremental
+                    // build auloup.apk already exists and listing order is undefined,
+                    // so picking it as the source would copy the file onto itself.
                     val built =
-                        dir.listFiles { f -> f.extension == "apk" }?.firstOrNull()
+                        dir.listFiles { f -> f.extension == "apk" && f.name != target.name }
+                            ?.firstOrNull()
                             ?: throw GradleException("No APK produced in $dir")
-                    built.copyTo(dir.resolve("auloup.apk"), overwrite = true)
+                    built.copyTo(target, overwrite = true)
                 }
             }
         afterEvaluate {
