@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.ui
 
 import kotlin.random.Random
 

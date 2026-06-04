@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.data
 
 import org.json.JSONArray
 import org.json.JSONObject

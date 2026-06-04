@@ -29,7 +29,7 @@
             BIND_SCREENING_SERVICE permission so only the OS can bind to it.
         -->
         <service
-            android:name=".PrefixCallScreeningService"
+            android:name=".service.PrefixCallScreeningService"
             android:exported="true"
             android:permission="android.permission.BIND_SCREENING_SERVICE">
             <intent-filter>

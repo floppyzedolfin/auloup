@@ -1,5 +1,6 @@
 package com.floppyzedolfin.auloup
 
+import com.floppyzedolfin.auloup.data.ThemeMode
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test

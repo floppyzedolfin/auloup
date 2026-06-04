@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.telephony
 
 import android.content.Context
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil

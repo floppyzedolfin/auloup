@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.telephony
 
 /**
  * Pure phone-number-prefix logic, deliberately free of any Android dependency

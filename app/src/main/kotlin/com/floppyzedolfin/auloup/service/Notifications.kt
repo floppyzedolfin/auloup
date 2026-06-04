@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.service
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import com.floppyzedolfin.auloup.R
 
 /** Posts the silent "calls blocked today" notification. */
 object Notifications {

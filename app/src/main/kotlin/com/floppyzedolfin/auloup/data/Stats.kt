@@ -1,4 +1,4 @@
-package com.floppyzedolfin.auloup
+package com.floppyzedolfin.auloup.data
 
 import java.time.Instant
 import java.time.ZoneId
