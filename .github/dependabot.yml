@@ -4,16 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
-    ignore:
-      # core-ktx 1.19+ requires compileSdk 37; we stay on 36 for now. Drop this
-      # entry when the project moves its compileSdk to 37.
-      - dependency-name: "androidx.core:core-ktx"
-        versions: [">=1.19.0"]
-      # CodeQL's bundled Kotlin extractor can't process Kotlin 2.3+ yet, so the
-      # code-scanning workflow fails on newer Kotlin. Pin to 2.2.x until CodeQL
-      # catches up, then drop this entry.
-      - dependency-name: "org.jetbrains.kotlin.plugin.compose"
-        versions: [">=2.3.0"]
     groups:
       # Bundle routine minor/patch bumps into a single PR. Major bumps stay
       # separate so breaking upgrades (e.g. AGP) get their own focused review.

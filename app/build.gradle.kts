@@ -27,7 +27,7 @@ val keystoreProperties =
 
 android {
     namespace = "com.floppyzedolfin.auloup"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.floppyzedolfin.auloup"
