@@ -1,11 +1,10 @@
-import com.android.build.gradle.AppExtension
-import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import com.android.build.api.artifact.SingleArtifact
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.io.FileInputStream
 import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ktlint)
 }
@@ -28,12 +27,12 @@ val keystoreProperties =
 
 android {
     namespace = "com.floppyzedolfin.auloup"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.floppyzedolfin.auloup"
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
     }
@@ -73,20 +72,48 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-
     buildFeatures {
         compose = true
     }
 }
 
-// Name every built APK "auloup.apk" instead of the Gradle default ("app-<variant>.apk").
-// Each variant writes to its own directory (debug/, release/), so the names never collide.
-extensions.getByType(AppExtension::class.java).applicationVariants.all {
-    outputs.all {
-        (this as BaseVariantOutputImpl).outputFileName = "auloup.apk"
+// AGP 9 ships built-in Kotlin support, so the standalone kotlin-android plugin is
+// gone and compiler options move from android.kotlinOptions to this top-level block.
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
+}
+
+// Drop a copy of every built APK named "auloup.apk" next to the Gradle default
+// ("app-<variant>.apk"). The legacy applicationVariants output-renaming API was
+// removed in AGP 9, so instead we finalize each variant's `assemble` task with a
+// Copy that renames the packaged APK. This leaves the real APK artifact and its
+// metadata untouched (install/bundle/release keep working) and just adds the
+// fixed-name copy that CI uploads and the Makefile/docs reference. Each variant
+// writes to its own directory (debug/, release/), so the names never collide.
+androidComponents {
+    onVariants { variant ->
+        val variantName = variant.name.replaceFirstChar { it.uppercase() }
+        val apkDir = variant.artifacts.get(SingleArtifact.APK)
+        // A plain action (not a Copy task) that declares the APK dir only as an
+        // input: it depends on packaging but does NOT claim the shared output
+        // directory, which Gradle 9 would otherwise flag as overlapping with
+        // AGP's own listing tasks. It runs as a finalizer of `assemble`.
+        val copyApk =
+            tasks.register("copy${variantName}AuloupApk") {
+                inputs.dir(apkDir)
+                doLast {
+                    val dir = apkDir.get().asFile
+                    val built =
+                        dir.listFiles { f -> f.extension == "apk" }?.firstOrNull()
+                            ?: throw GradleException("No APK produced in $dir")
+                    built.copyTo(dir.resolve("auloup.apk"), overwrite = true)
+                }
+            }
+        afterEvaluate {
+            tasks.named("assemble$variantName").configure { finalizedBy(copyApk) }
+        }
     }
 }
 
