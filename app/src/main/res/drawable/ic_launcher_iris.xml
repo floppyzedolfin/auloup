@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive-icon foreground: the full-bleed Iris artwork inset into the safe
+     zone so the launcher's circular/squircle mask doesn't crop into the wolf.
+     The surrounding inset is transparent; the black background layer fills it,
+     blending seamlessly with the artwork's own near-black backdrop. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/iris_dark"
+    android:inset="20dp" />
