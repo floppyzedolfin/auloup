@@ -30,7 +30,7 @@ défendent (toutes membres fondatrices du collectif [CAP Loup](https://www.cap-l
   reconnue d'utilité publique. Don en ligne : <https://faireundon.wwf.fr/>
 
 Don en ligne par carte ; en France, 66 % de votre don est déductible des impôts
-(un don de 50 € vous coûte 17 €).
+(un don de 5 € vous coûte 1,70 €).
 
 ## Statut
 

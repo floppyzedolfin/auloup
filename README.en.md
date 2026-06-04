@@ -30,8 +30,8 @@ founding members of the [CAP Loup](https://www.cap-loup.fr/) collective):
 - **[WWF France](https://www.wwf.fr/)** — global nature conservation; a
   public-interest foundation. Donate online: <https://faireundon.wwf.fr/>
 
-All donate online by card; in France 66% of your gift is tax-deductible (a €50
-donation costs you €17).
+All donate online by card; in France 66% of your gift is tax-deductible (a €5
+donation costs you €1.70).
 
 ## Status
 
