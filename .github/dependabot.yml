@@ -4,7 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+    groups:
+      # Bundle routine minor/patch bumps into a single PR. Major bumps stay
+      # separate so breaking upgrades (e.g. AGP) get their own focused review.
+      gradle-minor-patch:
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
+    groups:
+      github-actions-minor-patch:
+        update-types:
+          - minor
+          - patch
