@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- In-app logo: Iris, the sleepy wolf, on her night-blue circle. Lean, tapered
-     wolf face with pointed ears and a pale heart-shaped muzzle. The face is
-     scaled up inside the circle so her eyes read clearly; the eyes-open overlay
-     (ic_logo_eyes_open) uses the same group transform. -->
+<!-- In-app logo: Iris the wolf, awake, on her night-blue circle. Lean, tapered
+     wolf face with pointed ears, a pale heart-shaped muzzle, and open purple
+     eyes. The face is scaled up inside the circle so her eyes read clearly. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="48dp"
@@ -30,18 +29,10 @@
             android:pathData="M54,78 C44,71 43,62 49,60 C51,59 53,60 54,62 C55,60 57,59 59,60 C65,62 64,71 54,78 Z" />
         <!-- Nose -->
         <path android:fillColor="#2C3E50" android:pathData="M51,64 L57,64 L54,69 Z" />
-        <!-- Sleepy (closed) eyes -->
-        <path
-            android:strokeColor="#2C3E50"
-            android:strokeWidth="2.6"
-            android:strokeLineCap="round"
-            android:pathData="M39,54 Q45,59 51,54" />
-        <path
-            android:strokeColor="#2C3E50"
-            android:strokeWidth="2.6"
-            android:strokeLineCap="round"
-            android:pathData="M57,54 Q63,59 69,54" />
+        <!-- Open (awake) eyes: pale whites with purple irises -->
+        <path android:fillColor="#ECEFF1" android:pathData="M39.5,54 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z" />
+        <path android:fillColor="#7C4DFF" android:pathData="M41.8,54 a3.2,3.2 0 1,0 6.4,0 a3.2,3.2 0 1,0 -6.4,0 Z" />
+        <path android:fillColor="#ECEFF1" android:pathData="M57.5,54 a5.5,5.5 0 1,0 11,0 a5.5,5.5 0 1,0 -11,0 Z" />
+        <path android:fillColor="#7C4DFF" android:pathData="M59.8,54 a3.2,3.2 0 1,0 6.4,0 a3.2,3.2 0 1,0 -6.4,0 Z" />
     </group>
-    <!-- The sleepy "zzz" is animated in AppLogo (Compose), drifting up from the
-         muzzle; it is intentionally not baked into this vector. -->
 </vector>
