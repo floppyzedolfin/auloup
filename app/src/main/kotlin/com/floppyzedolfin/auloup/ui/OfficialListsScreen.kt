@@ -15,7 +15,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.data.OfficialLists
@@ -36,7 +35,6 @@ internal fun OfficialListsScreen(
     val current = remember(prefixes) { prefixes.map { it.prefix }.toSet() }
 
     Scaffold(
-        containerColor = Color.Transparent,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.official_lists)) },
