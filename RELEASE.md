@@ -17,12 +17,14 @@ Already done in the repo:
       under `fastlane/metadata/android/`.
 - [x] Phone screenshots (en-US + fr-FR) under
       `fastlane/metadata/android/<locale>/images/phoneScreenshots/`.
+- [x] Store icon + feature graphic (black and white-background variants) under
+      `docs/store/`.
 
 Still on you (the order to do them):
 
 - [ ] 1 — Google Play developer account (§1).
 - [ ] 2 — Create the upload keystore + `keystore.properties` (§2).
-- [ ] 3 — Create the store icon + feature graphic (§6).
+- [ ] 3 — Pick the icon/feature-graphic variant and upload it (§6).
 - [ ] 4 — Host `PRIVACY.md` at a public URL (§7).
 - [ ] 5 — `make bundle`, then create the app in Play Console and fill the
       listing / Data Safety / content rating, and upload the AAB (§3–§9).
@@ -138,11 +140,13 @@ Free and open source (GPL-3.0). Source: https://github.com/floppyzedolfin/auloup
 
 ## 6. Graphics assets
 
-- [ ] **App icon** — 512 × 512 PNG. Match the launcher icon: the low-poly Iris
-      (`app/src/main/res/drawable-nodpi/iris_logo.png`) on a black background.
-      Easiest is Android Studio's *Image Asset* studio, or compose the PNG from
-      `iris_logo.png` centred on `#000000`.
-- [ ] **Feature graphic** — 1024 × 500 PNG, in the same low-poly Iris style.
+Generated from the low-poly Iris art and stored in `docs/store/` — each in a
+black and a white-background variant; pick one of each for the Console:
+
+- [x] **App icon** — 512 × 512 PNG: `docs/store/icon-512.png` (black, matches the
+      launcher) or `docs/store/icon-512-white.png`.
+- [x] **Feature graphic** — 1024 × 500 PNG: `docs/store/feature-graphic.png`
+      (black) or `docs/store/feature-graphic-white.png`.
 - [x] **Phone screenshots** — done: en-US + fr-FR, four each (main list, history
       with the month calendar, a per-prefix page, settings), plus a light-theme
       shot, under `fastlane/metadata/android/<locale>/images/phoneScreenshots/`.
