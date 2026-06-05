@@ -2,9 +2,6 @@ package com.floppyzedolfin.auloup.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,13 +16,11 @@ import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.PhoneFormat
 
-/** History of every call blocked by [prefix], most recent first. */
+/** History of every call blocked by [prefix], most recent first, with month navigation. */
 @Composable
 internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onBack: () -> Unit) {
     val calls by repository.history(prefix).collectAsState(initial = emptyList())
-    val formatter = rememberCallTimeFormatter()
-    // The country this prefix belongs to: its flag and grouping go in the title,
-    // and it formats each blocked call's number below.
+    // The country this prefix belongs to: its flag and the formatted prefix go in the title.
     val country = remember(prefix) { Countries.countryForPrefix(prefix) }
     val shownPrefix = remember(prefix, country) { PhoneFormat.prefix(prefix, country?.iso) }
 
@@ -46,18 +41,12 @@ internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, on
                 )
             }
         } else {
-            LazyColumn(modifier = Modifier.padding(innerPadding)) {
-                item {
-                    StatsSection(
-                        calls = calls,
-                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp),
-                    )
-                    HorizontalDivider()
-                }
-                items(calls) { call ->
-                    BlockedCallRow(call = call, country = country, formatter = formatter)
-                }
-            }
+            // The flag is already in the title, so the rows don't repeat it.
+            MonthlyBlockedCalls(
+                calls = calls,
+                showFlag = false,
+                modifier = Modifier.padding(innerPadding),
+            )
         }
     }
 }
