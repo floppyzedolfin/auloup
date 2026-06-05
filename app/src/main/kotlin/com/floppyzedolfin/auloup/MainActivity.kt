@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.collectAsState
@@ -18,6 +19,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -60,7 +62,16 @@ class MainActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .align(Alignment.BottomCenter),
                     )
-                    AuLoupScreen(repository)
+                    // Transparent surface (so the backdrop shows) that still sets
+                    // the content color, so bare Text defaults to onBackground
+                    // instead of black.
+                    Surface(
+                        color = Color.Transparent,
+                        contentColor = MaterialTheme.colorScheme.onBackground,
+                        modifier = Modifier.fillMaxSize(),
+                    ) {
+                        AuLoupScreen(repository)
+                    }
                 }
             }
         }
