@@ -1,4 +1,4 @@
-# Au loup! <img src="docs/iris.svg" alt="Iris, the sleepy wolf" align="right" width="76">
+# Au loup! <img src="docs/iris.png" alt="Iris, the wolf" align="right" width="76">
 
 
 [![CI](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml/badge.svg)](https://github.com/floppyzedolfin/auloup/actions/workflows/ci.yml)
