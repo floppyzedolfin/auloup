@@ -62,7 +62,7 @@ class MainActivity : ComponentActivity() {
                         eyesOpen = true
                         delay(120)
                         eyesOpen = false
-                        delay(120)
+                        delay(240)
                         eyesOpen = true
                         delay(240)
                         eyesOpen = false
@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                         eyesOpen = false
                         delay(120)
                         eyesOpen = true
-                        delay(120)
+                        delay(240)
                         eyesOpen = false
                         delay(240)
                         eyesOpen = true
