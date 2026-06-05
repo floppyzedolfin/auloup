@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">חסימת שיחות</string>
     <string name="channel_blocked_calls">שיחות חסומות</string>
     <string name="call_blocked">שיחה נחסמה</string>
     <string name="unknown_number">מספר לא מוכר</string>

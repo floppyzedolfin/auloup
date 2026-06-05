@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Blokowanie połączeń</string>
     <string name="channel_blocked_calls">Zablokowane połączenia</string>
     <string name="call_blocked">Połączenie zablokowane</string>
     <string name="unknown_number">Nieznany numer</string>

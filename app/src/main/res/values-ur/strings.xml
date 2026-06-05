@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">کال بلاکنگ</string>
     <string name="channel_blocked_calls">بلاک شدہ کالیں</string>
     <string name="call_blocked">کال بلاک کی گئی</string>
     <string name="unknown_number">نامعلوم نمبر</string>

@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Chặn cuộc gọi</string>
     <string name="channel_blocked_calls">Cuộc gọi bị chặn</string>
     <string name="call_blocked">Cuộc gọi đã bị chặn</string>
     <string name="unknown_number">Số không xác định</string>

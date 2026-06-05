@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Bloqueig de trucades</string>
     <string name="channel_blocked_calls">Trucades bloquejades</string>
     <string name="call_blocked">Trucada bloquejada</string>
     <string name="unknown_number">Número desconegut</string>

@@ -53,11 +53,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
+import com.floppyzedolfin.auloup.data.PrefixData
 import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.PhoneFormat
 import com.floppyzedolfin.auloup.telephony.Prefixes
 import kotlinx.coroutines.launch
+import java.time.ZoneId
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,6 +74,12 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
     // hint. Read each composition so it refreshes when returning from Settings.
     val roleManager = remember { context.getSystemService(RoleManager::class.java) }
     val blockingEnabled = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
+
+    // Today's blocked-call count, shown next to the logo.
+    val zone = remember { ZoneId.systemDefault() }
+    val blockedToday = remember(allCalls) {
+        PrefixData.blockedOnDayOf(allCalls, System.currentTimeMillis(), zone)
+    }
 
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -131,7 +139,7 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 navigationIcon = { LogoNavIcon() },
                 title = {
                     Text(
-                        pluralStringResource(R.plurals.calls_blocked, allCalls.size, allCalls.size),
+                        pluralStringResource(R.plurals.calls_blocked_today, blockedToday, blockedToday),
                         style = MaterialTheme.typography.titleMedium,
                     )
                 },
@@ -225,8 +233,6 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
             }
 
             HorizontalDivider()
-
-            StatsSection(allCalls, showTotal = false)
 
             if (prefixes.isEmpty()) {
                 Text(

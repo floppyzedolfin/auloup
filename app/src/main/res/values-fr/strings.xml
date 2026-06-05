@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Blocage des appels</string>
     <!-- Notification -->
     <string name="channel_blocked_calls">Appels bloqués</string>
     <string name="call_blocked">Appel bloqué</string>

@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Çağrı engelleme</string>
     <string name="channel_blocked_calls">Engellenen aramalar</string>
     <string name="call_blocked">Arama engellendi</string>
     <string name="unknown_number">Bilinmeyen numara</string>

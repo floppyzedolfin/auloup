@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Zvanu bloķēšana</string>
     <string name="channel_blocked_calls">Bloķētie zvani</string>
     <string name="call_blocked">Zvans bloķēts</string>
     <string name="unknown_number">Nezināms numurs</string>

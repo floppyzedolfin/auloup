@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Puhelujen esto</string>
     <string name="channel_blocked_calls">Estetyt puhelut</string>
     <string name="call_blocked">Puhelu estetty</string>
     <string name="unknown_number">Tuntematon numero</string>

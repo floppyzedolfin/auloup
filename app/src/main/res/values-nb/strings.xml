@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Anropsblokkering</string>
     <string name="channel_blocked_calls">Blokkerte anrop</string>
     <string name="call_blocked">Anrop blokkert</string>
     <string name="unknown_number">Ukjent nummer</string>

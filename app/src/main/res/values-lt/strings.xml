@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Skambučių blokavimas</string>
     <string name="channel_blocked_calls">Užblokuoti skambučiai</string>
     <string name="call_blocked">Skambutis užblokuotas</string>
     <string name="unknown_number">Nežinomas numeris</string>

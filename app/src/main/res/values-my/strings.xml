@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">ခေါ်ဆိုမှုပိတ်ဆို့ခြင်း</string>
     <string name="channel_blocked_calls">ပိတ်ဆို့ထားသောခေါ်ဆိုမှုများ</string>
     <string name="call_blocked">ခေါ်ဆိုမှုပိတ်ဆို့ထားသည်</string>
     <string name="unknown_number">မသိသောနံပါတ်</string>

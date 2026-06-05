@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">通话拦截</string>
     <string name="channel_blocked_calls">已拦截的来电</string>
     <string name="call_blocked">来电已拦截</string>
     <string name="unknown_number">未知号码</string>

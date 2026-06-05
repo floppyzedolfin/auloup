@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Penyekatan panggilan</string>
     <string name="channel_blocked_calls">Panggilan disekat</string>
     <string name="call_blocked">Panggilan disekat</string>
     <string name="unknown_number">Nombor tidak dikenali</string>

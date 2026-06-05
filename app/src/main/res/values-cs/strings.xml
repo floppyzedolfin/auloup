@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Blokování hovorů</string>
     <string name="channel_blocked_calls">Blokovaná volání</string>
     <string name="call_blocked">Hovor zablokován</string>
     <string name="unknown_number">Neznámé číslo</string>

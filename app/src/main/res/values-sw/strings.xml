@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Kuzuia simu</string>
     <string name="channel_blocked_calls">Simu zilizozuiwa</string>
     <string name="call_blocked">Simu imezuiwa</string>
     <string name="unknown_number">Nambari isiyojulikana</string>

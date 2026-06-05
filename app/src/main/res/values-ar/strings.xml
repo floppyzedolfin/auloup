@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">حظر المكالمات</string>
     <string name="channel_blocked_calls">المكالمات المحظورة</string>
     <string name="call_blocked">مكالمة محظورة</string>
     <string name="unknown_number">رقم غير معروف</string>

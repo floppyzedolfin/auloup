@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">ზარების დაბლოკვა</string>
     <string name="channel_blocked_calls">დაბლოკილი ზარები</string>
     <string name="call_blocked">ზარი დაბლოკილია</string>
     <string name="unknown_number">უცნობი ნომერი</string>

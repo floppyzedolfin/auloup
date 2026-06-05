@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">የጥሪ ማገጃ</string>
     <string name="channel_blocked_calls">የታገዱ ጥሪዎች</string>
     <string name="call_blocked">ጥሪ ታግዷል</string>
     <string name="unknown_number">ያልታወቀ ቁጥር</string>

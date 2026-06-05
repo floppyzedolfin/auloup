@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Símtalalokun</string>
     <string name="clear_history">Hreinsa feril yfir lokuð símtöl</string>
     <string name="clear_history_confirm">Eyða öllum ferli yfir lokuð símtöl? Síurnar þínar haldast. Ekki er hægt að afturkalla þetta.</string>
     <string name="cancel">Hætta við</string>

@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Hívásblokkolás</string>
     <string name="channel_blocked_calls">Blokkolt hívások</string>
     <string name="call_blocked">Hívás blokkolva</string>
     <string name="unknown_number">Ismeretlen szám</string>

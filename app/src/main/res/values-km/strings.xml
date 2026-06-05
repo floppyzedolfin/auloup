@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">ការទប់ស្កាត់ការហៅ</string>
     <string name="channel_blocked_calls">ការហៅទូរសព្ទដែលត្រូវបានទប់ស្កាត់</string>
     <string name="call_blocked">ការហៅទូរសព្ទត្រូវបានទប់ស្កាត់</string>
     <string name="unknown_number">លេខមិនស្គាល់</string>

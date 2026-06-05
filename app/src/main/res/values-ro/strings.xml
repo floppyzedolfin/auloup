@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Blocarea apelurilor</string>
     <string name="channel_blocked_calls">Apeluri blocate</string>
     <string name="call_blocked">Apel blocat</string>
     <string name="unknown_number">Număr necunoscut</string>

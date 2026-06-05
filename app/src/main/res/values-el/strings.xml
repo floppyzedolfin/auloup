@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">Αποκλεισμός κλήσεων</string>
     <string name="channel_blocked_calls">Αποκλεισμένες κλήσεις</string>
     <string name="call_blocked">Η κλήση αποκλείστηκε</string>
     <string name="unknown_number">Άγνωστος αριθμός</string>

@@ -1,4 +1,5 @@
 <resources>
+    <string name="call_blocking">通話のブロック</string>
     <string name="channel_blocked_calls">ブロックされた通話</string>
     <string name="call_blocked">通話をブロックしました</string>
     <string name="unknown_number">不明な番号</string>
