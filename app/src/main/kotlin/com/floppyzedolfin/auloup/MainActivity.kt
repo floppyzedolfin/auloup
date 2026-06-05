@@ -13,7 +13,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.data.ThemeMode
 import com.floppyzedolfin.auloup.service.Notifications

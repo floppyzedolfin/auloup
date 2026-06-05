@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,16 +18,12 @@ import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.PhoneFormat
-import java.text.DateFormat
-import java.util.Date
 
 /** History of every call blocked by [prefix], most recent first. */
 @Composable
 internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onBack: () -> Unit) {
     val calls by repository.history(prefix).collectAsState(initial = emptyList())
-    val formatter = remember {
-        DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
-    }
+    val formatter = rememberCallTimeFormatter()
     // The country this prefix belongs to: its flag and grouping go in the title,
     // and it formats each blocked call's number below.
     val country = remember(prefix) { Countries.countryForPrefix(prefix) }
@@ -60,19 +55,7 @@ internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, on
                     HorizontalDivider()
                 }
                 items(calls) { call ->
-                    ListItem(
-                        colors = transparentListItemColors(),
-                        headlineContent = {
-                            Text(
-                                if (call.number.isBlank()) {
-                                    stringResource(R.string.unknown_number)
-                                } else {
-                                    PhoneFormat.number(call.number, country)
-                                },
-                            )
-                        },
-                        supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
-                    )
+                    BlockedCallRow(call = call, country = country, formatter = formatter)
                 }
             }
         }

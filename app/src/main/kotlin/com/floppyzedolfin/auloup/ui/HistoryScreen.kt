@@ -13,7 +13,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -37,13 +36,10 @@ import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.data.Stats
 import com.floppyzedolfin.auloup.telephony.Countries
-import com.floppyzedolfin.auloup.telephony.PhoneFormat
 import kotlinx.coroutines.launch
-import java.text.DateFormat
 import java.time.Instant
 import java.time.YearMonth
 import java.time.ZoneId
-import java.util.Date
 
 /** The full history of blocked calls across every prefix, most recent first. */
 @Composable
@@ -51,9 +47,7 @@ internal fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
     val scope = rememberCoroutineScope()
     val calls by repository.allCalls.collectAsState(initial = emptyList())
     var showClearDialog by remember { mutableStateOf(false) }
-    val formatter = remember {
-        DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
-    }
+    val formatter = rememberCallTimeFormatter()
 
     AuLoupScaffold(
         title = { Text(stringResource(R.string.history_title)) },
@@ -126,20 +120,11 @@ internal fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
                 HorizontalDivider(modifier = Modifier.padding(top = 8.dp))
                 LazyColumn(state = listState, modifier = Modifier.fillMaxWidth().weight(1f)) {
                     items(calls) { call ->
-                        val country = Countries.countryForPrefix(call.prefix)
-                        ListItem(
-                            colors = transparentListItemColors(),
-                            leadingContent = country?.flag?.let { flag -> { Text(flag) } },
-                            headlineContent = {
-                                Text(
-                                    if (call.number.isBlank()) {
-                                        stringResource(R.string.unknown_number)
-                                    } else {
-                                        PhoneFormat.number(call.number, country)
-                                    },
-                                )
-                            },
-                            supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
+                        BlockedCallRow(
+                            call = call,
+                            country = Countries.countryForPrefix(call.prefix),
+                            formatter = formatter,
+                            showFlag = true,
                         )
                     }
                 }

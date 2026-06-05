@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
@@ -39,10 +40,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
+import com.floppyzedolfin.auloup.data.BlockedCall
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.Country
+import com.floppyzedolfin.auloup.telephony.PhoneFormat
+import java.text.DateFormat
 import java.time.YearMonth
 import java.time.format.TextStyle
+import java.util.Date
 import java.util.Locale
 
 /**
@@ -144,6 +149,40 @@ internal fun AuLoupScaffold(
 /** Transparent ListItem container, so the Iris backdrop shows through the row. */
 @Composable
 internal fun transparentListItemColors() = ListItemDefaults.colors(containerColor = Color.Transparent)
+
+/** The shared date+time format ("MEDIUM date, SHORT time") for blocked-call rows. */
+@Composable
+internal fun rememberCallTimeFormatter(): DateFormat =
+    remember { DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT) }
+
+/**
+ * One blocked-call row: the caller's number (formatted for [country], or
+ * "unknown" when withheld) over the time it was blocked. Set [showFlag] to put
+ * the country flag in the leading slot — used in the all-prefixes history where
+ * rows mix countries; the per-prefix screen already shows the flag in its title.
+ */
+@Composable
+internal fun BlockedCallRow(
+    call: BlockedCall,
+    country: Country?,
+    formatter: DateFormat,
+    showFlag: Boolean = false,
+) {
+    ListItem(
+        colors = transparentListItemColors(),
+        leadingContent = if (showFlag) country?.flag?.let { flag -> { Text(flag) } } else null,
+        headlineContent = {
+            Text(
+                if (call.number.isBlank()) {
+                    stringResource(R.string.unknown_number)
+                } else {
+                    PhoneFormat.number(call.number, country)
+                },
+            )
+        },
+        supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
+    )
+}
 
 /** The active locale, read observably from the configuration. */
 @Composable
