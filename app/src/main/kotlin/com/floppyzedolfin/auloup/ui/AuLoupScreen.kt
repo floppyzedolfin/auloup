@@ -7,14 +7,12 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,6 +24,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -157,91 +157,83 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(vertical = 16.dp),
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            // Header is padded; the prefix list below goes full-width so a row's
-            // trashcan can sit flush to the screen edge.
-            Column(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                if (roleHeld) {
-                    AssistChip(onClick = {}, label = { Text(stringResource(R.string.blocking_on)) })
-                } else {
-                    ElevatedCard {
-                        Column(
-                            modifier = Modifier.padding(16.dp),
-                            verticalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.blocking_off_title),
-                                style = MaterialTheme.typography.titleMedium,
+            if (roleHeld) {
+                AssistChip(onClick = {}, label = { Text(stringResource(R.string.blocking_on)) })
+            } else {
+                ElevatedCard {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Text(
+                            stringResource(R.string.blocking_off_title),
+                            style = MaterialTheme.typography.titleMedium,
+                        )
+                        Text(stringResource(R.string.blocking_off_message))
+                        Button(onClick = {
+                            roleLauncher.launch(
+                                roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING),
                             )
-                            Text(stringResource(R.string.blocking_off_message))
-                            Button(onClick = {
-                                roleLauncher.launch(
-                                    roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING),
-                                )
-                            }) {
-                                Text(stringResource(R.string.enable_blocking))
-                            }
+                        }) {
+                            Text(stringResource(R.string.enable_blocking))
                         }
                     }
                 }
-
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.Bottom,
-                ) {
-                    Column(modifier = Modifier.width(96.dp)) {
-                        FieldLabel(stringResource(R.string.country_label))
-                        CountryPicker(
-                            selected = country,
-                            onSelected = { country = it },
-                            modifier = Modifier.fillMaxWidth(),
-                        )
-                    }
-                    Column(modifier = Modifier.weight(1f)) {
-                        FieldLabel(stringResource(R.string.number_prefix_label))
-                        OutlinedTextField(
-                            value = number,
-                            // Group the national digits as the user types (the digits
-                            // are stripped again when the prefix is built). Keep the
-                            // caret at the end so inserting separators never reorders
-                            // what the user types.
-                            onValueChange = {
-                                val grouped = PhoneFormat.national(it.text, country)
-                                number = it.copy(text = grouped, selection = TextRange(grouped.length))
-                            },
-                            prefix = { Text("+${country.dialCode}") },
-                            singleLine = true,
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                            modifier = Modifier.fillMaxWidth(),
-                        )
-                    }
-                    val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number.text)
-                    Button(
-                        onClick = {
-                            number = TextFieldValue()
-                            prefix?.let { scope.launch { repository.add(it) } }
-                        },
-                        enabled = prefix != null,
-                    ) {
-                        Text(stringResource(R.string.add))
-                    }
-                }
-
-                HorizontalDivider()
-
-                StatsSection(allCalls)
             }
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.Bottom,
+            ) {
+                Column(modifier = Modifier.width(96.dp)) {
+                    FieldLabel(stringResource(R.string.country_label))
+                    CountryPicker(
+                        selected = country,
+                        onSelected = { country = it },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+                Column(modifier = Modifier.weight(1f)) {
+                    FieldLabel(stringResource(R.string.number_prefix_label))
+                    OutlinedTextField(
+                        value = number,
+                        // Group the national digits as the user types (the digits
+                        // are stripped again when the prefix is built). Keep the
+                        // caret at the end so inserting separators never reorders
+                        // what the user types.
+                        onValueChange = {
+                            val grouped = PhoneFormat.national(it.text, country)
+                            number = it.copy(text = grouped, selection = TextRange(grouped.length))
+                        },
+                        prefix = { Text("+${country.dialCode}") },
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+                val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number.text)
+                Button(
+                    onClick = {
+                        number = TextFieldValue()
+                        prefix?.let { scope.launch { repository.add(it) } }
+                    },
+                    enabled = prefix != null,
+                ) {
+                    Text(stringResource(R.string.add))
+                }
+            }
+
+            HorizontalDivider()
+
+            StatsSection(allCalls)
 
             if (prefixes.isEmpty()) {
                 Text(
                     stringResource(R.string.no_prefixes),
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(horizontal = 16.dp),
                 )
             } else {
                 LazyColumn {
@@ -256,7 +248,7 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                                     .clickable {
                                         if (collapsed) collapsedCountries.remove(key) else collapsedCountries.add(key)
                                     }
-                                    .padding(horizontal = 16.dp, vertical = 10.dp),
+                                    .padding(vertical = 10.dp),
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 Text(
@@ -290,60 +282,52 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                             items(entries, key = { it.prefix }) { entry ->
                                 // Dim a disabled prefix so its inactive state reads at a glance.
                                 val dim = if (entry.enabled) 1f else 0.4f
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .clickable { selectedPrefix = entry.prefix }
-                                        .padding(start = 16.dp, top = 8.dp, bottom = 8.dp),
-                                    verticalAlignment = Alignment.CenterVertically,
-                                ) {
-                                    Column(modifier = Modifier.weight(1f)) {
+                                ListItem(
+                                    // Transparent container so the Iris backdrop shows through the list.
+                                    colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                                    modifier = Modifier.clickable { selectedPrefix = entry.prefix },
+                                    leadingContent = {
+                                        // Trash on the left. Official prefixes ship with the app:
+                                        // they can be disabled but not deleted, so their slot is left
+                                        // empty (same width) to keep every row's text aligned.
+                                        if (!entry.official) {
+                                            IconButton(onClick = {
+                                                scope.launch { repository.remove(entry.prefix) }
+                                            }) {
+                                                Icon(
+                                                    painter = painterResource(R.drawable.ic_delete),
+                                                    contentDescription = stringResource(R.string.remove),
+                                                )
+                                            }
+                                        } else {
+                                            Spacer(Modifier.width(48.dp))
+                                        }
+                                    },
+                                    headlineContent = {
                                         Text(
                                             PhoneFormat.prefix(entry.prefix, country?.iso),
-                                            style = MaterialTheme.typography.bodyLarge,
                                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = dim),
                                         )
+                                    },
+                                    supportingContent = {
                                         Text(
                                             pluralStringResource(
                                                 R.plurals.calls_blocked,
                                                 entry.blockedCount,
                                                 entry.blockedCount,
                                             ),
-                                            style = MaterialTheme.typography.bodyMedium,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = dim),
                                         )
-                                    }
-                                    Switch(
-                                        checked = entry.enabled,
-                                        onCheckedChange = {
-                                            scope.launch { repository.setEnabled(entry.prefix, it) }
-                                        },
-                                    )
-                                    // Fixed-width slot keeps every Switch aligned in one column.
-                                    // Official prefixes are disable-only (no trashcan); for the rest
-                                    // the trashcan sits flush to the screen edge.
-                                    Box(
-                                        modifier = Modifier.width(40.dp),
-                                        contentAlignment = Alignment.CenterEnd,
-                                    ) {
-                                        if (!entry.official) {
-                                            Icon(
-                                                painter = painterResource(R.drawable.ic_delete),
-                                                contentDescription = stringResource(R.string.remove),
-                                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                                modifier = Modifier
-                                                    .clickable {
-                                                        scope.launch { repository.remove(entry.prefix) }
-                                                    }
-                                                    // Nudge the glyph to the edge; its transparent
-                                                    // right margin is harmlessly clipped at the screen.
-                                                    .offset(x = 3.dp)
-                                                    .padding(start = 12.dp, top = 8.dp, bottom = 8.dp)
-                                                    .size(24.dp),
-                                            )
-                                        }
-                                    }
-                                }
+                                    },
+                                    trailingContent = {
+                                        Switch(
+                                            checked = entry.enabled,
+                                            onCheckedChange = {
+                                                scope.launch { repository.setEnabled(entry.prefix, it) }
+                                            },
+                                        )
+                                    },
+                                )
                             }
                         }
                     }
