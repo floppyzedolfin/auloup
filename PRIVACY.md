@@ -1,6 +1,6 @@
 # Privacy Policy — Au loup!
 
-_Last updated: 2026-06-03_
+_Last updated: 2026-06-05_
 
 **Au loup!** ("the app") is a call-blocking app for Android. This policy explains
 what the app does and does not do with your information. The short version: the
@@ -19,9 +19,9 @@ leaves it:
 
 - **The list of phone-number prefixes** you choose to block.
 - **A local history of blocked calls** (the caller's number and the time) so the
-  app can show you per-prefix counts and charts.
-- **Your settings** (app language, and whether to show a notification when a call
-  is blocked).
+  app can show you per-prefix counts and a monthly calendar.
+- **Your settings** (app language, theme, and whether to show a notification when
+  a call is blocked).
 
 This is stored using Android's standard on-device storage (Jetpack DataStore).
 Removing a prefix deletes its blocked-call history, and uninstalling the app

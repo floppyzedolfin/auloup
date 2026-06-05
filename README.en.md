@@ -54,12 +54,16 @@ Early MVP:
 - Count how many calls each prefix has blocked. When several prefixes match a
   call, the most specific (longest) one is credited.
 - Tap a prefix to see the history of calls it blocked (number + time).
-- Per-day and per-hour charts of blocked calls, on the main screen and per prefix.
+- Enable or disable each prefix individually (a per-row switch); only enabled
+  prefixes block calls.
+- **Official** regulator block lists (France's ARCEP telemarketing ranges) ship
+  enabled out of the box; you can disable them but not delete them.
+- Today's blocked-call count at the top of the main screen, and a monthly
+  calendar (a count per day) in the history — both overall and per prefix.
 - Group the list by country, collapsible, with a per-country total.
-- Import **official** regulator block lists (France's ARCEP telemarketing
-  ranges); imported prefixes are flagged *Official* vs. user-added ones.
 - Optional silent status-bar notification when a call is blocked (toggleable).
-- Settings page: change the app language and toggle notifications.
+- Settings page: toggle call blocking, change the app language, pick the theme
+  (light / dark / system), and toggle notifications.
 
 No accounts, no network, no tracking. Your prefix list never leaves the device.
 
@@ -85,10 +89,10 @@ PrefixCallScreeningService ─┘            ▲
 
 - `Prefixes.kt` — pure, Android-free matching logic (`normalize`, `longestMatch`, `isBlocked`); unit-tested.
 - `Countries.kt` — ISO→calling-code data; country names from `Locale`, flags as emoji.
-- `PrefixRepository.kt` — persists the prefixes, the blocked-call history, and the notify preference (Jetpack DataStore). Counts are derived from the history.
+- `PrefixRepository.kt` — persists the prefixes, the blocked-call history, and preferences (notification, theme) (Jetpack DataStore). Counts are derived from the history.
 - `PrefixCallScreeningService.kt` — the system binds this on each incoming call; it rejects matches and records the block.
 - `Notifications.kt` — the silent "call blocked" notification channel and poster.
-- `MainActivity.kt` — the Compose screens: the main list (enable blocking, toggle notifications, add/remove prefixes, see counts) and a per-prefix blocked-call history.
+- `MainActivity.kt` + the `ui/` package — the Compose UI: `MainActivity` applies the theme and the shared "Iris" backdrop, while `ui/` holds the screens (main list, settings, overall and per-prefix history).
 
 To block calls, the app must be granted the **call-screening role**
 (`RoleManager.ROLE_CALL_SCREENING`); the UI prompts for this.
@@ -101,7 +105,8 @@ To block calls, the app must be granted the **call-screening role**
    compatible JDK, the Android SDK, and an emulator.
 2. **Open** this folder. Let it sync Gradle.
 3. Pick a device/emulator (Android 10+) and press **Run**.
-4. In the app, tap **Enable call blocking** and grant the role, then add a prefix.
+4. In the app, open **Settings**, turn on **Call blocking** and grant the role,
+   then add a prefix.
 
 ### From the command line
 
@@ -140,7 +145,7 @@ bundled. Without it, install the
 [command-line tools](https://developer.android.com/tools), then:
 
 ```sh
-sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+sdkmanager "platform-tools" "platforms;android-37" "build-tools;37.0.0"
 echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # path to your SDK
 ```
 
@@ -166,8 +171,9 @@ install from this source* — toggle it on for Files (or your browser), then bac
 out and tap the APK again. (Settings path if needed: *Apps → Special app access
 → Install unknown apps*.)
 
-**5. First run.** Open **Au loup!**, tap **Enable call blocking** and make it your
-call-screening app, allow the notification prompt, then add a prefix.
+**5. First run.** Open **Au loup!**, open **Settings**, turn on **Call blocking**
+to make it your call-screening app, allow the notification prompt, then add a
+prefix.
 
 > This is a **debug** APK signed with the throwaway debug key — perfect for
 > installing on your own phone. For a Play Store release (signed `.aab`), see

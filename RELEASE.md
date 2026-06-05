@@ -8,7 +8,7 @@ account, a signing key, and the store listing.
 
 Already done in the repo:
 
-- [x] `versionName 1.0.0`, `versionCode 1`, `targetSdk 35`.
+- [x] `versionName 1.0.0`, `versionCode 1`, `targetSdk 36`.
 - [x] R8 minify + resource shrinking; release build verified to run.
 - [x] No `INTERNET` permission, no analytics/network libs; `allowBackup=false`.
 - [x] `PRIVACY.md` (GDPR) and `THIRD_PARTY_LICENSES.md`; in-app open-source
@@ -111,11 +111,14 @@ automatically.
 • Understands each country's trunk prefix, so "01 60" in France and "+33 1 60"
   are the same, and a call matches whether its caller ID arrives in national or
   international form.
-• See how many calls each prefix has blocked, with per-day and per-hour charts.
+• See how many calls each prefix has blocked, with a monthly calendar of blocked
+  calls.
 • Tap a prefix to view the calls it blocked, with numbers formatted the way each
   country writes them.
-• Import official regulator block lists (e.g. France's ARCEP telemarketing
-  ranges), shown as "Official" vs. your own entries.
+• Enable or disable any prefix with a per-row switch; only enabled prefixes
+  block calls.
+• Official regulator block lists (e.g. France's ARCEP telemarketing ranges) ship
+  enabled out of the box — disable the ones you don't want.
 • Optional silent notification when a call is blocked.
 • Available in English and 60+ other languages.
 
@@ -190,7 +193,7 @@ Each Play upload needs a higher `versionCode`. In `app/build.gradle.kts`:
 | Item | Value |
 | --- | --- |
 | Application ID | `com.floppyzedolfin.auloup` |
-| Min SDK / Target SDK | 29 / 35 |
+| Min SDK / Target SDK | 29 / 36 |
 | Release artifact | `app/build/outputs/bundle/release/app-release.aab` (`make bundle`) |
 | Signing | upload key via gitignored `keystore.properties` (debug fallback if absent) |
 | Privacy policy | `PRIVACY.md` (host at a public URL) |

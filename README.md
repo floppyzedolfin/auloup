@@ -55,14 +55,19 @@ MVP (version initiale) :
   correspondent, c'est le plus précis (le plus long) qui est crédité.
 - Touchez un préfixe pour voir l'historique des appels qu'il a bloqués (numéro +
   heure).
-- Graphiques par jour et par heure des appels bloqués, sur l'écran principal et
-  par préfixe.
+- Activez/désactivez chaque préfixe individuellement (un interrupteur par
+  ligne) ; seuls les préfixes activés bloquent les appels.
+- Les listes **officielles** des régulateurs (plages de démarchage ARCEP en
+  France) sont fournies d'office et activées ; on peut les désactiver mais pas
+  les supprimer.
+- Nombre d'appels bloqués aujourd'hui en haut de l'écran principal, et un
+  calendrier mensuel (un compteur par jour) dans l'historique — global et par
+  préfixe.
 - Liste groupée par pays, repliable, avec un total par pays.
-- Import des listes **officielles** des régulateurs (plages de démarchage ARCEP
-  en France) ; les préfixes importés sont marqués *Officiel*.
 - Notification discrète (facultative) dans la barre d'état quand un appel est
   bloqué.
-- Page Réglages : changer la langue de l'appli et activer/désactiver les
+- Page Réglages : activer/désactiver le blocage des appels, changer la langue,
+  choisir le thème (clair / sombre / système) et activer/désactiver les
   notifications.
 
 Aucun compte, aucun réseau, aucun pistage. Votre liste de préfixes ne quitte
@@ -90,10 +95,10 @@ PrefixCallScreeningService ─┘            ▲
 
 - `Prefixes.kt` — logique de correspondance pure, sans Android (`normalize`, `longestMatch`, `isBlocked`) ; testée unitairement.
 - `Countries.kt` — données ISO→indicatif ; noms de pays via `Locale`, drapeaux en emoji.
-- `PrefixRepository.kt` — persiste les préfixes, l'historique des appels bloqués et la préférence de notification (Jetpack DataStore). Les comptes sont dérivés de l'historique.
+- `PrefixRepository.kt` — persiste les préfixes, l'historique des appels bloqués et les préférences (notification, thème) (Jetpack DataStore). Les comptes sont dérivés de l'historique.
 - `PrefixCallScreeningService.kt` — lié par le système à chaque appel entrant ; rejette les correspondances et enregistre le blocage.
 - `Notifications.kt` — le canal et l'émetteur de la notification silencieuse « appel bloqué ».
-- `MainActivity.kt` — les écrans Compose : la liste principale (activer le blocage, basculer les notifications, ajouter/retirer des préfixes, voir les compteurs) et l'historique des appels bloqués par préfixe.
+- `MainActivity.kt` + le paquet `ui/` — l'interface Compose : `MainActivity` applique le thème et le fond partagé « Iris », tandis que `ui/` contient les écrans (liste principale, réglages, historique global et par préfixe).
 
 Pour bloquer les appels, l'appli doit obtenir le **rôle de filtrage d'appels**
 (`RoleManager.ROLE_CALL_SCREENING`) ; l'interface le demande.
@@ -106,8 +111,8 @@ Pour bloquer les appels, l'appli doit obtenir le **rôle de filtrage d'appels**
    un JDK compatible, le SDK Android et un émulateur.
 2. **Ouvrez** ce dossier. Laissez Gradle se synchroniser.
 3. Choisissez un appareil/émulateur (Android 10+) et appuyez sur **Run**.
-4. Dans l'appli, touchez **Activer le blocage des appels**, accordez le rôle,
-   puis ajoutez un préfixe.
+4. Dans l'appli, ouvrez les **Réglages**, activez **Blocage des appels** et
+   accordez le rôle, puis ajoutez un préfixe.
 
 ### En ligne de commande
 
@@ -145,7 +150,7 @@ et le SDK Android. Avec Android Studio, les deux sont fournis. Sinon, installez
 les [outils en ligne de commande](https://developer.android.com/tools), puis :
 
 ```sh
-sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+sdkmanager "platform-tools" "platforms;android-37" "build-tools;37.0.0"
 echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # chemin de votre SDK
 ```
 
@@ -172,9 +177,9 @@ pour Fichiers (ou votre navigateur), revenez en arrière et touchez à nouveau
 l'APK. (Chemin dans les réglages si besoin : *Applis → Accès spécial des applis →
 Installer des applis inconnues*.)
 
-**5. Premier lancement.** Ouvrez **Au loup!**, touchez **Activer le blocage des
-appels** et faites-en votre appli de filtrage d'appels, autorisez la notification,
-puis ajoutez un préfixe.
+**5. Premier lancement.** Ouvrez **Au loup!**, allez dans les **Réglages**,
+activez **Blocage des appels** pour en faire votre appli de filtrage d'appels,
+autorisez la notification, puis ajoutez un préfixe.
 
 > C'est un APK **debug** signé avec la clé debug jetable — parfait pour
 > l'installer sur votre propre téléphone. Pour une publication Play Store (`.aab`

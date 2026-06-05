@@ -27,8 +27,10 @@ CI runs these on every push and pull request; please run them locally first:
 
 ## Guidelines
 
-- Keep pure logic (no Android dependencies) in the `telephony` package
-  (`Prefixes.kt` / `Countries.kt`) and cover it with unit tests.
+- Keep pure logic (no Android dependencies) out of the Android classes — in the
+  `telephony` package (`Prefixes.kt` / `Countries.kt`) and the Android-free parts
+  of `data` (`PrefixData.kt`, `Stats.kt`, `CalendarGrid.kt`) — and cover it with
+  unit tests.
 - Avoid adding dependencies unless they clearly earn their place.
 - Match the style of the surrounding code; `ktlintFormat` handles the rest.
 
