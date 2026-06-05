@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.data.BlockedCall
+import com.floppyzedolfin.auloup.data.CalendarGrid
 import com.floppyzedolfin.auloup.data.Stats
 import java.time.LocalDate
 import java.time.YearMonth
@@ -71,11 +72,8 @@ internal fun MonthCalendar(
     val locale = currentLocale()
     val yearMonth = remember(refDate) { YearMonth.from(refDate) }
     val firstDayOfWeek = remember(locale) { WeekFields.of(locale).firstDayOfWeek }
-    val weekdays = remember(firstDayOfWeek) { (0L until 7L).map { firstDayOfWeek.plus(it) } }
-    val daysInMonth = yearMonth.lengthOfMonth()
-    // Empty cells before the 1st so it lands in its weekday column.
-    val lead = (yearMonth.atDay(1).dayOfWeek.value - firstDayOfWeek.value + 7) % 7
-    val rows = (lead + daysInMonth + 6) / 7
+    val weekdays = remember(firstDayOfWeek) { CalendarGrid.weekdayOrder(firstDayOfWeek) }
+    val weeks = remember(yearMonth, firstDayOfWeek) { CalendarGrid.weeks(yearMonth, firstDayOfWeek) }
 
     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
         if (showMonthLabel) {
@@ -95,17 +93,16 @@ internal fun MonthCalendar(
                 )
             }
         }
-        for (week in 0 until rows) {
+        weeks.forEach { week ->
             Row(Modifier.fillMaxWidth()) {
-                for (dowIndex in 0 until 7) {
-                    val day = week * 7 + dowIndex - lead + 1
+                week.forEach { day ->
                     Box(
                         modifier = Modifier
                             .weight(1f)
                             .height(34.dp),
                         contentAlignment = Alignment.Center,
                     ) {
-                        if (day in 1..daysInMonth) {
+                        if (day != null) {
                             DayCircle(count = countsByDay[day] ?: 0)
                         }
                     }
