@@ -15,13 +15,14 @@ Already done in the repo:
       licenses screen.
 - [x] Store/listing copy and Data Safety answers (below), plus F-Droid metadata
       under `fastlane/metadata/android/`.
-- [x] Store-art sources: `docs/store/icon-512.svg`, `docs/store/feature-graphic.svg`.
+- [x] Phone screenshots (en-US + fr-FR) under
+      `fastlane/metadata/android/<locale>/images/phoneScreenshots/`.
 
 Still on you (the order to do them):
 
 - [ ] 1 — Google Play developer account (§1).
 - [ ] 2 — Create the upload keystore + `keystore.properties` (§2).
-- [ ] 3 — Export the store art to PNG and capture ≥2 phone screenshots (§6).
+- [ ] 3 — Create the store icon + feature graphic (§6).
 - [ ] 4 — Host `PRIVACY.md` at a public URL (§7).
 - [ ] 5 — `make bundle`, then create the app in Play Console and fill the
       listing / Data Safety / content rating, and upload the AAB (§3–§9).
@@ -137,14 +138,15 @@ Free and open source (GPL-3.0). Source: https://github.com/floppyzedolfin/auloup
 
 ## 6. Graphics assets
 
-The art is ready as SVG in `docs/store/`; just export each to PNG (Inkscape,
-`rsvg-convert`, `cairosvg`, or an online converter).
-
-- [ ] **App icon** — 512 × 512 PNG, from `docs/store/icon-512.svg`.
-- [ ] **Feature graphic** — 1024 × 500 PNG, from `docs/store/feature-graphic.svg`.
-- [ ] **Phone screenshots** — at least 2 (up to 8), 9:16. Capture from a
-      device/emulator: `adb exec-out screencap -p > screenshot.png`. Good
-      candidates: the main list grouped by country, and a per-prefix stats page.
+- [ ] **App icon** — 512 × 512 PNG. Match the launcher icon: the low-poly Iris
+      (`app/src/main/res/drawable-nodpi/iris_logo.png`) on a black background.
+      Easiest is Android Studio's *Image Asset* studio, or compose the PNG from
+      `iris_logo.png` centred on `#000000`.
+- [ ] **Feature graphic** — 1024 × 500 PNG, in the same low-poly Iris style.
+- [x] **Phone screenshots** — done: en-US + fr-FR, four each (main list, history
+      with the month calendar, a per-prefix page, settings), plus a light-theme
+      shot, under `fastlane/metadata/android/<locale>/images/phoneScreenshots/`.
+      (Captured with `adb exec-out screencap -p`, cropped to 1080×2160.)
 
 (The same assets/text are mirrored under `fastlane/metadata/android/` for an
 F-Droid submission — drop the PNGs into the `…/images/` folders there.)
