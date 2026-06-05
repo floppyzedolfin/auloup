@@ -50,7 +50,7 @@ object Notifications {
         ensureChannel(context)
         val text = context.resources.getQuantityString(R.plurals.calls_blocked_today, todayCount, todayCount)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setSmallIcon(R.drawable.ic_notification_wolf)
             // The system header already shows the app name + relative time
             // ("Au loup! · 39m"), so the single content line is just the count.
             .setContentTitle(text)
