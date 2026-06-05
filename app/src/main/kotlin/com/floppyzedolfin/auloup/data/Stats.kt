@@ -41,4 +41,17 @@ object Stats {
         for (t in timesMillis) counts[Instant.ofEpochMilli(t).atZone(zone).hour]++
         return counts.toList()
     }
+
+    /**
+     * Blocked-call counts keyed by day-of-month (1..N) for the calendar month
+     * containing [nowMillis]. Days with no blocked calls are simply absent.
+     */
+    fun perMonth(timesMillis: List<Long>, zone: ZoneId, nowMillis: Long): Map<Int, Int> {
+        val ref = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
+        return timesMillis
+            .map { Instant.ofEpochMilli(it).atZone(zone).toLocalDate() }
+            .filter { it.year == ref.year && it.monthValue == ref.monthValue }
+            .groupingBy { it.dayOfMonth }
+            .eachCount()
+    }
 }

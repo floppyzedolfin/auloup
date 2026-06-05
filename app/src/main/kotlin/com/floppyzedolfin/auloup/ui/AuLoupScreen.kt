@@ -1,6 +1,7 @@
 package com.floppyzedolfin.auloup.ui
 
 import android.Manifest
+import android.app.role.RoleManager
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -17,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -65,6 +67,11 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
     val allCalls by repository.allCalls.collectAsState(initial = emptyList())
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
+
+    // Whether Au loup! holds the call-screening role, for the "blocking is off"
+    // hint. Read each composition so it refreshes when returning from Settings.
+    val roleManager = remember { context.getSystemService(RoleManager::class.java) }
+    val blockingEnabled = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
 
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -122,7 +129,12 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 // Logo lives in the navigation slot on every screen so it never
                 // shifts; here it's just the brand mark (no back action).
                 navigationIcon = { LogoNavIcon() },
-                title = {},
+                title = {
+                    Text(
+                        pluralStringResource(R.plurals.calls_blocked, allCalls.size, allCalls.size),
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                },
                 actions = {
                     IconButton(onClick = { showHistory = true }) {
                         Icon(
@@ -147,6 +159,29 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
+            // Hint when another app (or none) holds call screening, so the user
+            // understands why nothing is being blocked. Tap to fix it in Settings.
+            if (!blockingEnabled) {
+                ElevatedCard(
+                    onClick = { showSettings = true },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text(
+                            stringResource(R.string.blocking_off_title),
+                            style = MaterialTheme.typography.titleSmall,
+                        )
+                        Text(
+                            stringResource(R.string.blocking_off_message),
+                            style = MaterialTheme.typography.bodySmall,
+                        )
+                    }
+                }
+            }
+
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.Bottom,
@@ -191,7 +226,7 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
 
             HorizontalDivider()
 
-            StatsSection(allCalls)
+            StatsSection(allCalls, showTotal = false)
 
             if (prefixes.isEmpty()) {
                 Text(
