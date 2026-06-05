@@ -48,4 +48,5 @@
     <string name="clear_history_confirm">Usunąć całą historię zablokowanych połączeń? Twoje filtry blokowania zostaną zachowane. Tej operacji nie można cofnąć.</string>
     <string name="cancel">Anuluj</string>
     <string name="licenses">Licencje open source</string>
+    <string name="call_back">Oddzwoń</string>
 </resources>

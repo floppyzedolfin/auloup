@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Bütün bloklanmış zənglər tarixçəsi silinsin? Bloklama filtrləriniz saxlanılır. Bunu geri qaytarmaq mümkün deyil.</string>
     <string name="cancel">Ləğv et</string>
     <string name="licenses">Açıq mənbə lisenziyaları</string>
+    <string name="call_back">Geri zəng et</string>
 </resources>

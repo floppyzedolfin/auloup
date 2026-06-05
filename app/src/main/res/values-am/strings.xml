@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">ሙሉ የታገዱ ጥሪዎች ታሪክን ይሰረዝ? የማገጃ ማጣሪያዎችዎ ይቀመጣሉ። ይህ መቀልበስ አይቻልም።</string>
     <string name="cancel">ሰርዝ</string>
     <string name="licenses">የክፍት ምንጭ ፈቃዶች</string>
+    <string name="call_back">መልሰህ ደውል</string>
 </resources>

@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">අවහිර කළ ඇමතුම් ඉතිහාසය මුළුමනින්ම මකන්නද? ඔබගේ අවහිර පෙරහන් රඳවා තබා ගනී. මෙය ආපසු හැරවිය නොහැක.</string>
     <string name="cancel">අවලංගු කරන්න</string>
     <string name="licenses">විවෘත මූලාශ්‍ර බලපත්‍ර</string>
+    <string name="call_back">ආපසු අමතන්න</string>
 </resources>

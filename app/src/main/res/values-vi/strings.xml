@@ -39,4 +39,5 @@
     <string name="clear_history_confirm">Xóa toàn bộ lịch sử cuộc gọi bị chặn? Các bộ lọc chặn của bạn vẫn được giữ lại. Hành động này không thể hoàn tác.</string>
     <string name="cancel">Hủy</string>
     <string name="licenses">Giấy phép nguồn mở</string>
+    <string name="call_back">Gọi lại</string>
 </resources>

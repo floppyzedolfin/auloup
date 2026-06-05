@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Eliminar todo o histórico de chamadas bloqueadas? Os seus filtros de bloqueio são mantidos. Esta ação não pode ser anulada.</string>
     <string name="cancel">Cancelar</string>
     <string name="licenses">Licenças de código aberto</string>
+    <string name="call_back">Voltar a ligar</string>
 </resources>

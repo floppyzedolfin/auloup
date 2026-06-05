@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Të fshihet i gjithë historiku i telefonatave të bllokuara? Filtrat tuaj të bllokimit ruhen. Ky veprim nuk mund të zhbëhet.</string>
     <string name="cancel">Anulo</string>
     <string name="licenses">Licenca me burim të hapur</string>
+    <string name="call_back">Telefono përsëri</string>
 </resources>

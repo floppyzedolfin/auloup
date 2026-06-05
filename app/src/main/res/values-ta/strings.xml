@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">தடுக்கப்பட்ட அழைப்பு வரலாறு முழுவதையும் நீக்கவா? உங்கள் தடுப்பு வடிகட்டிகள் வைத்திருக்கப்படும். இதை மீட்டெடுக்க முடியாது.</string>
     <string name="cancel">ரத்துசெய்</string>
     <string name="licenses">திறந்த மூல உரிமங்கள்</string>
+    <string name="call_back">மீண்டும் அழைக்கவும்</string>
 </resources>

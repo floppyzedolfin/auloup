@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Poistetaanko koko estettyjen puheluiden historia? Estosuodattimesi säilytetään. Tätä ei voi kumota.</string>
     <string name="cancel">Peruuta</string>
     <string name="licenses">Avoimen lähdekoodin lisenssit</string>
+    <string name="call_back">Soita takaisin</string>
 </resources>

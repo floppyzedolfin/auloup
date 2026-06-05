@@ -35,6 +35,7 @@
 
     <!-- Blocked-call history screen -->
     <string name="back">Back</string>
+    <string name="call_back">Call back</string>
     <string name="no_calls_for_prefix">No calls blocked for this prefix yet.</string>
     <string name="history_title">History</string>
     <string name="no_calls_yet">No calls blocked yet.</string>

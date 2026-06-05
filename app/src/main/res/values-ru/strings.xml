@@ -48,4 +48,5 @@
     <string name="clear_history_confirm">Удалить всю историю заблокированных звонков? Ваши фильтры блокировки сохранятся. Это действие нельзя отменить.</string>
     <string name="cancel">Отмена</string>
     <string name="licenses">Лицензии открытого кода</string>
+    <string name="call_back">Перезвонить</string>
 </resources>

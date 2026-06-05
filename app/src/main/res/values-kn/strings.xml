@@ -43,4 +43,5 @@
     <string name="clear_history_confirm">ನಿರ್ಬಂಧಿಸಿದ ಕರೆಗಳ ಸಂಪೂರ್ಣ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ? ನಿಮ್ಮ ನಿರ್ಬಂಧ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲಾಗುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗದು.</string>
     <string name="cancel">ರದ್ದುಮಾಡಿ</string>
     <string name="licenses">ಓಪನ್-ಸೋರ್ಸ್ ಪರವಾನಗಿಗಳು</string>
+    <string name="call_back">ಮರಳಿ ಕರೆ ಮಾಡಿ</string>
 </resources>

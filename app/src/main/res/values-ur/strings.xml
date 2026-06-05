@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">بلاک شدہ کالوں کی پوری تاریخ حذف کریں؟ آپ کے بلاکنگ فلٹرز محفوظ رہیں گے۔ اسے واپس نہیں کیا جا سکتا۔</string>
     <string name="cancel">منسوخ کریں</string>
     <string name="licenses">اوپن سورس لائسنسز</string>
+    <string name="call_back">واپس کال کریں</string>
 </resources>

@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Vill du radera hela historiken över blockerade samtal? Dina blockeringsfilter behålls. Detta kan inte ångras.</string>
     <string name="cancel">Avbryt</string>
     <string name="licenses">Licenser med öppen källkod</string>
+    <string name="call_back">Ring tillbaka</string>
 </resources>

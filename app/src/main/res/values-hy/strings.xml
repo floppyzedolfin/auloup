@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Ջնջե՞լ արգելափակված զանգերի ամբողջ պատմությունը։ Ձեր արգելափակման զտիչները պահպանվում են։ Այս գործողությունը հնարավոր չէ հետարկել։</string>
     <string name="cancel">Չեղարկել</string>
     <string name="licenses">Բաց կոդով արտոնագրեր</string>
+    <string name="call_back">Հետ զանգահարել</string>
 </resources>

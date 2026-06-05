@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Voleu eliminar tot l\'historial de trucades bloquejades? Els vostres filtres de bloqueig es conserven. Aquesta acció és irreversible.</string>
     <string name="cancel">Cancel·la</string>
     <string name="licenses">Llicències de codi obert</string>
+    <string name="call_back">Torna a trucar</string>
 </resources>

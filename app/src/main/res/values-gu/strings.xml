@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">સંપૂર્ણ અવરોધિત કૉલનો ઇતિહાસ કાઢી નાખવો છે? તમારા અવરોધ ફિલ્ટર રાખવામાં આવશે. આ ક્રિયા પાછી ફેરવી શકાતી નથી.</string>
     <string name="cancel">રદ કરો</string>
     <string name="licenses">ઓપન-સોર્સ લાઇસન્સ</string>
+    <string name="call_back">પાછા કૉલ કરો</string>
 </resources>

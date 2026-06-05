@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">ਕੀ ਬਲੌਕ ਕੀਤੀਆਂ ਕਾਲਾਂ ਦਾ ਪੂਰਾ ਇਤਿਹਾਸ ਮਿਟਾਉਣਾ ਹੈ? ਤੁਹਾਡੇ ਬਲੌਕਿੰਗ ਫਿਲਟਰ ਰੱਖੇ ਜਾਂਦੇ ਹਨ। ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
     <string name="cancel">ਰੱਦ ਕਰੋ</string>
     <string name="licenses">ਓਪਨ-ਸੋਰਸ ਲਾਇਸੰਸ</string>
+    <string name="call_back">ਵਾਪਸ ਕਾਲ ਕਰੋ</string>
 </resources>

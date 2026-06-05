@@ -39,4 +39,5 @@
     <string name="clear_history_confirm">Hapus seluruh riwayat panggilan yang diblokir? Filter pemblokiran Anda tetap dipertahankan. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="cancel">Batal</string>
     <string name="licenses">Lisensi sumber terbuka</string>
+    <string name="call_back">Telepon balik</string>
 </resources>

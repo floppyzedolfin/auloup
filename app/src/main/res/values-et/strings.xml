@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Kas kustutada kogu blokeeritud kõnede ajalugu? Sinu blokeerimisfiltrid säilivad. Seda ei saa tagasi võtta.</string>
     <string name="cancel">Tühista</string>
     <string name="licenses">Avatud lähtekoodi litsentsid</string>
+    <string name="call_back">Helista tagasi</string>
 </resources>

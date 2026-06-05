@@ -48,4 +48,5 @@
     <string name="clear_history_confirm">Ištrinti visą užblokuotų skambučių istoriją? Jūsų blokavimo filtrai bus išsaugoti. Šio veiksmo nebus galima atšaukti.</string>
     <string name="cancel">Atšaukti</string>
     <string name="licenses">Atvirojo kodo licencijos</string>
+    <string name="call_back">Perskambinti</string>
 </resources>

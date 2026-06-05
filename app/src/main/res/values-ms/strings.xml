@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Padamkan keseluruhan sejarah panggilan disekat? Penapis sekatan anda dikekalkan. Tindakan ini tidak boleh dibatalkan.</string>
     <string name="cancel">Batal</string>
     <string name="licenses">Lesen sumber terbuka</string>
+    <string name="call_back">Panggil semula</string>
 </resources>

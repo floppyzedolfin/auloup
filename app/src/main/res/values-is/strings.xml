@@ -42,4 +42,5 @@
         <item quantity="other">%d síur</item>
     </plurals>
     <string name="licenses">Opin hugbúnaðarleyfi</string>
+    <string name="call_back">Hringja til baka</string>
 </resources>

@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">ব্লক করা কলের সম্পূর্ণ ইতিহাস মুছবেন? আপনার ব্লকিং ফিল্টারগুলি রাখা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।</string>
     <string name="cancel">বাতিল</string>
     <string name="licenses">ওপেন-সোর্স লাইসেন্স</string>
+    <string name="call_back">ফিরতি কল করুন</string>
 </resources>

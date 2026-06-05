@@ -39,4 +39,5 @@
     <string name="clear_history_confirm">ブロックした通話履歴をすべて削除しますか？ブロックフィルターは保持されます。この操作は取り消せません。</string>
     <string name="cancel">キャンセル</string>
     <string name="licenses">オープンソースライセンス</string>
+    <string name="call_back">折り返し発信</string>
 </resources>

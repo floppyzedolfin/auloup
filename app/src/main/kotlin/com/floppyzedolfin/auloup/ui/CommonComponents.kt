@@ -20,6 +20,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -196,6 +197,20 @@ internal fun BlockedCallRow(
             )
         },
         supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
+        // An explicit call button, in addition to the tappable row, so it's
+        // clear the number can be rung back.
+        trailingContent = if (call.number.isNotBlank()) {
+            {
+                IconButton(onClick = { dial(context, call.number) }) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_call),
+                        contentDescription = stringResource(R.string.call_back),
+                    )
+                }
+            }
+        } else {
+            null
+        },
     )
 }
 

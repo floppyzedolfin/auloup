@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">کل تاریخچه تماس‌های مسدودشده حذف شود؟ فیلترهای مسدودسازی شما حفظ می‌شوند. این عمل قابل بازگشت نیست.</string>
     <string name="cancel">لغو</string>
     <string name="licenses">مجوزهای متن‌باز</string>
+    <string name="call_back">تماس مجدد</string>
 </resources>

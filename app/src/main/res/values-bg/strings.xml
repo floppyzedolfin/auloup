@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">Да се изтрие ли цялата история на блокираните обаждания? Вашите филтри за блокиране се запазват. Това действие е необратимо.</string>
     <string name="cancel">Отказ</string>
     <string name="licenses">Лицензи с отворен код</string>
+    <string name="call_back">Обратно обаждане</string>
 </resources>

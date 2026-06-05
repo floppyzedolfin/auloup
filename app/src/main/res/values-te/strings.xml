@@ -42,4 +42,5 @@
     <string name="clear_history_confirm">బ్లాక్ చేసిన కాల్ చరిత్ర మొత్తాన్ని తొలగించాలా? మీ బ్లాకింగ్ ఫిల్టర్‌లు ఉంచబడతాయి. దీన్ని తిరిగి పొందలేరు.</string>
     <string name="cancel">రద్దు చేయి</string>
     <string name="licenses">ఓపెన్-సోర్స్ లైసెన్స్‌లు</string>
+    <string name="call_back">తిరిగి కాల్ చేయండి</string>
 </resources>
