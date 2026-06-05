@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.Prefixes
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -12,10 +13,10 @@ import kotlinx.coroutines.flow.map
 import java.time.ZoneId
 
 /**
- * A blocked prefix: how many calls it has blocked, and whether it came from an
- * official regulator list (vs. added by the user).
+ * A blocked prefix: how many calls it has blocked, and whether it is currently
+ * enabled (only enabled prefixes block calls).
  */
-data class BlockedPrefix(val prefix: String, val blockedCount: Int, val official: Boolean)
+data class BlockedPrefix(val prefix: String, val blockedCount: Int, val enabled: Boolean)
 
 /** One blocked call: the matched prefix, the caller's number, and when. */
 data class BlockedCall(val prefix: String, val number: String, val timeMillis: Long)
@@ -54,13 +55,14 @@ class PrefixRepository(private val context: Context) {
     private val historyKey = stringPreferencesKey("history")
     private val notificationsKey = booleanPreferencesKey("notifications_enabled")
     private val themeKey = stringPreferencesKey("theme_mode")
+    private val seededKey = booleanPreferencesKey("defaults_seeded")
 
     /** Configured prefixes with their derived block counts, sorted by prefix. */
     val prefixes: Flow<List<BlockedPrefix>> =
         context.dataStore.data.map { prefs ->
             val counts = PrefixData.countsByPrefix(PrefixData.decodeHistory(prefs[historyKey]))
             PrefixData.decodePrefixes(prefs[prefixesKey])
-                .map { (prefix, official) -> BlockedPrefix(prefix, counts[prefix] ?: 0, official) }
+                .map { (prefix, enabled) -> BlockedPrefix(prefix, counts[prefix] ?: 0, enabled) }
                 .sortedBy { it.prefix }
         }
 
@@ -85,24 +87,44 @@ class PrefixRepository(private val context: Context) {
             .sortedByDescending { it.timeMillis }
     }
 
-    suspend fun add(raw: String, official: Boolean = false) {
+    /** Adds a prefix (enabled). Re-adding an existing prefix re-enables it. */
+    suspend fun add(raw: String) {
         val prefix = Prefixes.normalize(raw) ?: return
         context.dataStore.edit { prefs ->
             val map = PrefixData.decodePrefixes(prefs[prefixesKey]).toMutableMap()
-            map[prefix] = official || (map[prefix] ?: false)
+            map[prefix] = true
             prefs[prefixesKey] = PrefixData.encodePrefixes(map)
         }
     }
 
-    /** Imports a regulator list, flagging every prefix as official. */
-    suspend fun importOfficial(prefixes: List<String>) {
+    /** Enables or disables a prefix; only enabled prefixes block calls. */
+    suspend fun setEnabled(prefix: String, enabled: Boolean) {
         context.dataStore.edit { prefs ->
             val map = PrefixData.decodePrefixes(prefs[prefixesKey]).toMutableMap()
-            for (raw in prefixes) {
+            if (prefix in map) {
+                map[prefix] = enabled
+                prefs[prefixesKey] = PrefixData.encodePrefixes(map)
+            }
+        }
+    }
+
+    /**
+     * On first launch, seed the official regulator prefixes for the device's
+     * region (enabled), so the relevant ones ship out of the box. Runs once,
+     * guarded by [seededKey], so the user's later edits are never undone.
+     */
+    suspend fun seedDefaultsIfNeeded() {
+        if (context.dataStore.data.first()[seededKey] == true) return
+        val region = Countries.defaultFor(context).iso
+        val official = OfficialLists.forIso(region)?.prefixes.orEmpty()
+        context.dataStore.edit { prefs ->
+            val map = PrefixData.decodePrefixes(prefs[prefixesKey]).toMutableMap()
+            for (raw in official) {
                 val prefix = Prefixes.normalize(raw) ?: continue
-                map[prefix] = true
+                if (prefix !in map) map[prefix] = true
             }
             prefs[prefixesKey] = PrefixData.encodePrefixes(map)
+            prefs[seededKey] = true
         }
     }
 
@@ -139,7 +161,8 @@ class PrefixRepository(private val context: Context) {
     suspend fun screenAndRecord(rawNumber: String, internationalNumber: String, timeMillis: Long): ScreenResult {
         val prefs = context.dataStore.data.first()
         val notify = prefs[notificationsKey] ?: true
-        val match = Prefixes.longestMatch(internationalNumber, PrefixData.decodePrefixes(prefs[prefixesKey]).keys)
+        val enabled = PrefixData.decodePrefixes(prefs[prefixesKey]).filterValues { it }.keys
+        val match = Prefixes.longestMatch(internationalNumber, enabled)
             ?: return ScreenResult(blocked = false, notify = notify)
 
         var blockedToday = 0

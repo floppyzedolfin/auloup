@@ -24,9 +24,6 @@
     <string name="stats_by_hour">Blocate pe oră</string>
     <string name="settings_title">Setări</string>
     <string name="language">Limbă</string>
-    <string name="official">Oficial</string>
-    <string name="official_lists">Liste oficiale</string>
-    <string name="import_action">Importă</string>
     <string name="history_title">Istoric</string>
     <string name="no_calls_yet">Niciun apel blocat încă.</string>
     <string name="theme">Temă</string>

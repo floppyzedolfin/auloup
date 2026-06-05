@@ -22,9 +22,6 @@
     <string name="stats_by_hour">Đã chặn theo giờ</string>
     <string name="settings_title">Cài đặt</string>
     <string name="language">Ngôn ngữ</string>
-    <string name="official">Chính thức</string>
-    <string name="official_lists">Danh sách chính thức</string>
-    <string name="import_action">Nhập</string>
     <string name="history_title">Lịch sử</string>
     <string name="no_calls_yet">Chưa có cuộc gọi nào bị chặn.</string>
     <string name="theme">Giao diện</string>

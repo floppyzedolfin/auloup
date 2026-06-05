@@ -23,9 +23,6 @@
     <string name="stats_by_hour">Blokeeritud tunnis</string>
     <string name="settings_title">Seaded</string>
     <string name="language">Keel</string>
-    <string name="official">Ametlik</string>
-    <string name="official_lists">Ametlikud loendid</string>
-    <string name="import_action">Impordi</string>
     <string name="history_title">Ajalugu</string>
     <string name="no_calls_yet">Ühtegi kõnet pole veel blokeeritud.</string>
     <string name="theme">Teema</string>

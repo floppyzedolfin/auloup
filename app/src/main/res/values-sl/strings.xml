@@ -25,9 +25,6 @@
     <string name="stats_by_hour">Blokirano po urah</string>
     <string name="settings_title">Nastavitve</string>
     <string name="language">Jezik</string>
-    <string name="official">Uradno</string>
-    <string name="official_lists">Uradni seznami</string>
-    <string name="import_action">Uvozi</string>
     <string name="history_title">Zgodovina</string>
     <string name="no_calls_yet">Še ni blokiranih klicev.</string>
     <string name="theme">Tema</string>

@@ -27,9 +27,6 @@
     <string name="stats_by_hour">المحظورة حسب الساعة</string>
     <string name="settings_title">الإعدادات</string>
     <string name="language">اللغة</string>
-    <string name="official">رسمي</string>
-    <string name="official_lists">قوائم رسمية</string>
-    <string name="import_action">استيراد</string>
     <string name="history_title">السجل</string>
     <string name="no_calls_yet">لم يتم حظر أي مكالمات بعد.</string>
     <string name="theme">المظهر</string>

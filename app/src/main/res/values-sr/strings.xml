@@ -24,9 +24,6 @@
     <string name="stats_by_hour">Блокирано по сату</string>
     <string name="settings_title">Подешавања</string>
     <string name="language">Језик</string>
-    <string name="official">Званично</string>
-    <string name="official_lists">Званичне листе</string>
-    <string name="import_action">Увези</string>
     <string name="history_title">Историја</string>
     <string name="no_calls_yet">Још нема блокираних позива.</string>
     <string name="theme">Тема</string>

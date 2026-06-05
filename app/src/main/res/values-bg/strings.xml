@@ -23,9 +23,6 @@
     <string name="stats_by_hour">Блокирани по час</string>
     <string name="settings_title">Настройки</string>
     <string name="language">Език</string>
-    <string name="official">Официален</string>
-    <string name="official_lists">Официални списъци</string>
-    <string name="import_action">Импортиране</string>
     <string name="history_title">История</string>
     <string name="no_calls_yet">Все още няма блокирани обаждания.</string>
     <string name="theme">Тема</string>

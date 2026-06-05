@@ -23,9 +23,6 @@
     <string name="stats_by_hour">በሰዓት የታገዱ</string>
     <string name="settings_title">ቅንብሮች</string>
     <string name="language">ቋንቋ</string>
-    <string name="official">ኦፊሴላዊ</string>
-    <string name="official_lists">ኦፊሴላዊ ዝርዝሮች</string>
-    <string name="import_action">አስገባ</string>
     <string name="history_title">ታሪክ</string>
     <string name="no_calls_yet">እስካሁን የታገደ ጥሪ የለም።</string>
     <string name="theme">ገጽታ</string>

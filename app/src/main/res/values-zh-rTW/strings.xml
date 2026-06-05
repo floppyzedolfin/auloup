@@ -22,9 +22,6 @@
     <string name="stats_by_hour">依小時封鎖</string>
     <string name="settings_title">設定</string>
     <string name="language">語言</string>
-    <string name="official">官方</string>
-    <string name="official_lists">官方清單</string>
-    <string name="import_action">匯入</string>
     <string name="history_title">紀錄</string>
     <string name="no_calls_yet">尚無封鎖的來電。</string>
     <string name="theme">主題</string>

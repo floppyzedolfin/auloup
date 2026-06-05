@@ -28,8 +28,8 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -53,7 +53,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
-import com.floppyzedolfin.auloup.data.OfficialLists
 import com.floppyzedolfin.auloup.data.PrefixRepository
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.PhoneFormat
@@ -96,8 +95,10 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
     var number by remember { mutableStateOf(TextFieldValue()) }
     var selectedPrefix by rememberSaveable { mutableStateOf<String?>(null) }
     var showSettings by rememberSaveable { mutableStateOf(false) }
-    var showOfficialLists by rememberSaveable { mutableStateOf(false) }
     var showHistory by rememberSaveable { mutableStateOf(false) }
+
+    // Seed the device region's official prefixes on first launch (runs once).
+    LaunchedEffect(Unit) { repository.seedDefaultsIfNeeded() }
 
     if (showSettings) {
         SettingsScreen(repository = repository, onBack = { showSettings = false })
@@ -105,16 +106,6 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
     }
     if (showHistory) {
         HistoryScreen(repository = repository, onBack = { showHistory = false })
-        return
-    }
-    if (showOfficialLists) {
-        OfficialListsScreen(
-            repository = repository,
-            // Launch on the (surviving) main-screen scope so navigating back
-            // doesn't cancel the import mid-flight.
-            onImport = { scope.launch { repository.importOfficial(it) } },
-            onBack = { showOfficialLists = false },
-        )
         return
     }
     val viewing = selectedPrefix
@@ -234,13 +225,6 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 }
             }
 
-            // Only offered for countries that actually have an official list.
-            if (OfficialLists.forIso(country.iso) != null) {
-                TextButton(onClick = { showOfficialLists = true }) {
-                    Text(stringResource(R.string.official_lists))
-                }
-            }
-
             HorizontalDivider()
 
             StatsSection(allCalls)
@@ -295,22 +279,18 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                         }
                         if (!collapsed) {
                             items(entries, key = { it.prefix }) { entry ->
+                                // Dim a disabled prefix so its inactive state reads at a glance.
+                                val dim = if (entry.enabled) 1f else 0.4f
                                 ListItem(
                                     // Transparent container so the Iris backdrop shows through the list.
                                     colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                                     modifier = Modifier.clickable { selectedPrefix = entry.prefix },
-                                    overlineContent = if (entry.official) {
-                                        {
-                                            Text(
-                                                stringResource(R.string.official),
-                                                color = MaterialTheme.colorScheme.primary,
-                                                style = MaterialTheme.typography.labelSmall,
-                                            )
-                                        }
-                                    } else {
-                                        null
+                                    headlineContent = {
+                                        Text(
+                                            PhoneFormat.prefix(entry.prefix, country?.iso),
+                                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = dim),
+                                        )
                                     },
-                                    headlineContent = { Text(PhoneFormat.prefix(entry.prefix, country?.iso)) },
                                     supportingContent = {
                                         Text(
                                             pluralStringResource(
@@ -318,13 +298,25 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                                                 entry.blockedCount,
                                                 entry.blockedCount,
                                             ),
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = dim),
                                         )
                                     },
                                     trailingContent = {
-                                        TextButton(onClick = {
-                                            scope.launch { repository.remove(entry.prefix) }
-                                        }) {
-                                            Text(stringResource(R.string.remove))
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Switch(
+                                                checked = entry.enabled,
+                                                onCheckedChange = {
+                                                    scope.launch { repository.setEnabled(entry.prefix, it) }
+                                                },
+                                            )
+                                            IconButton(onClick = {
+                                                scope.launch { repository.remove(entry.prefix) }
+                                            }) {
+                                                Icon(
+                                                    painter = painterResource(R.drawable.ic_delete),
+                                                    contentDescription = stringResource(R.string.remove),
+                                                )
+                                            }
                                         }
                                     },
                                 )

@@ -23,9 +23,6 @@
     <string name="stats_by_hour">ਘੰਟੇ ਅਨੁਸਾਰ ਬਲਾਕ ਕੀਤੇ</string>
     <string name="settings_title">ਸੈਟਿੰਗਾਂ</string>
     <string name="language">ਭਾਸ਼ਾ</string>
-    <string name="official">ਅਧਿਕਾਰਤ</string>
-    <string name="official_lists">ਅਧਿਕਾਰਤ ਸੂਚੀਆਂ</string>
-    <string name="import_action">ਆਯਾਤ ਕਰੋ</string>
     <string name="history_title">ਇਤਿਹਾਸ</string>
     <string name="no_calls_yet">ਅਜੇ ਕੋਈ ਕਾਲ ਬਲੌਕ ਨਹੀਂ ਹੋਈ।</string>
     <string name="theme">ਥੀਮ</string>

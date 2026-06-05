@@ -23,9 +23,6 @@
     <string name="stats_by_hour">Të bllokuara sipas orës</string>
     <string name="settings_title">Cilësimet</string>
     <string name="language">Gjuha</string>
-    <string name="official">Zyrtare</string>
-    <string name="official_lists">Listat zyrtare</string>
-    <string name="import_action">Importo</string>
     <string name="history_title">Historiku</string>
     <string name="no_calls_yet">Asnjë telefonatë e bllokuar ende.</string>
     <string name="theme">Tema</string>

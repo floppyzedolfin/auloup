@@ -23,9 +23,6 @@
     <string name="stats_by_hour">કલાક પ્રમાણે બ્લૉક કરેલ</string>
     <string name="settings_title">સેટિંગ્સ</string>
     <string name="language">ભાષા</string>
-    <string name="official">અધિકૃત</string>
-    <string name="official_lists">અધિકૃત સૂચિઓ</string>
-    <string name="import_action">આયાત કરો</string>
     <string name="history_title">ઇતિહાસ</string>
     <string name="no_calls_yet">હજી સુધી કોઈ કૉલ અવરોધિત થયો નથી.</string>
     <string name="theme">થીમ</string>

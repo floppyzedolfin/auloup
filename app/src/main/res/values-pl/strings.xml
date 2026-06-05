@@ -25,9 +25,6 @@
     <string name="stats_by_hour">Zablokowane wg godziny</string>
     <string name="settings_title">Ustawienia</string>
     <string name="language">Język</string>
-    <string name="official">Oficjalne</string>
-    <string name="official_lists">Listy oficjalne</string>
-    <string name="import_action">Importuj</string>
     <string name="history_title">Historia</string>
     <string name="no_calls_yet">Nie zablokowano jeszcze żadnych połączeń.</string>
     <string name="theme">Motyw</string>

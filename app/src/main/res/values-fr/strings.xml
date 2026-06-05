@@ -46,7 +46,4 @@
     <string name="clear_history">Effacer l\'historique des appels</string>
     <string name="clear_history_confirm">Supprimer tout l\'historique des appels bloqués ? Vos filtres de blocage sont conservés. Action irréversible.</string>
     <string name="cancel">Annuler</string>
-    <string name="official">Officiel</string>
-    <string name="official_lists">Listes officielles</string>
-    <string name="import_action">Importer</string>
 </resources>

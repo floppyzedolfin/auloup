@@ -15,7 +15,7 @@ class PrefixDataTest {
         LocalDateTime.of(y, mo, d, h, 0).toInstant(utc).toEpochMilli()
 
     @Test
-    fun prefixes_roundTripPreservesTheOfficialFlag() {
+    fun prefixes_roundTripPreservesTheEnabledFlag() {
         val map = mapOf("+1900" to false, "+33162" to true)
         assertEquals(map, PrefixData.decodePrefixes(PrefixData.encodePrefixes(map)))
     }
@@ -27,9 +27,17 @@ class PrefixDataTest {
     }
 
     @Test
-    fun prefixes_migratesLegacyArrayFormatAsUserAdded() {
+    fun prefixes_migratesLegacyArrayFormatToEnabled() {
         val decoded = PrefixData.decodePrefixes("""["+1900","+33162"]""")
-        assertEquals(mapOf("+1900" to false, "+33162" to false), decoded)
+        assertEquals(mapOf("+1900" to true, "+33162" to true), decoded)
+    }
+
+    @Test
+    fun prefixes_migratesLegacyOfficialBoolMapToEnabled() {
+        // Old format stored { prefix: <official> }; every stored prefix was
+        // active, so both flags migrate to enabled regardless of value.
+        val decoded = PrefixData.decodePrefixes("""{"+1900":false,"+33162":true}""")
+        assertEquals(mapOf("+1900" to true, "+33162" to true), decoded)
     }
 
     @Test

@@ -23,9 +23,6 @@
     <string name="stats_by_hour">Bloccate per ora</string>
     <string name="settings_title">Impostazioni</string>
     <string name="language">Lingua</string>
-    <string name="official">Ufficiale</string>
-    <string name="official_lists">Elenchi ufficiali</string>
-    <string name="import_action">Importa</string>
     <string name="history_title">Cronologia</string>
     <string name="no_calls_yet">Nessuna chiamata ancora bloccata.</string>
     <string name="theme">Tema</string>

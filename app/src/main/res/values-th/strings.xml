@@ -22,9 +22,6 @@
     <string name="stats_by_hour">บล็อกตามชั่วโมง</string>
     <string name="settings_title">การตั้งค่า</string>
     <string name="language">ภาษา</string>
-    <string name="official">ทางการ</string>
-    <string name="official_lists">รายการทางการ</string>
-    <string name="import_action">นำเข้า</string>
     <string name="history_title">ประวัติ</string>
     <string name="no_calls_yet">ยังไม่มีสายที่ถูกบล็อก</string>
     <string name="theme">ธีม</string>

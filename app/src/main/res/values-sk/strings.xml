@@ -25,9 +25,6 @@
     <string name="stats_by_hour">Blokované podľa hodiny</string>
     <string name="settings_title">Nastavenia</string>
     <string name="language">Jazyk</string>
-    <string name="official">Oficiálne</string>
-    <string name="official_lists">Oficiálne zoznamy</string>
-    <string name="import_action">Importovať</string>
     <string name="history_title">História</string>
     <string name="no_calls_yet">Zatiaľ neboli zablokované žiadne hovory.</string>
     <string name="theme">Téma</string>

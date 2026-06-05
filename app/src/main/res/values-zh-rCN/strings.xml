@@ -22,9 +22,6 @@
     <string name="stats_by_hour">按小时拦截</string>
     <string name="settings_title">设置</string>
     <string name="language">语言</string>
-    <string name="official">官方</string>
-    <string name="official_lists">官方列表</string>
-    <string name="import_action">导入</string>
     <string name="history_title">历史</string>
     <string name="no_calls_yet">暂无已拦截的来电。</string>
     <string name="theme">主题</string>

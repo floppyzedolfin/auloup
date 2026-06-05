@@ -25,9 +25,6 @@
     <string name="stats_by_hour">Заблоковано за годиною</string>
     <string name="settings_title">Налаштування</string>
     <string name="language">Мова</string>
-    <string name="official">Офіційний</string>
-    <string name="official_lists">Офіційні списки</string>
-    <string name="import_action">Імпортувати</string>
     <string name="history_title">Історія</string>
     <string name="no_calls_yet">Поки що немає заблокованих дзвінків.</string>
     <string name="theme">Тема</string>

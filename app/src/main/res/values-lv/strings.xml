@@ -24,9 +24,6 @@
     <string name="stats_by_hour">Bloķēts pa stundām</string>
     <string name="settings_title">Iestatījumi</string>
     <string name="language">Valoda</string>
-    <string name="official">Oficiāls</string>
-    <string name="official_lists">Oficiālie saraksti</string>
-    <string name="import_action">Importēt</string>
     <string name="history_title">Vēsture</string>
     <string name="no_calls_yet">Vēl nav bloķētu zvanu.</string>
     <string name="theme">Motīvs</string>

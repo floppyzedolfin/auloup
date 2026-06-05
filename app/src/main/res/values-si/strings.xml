@@ -23,9 +23,6 @@
     <string name="stats_by_hour">පැය අනුව අවහිර කළ</string>
     <string name="settings_title">සැකසීම්</string>
     <string name="language">භාෂාව</string>
-    <string name="official">නිල</string>
-    <string name="official_lists">නිල ලැයිස්තු</string>
-    <string name="import_action">ආයාත කරන්න</string>
     <string name="history_title">ඉතිහාසය</string>
     <string name="no_calls_yet">තවම ඇමතුමක් අවහිර කර නොමැත.</string>
     <string name="theme">තේමාව</string>

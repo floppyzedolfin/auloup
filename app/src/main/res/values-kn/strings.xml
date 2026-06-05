@@ -24,9 +24,6 @@
     <string name="stats_by_hour">ಗಂಟೆಗೆ ಅನುಗುಣವಾಗಿ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
     <string name="settings_title">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="language">ಭಾಷೆ</string>
-    <string name="official">ಅಧಿಕೃತ</string>
-    <string name="official_lists">ಅಧಿಕೃತ ಪಟ್ಟಿಗಳು</string>
-    <string name="import_action">ಆಮದು</string>
     <string name="history_title">ಇತಿಹಾಸ</string>
     <string name="no_calls_yet">ಇನ್ನೂ ಯಾವುದೇ ಕರೆಗಳನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿಲ್ಲ.</string>
     <string name="theme">ಥೀಮ್</string>

@@ -23,9 +23,6 @@
     <string name="stats_by_hour">დაბლოკილი საათობრივად</string>
     <string name="settings_title">პარამეტრები</string>
     <string name="language">ენა</string>
-    <string name="official">ოფიციალური</string>
-    <string name="official_lists">ოფიციალური სიები</string>
-    <string name="import_action">იმპორტი</string>
     <string name="history_title">ისტორია</string>
     <string name="no_calls_yet">ჯერ არცერთი ზარი არ დაბლოკილა.</string>
     <string name="theme">თემა</string>

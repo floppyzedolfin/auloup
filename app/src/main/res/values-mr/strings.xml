@@ -23,9 +23,6 @@
     <string name="stats_by_hour">तासानुसार ब्लॉक केलेले</string>
     <string name="settings_title">सेटिंग्ज</string>
     <string name="language">भाषा</string>
-    <string name="official">अधिकृत</string>
-    <string name="official_lists">अधिकृत याद्या</string>
-    <string name="import_action">आयात करा</string>
     <string name="history_title">इतिहास</string>
     <string name="no_calls_yet">अद्याप कोणताही कॉल ब्लॉक केलेला नाही.</string>
     <string name="theme">थीम</string>

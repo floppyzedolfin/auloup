@@ -22,9 +22,6 @@
     <string name="stats_by_hour">시간대별 차단</string>
     <string name="settings_title">설정</string>
     <string name="language">언어</string>
-    <string name="official">공식</string>
-    <string name="official_lists">공식 목록</string>
-    <string name="import_action">가져오기</string>
     <string name="history_title">기록</string>
     <string name="no_calls_yet">아직 차단된 통화가 없습니다.</string>
     <string name="theme">테마</string>

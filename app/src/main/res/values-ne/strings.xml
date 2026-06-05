@@ -23,9 +23,6 @@
     <string name="stats_by_hour">घण्टा अनुसार ब्लक गरिएको</string>
     <string name="settings_title">सेटिङहरू</string>
     <string name="language">भाषा</string>
-    <string name="official">आधिकारिक</string>
-    <string name="official_lists">आधिकारिक सूचीहरू</string>
-    <string name="import_action">आयात गर्नुहोस्</string>
     <string name="history_title">इतिहास</string>
     <string name="no_calls_yet">अहिलेसम्म कुनै कल ब्लक भएको छैन।</string>
     <string name="theme">थिम</string>

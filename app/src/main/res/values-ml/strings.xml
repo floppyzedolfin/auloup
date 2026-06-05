@@ -23,9 +23,6 @@
     <string name="stats_by_hour">മണിക്കൂർ അനുസരിച്ച് ബ്ലോക്ക് ചെയ്തവ</string>
     <string name="settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="language">ഭാഷ</string>
-    <string name="official">ഔദ്യോഗികം</string>
-    <string name="official_lists">ഔദ്യോഗിക പട്ടികകൾ</string>
-    <string name="import_action">ഇറക്കുമതി</string>
     <string name="history_title">ചരിത്രം</string>
     <string name="no_calls_yet">ഇതുവരെ കോളുകൾ ഒന്നും തടഞ്ഞിട്ടില്ല.</string>
     <string name="theme">തീം</string>

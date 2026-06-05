@@ -23,9 +23,6 @@
     <string name="stats_by_hour">ঘণ্টা অনুযায়ী ব্লক করা</string>
     <string name="settings_title">সেটিংস</string>
     <string name="language">ভাষা</string>
-    <string name="official">অফিসিয়াল</string>
-    <string name="official_lists">অফিসিয়াল তালিকা</string>
-    <string name="import_action">আমদানি</string>
     <string name="history_title">ইতিহাস</string>
     <string name="no_calls_yet">এখনও কোনো কল ব্লক হয়নি।</string>
     <string name="theme">থিম</string>

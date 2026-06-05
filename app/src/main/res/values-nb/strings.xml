@@ -23,9 +23,6 @@
     <string name="stats_by_hour">Blokkert per time</string>
     <string name="settings_title">Innstillinger</string>
     <string name="language">Språk</string>
-    <string name="official">Offisiell</string>
-    <string name="official_lists">Offisielle lister</string>
-    <string name="import_action">Importer</string>
     <string name="history_title">Historikk</string>
     <string name="no_calls_yet">Ingen anrop blokkert ennå.</string>
     <string name="theme">Tema</string>

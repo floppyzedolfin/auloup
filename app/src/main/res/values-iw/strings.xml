@@ -25,9 +25,6 @@
     <string name="stats_by_hour">נחסמו לפי שעה</string>
     <string name="settings_title">הגדרות</string>
     <string name="language">שפה</string>
-    <string name="official">רשמי</string>
-    <string name="official_lists">רשימות רשמיות</string>
-    <string name="import_action">ייבוא</string>
     <string name="history_title">היסטוריה</string>
     <string name="no_calls_yet">עדיין לא נחסמו שיחות.</string>
     <string name="theme">ערכת נושא</string>

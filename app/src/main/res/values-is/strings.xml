@@ -26,9 +26,6 @@
     <string name="stats_by_hour">Útilokað eftir klukkustund</string>
     <string name="settings_title">Stillingar</string>
     <string name="language">Tungumál</string>
-    <string name="official">Opinbert</string>
-    <string name="official_lists">Opinberir listar</string>
-    <string name="import_action">Flytja inn</string>
     <string name="history_title">Ferill</string>
     <string name="no_calls_yet">Engin símtöl hafa enn verið lokuð.</string>
     <string name="theme">Þema</string>

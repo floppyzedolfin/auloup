@@ -22,9 +22,6 @@
     <string name="stats_by_hour">បានរារាំងតាមម៉ោង</string>
     <string name="settings_title">ការកំណត់</string>
     <string name="language">ភាសា</string>
-    <string name="official">ផ្លូវការ</string>
-    <string name="official_lists">បញ្ជីផ្លូវការ</string>
-    <string name="import_action">នាំចូល</string>
     <string name="history_title">ប្រវត្តិ</string>
     <string name="no_calls_yet">មិនទាន់មានការហៅទូរសព្ទត្រូវបានទប់ស្កាត់ទេ។</string>
     <string name="theme">រូបរាង</string>

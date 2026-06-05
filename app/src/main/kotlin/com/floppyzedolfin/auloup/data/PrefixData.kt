@@ -10,29 +10,38 @@ import java.time.ZoneId
  * history. Android-free: [PrefixRepository] owns the DataStore I/O and delegates
  * the JSON and counting here, so this logic is unit-testable on the JVM.
  *
- * Storage shape: prefixes are a JSON `{ "<prefix>": <isOfficial> }` object; the
+ * Storage shape: prefixes are a JSON `{ "<prefix>": {"e": <enabled>} }` object; the
  * history is a JSON array of `{ "p": prefix, "n": number, "t": timeMillis }`.
  */
 object PrefixData {
 
     /**
-     * Decodes the stored prefixes as prefix -> isOfficial. Also migrates the old
-     * format (a plain JSON array of prefixes) by treating them all as user-added.
+     * Decodes the stored prefixes as prefix -> isEnabled. Migrates older formats:
+     * a plain JSON array of prefixes, and a `{ "<prefix>": <isOfficial bool> }`
+     * object — in both, every stored prefix was active, so they become enabled.
      */
     fun decodePrefixes(json: String?): Map<String, Boolean> {
         if (json.isNullOrBlank()) return emptyMap()
         return if (json.trimStart().startsWith("[")) {
             val array = JSONArray(json)
-            buildMap { for (i in 0 until array.length()) put(array.getString(i), false) }
+            buildMap { for (i in 0 until array.length()) put(array.getString(i), true) }
         } else {
             val obj = JSONObject(json)
-            buildMap { for (key in obj.keys()) put(key, obj.optBoolean(key, false)) }
+            buildMap {
+                for (key in obj.keys()) {
+                    val value = obj.get(key)
+                    // Current format stores {"e": enabled}; a bare boolean is the
+                    // legacy "official" flag — those prefixes were all active.
+                    val enabled = if (value is JSONObject) value.optBoolean("e", true) else true
+                    put(key, enabled)
+                }
+            }
         }
     }
 
     fun encodePrefixes(prefixes: Map<String, Boolean>): String {
         val obj = JSONObject()
-        for ((prefix, official) in prefixes) obj.put(prefix, official)
+        for ((prefix, enabled) in prefixes) obj.put(prefix, JSONObject().put("e", enabled))
         return obj.toString()
     }
 
