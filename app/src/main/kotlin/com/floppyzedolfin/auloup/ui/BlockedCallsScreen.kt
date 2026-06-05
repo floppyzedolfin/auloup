@@ -17,6 +17,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
@@ -41,6 +42,7 @@ internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, on
     val shownPrefix = remember(prefix, country) { PhoneFormat.prefix(prefix, country?.iso) }
 
     Scaffold(
+        containerColor = Color.Transparent,
         topBar = {
             TopAppBar(
                 // No app logo here — just the flag and the formatted prefix.
