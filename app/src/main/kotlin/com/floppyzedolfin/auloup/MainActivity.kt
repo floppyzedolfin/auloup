@@ -52,27 +52,59 @@ class MainActivity : ComponentActivity() {
             MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
                 // Sleepy-Iris backdrop state, shared across every screen (it lives
                 // above the navigation). She starts asleep; an interaction blinks
-                // her awake; 5s of inactivity blinks her back to sleep.
+                // her awake; she blinks every 2s while awake and, after 6s with no
+                // interaction, blinks back to sleep.
                 val interactions = remember { Channel<Unit>(Channel.CONFLATED) }
                 var eyesOpen by remember { mutableStateOf(false) }
                 LaunchedEffect(Unit) {
-                    suspend fun blink(settleOpen: Boolean) {
-                        repeat(3) {
-                            eyesOpen = true
-                            delay(120)
-                            eyesOpen = false
-                            delay(120)
-                        }
-                        eyesOpen = settleOpen
+                    // Wake: open, closed, longer open, closed, then settle open.
+                    suspend fun wake() {
+                        eyesOpen = true
+                        delay(120)
+                        eyesOpen = false
+                        delay(120)
+                        eyesOpen = true
+                        delay(240)
+                        eyesOpen = false
+                        delay(120)
+                        eyesOpen = true
+                    }
+
+                    // Sleep: the mirror — closed, open, longer closed, open, settle closed.
+                    suspend fun sleep() {
+                        eyesOpen = false
+                        delay(120)
+                        eyesOpen = true
+                        delay(120)
+                        eyesOpen = false
+                        delay(240)
+                        eyesOpen = true
+                        delay(120)
+                        eyesOpen = false
+                    }
+
+                    // A quick blink while awake (eyes shut briefly, then back open).
+                    suspend fun blink() {
+                        eyesOpen = false
+                        delay(120)
+                        eyesOpen = true
                     }
                     while (true) {
-                        interactions.receive() // wait until the user does something
-                        blink(settleOpen = true) // wake up
-                        // Stay awake until 5s pass with no interaction.
-                        while (withTimeoutOrNull(5_000) { interactions.receive() } != null) {
-                            // each interaction resets the idle timer
+                        interactions.receive() // asleep until the user does something
+                        wake()
+                        // Awake: blink every 2s; after 6s with no interaction, sleep.
+                        var idleMillis = 0L
+                        while (true) {
+                            val acted = withTimeoutOrNull(2_000) { interactions.receive() } != null
+                            if (acted) {
+                                idleMillis = 0L // interaction keeps her awake
+                            } else {
+                                idleMillis += 2_000L
+                                if (idleMillis >= 6_000L) break
+                                blink()
+                            }
                         }
-                        blink(settleOpen = false) // go back to sleep
+                        sleep()
                     }
                 }
 
