@@ -1,5 +1,8 @@
 package com.floppyzedolfin.auloup.ui
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
@@ -160,6 +164,9 @@ internal fun rememberCallTimeFormatter(): DateFormat =
  * "unknown" when withheld) over the time it was blocked. Set [showFlag] to put
  * the country flag in the leading slot — used in the all-prefixes history where
  * rows mix countries; the per-prefix screen already shows the flag in its title.
+ *
+ * Tapping a row with a known number opens the dialer pre-filled with it, so a
+ * blocked caller can still be rung back from the history.
  */
 @Composable
 internal fun BlockedCallRow(
@@ -168,7 +175,15 @@ internal fun BlockedCallRow(
     formatter: DateFormat,
     showFlag: Boolean = false,
 ) {
+    val context = LocalContext.current
+    // Withheld/unknown calls have no number to dial; only known ones are tappable.
+    val rowModifier = if (call.number.isNotBlank()) {
+        Modifier.clickable { dial(context, call.number) }
+    } else {
+        Modifier
+    }
     ListItem(
+        modifier = rowModifier,
         colors = transparentListItemColors(),
         leadingContent = if (showFlag) country?.flag?.let { flag -> { Text(flag) } } else null,
         headlineContent = {
@@ -182,6 +197,16 @@ internal fun BlockedCallRow(
         },
         supportingContent = { Text(formatter.format(Date(call.timeMillis))) },
     )
+}
+
+/**
+ * Opens the system dialer pre-filled with [number]. Uses ACTION_DIAL (no
+ * CALL_PHONE permission, and it never places the call itself — the user does),
+ * so calling back stays consistent with the app's no-extra-permissions stance.
+ */
+private fun dial(context: Context, number: String) {
+    val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", number, null))
+    runCatching { context.startActivity(intent) }
 }
 
 /** The active locale, read observably from the configuration. */
