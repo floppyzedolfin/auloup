@@ -5,7 +5,6 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.Prefixes
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -13,10 +12,11 @@ import kotlinx.coroutines.flow.map
 import java.time.ZoneId
 
 /**
- * A blocked prefix: how many calls it has blocked, and whether it is currently
- * enabled (only enabled prefixes block calls).
+ * A blocked prefix: how many calls it has blocked, whether it is currently
+ * enabled (only enabled prefixes block calls), and whether it ships in an
+ * official regulator list (official prefixes can be disabled but not deleted).
  */
-data class BlockedPrefix(val prefix: String, val blockedCount: Int, val enabled: Boolean)
+data class BlockedPrefix(val prefix: String, val blockedCount: Int, val enabled: Boolean, val official: Boolean)
 
 /** One blocked call: the matched prefix, the caller's number, and when. */
 data class BlockedCall(val prefix: String, val number: String, val timeMillis: Long)
@@ -55,14 +55,20 @@ class PrefixRepository(private val context: Context) {
     private val historyKey = stringPreferencesKey("history")
     private val notificationsKey = booleanPreferencesKey("notifications_enabled")
     private val themeKey = stringPreferencesKey("theme_mode")
-    private val seededKey = booleanPreferencesKey("defaults_seeded")
+    private val seededKey = booleanPreferencesKey("defaults_seeded_v2")
+
+    /** Normalised prefixes from every shipped official list; these can be disabled but not deleted. */
+    private val officialPrefixes: Set<String> =
+        OfficialLists.all.flatMap { it.prefixes }.mapNotNull { Prefixes.normalize(it) }.toSet()
 
     /** Configured prefixes with their derived block counts, sorted by prefix. */
     val prefixes: Flow<List<BlockedPrefix>> =
         context.dataStore.data.map { prefs ->
             val counts = PrefixData.countsByPrefix(PrefixData.decodeHistory(prefs[historyKey]))
             PrefixData.decodePrefixes(prefs[prefixesKey])
-                .map { (prefix, enabled) -> BlockedPrefix(prefix, counts[prefix] ?: 0, enabled) }
+                .map { (prefix, enabled) ->
+                    BlockedPrefix(prefix, counts[prefix] ?: 0, enabled, prefix in officialPrefixes)
+                }
                 .sortedBy { it.prefix }
         }
 
@@ -109,27 +115,24 @@ class PrefixRepository(private val context: Context) {
     }
 
     /**
-     * On first launch, seed the official regulator prefixes for the device's
-     * region (enabled), so the relevant ones ship out of the box. Runs once,
-     * guarded by [seededKey], so the user's later edits are never undone.
+     * On first launch, seed every territory's official regulator prefixes
+     * (enabled), so they all ship out of the box. Runs once, guarded by
+     * [seededKey], so the user's later edits (e.g. disabling some) aren't undone.
      */
     suspend fun seedDefaultsIfNeeded() {
         if (context.dataStore.data.first()[seededKey] == true) return
-        val region = Countries.defaultFor(context).iso
-        val official = OfficialLists.forIso(region)?.prefixes.orEmpty()
         context.dataStore.edit { prefs ->
             val map = PrefixData.decodePrefixes(prefs[prefixesKey]).toMutableMap()
-            for (raw in official) {
-                val prefix = Prefixes.normalize(raw) ?: continue
-                if (prefix !in map) map[prefix] = true
-            }
+            for (prefix in officialPrefixes) if (prefix !in map) map[prefix] = true
             prefs[prefixesKey] = PrefixData.encodePrefixes(map)
             prefs[seededKey] = true
         }
     }
 
-    /** Removes a prefix and forgets its blocked-call history. */
+    /** Removes a prefix and forgets its blocked-call history. Official prefixes
+     *  ship with the app and can only be disabled, not removed. */
     suspend fun remove(prefix: String) {
+        if (prefix in officialPrefixes) return
         context.dataStore.edit { prefs ->
             val map = PrefixData.decodePrefixes(prefs[prefixesKey]).toMutableMap().apply { remove(prefix) }
             prefs[prefixesKey] = PrefixData.encodePrefixes(map)

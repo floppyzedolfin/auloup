@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -309,13 +310,19 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                                                     scope.launch { repository.setEnabled(entry.prefix, it) }
                                                 },
                                             )
-                                            IconButton(onClick = {
-                                                scope.launch { repository.remove(entry.prefix) }
-                                            }) {
-                                                Icon(
-                                                    painter = painterResource(R.drawable.ic_delete),
-                                                    contentDescription = stringResource(R.string.remove),
-                                                )
+                                            // Official prefixes ship with the app: they can be
+                                            // disabled but not deleted, so no trashcan. The gap
+                                            // keeps delete well clear of the toggle.
+                                            if (!entry.official) {
+                                                Spacer(Modifier.width(24.dp))
+                                                IconButton(onClick = {
+                                                    scope.launch { repository.remove(entry.prefix) }
+                                                }) {
+                                                    Icon(
+                                                        painter = painterResource(R.drawable.ic_delete),
+                                                        contentDescription = stringResource(R.string.remove),
+                                                    )
+                                                }
                                             }
                                         }
                                     },
