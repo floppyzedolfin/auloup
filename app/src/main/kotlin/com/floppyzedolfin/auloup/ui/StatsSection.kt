@@ -64,7 +64,11 @@ internal fun StatsSection(
  * a filled circle; quiet days show an empty outline.
  */
 @Composable
-private fun MonthCalendar(refDate: LocalDate, countsByDay: Map<Int, Int>) {
+internal fun MonthCalendar(
+    refDate: LocalDate,
+    countsByDay: Map<Int, Int>,
+    showMonthLabel: Boolean = true,
+) {
     val locale = LocalConfiguration.current.locales[0]
     val yearMonth = remember(refDate) { YearMonth.from(refDate) }
     val firstDayOfWeek = remember(locale) { WeekFields.of(locale).firstDayOfWeek }
@@ -75,11 +79,13 @@ private fun MonthCalendar(refDate: LocalDate, countsByDay: Map<Int, Int>) {
     val rows = (lead + daysInMonth + 6) / 7
 
     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-        Text(
-            yearMonth.month.getDisplayName(TextStyle.FULL, locale)
-                .replaceFirstChar { it.uppercase(locale) } + " " + yearMonth.year,
-            style = MaterialTheme.typography.titleSmall,
-        )
+        if (showMonthLabel) {
+            Text(
+                yearMonth.month.getDisplayName(TextStyle.FULL, locale)
+                    .replaceFirstChar { it.uppercase(locale) } + " " + yearMonth.year,
+                style = MaterialTheme.typography.titleSmall,
+            )
+        }
         Row(Modifier.fillMaxWidth()) {
             weekdays.forEach { dow ->
                 Text(

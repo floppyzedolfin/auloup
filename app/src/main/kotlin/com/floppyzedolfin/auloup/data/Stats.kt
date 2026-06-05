@@ -48,10 +48,13 @@ object Stats {
      */
     fun perMonth(timesMillis: List<Long>, zone: ZoneId, nowMillis: Long): Map<Int, Int> {
         val ref = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
-        return timesMillis
-            .map { Instant.ofEpochMilli(it).atZone(zone).toLocalDate() }
-            .filter { it.year == ref.year && it.monthValue == ref.monthValue }
-            .groupingBy { it.dayOfMonth }
-            .eachCount()
+        return perMonth(timesMillis, zone, ref.year, ref.monthValue)
     }
+
+    /** Blocked-call counts keyed by day-of-month for the given [year]/[monthValue]. */
+    fun perMonth(timesMillis: List<Long>, zone: ZoneId, year: Int, monthValue: Int): Map<Int, Int> = timesMillis
+        .map { Instant.ofEpochMilli(it).atZone(zone).toLocalDate() }
+        .filter { it.year == year && it.monthValue == monthValue }
+        .groupingBy { it.dayOfMonth }
+        .eachCount()
 }
