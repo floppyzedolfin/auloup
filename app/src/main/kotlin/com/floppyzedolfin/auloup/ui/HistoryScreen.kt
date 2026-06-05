@@ -16,7 +16,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -34,7 +33,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -50,9 +48,7 @@ import java.text.DateFormat
 import java.time.Instant
 import java.time.YearMonth
 import java.time.ZoneId
-import java.time.format.TextStyle
 import java.util.Date
-import java.util.Locale
 
 /** The full history of blocked calls across every prefix, most recent first. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -144,7 +140,7 @@ internal fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
                     items(calls) { call ->
                         val country = Countries.countryForPrefix(call.prefix)
                         ListItem(
-                            colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                            colors = transparentListItemColors(),
                             leadingContent = country?.flag?.let { flag -> { Text(flag) } },
                             headlineContent = {
                                 Text(
@@ -188,11 +184,6 @@ internal fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
     }
 }
 
-/** Localized "Month Year", e.g. "June 2026" / "Juin 2026". */
-private fun monthLabel(month: YearMonth, locale: Locale): String =
-    month.month.getDisplayName(TextStyle.FULL, locale).replaceFirstChar { it.uppercase(locale) } +
-        " " + month.year
-
 /** ‹ Month Year › — the next arrow is disabled at the current month (no future). */
 @Composable
 private fun MonthNavigator(
@@ -201,7 +192,7 @@ private fun MonthNavigator(
     onPrev: () -> Unit,
     onNext: () -> Unit,
 ) {
-    val locale = LocalConfiguration.current.locales[0]
+    val locale = currentLocale()
     Row(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -209,11 +200,11 @@ private fun MonthNavigator(
         IconButton(onClick = onPrev) {
             Icon(
                 painter = painterResource(R.drawable.ic_arrow_back),
-                contentDescription = monthLabel(month.minusMonths(1), locale),
+                contentDescription = monthYearLabel(month.minusMonths(1), locale),
             )
         }
         Text(
-            monthLabel(month, locale),
+            monthYearLabel(month, locale),
             modifier = Modifier.weight(1f),
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.titleSmall,
@@ -221,7 +212,7 @@ private fun MonthNavigator(
         IconButton(onClick = onNext, enabled = canGoNext) {
             Icon(
                 painter = painterResource(R.drawable.ic_arrow_back),
-                contentDescription = monthLabel(month.plusMonths(1), locale),
+                contentDescription = monthYearLabel(month.plusMonths(1), locale),
                 modifier = Modifier.rotate(180f),
             )
         }

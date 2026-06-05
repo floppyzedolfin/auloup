@@ -19,7 +19,6 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -90,7 +89,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         Column(modifier = Modifier.padding(innerPadding)) {
             // 0. Call blocking (holds the call-screening role)
             ListItem(
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                colors = transparentListItemColors(),
                 headlineContent = { Text(stringResource(R.string.call_blocking)) },
                 trailingContent = {
                     Switch(
@@ -111,7 +110,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             )
             // 1. Notification
             ListItem(
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                colors = transparentListItemColors(),
                 headlineContent = { Text(stringResource(R.string.notify_label)) },
                 trailingContent = {
                     Switch(
@@ -127,7 +126,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             )
             // 2. Language
             ListItem(
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                colors = transparentListItemColors(),
                 modifier = Modifier.clickable { openLanguageSettings(context) },
                 leadingContent = {
                     Icon(painter = painterResource(R.drawable.ic_language), contentDescription = null)
@@ -144,7 +143,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                 },
             )
             ListItem(
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                colors = transparentListItemColors(),
                 headlineContent = { Text(stringResource(R.string.theme)) },
                 trailingContent = {
                     Box {
@@ -178,7 +177,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             )
             // 4. Open-source licenses
             ListItem(
-                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                colors = transparentListItemColors(),
                 modifier = Modifier.clickable { showLicenses = true },
                 headlineContent = { Text(stringResource(R.string.licenses)) },
             )

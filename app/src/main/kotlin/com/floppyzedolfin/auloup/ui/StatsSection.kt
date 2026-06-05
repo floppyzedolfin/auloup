@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -69,7 +68,7 @@ internal fun MonthCalendar(
     countsByDay: Map<Int, Int>,
     showMonthLabel: Boolean = true,
 ) {
-    val locale = LocalConfiguration.current.locales[0]
+    val locale = currentLocale()
     val yearMonth = remember(refDate) { YearMonth.from(refDate) }
     val firstDayOfWeek = remember(locale) { WeekFields.of(locale).firstDayOfWeek }
     val weekdays = remember(firstDayOfWeek) { (0L until 7L).map { firstDayOfWeek.plus(it) } }
@@ -81,8 +80,7 @@ internal fun MonthCalendar(
     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
         if (showMonthLabel) {
             Text(
-                yearMonth.month.getDisplayName(TextStyle.FULL, locale)
-                    .replaceFirstChar { it.uppercase(locale) } + " " + yearMonth.year,
+                monthYearLabel(yearMonth, locale),
                 style = MaterialTheme.typography.titleSmall,
             )
         }

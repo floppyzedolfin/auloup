@@ -24,7 +24,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -220,7 +219,9 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
-                val prefix = Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number.text)
+                val prefix = remember(country, number.text) {
+                    Prefixes.buildPrefix(country.dialCode, country.trunkPrefix, number.text)
+                }
                 Button(
                     onClick = {
                         number = TextFieldValue()
@@ -288,7 +289,7 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                                 val dim = if (entry.enabled) 1f else 0.4f
                                 ListItem(
                                     // Transparent container so the Iris backdrop shows through the list.
-                                    colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                                    colors = transparentListItemColors(),
                                     modifier = Modifier.clickable { selectedPrefix = entry.prefix },
                                     headlineContent = {
                                         Row(verticalAlignment = Alignment.CenterVertically) {

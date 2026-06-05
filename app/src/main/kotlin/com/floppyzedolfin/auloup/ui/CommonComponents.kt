@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
@@ -26,6 +27,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
@@ -33,6 +36,9 @@ import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
 import com.floppyzedolfin.auloup.telephony.Countries
 import com.floppyzedolfin.auloup.telephony.Country
+import java.time.YearMonth
+import java.time.format.TextStyle
+import java.util.Locale
 
 /**
  * Compact country selector: the collapsed box shows only the flag; the dropdown
@@ -99,6 +105,19 @@ internal fun CountryPicker(
         }
     }
 }
+
+/** Transparent ListItem container, so the Iris backdrop shows through the row. */
+@Composable
+internal fun transparentListItemColors() = ListItemDefaults.colors(containerColor = Color.Transparent)
+
+/** The active locale, read observably from the configuration. */
+@Composable
+internal fun currentLocale(): Locale = LocalConfiguration.current.locales[0]
+
+/** Localized "Month Year", e.g. "June 2026" / "Juin 2026". */
+internal fun monthYearLabel(yearMonth: YearMonth, locale: Locale): String =
+    yearMonth.month.getDisplayName(TextStyle.FULL, locale)
+        .replaceFirstChar { it.uppercase(locale) } + " " + yearMonth.year
 
 /** A small caption shown above an input field (its title, on the top). */
 @Composable

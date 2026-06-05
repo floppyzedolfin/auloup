@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -74,7 +73,7 @@ internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, on
                 }
                 items(calls) { call ->
                     ListItem(
-                        colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                        colors = transparentListItemColors(),
                         headlineContent = {
                             Text(
                                 if (call.number.isBlank()) {
