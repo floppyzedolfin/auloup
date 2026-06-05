@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Au loup!</string>
 
     <!-- Notification -->
@@ -12,6 +12,7 @@
     </plurals>
 
     <!-- Main screen -->
+    <string name="call_blocking" tools:ignore="MissingTranslation">Call blocking</string>
     <string name="blocking_on">Call blocking is on</string>
     <string name="blocking_off_title">Call blocking is off</string>
     <string name="blocking_off_message">Au loup! must be your call-screening app to block calls.</string>

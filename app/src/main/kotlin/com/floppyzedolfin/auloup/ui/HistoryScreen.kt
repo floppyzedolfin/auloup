@@ -10,6 +10,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -82,6 +83,7 @@ internal fun HistoryScreen(repository: PrefixRepository, onBack: () -> Unit) {
                 items(calls) { call ->
                     val country = Countries.countryForPrefix(call.prefix)
                     ListItem(
+                        colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                         leadingContent = country?.flag?.let { flag -> { Text(flag) } },
                         headlineContent = {
                             Text(

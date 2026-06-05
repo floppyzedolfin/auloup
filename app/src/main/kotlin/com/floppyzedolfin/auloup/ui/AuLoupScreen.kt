@@ -1,7 +1,6 @@
 package com.floppyzedolfin.auloup.ui
 
 import android.Manifest
-import android.app.role.RoleManager
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -9,17 +8,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -68,16 +65,6 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
     val prefixes by repository.prefixes.collectAsState(initial = emptyList())
     val allCalls by repository.allCalls.collectAsState(initial = emptyList())
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
-
-    val roleManager = remember { context.getSystemService(RoleManager::class.java) }
-    var roleHeld by remember {
-        mutableStateOf(roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING))
-    }
-    val roleLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-    ) {
-        roleHeld = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
-    }
 
     val notificationPermissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -135,7 +122,7 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 // Logo lives in the navigation slot on every screen so it never
                 // shifts; here it's just the brand mark (no back action).
                 navigationIcon = { LogoNavIcon() },
-                title = { Text(stringResource(R.string.app_name)) },
+                title = {},
                 actions = {
                     IconButton(onClick = { showHistory = true }) {
                         Icon(
@@ -160,30 +147,6 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            if (roleHeld) {
-                AssistChip(onClick = {}, label = { Text(stringResource(R.string.blocking_on)) })
-            } else {
-                ElevatedCard {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        Text(
-                            stringResource(R.string.blocking_off_title),
-                            style = MaterialTheme.typography.titleMedium,
-                        )
-                        Text(stringResource(R.string.blocking_off_message))
-                        Button(onClick = {
-                            roleLauncher.launch(
-                                roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING),
-                            )
-                        }) {
-                            Text(stringResource(R.string.enable_blocking))
-                        }
-                    }
-                }
-            }
-
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.Bottom,
@@ -286,28 +249,29 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                                     // Transparent container so the Iris backdrop shows through the list.
                                     colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                                     modifier = Modifier.clickable { selectedPrefix = entry.prefix },
-                                    leadingContent = {
-                                        // Trash on the left. Official prefixes ship with the app:
-                                        // they can be disabled but not deleted, so their slot is left
-                                        // empty (same width) to keep every row's text aligned.
-                                        if (!entry.official) {
-                                            IconButton(onClick = {
-                                                scope.launch { repository.remove(entry.prefix) }
-                                            }) {
-                                                Icon(
-                                                    painter = painterResource(R.drawable.ic_delete),
-                                                    contentDescription = stringResource(R.string.remove),
-                                                )
-                                            }
-                                        } else {
-                                            Spacer(Modifier.width(48.dp))
-                                        }
-                                    },
                                     headlineContent = {
-                                        Text(
-                                            PhoneFormat.prefix(entry.prefix, country?.iso),
-                                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = dim),
-                                        )
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text(
+                                                PhoneFormat.prefix(entry.prefix, country?.iso),
+                                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = dim),
+                                            )
+                                            // Trash sits just after the number (left side).
+                                            // Official prefixes are disable-only: no trashcan.
+                                            if (!entry.official) {
+                                                IconButton(
+                                                    onClick = {
+                                                        scope.launch { repository.remove(entry.prefix) }
+                                                    },
+                                                    modifier = Modifier.size(36.dp),
+                                                ) {
+                                                    Icon(
+                                                        painter = painterResource(R.drawable.ic_delete),
+                                                        contentDescription = stringResource(R.string.remove),
+                                                        modifier = Modifier.size(20.dp),
+                                                    )
+                                                }
+                                            }
+                                        }
                                     },
                                     supportingContent = {
                                         Text(

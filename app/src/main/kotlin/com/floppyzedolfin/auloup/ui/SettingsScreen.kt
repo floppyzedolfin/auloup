@@ -1,6 +1,7 @@
 package com.floppyzedolfin.auloup.ui
 
 import android.Manifest
+import android.app.role.RoleManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -18,6 +19,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -65,6 +67,17 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         ActivityResultContracts.RequestPermission(),
     ) { }
 
+    // Call blocking = whether Au loup! holds the call-screening role.
+    val roleManager = remember { context.getSystemService(RoleManager::class.java) }
+    var blockingEnabled by remember {
+        mutableStateOf(roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING))
+    }
+    val roleLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) {
+        blockingEnabled = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
+    }
+
     Scaffold(
         containerColor = Color.Transparent,
         topBar = {
@@ -75,8 +88,30 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         },
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
+            // 0. Call blocking (holds the call-screening role)
+            ListItem(
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
+                headlineContent = { Text(stringResource(R.string.call_blocking)) },
+                trailingContent = {
+                    Switch(
+                        checked = blockingEnabled,
+                        onCheckedChange = { wantOn ->
+                            // Turning on requests the screening role. The role can't be
+                            // dropped programmatically, so turning off opens the system
+                            // default-apps screen; the launcher result refreshes the state.
+                            val intent = if (wantOn) {
+                                roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING)
+                            } else {
+                                Intent(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS)
+                            }
+                            roleLauncher.launch(intent)
+                        },
+                    )
+                },
+            )
             // 1. Notification
             ListItem(
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 headlineContent = { Text(stringResource(R.string.notify_label)) },
                 trailingContent = {
                     Switch(
@@ -92,6 +127,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             )
             // 2. Language
             ListItem(
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clickable { openLanguageSettings(context) },
                 leadingContent = {
                     Icon(painter = painterResource(R.drawable.ic_language), contentDescription = null)
@@ -108,6 +144,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
                 },
             )
             ListItem(
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 headlineContent = { Text(stringResource(R.string.theme)) },
                 trailingContent = {
                     Box {
@@ -141,6 +178,7 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
             )
             // 4. Open-source licenses
             ListItem(
+                colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                 modifier = Modifier.clickable { showLicenses = true },
                 headlineContent = { Text(stringResource(R.string.licenses)) },
             )
