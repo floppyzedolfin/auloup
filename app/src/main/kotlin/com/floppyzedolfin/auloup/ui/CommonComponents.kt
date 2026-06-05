@@ -1,9 +1,12 @@
 package com.floppyzedolfin.auloup.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,7 +21,9 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -104,6 +109,36 @@ internal fun CountryPicker(
             }
         }
     }
+}
+
+/**
+ * The shared screen frame: a transparent [Scaffold] (so the Iris backdrop shows
+ * through) topped by a [TopAppBar] whose navigation slot always holds the wolf
+ * logo. Pass [onBack] on a sub-screen to make the logo the back control and wire
+ * the system back gesture to it; leave it null on the home screen.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+internal fun AuLoupScaffold(
+    title: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    onBack: (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {},
+    content: @Composable (PaddingValues) -> Unit,
+) {
+    if (onBack != null) BackHandler(onBack = onBack)
+    Scaffold(
+        modifier = modifier,
+        containerColor = Color.Transparent,
+        topBar = {
+            TopAppBar(
+                title = title,
+                navigationIcon = { LogoNavIcon(onBack = onBack) },
+                actions = actions,
+            )
+        },
+        content = content,
+    )
 }
 
 /** Transparent ListItem container, so the Iris backdrop shows through the row. */

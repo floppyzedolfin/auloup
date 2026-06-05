@@ -1,23 +1,18 @@
 package com.floppyzedolfin.auloup.ui
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.floppyzedolfin.auloup.R
@@ -28,10 +23,8 @@ import java.text.DateFormat
 import java.util.Date
 
 /** History of every call blocked by [prefix], most recent first. */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, onBack: () -> Unit) {
-    BackHandler(onBack = onBack)
     val calls by repository.history(prefix).collectAsState(initial = emptyList())
     val formatter = remember {
         DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
@@ -41,15 +34,10 @@ internal fun BlockedCallsScreen(repository: PrefixRepository, prefix: String, on
     val country = remember(prefix) { Countries.countryForPrefix(prefix) }
     val shownPrefix = remember(prefix, country) { PhoneFormat.prefix(prefix, country?.iso) }
 
-    Scaffold(
-        containerColor = Color.Transparent,
-        topBar = {
-            TopAppBar(
-                // No app logo here — just the flag and the formatted prefix.
-                title = { Text(country?.flag?.let { "$it  $shownPrefix" } ?: shownPrefix) },
-                navigationIcon = { LogoNavIcon(onBack = onBack) },
-            )
-        },
+    AuLoupScaffold(
+        // The title is just the flag and the formatted prefix.
+        title = { Text(country?.flag?.let { "$it  $shownPrefix" } ?: shownPrefix) },
+        onBack = onBack,
     ) { innerPadding ->
         if (calls.isEmpty()) {
             Box(

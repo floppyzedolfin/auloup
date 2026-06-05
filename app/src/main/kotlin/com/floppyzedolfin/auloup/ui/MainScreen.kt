@@ -15,17 +15,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -36,7 +33,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
@@ -59,7 +55,6 @@ import java.time.ZoneId
  * the "blocking is off" hint, the add-a-prefix row, and the prefix list grouped
  * by country (each row toggle-able; user prefixes deletable).
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainScreen(
     repository: PrefixRepository,
@@ -95,34 +90,27 @@ internal fun MainScreen(
     }
     val collapsedCountries = remember { mutableStateListOf<String>() }
 
-    Scaffold(
-        containerColor = Color.Transparent,
-        topBar = {
-            TopAppBar(
-                // Logo lives in the navigation slot on every screen so it never
-                // shifts; here it's just the brand mark (no back action).
-                navigationIcon = { LogoNavIcon() },
-                title = {
-                    Text(
-                        pluralStringResource(R.plurals.calls_blocked_today, blockedToday, blockedToday),
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-                },
-                actions = {
-                    IconButton(onClick = onOpenHistory) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_history),
-                            contentDescription = stringResource(R.string.history_title),
-                        )
-                    }
-                    IconButton(onClick = onOpenSettings) {
-                        Icon(
-                            painter = painterResource(R.drawable.ic_settings),
-                            contentDescription = stringResource(R.string.settings_title),
-                        )
-                    }
-                },
+    AuLoupScaffold(
+        // Home screen: the logo is just the brand mark (no back action).
+        title = {
+            Text(
+                pluralStringResource(R.plurals.calls_blocked_today, blockedToday, blockedToday),
+                style = MaterialTheme.typography.titleMedium,
             )
+        },
+        actions = {
+            IconButton(onClick = onOpenHistory) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_history),
+                    contentDescription = stringResource(R.string.history_title),
+                )
+            }
+            IconButton(onClick = onOpenSettings) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_settings),
+                    contentDescription = stringResource(R.string.settings_title),
+                )
+            }
         },
     ) { innerPadding ->
         Column(

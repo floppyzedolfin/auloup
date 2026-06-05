@@ -7,7 +7,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
@@ -16,14 +15,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -33,7 +29,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -44,7 +39,6 @@ import kotlinx.coroutines.launch
 import java.util.Locale
 
 /** Settings: change the app language and toggle the blocked-call notification. */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
     var showLicenses by rememberSaveable { mutableStateOf(false) }
@@ -52,7 +46,6 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         LicensesScreen(onBack = { showLicenses = false })
         return
     }
-    BackHandler(onBack = onBack)
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val notificationsEnabled by repository.notificationsEnabled.collectAsState(initial = true)
@@ -77,14 +70,9 @@ internal fun SettingsScreen(repository: PrefixRepository, onBack: () -> Unit) {
         blockingEnabled = roleManager.isRoleHeld(RoleManager.ROLE_CALL_SCREENING)
     }
 
-    Scaffold(
-        containerColor = Color.Transparent,
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.settings_title)) },
-                navigationIcon = { LogoNavIcon(onBack = onBack) },
-            )
-        },
+    AuLoupScaffold(
+        title = { Text(stringResource(R.string.settings_title)) },
+        onBack = onBack,
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             // 0. Call blocking (holds the call-screening role)
