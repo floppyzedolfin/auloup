@@ -8,9 +8,17 @@ Bloque les appels entrants par **préfixe de numéro**. Vous gardez une liste de
 préfixes (par ex. `+1900`, `0900`) ; tout appel entrant dont le numéro commence
 par l'un d'eux est rejeté automatiquement.
 
-Voici **Iris** (à droite), la louve endormie de l'appli — une louve avec un cœur
-(en guise de museau). Le nom joue sur *crier au loup* : les « crieurs » de spam
-sont réduits au silence, pour qu'Iris puisse dormir.
+## L'histoire d'Iris
+
+Iris a longtemps été la coupable idéale. Chaque fois que Pierre s'ennuyait, il
+criait ; le village accourait, fourche au poing — et c'est elle, la louve,
+qu'on venait débusquer. Pourtant Iris n'avait jamais touché au troupeau. Elle
+ne demandait qu'à dormir en paix, le museau posé sur ses pattes.
+
+Fatiguée d'être traquée pour des alarmes qui n'étaient pas les siennes, Iris a
+fini par retourner la meute. Aujourd'hui, c'est elle qui veille — non plus
+contre les villageois, mais aux côtés de celles et ceux qui en ont assez d'être
+harcelés. Quand un démarcheur appelle, Iris ouvre un œil, et le silence revient.
 
 Libre et open source (GPL-3.0). Android d'abord ; iOS est prévu (voir
 [Plateformes](#plateformes)).

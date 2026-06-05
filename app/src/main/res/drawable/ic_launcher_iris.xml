@@ -4,5 +4,5 @@
      The surrounding inset is transparent; the black background layer fills it,
      blending seamlessly with the artwork's own near-black backdrop. -->
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/iris_dark"
+    android:drawable="@drawable/iris_logo"
     android:inset="20dp" />

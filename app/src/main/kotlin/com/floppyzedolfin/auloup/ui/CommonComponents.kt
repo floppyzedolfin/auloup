@@ -26,7 +26,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
@@ -115,16 +114,11 @@ internal fun FieldLabel(text: String) {
 /** The one logo size used everywhere, so it never changes between screens. */
 private val AppLogoSize = 40.dp
 
-/**
- * The wolf logo: Iris, awake. A static image. Each artwork carries its own
- * light/dark background, so we pick the variant matching the active theme
- * (read from the color scheme, so it follows the in-app theme override too).
- */
+/** The wolf logo: Iris on her black circle, the same on every screen and theme. */
 @Composable
 private fun AppLogo(modifier: Modifier = Modifier, size: Dp = AppLogoSize) {
-    val dark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
     Image(
-        painter = painterResource(if (dark) R.drawable.iris_dark else R.drawable.iris_light),
+        painter = painterResource(R.drawable.iris_logo),
         contentDescription = null,
         // Clip the square artwork to a circle (only the image — LogoNavIcon's
         // corner back badge sits outside this and must not be clipped).

@@ -52,8 +52,8 @@ class MainActivity : ComponentActivity() {
             MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
                 // Sleepy-Iris backdrop state, shared across every screen (it lives
                 // above the navigation). She starts asleep; an interaction blinks
-                // her awake; she blinks every 2s while awake and, after 6s with no
-                // interaction, blinks back to sleep.
+                // her awake; she blinks every 3s while awake and, after 3 such
+                // blinks with no interaction, blinks back to sleep.
                 val interactions = remember { Channel<Unit>(Channel.CONFLATED) }
                 var eyesOpen by remember { mutableStateOf(false) }
                 LaunchedEffect(Unit) {
@@ -92,16 +92,17 @@ class MainActivity : ComponentActivity() {
                     while (true) {
                         interactions.receive() // asleep until the user does something
                         wake()
-                        // Awake: blink every 2s; after 6s with no interaction, sleep.
-                        var idleMillis = 0L
+                        // Awake: a human-spaced blink every 3s; after 3 such blinks
+                        // with no interaction, she goes back to sleep.
+                        var blinks = 0
                         while (true) {
-                            val acted = withTimeoutOrNull(2_000) { interactions.receive() } != null
+                            val acted = withTimeoutOrNull(3_000) { interactions.receive() } != null
                             if (acted) {
-                                idleMillis = 0L // interaction keeps her awake
+                                blinks = 0 // interaction keeps her awake
                             } else {
-                                idleMillis += 2_000L
-                                if (idleMillis >= 6_000L) break
                                 blink()
+                                blinks++
+                                if (blinks >= 3) break
                             }
                         }
                         sleep()

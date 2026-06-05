@@ -9,9 +9,17 @@ Block incoming calls by **phone-number prefix**. You keep a list of prefixes
 (e.g. `+1900`, `0900`); any incoming call whose number starts with one of them
 is rejected automatically.
 
-Meet **Iris** (shown right), the app's sleepy she-wolf — a wolf with a heart (for
-a muzzle). The name plays on *crier au loup* ("the boy who cried wolf"): the spam
-"criers" get silenced, so Iris can sleep.
+## The story of Iris
+
+Iris was everyone's favourite culprit. Whenever Peter got bored he'd shout; the
+whole village came running, pitchforks in hand — and it was always her, the
+wolf, they came to hunt. Yet Iris had never so much as looked at the flock. All
+she wanted was to sleep in peace, her muzzle resting on her paws.
+
+Tired of being chased over alarms that were never hers, Iris turned the pack
+around. Now she's the one keeping watch — not against the villagers, but
+alongside everyone who's had enough of being harassed. When a cold-caller rings,
+Iris opens one eye, and quiet returns.
 
 Free and open source (GPL-3.0). Android first; iOS is planned (see
 [Platform support](#platform-support)).
