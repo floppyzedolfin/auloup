@@ -150,7 +150,7 @@ et le SDK Android. Avec Android Studio, les deux sont fournis. Sinon, installez
 les [outils en ligne de commande](https://developer.android.com/tools), puis :
 
 ```sh
-sdkmanager "platform-tools" "platforms;android-37" "build-tools;37.0.0"
+sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
 echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # chemin de votre SDK
 ```
 

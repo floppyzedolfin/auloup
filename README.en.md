@@ -145,7 +145,7 @@ bundled. Without it, install the
 [command-line tools](https://developer.android.com/tools), then:
 
 ```sh
-sdkmanager "platform-tools" "platforms;android-37" "build-tools;37.0.0"
+sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
 echo "sdk.dir=$HOME/Android/Sdk" > local.properties   # path to your SDK
 ```
 
