@@ -15,10 +15,7 @@ import com.floppyzedolfin.auloup.R
 /** Posts the silent "calls blocked today" notification. */
 object Notifications {
 
-    // v2: bumped to IMPORTANCE_DEFAULT so the wolf shows in the status bar.
-    // A channel's importance is immutable once created, so a new id is needed
-    // for the change to take effect (harmless — the app isn't released yet).
-    private const val CHANNEL_ID = "blocked_calls_v2"
+    private const val CHANNEL_ID = "blocked_calls"
 
     // A single, stable notification we keep updating with today's running count,
     // rather than one notification per blocked number.
@@ -28,13 +25,12 @@ object Notifications {
     fun ensureChannel(context: Context) {
         val manager = context.getSystemService(NotificationManager::class.java)
         if (manager.getNotificationChannel(CHANNEL_ID) == null) {
-            // IMPORTANCE_DEFAULT so the icon appears in the status bar; we clear
-            // sound and vibration so it's still silent (no sound, no heads-up
-            // beyond the status-bar glyph).
+            // IMPORTANCE_LOW shows in the status bar and shade without making a
+            // sound; we also clear sound/vibration explicitly to be safe.
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 context.getString(R.string.channel_blocked_calls),
-                NotificationManager.IMPORTANCE_DEFAULT,
+                NotificationManager.IMPORTANCE_LOW,
             ).apply {
                 setSound(null, null)
                 enableVibration(false)
@@ -54,7 +50,7 @@ object Notifications {
         ensureChannel(context)
         val text = context.resources.getQuantityString(R.plurals.calls_blocked_today, todayCount, todayCount)
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_notification_wolf)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
             // The system header already shows the app name + relative time
             // ("Au loup! · 39m"), so the single content line is just the count.
             .setContentTitle(text)
