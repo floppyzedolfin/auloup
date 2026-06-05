@@ -24,6 +24,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -295,6 +296,8 @@ internal fun AuLoupScreen(repository: PrefixRepository) {
                         if (!collapsed) {
                             items(entries, key = { it.prefix }) { entry ->
                                 ListItem(
+                                    // Transparent container so the Iris backdrop shows through the list.
+                                    colors = ListItemDefaults.colors(containerColor = Color.Transparent),
                                     modifier = Modifier.clickable { selectedPrefix = entry.prefix },
                                     overlineContent = if (entry.official) {
                                         {
