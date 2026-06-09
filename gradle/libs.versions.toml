@@ -6,7 +6,7 @@ lifecycleRuntime = "2.10.0"
 activityCompose = "1.13.0"
 composeBom = "2026.05.01"
 datastore = "1.2.1"
-libphonenumber = "9.0.31"
+libphonenumber = "9.0.32"
 junit = "4.13.2"
 orgJson = "20260522"
 
